@@ -1,0 +1,367 @@
+{
+ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ "width": 640,
+ "height": 496,
+ "config": {
+  "background": null,
+  "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+  "padding": 4,
+  "view": {
+   "stroke": null
+  },
+  "axis": {
+   "labelColor": "#5c5c5c",
+   "titleColor": "#5c5c5c",
+   "gridColor": "#d0d0d0",
+   "domainColor": "#d0d0d0",
+   "tickColor": "#d0d0d0",
+   "labelFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+   "labelFontSize": 11,
+   "titleFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+   "titleFontWeight": 500
+  },
+  "legend": {
+   "labelColor": "#5c5c5c",
+   "titleColor": "#222222",
+   "labelFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+   "titleFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+   "titleFontWeight": 600,
+   "labelFontSize": 12,
+   "titleFontSize": 12,
+   "symbolStrokeColor": "#ffffff"
+  },
+  "text": {
+   "color": "#222222",
+   "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+  },
+  "tooltipFormat": {
+   "numberFormat": ",.0f"
+  }
+ },
+ "data": {
+  "values": [
+   {
+    "abbr": "WA",
+    "x": -10.066,
+    "y": -2,
+    "r": 5.755,
+    "name": "Western Australia",
+    "size": 17750.40704375699,
+    "tot": 938900,
+    "share": 34.1,
+    "big": true,
+    "rp": 75.16734693877551,
+    "l": [
+     "WA",
+     "939k"
+    ],
+    "out": false
+   },
+   {
+    "abbr": "NT",
+    "x": 0.353,
+    "y": -8.6,
+    "r": 1.445,
+    "name": "Northern Territory",
+    "size": 1119.0599544396691,
+    "tot": 59240,
+    "share": 23.9,
+    "big": false,
+    "rp": 18.873469387755105,
+    "l": [
+     "NT"
+    ],
+    "out": false
+   },
+   {
+    "abbr": "SA",
+    "x": 1.522,
+    "y": 0.741,
+    "r": 3.995,
+    "name": "South Australia",
+    "size": 8553.645118883142,
+    "tot": 452410,
+    "share": 25.1,
+    "big": true,
+    "rp": 52.179591836734694,
+    "l": [
+     "SA",
+     "452k"
+    ],
+    "out": false
+   },
+   {
+    "abbr": "Qld",
+    "x": 9.656,
+    "y": -6.755,
+    "r": 6.676,
+    "name": "Queensland",
+    "size": 23886.378875723567,
+    "tot": 1263640,
+    "share": 24.2,
+    "big": true,
+    "rp": 87.19673469387756,
+    "l": [
+     "Qld",
+     "1.26M"
+    ],
+    "out": false
+   },
+   {
+    "abbr": "NSW",
+    "x": 20.861,
+    "y": 5.26,
+    "r": 9.409,
+    "name": "New South Wales",
+    "size": 47446.54549750921,
+    "tot": 2510260,
+    "share": 31,
+    "big": true,
+    "rp": 122.89306122448981,
+    "l": [
+     "NSW",
+     "2.51M"
+    ],
+    "out": false
+   },
+   {
+    "abbr": "ACT",
+    "x": 9.306,
+    "y": 3.373,
+    "r": 2.181,
+    "name": "Australian Capital Territory",
+    "size": 2549.3472290515647,
+    "tot": 134900,
+    "share": 29.8,
+    "big": false,
+    "rp": 28.4865306122449,
+    "l": [
+     "ACT"
+    ],
+    "out": false
+   },
+   {
+    "abbr": "Vic",
+    "x": 4.532,
+    "y": 13.271,
+    "r": 8.55,
+    "name": "Victoria",
+    "size": 39178.688147616005,
+    "tot": 2072570,
+    "share": 31.7,
+    "big": true,
+    "rp": 111.67346938775512,
+    "l": [
+     "Vic",
+     "2.07M"
+    ],
+    "out": false
+   },
+   {
+    "abbr": "Tas",
+    "x": 14.959,
+    "y": 15.16,
+    "r": 1.804,
+    "name": "Tasmania",
+    "size": 1744.177689772742,
+    "tot": 92320,
+    "share": 16.3,
+    "big": false,
+    "rp": 23.56244897959184,
+    "l": [
+     "Tas"
+    ],
+    "out": false
+   }
+  ]
+ },
+ "layer": [
+  {
+   "mark": {
+    "type": "circle",
+    "opacity": 1,
+    "stroke": "#ffffff",
+    "strokeWidth": 1.5
+   },
+   "encoding": {
+    "x": {
+     "field": "x",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       -17,
+       32
+      ],
+      "nice": false,
+      "zero": false
+     },
+     "axis": null
+    },
+    "y": {
+     "field": "y",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       -15,
+       23
+      ],
+      "reverse": true,
+      "nice": false,
+      "zero": false
+     },
+     "axis": null
+    },
+    "size": {
+     "field": "size",
+     "type": "quantitative",
+     "scale": null
+    },
+    "color": {
+     "field": "share",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       10,
+       36
+      ],
+      "scheme": "yellowgreenblue"
+     },
+     "legend": {
+      "title": "Born overseas, 2021 (%)",
+      "orient": "bottom",
+      "direction": "horizontal",
+      "gradientLength": 200,
+      "labelExpr": "datum.value + '%'"
+     }
+    },
+    "tooltip": [
+     {
+      "field": "name",
+      "title": "State / territory"
+     },
+     {
+      "field": "tot",
+      "title": "Born overseas",
+      "format": ","
+     },
+     {
+      "field": "share",
+      "title": "Share (%)",
+      "format": ".1f"
+     }
+    ]
+   }
+  },
+  {
+   "transform": [
+    {
+     "filter": "!datum.out"
+    }
+   ],
+   "mark": {
+    "type": "text",
+    "fontSize": 12.5,
+    "lineHeight": 15,
+    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+    "fontWeight": 600,
+    "baseline": "middle"
+   },
+   "encoding": {
+    "x": {
+     "field": "x",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       -17,
+       32
+      ],
+      "nice": false,
+      "zero": false
+     },
+     "axis": null
+    },
+    "y": {
+     "field": "y",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       -15,
+       23
+      ],
+      "reverse": true,
+      "nice": false,
+      "zero": false
+     },
+     "axis": null
+    },
+    "text": {
+     "field": "l"
+    },
+    "color": {
+     "condition": {
+      "test": "datum.share >= 27",
+      "value": "#ffffff"
+     },
+     "value": "#222222"
+    }
+   }
+  },
+  {
+   "transform": [
+    {
+     "filter": "datum.out"
+    }
+   ],
+   "mark": {
+    "type": "text",
+    "fontSize": 12,
+    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+    "fontWeight": 600,
+    "baseline": "middle",
+    "align": "left",
+    "dx": 4
+   },
+   "encoding": {
+    "x": {
+     "field": "xr",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       -17,
+       32
+      ],
+      "nice": false,
+      "zero": false
+     },
+     "axis": null
+    },
+    "y": {
+     "field": "y",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       -15,
+       23
+      ],
+      "reverse": true,
+      "nice": false,
+      "zero": false
+     },
+     "axis": null
+    },
+    "text": {
+     "field": "l"
+    },
+    "color": {
+     "value": "#222222"
+    }
+   }
+  }
+ ],
+ "transform": [
+  {
+   "calculate": "datum.x + datum.r",
+   "as": "xr"
+  }
+ ]
+}

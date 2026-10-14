@@ -1,0 +1,2019 @@
+{
+ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ "width": 900,
+ "height": 340,
+ "autosize": {
+  "type": "pad"
+ },
+ "config": {
+  "background": null,
+  "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+  "padding": 4,
+  "view": {
+   "stroke": null
+  },
+  "axis": {
+   "labelColor": "#5c5c5c",
+   "titleColor": "#5c5c5c",
+   "gridColor": "#d0d0d0",
+   "domainColor": "#d0d0d0",
+   "tickColor": "#d0d0d0",
+   "labelFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+   "labelFontSize": 11,
+   "titleFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+   "titleFontWeight": 500
+  },
+  "legend": {
+   "labelColor": "#5c5c5c",
+   "titleColor": "#222222",
+   "labelFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+   "titleFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+   "titleFontWeight": 600,
+   "labelFontSize": 12,
+   "titleFontSize": 12,
+   "symbolStrokeColor": "#ffffff"
+  },
+  "text": {
+   "color": "#222222",
+   "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+  },
+  "tooltipFormat": {
+   "numberFormat": ",.0f"
+  }
+ },
+ "encoding": {
+  "x": {
+   "field": "year",
+   "type": "quantitative",
+   "scale": {
+    "domain": [
+     1888,
+     2028
+    ],
+    "nice": false
+   },
+   "axis": {
+    "format": "d",
+    "title": null,
+    "tickCount": 8,
+    "grid": false
+   }
+  }
+ },
+ "layer": [
+  {
+   "data": {
+    "values": [
+     {
+      "s": 1891,
+      "e": 1901,
+      "n": "Gold-rush legacy",
+      "i": 0
+     },
+     {
+      "s": 1901,
+      "e": 1945,
+      "n": "The great closing",
+      "i": 1
+     },
+     {
+      "s": 1945,
+      "e": 1973,
+      "n": "Populate or perish",
+      "i": 2
+     },
+     {
+      "s": 1973,
+      "e": 2000,
+      "n": "The door opens",
+      "i": 3
+     },
+     {
+      "s": 2000,
+      "e": 2020,
+      "n": "Skills & students",
+      "i": 4
+     },
+     {
+      "s": 2020,
+      "e": 2025,
+      "n": "Pause, rebound",
+      "i": 5
+     }
+    ]
+   },
+   "mark": {
+    "type": "rect",
+    "opacity": 1
+   },
+   "encoding": {
+    "x": {
+     "field": "s",
+     "type": "quantitative"
+    },
+    "x2": {
+     "field": "e"
+    },
+    "y": {
+     "value": 0
+    },
+    "y2": {
+     "value": 340
+    },
+    "color": {
+     "condition": {
+      "test": "datum.i % 2 == 0",
+      "value": "#f2f2f2"
+     },
+     "value": "#ffffff"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "s": 1891,
+      "e": 1901,
+      "n": "Gold-rush legacy",
+      "i": 0
+     },
+     {
+      "s": 1901,
+      "e": 1945,
+      "n": "The great closing",
+      "i": 1
+     },
+     {
+      "s": 1945,
+      "e": 1973,
+      "n": "Populate or perish",
+      "i": 2
+     },
+     {
+      "s": 1973,
+      "e": 2000,
+      "n": "The door opens",
+      "i": 3
+     },
+     {
+      "s": 2000,
+      "e": 2020,
+      "n": "Skills & students",
+      "i": 4
+     },
+     {
+      "s": 2020,
+      "e": 2025,
+      "n": "Pause, rebound",
+      "i": 5
+     }
+    ]
+   },
+   "mark": {
+    "type": "text",
+    "align": "left",
+    "baseline": "top",
+    "dx": 4,
+    "dy": 4,
+    "fontSize": 10.5,
+    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+    "color": "#5c5c5c",
+    "limit": 120
+   },
+   "transform": [
+    {
+     "filter": "datum.e - datum.s >= 15"
+    }
+   ],
+   "encoding": {
+    "x": {
+     "field": "s",
+     "type": "quantitative"
+    },
+    "y": {
+     "value": 0
+    },
+    "text": {
+     "field": "n"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "year": 1891,
+      "pct": 32.4,
+      "os": 0.86
+     },
+     {
+      "year": 1892,
+      "pct": 31.3,
+      "os": 0.86
+     },
+     {
+      "year": 1893,
+      "pct": 30.2,
+      "os": 0.86
+     },
+     {
+      "year": 1894,
+      "pct": 29.1,
+      "os": 0.86
+     },
+     {
+      "year": 1895,
+      "pct": 28.1,
+      "os": 0.86
+     },
+     {
+      "year": 1896,
+      "pct": 27.1,
+      "os": 0.86
+     },
+     {
+      "year": 1897,
+      "pct": 26.2,
+      "os": 0.86
+     },
+     {
+      "year": 1898,
+      "pct": 25.2,
+      "os": 0.86
+     },
+     {
+      "year": 1899,
+      "pct": 24.3,
+      "os": 0.86
+     },
+     {
+      "year": 1900,
+      "pct": 23.5,
+      "os": 0.86
+     },
+     {
+      "year": 1901,
+      "pct": 22.7,
+      "os": 0.86
+     },
+     {
+      "year": 1902,
+      "pct": 22,
+      "os": 0.85
+     },
+     {
+      "year": 1903,
+      "pct": 21.4,
+      "os": 0.84
+     },
+     {
+      "year": 1904,
+      "pct": 20.8,
+      "os": 0.83
+     },
+     {
+      "year": 1905,
+      "pct": 20.2,
+      "os": 0.82
+     },
+     {
+      "year": 1906,
+      "pct": 19.6,
+      "os": 0.81
+     },
+     {
+      "year": 1907,
+      "pct": 19.1,
+      "os": 0.8
+     },
+     {
+      "year": 1908,
+      "pct": 18.6,
+      "os": 0.79
+     },
+     {
+      "year": 1909,
+      "pct": 18,
+      "os": 0.78
+     },
+     {
+      "year": 1910,
+      "pct": 17.5,
+      "os": 0.77
+     },
+     {
+      "year": 1911,
+      "pct": 17,
+      "os": 0.76
+     },
+     {
+      "year": 1912,
+      "pct": 16.9,
+      "os": 0.77
+     },
+     {
+      "year": 1913,
+      "pct": 16.7,
+      "os": 0.77
+     },
+     {
+      "year": 1914,
+      "pct": 16.5,
+      "os": 0.78
+     },
+     {
+      "year": 1915,
+      "pct": 16.4,
+      "os": 0.79
+     },
+     {
+      "year": 1916,
+      "pct": 16.2,
+      "os": 0.8
+     },
+     {
+      "year": 1917,
+      "pct": 16,
+      "os": 0.81
+     },
+     {
+      "year": 1918,
+      "pct": 15.9,
+      "os": 0.81
+     },
+     {
+      "year": 1919,
+      "pct": 15.7,
+      "os": 0.82
+     },
+     {
+      "year": 1920,
+      "pct": 15.6,
+      "os": 0.83
+     },
+     {
+      "year": 1921,
+      "pct": 15.4,
+      "os": 0.84
+     },
+     {
+      "year": 1922,
+      "pct": 15.3,
+      "os": 0.84
+     },
+     {
+      "year": 1923,
+      "pct": 15.1,
+      "os": 0.85
+     },
+     {
+      "year": 1924,
+      "pct": 15,
+      "os": 0.85
+     },
+     {
+      "year": 1925,
+      "pct": 14.8,
+      "os": 0.86
+     },
+     {
+      "year": 1926,
+      "pct": 14.6,
+      "os": 0.87
+     },
+     {
+      "year": 1927,
+      "pct": 14.5,
+      "os": 0.87
+     },
+     {
+      "year": 1928,
+      "pct": 14.3,
+      "os": 0.88
+     },
+     {
+      "year": 1929,
+      "pct": 14.2,
+      "os": 0.88
+     },
+     {
+      "year": 1930,
+      "pct": 14.1,
+      "os": 0.89
+     },
+     {
+      "year": 1931,
+      "pct": 13.9,
+      "os": 0.89
+     },
+     {
+      "year": 1932,
+      "pct": 13.8,
+      "os": 0.9
+     },
+     {
+      "year": 1933,
+      "pct": 13.6,
+      "os": 0.9
+     },
+     {
+      "year": 1934,
+      "pct": 13.3,
+      "os": 0.89
+     },
+     {
+      "year": 1935,
+      "pct": 13,
+      "os": 0.88
+     },
+     {
+      "year": 1936,
+      "pct": 12.7,
+      "os": 0.87
+     },
+     {
+      "year": 1937,
+      "pct": 12.4,
+      "os": 0.85
+     },
+     {
+      "year": 1938,
+      "pct": 12.1,
+      "os": 0.84
+     },
+     {
+      "year": 1939,
+      "pct": 11.8,
+      "os": 0.83
+     },
+     {
+      "year": 1940,
+      "pct": 11.6,
+      "os": 0.82
+     },
+     {
+      "year": 1941,
+      "pct": 11.3,
+      "os": 0.81
+     },
+     {
+      "year": 1942,
+      "pct": 11,
+      "os": 0.8
+     },
+     {
+      "year": 1943,
+      "pct": 10.8,
+      "os": 0.79
+     },
+     {
+      "year": 1944,
+      "pct": 10.5,
+      "os": 0.78
+     },
+     {
+      "year": 1945,
+      "pct": 10.3,
+      "os": 0.77
+     },
+     {
+      "year": 1946,
+      "pct": 10.1,
+      "os": 0.75
+     },
+     {
+      "year": 1947,
+      "pct": 9.8,
+      "os": 0.74
+     },
+     {
+      "year": 1948,
+      "pct": 10.4,
+      "os": 0.8
+     },
+     {
+      "year": 1949,
+      "pct": 10.9,
+      "os": 0.87
+     },
+     {
+      "year": 1950,
+      "pct": 11.5,
+      "os": 0.94
+     },
+     {
+      "year": 1951,
+      "pct": 12.2,
+      "os": 1.02
+     },
+     {
+      "year": 1952,
+      "pct": 12.9,
+      "os": 1.1
+     },
+     {
+      "year": 1953,
+      "pct": 13.6,
+      "os": 1.19
+     },
+     {
+      "year": 1954,
+      "pct": 14.3,
+      "os": 1.29
+     },
+     {
+      "year": 1955,
+      "pct": 14.7,
+      "os": 1.35
+     },
+     {
+      "year": 1956,
+      "pct": 15,
+      "os": 1.41
+     },
+     {
+      "year": 1957,
+      "pct": 15.4,
+      "os": 1.48
+     },
+     {
+      "year": 1958,
+      "pct": 15.8,
+      "os": 1.55
+     },
+     {
+      "year": 1959,
+      "pct": 16.1,
+      "os": 1.62
+     },
+     {
+      "year": 1960,
+      "pct": 16.5,
+      "os": 1.7
+     },
+     {
+      "year": 1961,
+      "pct": 16.9,
+      "os": 1.78
+     },
+     {
+      "year": 1962,
+      "pct": 17.2,
+      "os": 1.84
+     },
+     {
+      "year": 1963,
+      "pct": 17.5,
+      "os": 1.91
+     },
+     {
+      "year": 1964,
+      "pct": 17.8,
+      "os": 1.98
+     },
+     {
+      "year": 1965,
+      "pct": 18.1,
+      "os": 2.06
+     },
+     {
+      "year": 1966,
+      "pct": 18.4,
+      "os": 2.13
+     },
+     {
+      "year": 1967,
+      "pct": 18.8,
+      "os": 2.21
+     },
+     {
+      "year": 1968,
+      "pct": 19.1,
+      "os": 2.3
+     },
+     {
+      "year": 1969,
+      "pct": 19.5,
+      "os": 2.39
+     },
+     {
+      "year": 1970,
+      "pct": 19.9,
+      "os": 2.48
+     },
+     {
+      "year": 1971,
+      "pct": 20.2,
+      "os": 2.58
+     },
+     {
+      "year": 1972,
+      "pct": 20.2,
+      "os": 2.6
+     },
+     {
+      "year": 1973,
+      "pct": 20.1,
+      "os": 2.62
+     },
+     {
+      "year": 1974,
+      "pct": 20,
+      "os": 2.64
+     },
+     {
+      "year": 1975,
+      "pct": 20,
+      "os": 2.67
+     },
+     {
+      "year": 1976,
+      "pct": 19.9,
+      "os": 2.69
+     },
+     {
+      "year": 1977,
+      "pct": 20,
+      "os": 2.75
+     },
+     {
+      "year": 1978,
+      "pct": 20.2,
+      "os": 2.8
+     },
+     {
+      "year": 1979,
+      "pct": 20.3,
+      "os": 2.86
+     },
+     {
+      "year": 1980,
+      "pct": 20.4,
+      "os": 2.93
+     },
+     {
+      "year": 1981,
+      "pct": 20.6,
+      "os": 2.99
+     },
+     {
+      "year": 1982,
+      "pct": 20.6,
+      "os": 3.04
+     },
+     {
+      "year": 1983,
+      "pct": 20.7,
+      "os": 3.09
+     },
+     {
+      "year": 1984,
+      "pct": 20.8,
+      "os": 3.14
+     },
+     {
+      "year": 1985,
+      "pct": 20.8,
+      "os": 3.19
+     },
+     {
+      "year": 1986,
+      "pct": 20.9,
+      "os": 3.25
+     },
+     {
+      "year": 1987,
+      "pct": 21.2,
+      "os": 3.34
+     },
+     {
+      "year": 1988,
+      "pct": 21.5,
+      "os": 3.45
+     },
+     {
+      "year": 1989,
+      "pct": 21.8,
+      "os": 3.55
+     },
+     {
+      "year": 1990,
+      "pct": 22.1,
+      "os": 3.66
+     },
+     {
+      "year": 1991,
+      "pct": 22.5,
+      "os": 3.77
+     },
+     {
+      "year": 1992,
+      "pct": 23.1,
+      "os": 4.03
+     },
+     {
+      "year": 1993,
+      "pct": 23,
+      "os": 4.05
+     },
+     {
+      "year": 1994,
+      "pct": 23,
+      "os": 4.09
+     },
+     {
+      "year": 1995,
+      "pct": 23.1,
+      "os": 4.15
+     },
+     {
+      "year": 1996,
+      "pct": 23.3,
+      "os": 4.24
+     },
+     {
+      "year": 1997,
+      "pct": 23.3,
+      "os": 4.29
+     },
+     {
+      "year": 1998,
+      "pct": 23.2,
+      "os": 4.31
+     },
+     {
+      "year": 1999,
+      "pct": 23.1,
+      "os": 4.35
+     },
+     {
+      "year": 2000,
+      "pct": 23,
+      "os": 4.39
+     },
+     {
+      "year": 2001,
+      "pct": 23.1,
+      "os": 4.45
+     },
+     {
+      "year": 2002,
+      "pct": 23.3,
+      "os": 4.55
+     },
+     {
+      "year": 2003,
+      "pct": 23.6,
+      "os": 4.66
+     },
+     {
+      "year": 2004,
+      "pct": 23.8,
+      "os": 4.75
+     },
+     {
+      "year": 2005,
+      "pct": 24.2,
+      "os": 4.88
+     },
+     {
+      "year": 2006,
+      "pct": 24.6,
+      "os": 5.03
+     },
+     {
+      "year": 2007,
+      "pct": 25.1,
+      "os": 5.23
+     },
+     {
+      "year": 2008,
+      "pct": 25.8,
+      "os": 5.48
+     },
+     {
+      "year": 2009,
+      "pct": 26.4,
+      "os": 5.73
+     },
+     {
+      "year": 2010,
+      "pct": 26.7,
+      "os": 5.88
+     },
+     {
+      "year": 2011,
+      "pct": 26.9,
+      "os": 6.02
+     },
+     {
+      "year": 2012,
+      "pct": 27.3,
+      "os": 6.21
+     },
+     {
+      "year": 2013,
+      "pct": 27.7,
+      "os": 6.41
+     },
+     {
+      "year": 2014,
+      "pct": 28,
+      "os": 6.57
+     },
+     {
+      "year": 2015,
+      "pct": 28.3,
+      "os": 6.73
+     },
+     {
+      "year": 2016,
+      "pct": 28.6,
+      "os": 6.91
+     },
+     {
+      "year": 2017,
+      "pct": 29,
+      "os": 7.14
+     },
+     {
+      "year": 2018,
+      "pct": 29.4,
+      "os": 7.35
+     },
+     {
+      "year": 2019,
+      "pct": 29.8,
+      "os": 7.55
+     },
+     {
+      "year": 2020,
+      "pct": 29.9,
+      "os": 7.67
+     },
+     {
+      "year": 2021,
+      "pct": 29.3,
+      "os": 7.53
+     },
+     {
+      "year": 2022,
+      "pct": 29.5,
+      "os": 7.68
+     },
+     {
+      "year": 2023,
+      "pct": 30.7,
+      "os": 8.19
+     },
+     {
+      "year": 2024,
+      "pct": 31.5,
+      "os": 8.58
+     },
+     {
+      "year": 2025,
+      "pct": 32,
+      "os": 8.83
+     }
+    ]
+   },
+   "mark": {
+    "type": "line",
+    "strokeWidth": 2.25,
+    "color": "#225ea8",
+    "interpolate": "monotone"
+   },
+   "encoding": {
+    "y": {
+     "field": "pct",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       0,
+       36
+      ]
+     },
+     "axis": {
+      "title": null,
+      "values": [
+       0,
+       10,
+       20,
+       30
+      ],
+      "labelExpr": "datum.value + '%'",
+      "gridDash": [
+       2,
+       3
+      ]
+     }
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "year": 1891,
+      "pct": 32.4,
+      "os": 0.86
+     },
+     {
+      "year": 1892,
+      "pct": 31.3,
+      "os": 0.86
+     },
+     {
+      "year": 1893,
+      "pct": 30.2,
+      "os": 0.86
+     },
+     {
+      "year": 1894,
+      "pct": 29.1,
+      "os": 0.86
+     },
+     {
+      "year": 1895,
+      "pct": 28.1,
+      "os": 0.86
+     },
+     {
+      "year": 1896,
+      "pct": 27.1,
+      "os": 0.86
+     },
+     {
+      "year": 1897,
+      "pct": 26.2,
+      "os": 0.86
+     },
+     {
+      "year": 1898,
+      "pct": 25.2,
+      "os": 0.86
+     },
+     {
+      "year": 1899,
+      "pct": 24.3,
+      "os": 0.86
+     },
+     {
+      "year": 1900,
+      "pct": 23.5,
+      "os": 0.86
+     },
+     {
+      "year": 1901,
+      "pct": 22.7,
+      "os": 0.86
+     },
+     {
+      "year": 1902,
+      "pct": 22,
+      "os": 0.85
+     },
+     {
+      "year": 1903,
+      "pct": 21.4,
+      "os": 0.84
+     },
+     {
+      "year": 1904,
+      "pct": 20.8,
+      "os": 0.83
+     },
+     {
+      "year": 1905,
+      "pct": 20.2,
+      "os": 0.82
+     },
+     {
+      "year": 1906,
+      "pct": 19.6,
+      "os": 0.81
+     },
+     {
+      "year": 1907,
+      "pct": 19.1,
+      "os": 0.8
+     },
+     {
+      "year": 1908,
+      "pct": 18.6,
+      "os": 0.79
+     },
+     {
+      "year": 1909,
+      "pct": 18,
+      "os": 0.78
+     },
+     {
+      "year": 1910,
+      "pct": 17.5,
+      "os": 0.77
+     },
+     {
+      "year": 1911,
+      "pct": 17,
+      "os": 0.76
+     },
+     {
+      "year": 1912,
+      "pct": 16.9,
+      "os": 0.77
+     },
+     {
+      "year": 1913,
+      "pct": 16.7,
+      "os": 0.77
+     },
+     {
+      "year": 1914,
+      "pct": 16.5,
+      "os": 0.78
+     },
+     {
+      "year": 1915,
+      "pct": 16.4,
+      "os": 0.79
+     },
+     {
+      "year": 1916,
+      "pct": 16.2,
+      "os": 0.8
+     },
+     {
+      "year": 1917,
+      "pct": 16,
+      "os": 0.81
+     },
+     {
+      "year": 1918,
+      "pct": 15.9,
+      "os": 0.81
+     },
+     {
+      "year": 1919,
+      "pct": 15.7,
+      "os": 0.82
+     },
+     {
+      "year": 1920,
+      "pct": 15.6,
+      "os": 0.83
+     },
+     {
+      "year": 1921,
+      "pct": 15.4,
+      "os": 0.84
+     },
+     {
+      "year": 1922,
+      "pct": 15.3,
+      "os": 0.84
+     },
+     {
+      "year": 1923,
+      "pct": 15.1,
+      "os": 0.85
+     },
+     {
+      "year": 1924,
+      "pct": 15,
+      "os": 0.85
+     },
+     {
+      "year": 1925,
+      "pct": 14.8,
+      "os": 0.86
+     },
+     {
+      "year": 1926,
+      "pct": 14.6,
+      "os": 0.87
+     },
+     {
+      "year": 1927,
+      "pct": 14.5,
+      "os": 0.87
+     },
+     {
+      "year": 1928,
+      "pct": 14.3,
+      "os": 0.88
+     },
+     {
+      "year": 1929,
+      "pct": 14.2,
+      "os": 0.88
+     },
+     {
+      "year": 1930,
+      "pct": 14.1,
+      "os": 0.89
+     },
+     {
+      "year": 1931,
+      "pct": 13.9,
+      "os": 0.89
+     },
+     {
+      "year": 1932,
+      "pct": 13.8,
+      "os": 0.9
+     },
+     {
+      "year": 1933,
+      "pct": 13.6,
+      "os": 0.9
+     },
+     {
+      "year": 1934,
+      "pct": 13.3,
+      "os": 0.89
+     },
+     {
+      "year": 1935,
+      "pct": 13,
+      "os": 0.88
+     },
+     {
+      "year": 1936,
+      "pct": 12.7,
+      "os": 0.87
+     },
+     {
+      "year": 1937,
+      "pct": 12.4,
+      "os": 0.85
+     },
+     {
+      "year": 1938,
+      "pct": 12.1,
+      "os": 0.84
+     },
+     {
+      "year": 1939,
+      "pct": 11.8,
+      "os": 0.83
+     },
+     {
+      "year": 1940,
+      "pct": 11.6,
+      "os": 0.82
+     },
+     {
+      "year": 1941,
+      "pct": 11.3,
+      "os": 0.81
+     },
+     {
+      "year": 1942,
+      "pct": 11,
+      "os": 0.8
+     },
+     {
+      "year": 1943,
+      "pct": 10.8,
+      "os": 0.79
+     },
+     {
+      "year": 1944,
+      "pct": 10.5,
+      "os": 0.78
+     },
+     {
+      "year": 1945,
+      "pct": 10.3,
+      "os": 0.77
+     },
+     {
+      "year": 1946,
+      "pct": 10.1,
+      "os": 0.75
+     },
+     {
+      "year": 1947,
+      "pct": 9.8,
+      "os": 0.74
+     },
+     {
+      "year": 1948,
+      "pct": 10.4,
+      "os": 0.8
+     },
+     {
+      "year": 1949,
+      "pct": 10.9,
+      "os": 0.87
+     },
+     {
+      "year": 1950,
+      "pct": 11.5,
+      "os": 0.94
+     },
+     {
+      "year": 1951,
+      "pct": 12.2,
+      "os": 1.02
+     },
+     {
+      "year": 1952,
+      "pct": 12.9,
+      "os": 1.1
+     },
+     {
+      "year": 1953,
+      "pct": 13.6,
+      "os": 1.19
+     },
+     {
+      "year": 1954,
+      "pct": 14.3,
+      "os": 1.29
+     },
+     {
+      "year": 1955,
+      "pct": 14.7,
+      "os": 1.35
+     },
+     {
+      "year": 1956,
+      "pct": 15,
+      "os": 1.41
+     },
+     {
+      "year": 1957,
+      "pct": 15.4,
+      "os": 1.48
+     },
+     {
+      "year": 1958,
+      "pct": 15.8,
+      "os": 1.55
+     },
+     {
+      "year": 1959,
+      "pct": 16.1,
+      "os": 1.62
+     },
+     {
+      "year": 1960,
+      "pct": 16.5,
+      "os": 1.7
+     },
+     {
+      "year": 1961,
+      "pct": 16.9,
+      "os": 1.78
+     },
+     {
+      "year": 1962,
+      "pct": 17.2,
+      "os": 1.84
+     },
+     {
+      "year": 1963,
+      "pct": 17.5,
+      "os": 1.91
+     },
+     {
+      "year": 1964,
+      "pct": 17.8,
+      "os": 1.98
+     },
+     {
+      "year": 1965,
+      "pct": 18.1,
+      "os": 2.06
+     },
+     {
+      "year": 1966,
+      "pct": 18.4,
+      "os": 2.13
+     },
+     {
+      "year": 1967,
+      "pct": 18.8,
+      "os": 2.21
+     },
+     {
+      "year": 1968,
+      "pct": 19.1,
+      "os": 2.3
+     },
+     {
+      "year": 1969,
+      "pct": 19.5,
+      "os": 2.39
+     },
+     {
+      "year": 1970,
+      "pct": 19.9,
+      "os": 2.48
+     },
+     {
+      "year": 1971,
+      "pct": 20.2,
+      "os": 2.58
+     },
+     {
+      "year": 1972,
+      "pct": 20.2,
+      "os": 2.6
+     },
+     {
+      "year": 1973,
+      "pct": 20.1,
+      "os": 2.62
+     },
+     {
+      "year": 1974,
+      "pct": 20,
+      "os": 2.64
+     },
+     {
+      "year": 1975,
+      "pct": 20,
+      "os": 2.67
+     },
+     {
+      "year": 1976,
+      "pct": 19.9,
+      "os": 2.69
+     },
+     {
+      "year": 1977,
+      "pct": 20,
+      "os": 2.75
+     },
+     {
+      "year": 1978,
+      "pct": 20.2,
+      "os": 2.8
+     },
+     {
+      "year": 1979,
+      "pct": 20.3,
+      "os": 2.86
+     },
+     {
+      "year": 1980,
+      "pct": 20.4,
+      "os": 2.93
+     },
+     {
+      "year": 1981,
+      "pct": 20.6,
+      "os": 2.99
+     },
+     {
+      "year": 1982,
+      "pct": 20.6,
+      "os": 3.04
+     },
+     {
+      "year": 1983,
+      "pct": 20.7,
+      "os": 3.09
+     },
+     {
+      "year": 1984,
+      "pct": 20.8,
+      "os": 3.14
+     },
+     {
+      "year": 1985,
+      "pct": 20.8,
+      "os": 3.19
+     },
+     {
+      "year": 1986,
+      "pct": 20.9,
+      "os": 3.25
+     },
+     {
+      "year": 1987,
+      "pct": 21.2,
+      "os": 3.34
+     },
+     {
+      "year": 1988,
+      "pct": 21.5,
+      "os": 3.45
+     },
+     {
+      "year": 1989,
+      "pct": 21.8,
+      "os": 3.55
+     },
+     {
+      "year": 1990,
+      "pct": 22.1,
+      "os": 3.66
+     },
+     {
+      "year": 1991,
+      "pct": 22.5,
+      "os": 3.77
+     },
+     {
+      "year": 1992,
+      "pct": 23.1,
+      "os": 4.03
+     },
+     {
+      "year": 1993,
+      "pct": 23,
+      "os": 4.05
+     },
+     {
+      "year": 1994,
+      "pct": 23,
+      "os": 4.09
+     },
+     {
+      "year": 1995,
+      "pct": 23.1,
+      "os": 4.15
+     },
+     {
+      "year": 1996,
+      "pct": 23.3,
+      "os": 4.24
+     },
+     {
+      "year": 1997,
+      "pct": 23.3,
+      "os": 4.29
+     },
+     {
+      "year": 1998,
+      "pct": 23.2,
+      "os": 4.31
+     },
+     {
+      "year": 1999,
+      "pct": 23.1,
+      "os": 4.35
+     },
+     {
+      "year": 2000,
+      "pct": 23,
+      "os": 4.39
+     },
+     {
+      "year": 2001,
+      "pct": 23.1,
+      "os": 4.45
+     },
+     {
+      "year": 2002,
+      "pct": 23.3,
+      "os": 4.55
+     },
+     {
+      "year": 2003,
+      "pct": 23.6,
+      "os": 4.66
+     },
+     {
+      "year": 2004,
+      "pct": 23.8,
+      "os": 4.75
+     },
+     {
+      "year": 2005,
+      "pct": 24.2,
+      "os": 4.88
+     },
+     {
+      "year": 2006,
+      "pct": 24.6,
+      "os": 5.03
+     },
+     {
+      "year": 2007,
+      "pct": 25.1,
+      "os": 5.23
+     },
+     {
+      "year": 2008,
+      "pct": 25.8,
+      "os": 5.48
+     },
+     {
+      "year": 2009,
+      "pct": 26.4,
+      "os": 5.73
+     },
+     {
+      "year": 2010,
+      "pct": 26.7,
+      "os": 5.88
+     },
+     {
+      "year": 2011,
+      "pct": 26.9,
+      "os": 6.02
+     },
+     {
+      "year": 2012,
+      "pct": 27.3,
+      "os": 6.21
+     },
+     {
+      "year": 2013,
+      "pct": 27.7,
+      "os": 6.41
+     },
+     {
+      "year": 2014,
+      "pct": 28,
+      "os": 6.57
+     },
+     {
+      "year": 2015,
+      "pct": 28.3,
+      "os": 6.73
+     },
+     {
+      "year": 2016,
+      "pct": 28.6,
+      "os": 6.91
+     },
+     {
+      "year": 2017,
+      "pct": 29,
+      "os": 7.14
+     },
+     {
+      "year": 2018,
+      "pct": 29.4,
+      "os": 7.35
+     },
+     {
+      "year": 2019,
+      "pct": 29.8,
+      "os": 7.55
+     },
+     {
+      "year": 2020,
+      "pct": 29.9,
+      "os": 7.67
+     },
+     {
+      "year": 2021,
+      "pct": 29.3,
+      "os": 7.53
+     },
+     {
+      "year": 2022,
+      "pct": 29.5,
+      "os": 7.68
+     },
+     {
+      "year": 2023,
+      "pct": 30.7,
+      "os": 8.19
+     },
+     {
+      "year": 2024,
+      "pct": 31.5,
+      "os": 8.58
+     },
+     {
+      "year": 2025,
+      "pct": 32,
+      "os": 8.83
+     }
+    ]
+   },
+   "params": [
+    {
+     "name": "hov",
+     "select": {
+      "type": "point",
+      "encodings": [
+       "x"
+      ],
+      "nearest": true,
+      "on": "pointerover",
+      "clear": "pointerout"
+     }
+    }
+   ],
+   "mark": {
+    "type": "rule",
+    "strokeWidth": 1
+   },
+   "encoding": {
+    "color": {
+     "value": "#5c5c5c"
+    },
+    "opacity": {
+     "condition": {
+      "param": "hov",
+      "empty": false,
+      "value": 0.7
+     },
+     "value": 0
+    },
+    "tooltip": [
+     {
+      "field": "year",
+      "title": "Year",
+      "format": "d"
+     },
+     {
+      "field": "pct",
+      "title": "Born overseas (%)",
+      "format": ".1f"
+     },
+     {
+      "field": "os",
+      "title": "Overseas-born (millions)",
+      "format": ".2f"
+     }
+    ]
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "year": 1891,
+      "pct": 32.4,
+      "t": "1891 · 32.4%",
+      "pos": "above"
+     },
+     {
+      "year": 1901,
+      "pct": 22.7,
+      "t": "1901 · 22.7%",
+      "pos": "above"
+     },
+     {
+      "year": 1947,
+      "pct": 9.8,
+      "t": "1947 · 9.8%",
+      "pos": "below"
+     },
+     {
+      "year": 1971,
+      "pct": 20.2,
+      "t": "1971 · 20.2%",
+      "pos": "above",
+      "minor": true
+     },
+     {
+      "year": 2000,
+      "pct": 23,
+      "t": "2000 · 23.0%",
+      "pos": "below",
+      "minor": true
+     },
+     {
+      "year": 2021,
+      "pct": 29.3,
+      "t": "2021 · 29.3%",
+      "pos": "belowleft",
+      "minor": true
+     },
+     {
+      "year": 2025,
+      "pct": 32,
+      "t": "2025 · 32.0%",
+      "pos": "left"
+     }
+    ]
+   },
+   "mark": {
+    "type": "point",
+    "filled": true,
+    "size": 70,
+    "strokeWidth": 2
+   },
+   "encoding": {
+    "y": {
+     "field": "pct",
+     "type": "quantitative"
+    },
+    "fill": {
+     "value": "#ffffff"
+    },
+    "stroke": {
+     "value": "#225ea8"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "year": 1891,
+      "pct": 32.4,
+      "t": "1891 · 32.4%",
+      "pos": "above"
+     },
+     {
+      "year": 1901,
+      "pct": 22.7,
+      "t": "1901 · 22.7%",
+      "pos": "above"
+     },
+     {
+      "year": 1947,
+      "pct": 9.8,
+      "t": "1947 · 9.8%",
+      "pos": "below"
+     },
+     {
+      "year": 1971,
+      "pct": 20.2,
+      "t": "1971 · 20.2%",
+      "pos": "above",
+      "minor": true
+     },
+     {
+      "year": 2000,
+      "pct": 23,
+      "t": "2000 · 23.0%",
+      "pos": "below",
+      "minor": true
+     },
+     {
+      "year": 2021,
+      "pct": 29.3,
+      "t": "2021 · 29.3%",
+      "pos": "belowleft",
+      "minor": true
+     },
+     {
+      "year": 2025,
+      "pct": 32,
+      "t": "2025 · 32.0%",
+      "pos": "left"
+     }
+    ]
+   },
+   "transform": [
+    {
+     "filter": "datum.pos == 'above'"
+    }
+   ],
+   "mark": {
+    "type": "text",
+    "dy": -14,
+    "fontSize": 12,
+    "fontWeight": 600,
+    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+   },
+   "encoding": {
+    "y": {
+     "field": "pct",
+     "type": "quantitative"
+    },
+    "text": {
+     "field": "t"
+    },
+    "color": {
+     "value": "#222222"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "year": 1891,
+      "pct": 32.4,
+      "t": "1891 · 32.4%",
+      "pos": "above"
+     },
+     {
+      "year": 1901,
+      "pct": 22.7,
+      "t": "1901 · 22.7%",
+      "pos": "above"
+     },
+     {
+      "year": 1947,
+      "pct": 9.8,
+      "t": "1947 · 9.8%",
+      "pos": "below"
+     },
+     {
+      "year": 1971,
+      "pct": 20.2,
+      "t": "1971 · 20.2%",
+      "pos": "above",
+      "minor": true
+     },
+     {
+      "year": 2000,
+      "pct": 23,
+      "t": "2000 · 23.0%",
+      "pos": "below",
+      "minor": true
+     },
+     {
+      "year": 2021,
+      "pct": 29.3,
+      "t": "2021 · 29.3%",
+      "pos": "belowleft",
+      "minor": true
+     },
+     {
+      "year": 2025,
+      "pct": 32,
+      "t": "2025 · 32.0%",
+      "pos": "left"
+     }
+    ]
+   },
+   "transform": [
+    {
+     "filter": "datum.pos == 'left'"
+    }
+   ],
+   "mark": {
+    "type": "text",
+    "align": "right",
+    "dx": -10,
+    "dy": -10,
+    "fontSize": 12,
+    "fontWeight": 600,
+    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+   },
+   "encoding": {
+    "y": {
+     "field": "pct",
+     "type": "quantitative"
+    },
+    "text": {
+     "field": "t"
+    },
+    "color": {
+     "value": "#222222"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "year": 1891,
+      "pct": 32.4,
+      "t": "1891 · 32.4%",
+      "pos": "above"
+     },
+     {
+      "year": 1901,
+      "pct": 22.7,
+      "t": "1901 · 22.7%",
+      "pos": "above"
+     },
+     {
+      "year": 1947,
+      "pct": 9.8,
+      "t": "1947 · 9.8%",
+      "pos": "below"
+     },
+     {
+      "year": 1971,
+      "pct": 20.2,
+      "t": "1971 · 20.2%",
+      "pos": "above",
+      "minor": true
+     },
+     {
+      "year": 2000,
+      "pct": 23,
+      "t": "2000 · 23.0%",
+      "pos": "below",
+      "minor": true
+     },
+     {
+      "year": 2021,
+      "pct": 29.3,
+      "t": "2021 · 29.3%",
+      "pos": "belowleft",
+      "minor": true
+     },
+     {
+      "year": 2025,
+      "pct": 32,
+      "t": "2025 · 32.0%",
+      "pos": "left"
+     }
+    ]
+   },
+   "transform": [
+    {
+     "filter": "datum.pos == 'belowleft'"
+    }
+   ],
+   "mark": {
+    "type": "text",
+    "align": "right",
+    "dx": -6,
+    "dy": 20,
+    "fontSize": 12,
+    "fontWeight": 600,
+    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+   },
+   "encoding": {
+    "y": {
+     "field": "pct",
+     "type": "quantitative"
+    },
+    "text": {
+     "field": "t"
+    },
+    "color": {
+     "value": "#222222"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "year": 1891,
+      "pct": 32.4,
+      "t": "1891 · 32.4%",
+      "pos": "above"
+     },
+     {
+      "year": 1901,
+      "pct": 22.7,
+      "t": "1901 · 22.7%",
+      "pos": "above"
+     },
+     {
+      "year": 1947,
+      "pct": 9.8,
+      "t": "1947 · 9.8%",
+      "pos": "below"
+     },
+     {
+      "year": 1971,
+      "pct": 20.2,
+      "t": "1971 · 20.2%",
+      "pos": "above",
+      "minor": true
+     },
+     {
+      "year": 2000,
+      "pct": 23,
+      "t": "2000 · 23.0%",
+      "pos": "below",
+      "minor": true
+     },
+     {
+      "year": 2021,
+      "pct": 29.3,
+      "t": "2021 · 29.3%",
+      "pos": "belowleft",
+      "minor": true
+     },
+     {
+      "year": 2025,
+      "pct": 32,
+      "t": "2025 · 32.0%",
+      "pos": "left"
+     }
+    ]
+   },
+   "transform": [
+    {
+     "filter": "datum.pos == 'below'"
+    }
+   ],
+   "mark": {
+    "type": "text",
+    "dy": 16,
+    "fontSize": 12,
+    "fontWeight": 600,
+    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+   },
+   "encoding": {
+    "y": {
+     "field": "pct",
+     "type": "quantitative"
+    },
+    "text": {
+     "field": "t"
+    },
+    "color": {
+     "value": "#222222"
+    }
+   }
+  }
+ ],
+ "background": "#ffffff"
+}
