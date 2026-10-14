@@ -38399,7 +38399,206 @@
     "fill": "#e4e4e4",
     "stroke": "#ffffff",
     "strokeWidth": 0.5,
-    "clip": true
+    "clip": true,
+    "cursor": "pointer"
+   },
+   "transform": [
+    {
+     "lookup": "properties.name",
+     "from": {
+      "data": {
+       "values": [
+        {
+         "c_world": "India",
+         "c_label": "India",
+         "c15": 449040,
+         "c20": 724060,
+         "c25": 971020,
+         "c_km": 9847,
+         "c_chg": 521980,
+         "c_pct": 116
+        },
+        {
+         "c_world": "United Kingdom",
+         "c_label": "England (born in)",
+         "c15": 1006540,
+         "c20": 986210,
+         "c25": 970950,
+         "c_km": 17011,
+         "c_chg": -35590,
+         "c_pct": -4
+        },
+        {
+         "c_world": "China",
+         "c_label": "China",
+         "c15": 508870,
+         "c20": 638990,
+         "c25": 731540,
+         "c_km": 9054,
+         "c_chg": 222670,
+         "c_pct": 44
+        },
+        {
+         "c_world": "New Zealand",
+         "c_label": "New Zealand",
+         "c15": 575430,
+         "c20": 584490,
+         "c25": 637680,
+         "c_km": 2155,
+         "c_chg": 62250,
+         "c_pct": 11
+        },
+        {
+         "c_world": "Philippines",
+         "c_label": "Philippines",
+         "c15": 241130,
+         "c20": 308380,
+         "c25": 412530,
+         "c_km": 6011,
+         "c_chg": 171400,
+         "c_pct": 71
+        },
+        {
+         "c_world": "Vietnam",
+         "c_label": "Vietnam",
+         "c15": 235590,
+         "c20": 275920,
+         "c25": 326630,
+         "c_km": 7248,
+         "c_chg": 91040,
+         "c_pct": 39
+        },
+        {
+         "c_world": "South Africa",
+         "c_label": "South Africa",
+         "c15": 177390,
+         "c20": 200890,
+         "c25": 229950,
+         "c_km": 11057,
+         "c_chg": 52560,
+         "c_pct": 30
+        },
+        {
+         "c_world": "Nepal",
+         "c_label": "Nepal",
+         "c15": 50150,
+         "c20": 132400,
+         "c25": 213580,
+         "c_km": 9879,
+         "c_chg": 163430,
+         "c_pct": 326
+        },
+        {
+         "c_world": "Sri Lanka",
+         "c_label": "Sri Lanka",
+         "c15": 119700,
+         "c20": 142690,
+         "c25": 184800,
+         "c_km": 8732,
+         "c_chg": 65100,
+         "c_pct": 54
+        },
+        {
+         "c_world": "Malaysia",
+         "c_label": "Malaysia",
+         "c15": 143420,
+         "c20": 178760,
+         "c25": 184320,
+         "c_km": 6640,
+         "c_chg": 40900,
+         "c_pct": 29
+        }
+       ]
+      },
+      "key": "c_world",
+      "fields": [
+       "c_label",
+       "c15",
+       "c20",
+       "c25",
+       "c_km",
+       "c_chg",
+       "c_pct"
+      ]
+     }
+    },
+    {
+     "calculate": "datum.properties.name",
+     "as": "cty"
+    },
+    {
+     "calculate": "datum.c_label == 'England (born in)' ? datum.properties.name + ' (figures for England)' : datum.properties.name",
+     "as": "ctyl"
+    },
+    {
+     "calculate": "datum.properties.name == 'Australia' ? 'Destination' : isValid(datum.c25) ? format(datum.c25, ',') : 'Not in the top ten'",
+     "as": "t25"
+    },
+    {
+     "calculate": "isValid(datum.c15) ? format(datum.c15, ',') : '–'",
+     "as": "t15"
+    },
+    {
+     "calculate": "isValid(datum.c_chg) ? (datum.c_chg >= 0 ? '+' : '−') + format(abs(datum.c_chg), ',') + ' (' + (datum.c_pct >= 0 ? '+' : '') + datum.c_pct + '%)' : '–'",
+     "as": "tchg"
+    },
+    {
+     "calculate": "isValid(datum.c_km) ? format(datum.c_km, ',') + ' km' : '–'",
+     "as": "tkm"
+    }
+   ],
+   "params": [
+    {
+     "name": "hovc15",
+     "select": {
+      "type": "point",
+      "fields": [
+       "cty"
+      ],
+      "on": "pointerover",
+      "clear": "pointerout"
+     }
+    }
+   ],
+   "encoding": {
+    "stroke": {
+     "condition": {
+      "param": "hovc15",
+      "empty": false,
+      "value": "#111111"
+     },
+     "value": "#ffffff"
+    },
+    "strokeWidth": {
+     "condition": {
+      "param": "hovc15",
+      "empty": false,
+      "value": 1.75
+     },
+     "value": 0.5
+    },
+    "tooltip": [
+     {
+      "field": "ctyl",
+      "title": "Country"
+     },
+     {
+      "field": "t25",
+      "title": "Australian residents born here, 2025"
+     },
+     {
+      "field": "t15",
+      "title": "Australian residents born here, 2015"
+     },
+     {
+      "field": "tchg",
+      "title": "Change 2015–2025"
+     },
+     {
+      "field": "tkm",
+      "title": "Distance from Sydney"
+     }
+    ]
    }
   },
   {
@@ -38627,14 +38826,41 @@
      }
     ]
    },
+   "transform": [
+    {
+     "calculate": "datum.properties.c",
+     "as": "c"
+    }
+   ],
+   "params": [
+    {
+     "name": "hf",
+     "select": {
+      "type": "point",
+      "fields": [
+       "c"
+      ],
+      "on": "pointerover",
+      "clear": "pointerout"
+     }
+    }
+   ],
    "mark": {
     "type": "geoshape",
     "filled": false,
     "strokeCap": "round",
-    "opacity": 0.75,
-    "clip": true
+    "clip": true,
+    "cursor": "pointer"
    },
    "encoding": {
+    "opacity": {
+     "condition": {
+      "param": "hf",
+      "empty": true,
+      "value": 0.8
+     },
+     "value": 0.12
+    },
     "strokeWidth": {
      "field": "properties.v",
      "type": "quantitative",

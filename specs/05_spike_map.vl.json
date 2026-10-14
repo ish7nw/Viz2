@@ -49,6 +49,24 @@
    0
   ]
  },
+ "params": [
+  {
+   "name": "base",
+   "value": 2015,
+   "bind": {
+    "input": "radio",
+    "options": [
+     2015,
+     2020
+    ],
+    "labels": [
+     "2015",
+     "2020"
+    ],
+    "name": "Change since "
+   }
+  }
+ ],
  "layer": [
   {
    "data": {
@@ -38399,7 +38417,206 @@
     "fill": "#e4e4e4",
     "stroke": "#ffffff",
     "strokeWidth": 0.5,
-    "clip": true
+    "clip": true,
+    "cursor": "pointer"
+   },
+   "transform": [
+    {
+     "lookup": "properties.name",
+     "from": {
+      "data": {
+       "values": [
+        {
+         "c_world": "India",
+         "c_label": "India",
+         "c15": 449040,
+         "c20": 724060,
+         "c25": 971020,
+         "c_km": 9847,
+         "c_chg": 521980,
+         "c_pct": 116
+        },
+        {
+         "c_world": "United Kingdom",
+         "c_label": "England (born in)",
+         "c15": 1006540,
+         "c20": 986210,
+         "c25": 970950,
+         "c_km": 17011,
+         "c_chg": -35590,
+         "c_pct": -4
+        },
+        {
+         "c_world": "China",
+         "c_label": "China",
+         "c15": 508870,
+         "c20": 638990,
+         "c25": 731540,
+         "c_km": 9054,
+         "c_chg": 222670,
+         "c_pct": 44
+        },
+        {
+         "c_world": "New Zealand",
+         "c_label": "New Zealand",
+         "c15": 575430,
+         "c20": 584490,
+         "c25": 637680,
+         "c_km": 2155,
+         "c_chg": 62250,
+         "c_pct": 11
+        },
+        {
+         "c_world": "Philippines",
+         "c_label": "Philippines",
+         "c15": 241130,
+         "c20": 308380,
+         "c25": 412530,
+         "c_km": 6011,
+         "c_chg": 171400,
+         "c_pct": 71
+        },
+        {
+         "c_world": "Vietnam",
+         "c_label": "Vietnam",
+         "c15": 235590,
+         "c20": 275920,
+         "c25": 326630,
+         "c_km": 7248,
+         "c_chg": 91040,
+         "c_pct": 39
+        },
+        {
+         "c_world": "South Africa",
+         "c_label": "South Africa",
+         "c15": 177390,
+         "c20": 200890,
+         "c25": 229950,
+         "c_km": 11057,
+         "c_chg": 52560,
+         "c_pct": 30
+        },
+        {
+         "c_world": "Nepal",
+         "c_label": "Nepal",
+         "c15": 50150,
+         "c20": 132400,
+         "c25": 213580,
+         "c_km": 9879,
+         "c_chg": 163430,
+         "c_pct": 326
+        },
+        {
+         "c_world": "Sri Lanka",
+         "c_label": "Sri Lanka",
+         "c15": 119700,
+         "c20": 142690,
+         "c25": 184800,
+         "c_km": 8732,
+         "c_chg": 65100,
+         "c_pct": 54
+        },
+        {
+         "c_world": "Malaysia",
+         "c_label": "Malaysia",
+         "c15": 143420,
+         "c20": 178760,
+         "c25": 184320,
+         "c_km": 6640,
+         "c_chg": 40900,
+         "c_pct": 29
+        }
+       ]
+      },
+      "key": "c_world",
+      "fields": [
+       "c_label",
+       "c15",
+       "c20",
+       "c25",
+       "c_km",
+       "c_chg",
+       "c_pct"
+      ]
+     }
+    },
+    {
+     "calculate": "datum.properties.name",
+     "as": "cty"
+    },
+    {
+     "calculate": "datum.c_label == 'England (born in)' ? datum.properties.name + ' (figures for England)' : datum.properties.name",
+     "as": "ctyl"
+    },
+    {
+     "calculate": "datum.properties.name == 'Australia' ? 'Destination' : isValid(datum.c25) ? format(datum.c25, ',') : 'Not in the top ten'",
+     "as": "t25"
+    },
+    {
+     "calculate": "isValid(datum.c15) ? format(datum.c15, ',') : '–'",
+     "as": "t15"
+    },
+    {
+     "calculate": "isValid(datum.c_chg) ? (datum.c_chg >= 0 ? '+' : '−') + format(abs(datum.c_chg), ',') + ' (' + (datum.c_pct >= 0 ? '+' : '') + datum.c_pct + '%)' : '–'",
+     "as": "tchg"
+    },
+    {
+     "calculate": "isValid(datum.c_km) ? format(datum.c_km, ',') + ' km' : '–'",
+     "as": "tkm"
+    }
+   ],
+   "params": [
+    {
+     "name": "hovc16",
+     "select": {
+      "type": "point",
+      "fields": [
+       "cty"
+      ],
+      "on": "pointerover",
+      "clear": "pointerout"
+     }
+    }
+   ],
+   "encoding": {
+    "stroke": {
+     "condition": {
+      "param": "hovc16",
+      "empty": false,
+      "value": "#111111"
+     },
+     "value": "#ffffff"
+    },
+    "strokeWidth": {
+     "condition": {
+      "param": "hovc16",
+      "empty": false,
+      "value": 1.75
+     },
+     "value": 0.5
+    },
+    "tooltip": [
+     {
+      "field": "ctyl",
+      "title": "Country"
+     },
+     {
+      "field": "t25",
+      "title": "Australian residents born here, 2025"
+     },
+     {
+      "field": "t15",
+      "title": "Australian residents born here, 2015"
+     },
+     {
+      "field": "tchg",
+      "title": "Change 2015–2025"
+     },
+     {
+      "field": "tkm",
+      "title": "Distance from Sydney"
+     }
+    ]
    }
   },
   {
@@ -38409,104 +38626,102 @@
       "c": "India",
       "lon": 78.9,
       "lat": 22,
-      "ch": 521980,
-      "top": 61.99846743295019,
-      "pos": "Grew",
-      "lbl": "India +522k",
-      "show": true
+      "a": 449040,
+      "b": 724060,
+      "d": 971020
      },
      {
       "c": "England",
       "lon": -1.5,
       "lat": 52.6,
-      "ch": -35590,
-      "top": 49.8727969348659,
-      "pos": "Shrank",
-      "lbl": "England −36k",
-      "show": true
+      "a": 1006540,
+      "b": 986210,
+      "d": 970950
      },
      {
       "c": "China",
       "lon": 104,
       "lat": 34.5,
-      "ch": 222670,
-      "top": 51.562835249042145,
-      "pos": "Grew",
-      "lbl": "China +223k",
-      "show": true
+      "a": 508870,
+      "b": 638990,
+      "d": 731540
      },
      {
       "c": "New Zealand",
       "lon": 174,
       "lat": -41,
-      "ch": 62250,
-      "top": -36.229885057471265,
-      "pos": "Grew",
-      "lbl": "New Zealand +62k",
-      "show": true
+      "a": 575430,
+      "b": 584490,
+      "d": 637680
      },
      {
       "c": "Philippines",
       "lon": 122,
       "lat": 12.5,
-      "ch": 171400,
-      "top": 25.634099616858236,
-      "pos": "Grew",
-      "lbl": "Philippines +171k",
-      "show": true
+      "a": 241130,
+      "b": 308380,
+      "d": 412530
      },
      {
       "c": "Vietnam",
       "lon": 106.5,
       "lat": 15.5,
-      "ch": 91040,
-      "top": 22.476245210727967,
-      "pos": "Grew",
-      "lbl": "Vietnam +91k",
-      "show": false
+      "a": 235590,
+      "b": 275920,
+      "d": 326630
      },
      {
       "c": "South Africa",
       "lon": 24.5,
       "lat": -29,
-      "ch": 52560,
-      "top": -24.97241379310345,
-      "pos": "Grew",
-      "lbl": "South Africa +53k",
-      "show": true
+      "a": 177390,
+      "b": 200890,
+      "d": 229950
      },
      {
       "c": "Nepal",
       "lon": 84.1,
       "lat": 28.3,
-      "ch": 163430,
-      "top": 40.823371647509575,
-      "pos": "Grew",
-      "lbl": "Nepal +163k",
-      "show": true
+      "a": 50150,
+      "b": 132400,
+      "d": 213580
      },
      {
       "c": "Sri Lanka",
       "lon": 80.7,
       "lat": 7.8,
-      "ch": 65100,
-      "top": 12.788505747126436,
-      "pos": "Grew",
-      "lbl": "Sri Lanka +65k",
-      "show": false
+      "a": 119700,
+      "b": 142690,
+      "d": 184800
      },
      {
       "c": "Malaysia",
       "lon": 102,
       "lat": 3.8,
-      "ch": 40900,
-      "top": 6.934099616858237,
-      "pos": "Grew",
-      "lbl": "Malaysia +41k",
-      "show": false
+      "a": 143420,
+      "b": 178760,
+      "d": 184320
      }
     ]
    },
+   "transform": [
+    {
+     "calculate": "datum.d - (base == 2015 ? datum.a : datum.b)",
+     "as": "ch"
+    },
+    {
+     "calculate": "datum.lat + datum.ch * 0.00007662835249042145",
+     "as": "top"
+    },
+    {
+     "calculate": "datum.ch >= 0 ? 'Grew' : 'Shrank'",
+     "as": "pos"
+    },
+    {
+     "calculate": "datum.c + ' ' + (datum.ch >= 0 ? '+' : '−') + format(abs(datum.ch) / 1000, ',.0f') + 'k'",
+     "as": "lbl"
+    }
+   ],
    "mark": {
     "type": "rule",
     "strokeWidth": 4,
@@ -38541,7 +38756,7 @@
       ]
      },
      "legend": {
-      "title": "Change 2015–2025",
+      "title": "Change to 2025",
       "orient": "bottom"
      }
     },
@@ -38552,8 +38767,13 @@
      },
      {
       "field": "ch",
-      "title": "Change 2015–25 (people)",
+      "title": "Change (people)",
       "format": "+,"
+     },
+     {
+      "field": "d",
+      "title": "Residents in 2025",
+      "format": ","
      }
     ]
    }
@@ -38565,101 +38785,81 @@
       "c": "India",
       "lon": 78.9,
       "lat": 22,
-      "ch": 521980,
-      "top": 61.99846743295019,
-      "pos": "Grew",
-      "lbl": "India +522k",
-      "show": true
+      "a": 449040,
+      "b": 724060,
+      "d": 971020
      },
      {
       "c": "England",
       "lon": -1.5,
       "lat": 52.6,
-      "ch": -35590,
-      "top": 49.8727969348659,
-      "pos": "Shrank",
-      "lbl": "England −36k",
-      "show": true
+      "a": 1006540,
+      "b": 986210,
+      "d": 970950
      },
      {
       "c": "China",
       "lon": 104,
       "lat": 34.5,
-      "ch": 222670,
-      "top": 51.562835249042145,
-      "pos": "Grew",
-      "lbl": "China +223k",
-      "show": true
+      "a": 508870,
+      "b": 638990,
+      "d": 731540
      },
      {
       "c": "New Zealand",
       "lon": 174,
       "lat": -41,
-      "ch": 62250,
-      "top": -36.229885057471265,
-      "pos": "Grew",
-      "lbl": "New Zealand +62k",
-      "show": true
+      "a": 575430,
+      "b": 584490,
+      "d": 637680
      },
      {
       "c": "Philippines",
       "lon": 122,
       "lat": 12.5,
-      "ch": 171400,
-      "top": 25.634099616858236,
-      "pos": "Grew",
-      "lbl": "Philippines +171k",
-      "show": true
+      "a": 241130,
+      "b": 308380,
+      "d": 412530
      },
      {
       "c": "Vietnam",
       "lon": 106.5,
       "lat": 15.5,
-      "ch": 91040,
-      "top": 22.476245210727967,
-      "pos": "Grew",
-      "lbl": "Vietnam +91k",
-      "show": false
+      "a": 235590,
+      "b": 275920,
+      "d": 326630
      },
      {
       "c": "South Africa",
       "lon": 24.5,
       "lat": -29,
-      "ch": 52560,
-      "top": -24.97241379310345,
-      "pos": "Grew",
-      "lbl": "South Africa +53k",
-      "show": true
+      "a": 177390,
+      "b": 200890,
+      "d": 229950
      },
      {
       "c": "Nepal",
       "lon": 84.1,
       "lat": 28.3,
-      "ch": 163430,
-      "top": 40.823371647509575,
-      "pos": "Grew",
-      "lbl": "Nepal +163k",
-      "show": true
+      "a": 50150,
+      "b": 132400,
+      "d": 213580
      },
      {
       "c": "Sri Lanka",
       "lon": 80.7,
       "lat": 7.8,
-      "ch": 65100,
-      "top": 12.788505747126436,
-      "pos": "Grew",
-      "lbl": "Sri Lanka +65k",
-      "show": false
+      "a": 119700,
+      "b": 142690,
+      "d": 184800
      },
      {
       "c": "Malaysia",
       "lon": 102,
       "lat": 3.8,
-      "ch": 40900,
-      "top": 6.934099616858237,
-      "pos": "Grew",
-      "lbl": "Malaysia +41k",
-      "show": false
+      "a": 143420,
+      "b": 178760,
+      "d": 184320
      }
     ]
    },
@@ -38688,107 +38888,103 @@
       "c": "India",
       "lon": 78.9,
       "lat": 22,
-      "ch": 521980,
-      "top": 61.99846743295019,
-      "pos": "Grew",
-      "lbl": "India +522k",
-      "show": true
+      "a": 449040,
+      "b": 724060,
+      "d": 971020
      },
      {
       "c": "England",
       "lon": -1.5,
       "lat": 52.6,
-      "ch": -35590,
-      "top": 49.8727969348659,
-      "pos": "Shrank",
-      "lbl": "England −36k",
-      "show": true
+      "a": 1006540,
+      "b": 986210,
+      "d": 970950
      },
      {
       "c": "China",
       "lon": 104,
       "lat": 34.5,
-      "ch": 222670,
-      "top": 51.562835249042145,
-      "pos": "Grew",
-      "lbl": "China +223k",
-      "show": true
+      "a": 508870,
+      "b": 638990,
+      "d": 731540
      },
      {
       "c": "New Zealand",
       "lon": 174,
       "lat": -41,
-      "ch": 62250,
-      "top": -36.229885057471265,
-      "pos": "Grew",
-      "lbl": "New Zealand +62k",
-      "show": true
+      "a": 575430,
+      "b": 584490,
+      "d": 637680
      },
      {
       "c": "Philippines",
       "lon": 122,
       "lat": 12.5,
-      "ch": 171400,
-      "top": 25.634099616858236,
-      "pos": "Grew",
-      "lbl": "Philippines +171k",
-      "show": true
+      "a": 241130,
+      "b": 308380,
+      "d": 412530
      },
      {
       "c": "Vietnam",
       "lon": 106.5,
       "lat": 15.5,
-      "ch": 91040,
-      "top": 22.476245210727967,
-      "pos": "Grew",
-      "lbl": "Vietnam +91k",
-      "show": false
+      "a": 235590,
+      "b": 275920,
+      "d": 326630
      },
      {
       "c": "South Africa",
       "lon": 24.5,
       "lat": -29,
-      "ch": 52560,
-      "top": -24.97241379310345,
-      "pos": "Grew",
-      "lbl": "South Africa +53k",
-      "show": true
+      "a": 177390,
+      "b": 200890,
+      "d": 229950
      },
      {
       "c": "Nepal",
       "lon": 84.1,
       "lat": 28.3,
-      "ch": 163430,
-      "top": 40.823371647509575,
-      "pos": "Grew",
-      "lbl": "Nepal +163k",
-      "show": true
+      "a": 50150,
+      "b": 132400,
+      "d": 213580
      },
      {
       "c": "Sri Lanka",
       "lon": 80.7,
       "lat": 7.8,
-      "ch": 65100,
-      "top": 12.788505747126436,
-      "pos": "Grew",
-      "lbl": "Sri Lanka +65k",
-      "show": false
+      "a": 119700,
+      "b": 142690,
+      "d": 184800
      },
      {
       "c": "Malaysia",
       "lon": 102,
       "lat": 3.8,
-      "ch": 40900,
-      "top": 6.934099616858237,
-      "pos": "Grew",
-      "lbl": "Malaysia +41k",
-      "show": false
+      "a": 143420,
+      "b": 178760,
+      "d": 184320
      }
     ]
    },
    "transform": [
     {
-     "filter": "datum.show && datum.ch >= 0"
+     "calculate": "datum.d - (base == 2015 ? datum.a : datum.b)",
+     "as": "ch"
+    },
+    {
+     "calculate": "datum.lat + datum.ch * 0.00007662835249042145",
+     "as": "top"
+    },
+    {
+     "calculate": "datum.ch >= 0 ? 'Grew' : 'Shrank'",
+     "as": "pos"
+    },
+    {
+     "calculate": "datum.c + ' ' + (datum.ch >= 0 ? '+' : '−') + format(abs(datum.ch) / 1000, ',.0f') + 'k'",
+     "as": "lbl"
+    },
+    {
+     "filter": "(abs(datum.ch) >= 150000 || datum.ch < 0 || indexof(['New Zealand', 'South Africa'], datum.c) >= 0) && datum.ch >= 0"
     }
    ],
    "mark": {
@@ -38823,107 +39019,103 @@
       "c": "India",
       "lon": 78.9,
       "lat": 22,
-      "ch": 521980,
-      "top": 61.99846743295019,
-      "pos": "Grew",
-      "lbl": "India +522k",
-      "show": true
+      "a": 449040,
+      "b": 724060,
+      "d": 971020
      },
      {
       "c": "England",
       "lon": -1.5,
       "lat": 52.6,
-      "ch": -35590,
-      "top": 49.8727969348659,
-      "pos": "Shrank",
-      "lbl": "England −36k",
-      "show": true
+      "a": 1006540,
+      "b": 986210,
+      "d": 970950
      },
      {
       "c": "China",
       "lon": 104,
       "lat": 34.5,
-      "ch": 222670,
-      "top": 51.562835249042145,
-      "pos": "Grew",
-      "lbl": "China +223k",
-      "show": true
+      "a": 508870,
+      "b": 638990,
+      "d": 731540
      },
      {
       "c": "New Zealand",
       "lon": 174,
       "lat": -41,
-      "ch": 62250,
-      "top": -36.229885057471265,
-      "pos": "Grew",
-      "lbl": "New Zealand +62k",
-      "show": true
+      "a": 575430,
+      "b": 584490,
+      "d": 637680
      },
      {
       "c": "Philippines",
       "lon": 122,
       "lat": 12.5,
-      "ch": 171400,
-      "top": 25.634099616858236,
-      "pos": "Grew",
-      "lbl": "Philippines +171k",
-      "show": true
+      "a": 241130,
+      "b": 308380,
+      "d": 412530
      },
      {
       "c": "Vietnam",
       "lon": 106.5,
       "lat": 15.5,
-      "ch": 91040,
-      "top": 22.476245210727967,
-      "pos": "Grew",
-      "lbl": "Vietnam +91k",
-      "show": false
+      "a": 235590,
+      "b": 275920,
+      "d": 326630
      },
      {
       "c": "South Africa",
       "lon": 24.5,
       "lat": -29,
-      "ch": 52560,
-      "top": -24.97241379310345,
-      "pos": "Grew",
-      "lbl": "South Africa +53k",
-      "show": true
+      "a": 177390,
+      "b": 200890,
+      "d": 229950
      },
      {
       "c": "Nepal",
       "lon": 84.1,
       "lat": 28.3,
-      "ch": 163430,
-      "top": 40.823371647509575,
-      "pos": "Grew",
-      "lbl": "Nepal +163k",
-      "show": true
+      "a": 50150,
+      "b": 132400,
+      "d": 213580
      },
      {
       "c": "Sri Lanka",
       "lon": 80.7,
       "lat": 7.8,
-      "ch": 65100,
-      "top": 12.788505747126436,
-      "pos": "Grew",
-      "lbl": "Sri Lanka +65k",
-      "show": false
+      "a": 119700,
+      "b": 142690,
+      "d": 184800
      },
      {
       "c": "Malaysia",
       "lon": 102,
       "lat": 3.8,
-      "ch": 40900,
-      "top": 6.934099616858237,
-      "pos": "Grew",
-      "lbl": "Malaysia +41k",
-      "show": false
+      "a": 143420,
+      "b": 178760,
+      "d": 184320
      }
     ]
    },
    "transform": [
     {
-     "filter": "datum.show && datum.ch < 0"
+     "calculate": "datum.d - (base == 2015 ? datum.a : datum.b)",
+     "as": "ch"
+    },
+    {
+     "calculate": "datum.lat + datum.ch * 0.00007662835249042145",
+     "as": "top"
+    },
+    {
+     "calculate": "datum.ch >= 0 ? 'Grew' : 'Shrank'",
+     "as": "pos"
+    },
+    {
+     "calculate": "datum.c + ' ' + (datum.ch >= 0 ? '+' : '−') + format(abs(datum.ch) / 1000, ',.0f') + 'k'",
+     "as": "lbl"
+    },
+    {
+     "filter": "(abs(datum.ch) >= 150000 || datum.ch < 0 || indexof(['New Zealand', 'South Africa'], datum.c) >= 0) && datum.ch < 0"
     }
    ],
    "mark": {

@@ -104,7 +104,8 @@
    },
    "mark": {
     "type": "rect",
-    "opacity": 1
+    "opacity": 1,
+    "clip": true
    },
    "encoding": {
     "x": {
@@ -179,7 +180,8 @@
     "fontSize": 10.5,
     "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
     "color": "#5c5c5c",
-    "limit": 120
+    "limit": 120,
+    "clip": true
    },
    "transform": [
     {
@@ -879,11 +881,24 @@
      }
     ]
    },
+   "params": [
+    {
+     "name": "zoom",
+     "select": {
+      "type": "interval",
+      "encodings": [
+       "x"
+      ]
+     },
+     "bind": "scales"
+    }
+   ],
    "mark": {
     "type": "line",
     "strokeWidth": 2.25,
     "color": "#225ea8",
-    "interpolate": "monotone"
+    "interpolate": "monotone",
+    "clip": true
    },
    "encoding": {
     "y": {
@@ -1608,7 +1623,8 @@
    ],
    "mark": {
     "type": "rule",
-    "strokeWidth": 1
+    "strokeWidth": 1,
+    "clip": true
    },
    "encoding": {
     "color": {
@@ -1695,7 +1711,8 @@
     "type": "point",
     "filled": true,
     "size": 70,
-    "strokeWidth": 2
+    "strokeWidth": 2,
+    "clip": true
    },
    "encoding": {
     "y": {
@@ -1770,7 +1787,8 @@
     "dy": -14,
     "fontSize": 12,
     "fontWeight": 600,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+    "clip": true
    },
    "encoding": {
     "y": {
@@ -1847,7 +1865,8 @@
     "dy": -10,
     "fontSize": 12,
     "fontWeight": 600,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+    "clip": true
    },
    "encoding": {
     "y": {
@@ -1924,7 +1943,8 @@
     "dy": 20,
     "fontSize": 12,
     "fontWeight": 600,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+    "clip": true
    },
    "encoding": {
     "y": {
@@ -1999,7 +2019,8 @@
     "dy": 16,
     "fontSize": 12,
     "fontWeight": 600,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+    "clip": true
    },
    "encoding": {
     "y": {

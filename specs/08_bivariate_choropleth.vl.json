@@ -36,6 +36,38 @@
    "numberFormat": ",.0f"
   }
  },
+ "params": [
+  {
+   "name": "hl",
+   "value": "",
+   "bind": {
+    "input": "select",
+    "options": [
+     "",
+     "Western Australia",
+     "Victoria",
+     "New South Wales",
+     "Australian Capital Territory",
+     "South Australia",
+     "Queensland",
+     "Northern Territory",
+     "Tasmania"
+    ],
+    "labels": [
+     "All states",
+     "Western Australia",
+     "Victoria",
+     "New South Wales",
+     "Australian Capital Territory",
+     "South Australia",
+     "Queensland",
+     "Northern Territory",
+     "Tasmania"
+    ],
+    "name": "Highlight a state "
+   }
+  }
+ ],
  "hconcat": [
   {
    "width": 660,
@@ -6373,14 +6405,124 @@
          "chg"
         ]
        }
+      },
+      {
+       "calculate": "['Low', 'Medium', 'High'][floor(datum.cls / 3)] + ' share, ' + ['low', 'medium', 'high'][datum.cls % 3] + ' growth'",
+       "as": "bivclass"
+      },
+      {
+       "lookup": "properties.STATE_NAME",
+       "from": {
+        "data": {
+         "values": [
+          {
+           "s_name": "Western Australia",
+           "s_share": 34.1,
+           "s_growth": 5.5,
+           "s_os": 938900,
+           "s_pop": 2749370,
+           "s_top": "England",
+           "s_topn": 211730
+          },
+          {
+           "s_name": "Victoria",
+           "s_share": 31.7,
+           "s_growth": 7.2,
+           "s_os": 2072570,
+           "s_pop": 6547820,
+           "s_top": "India",
+           "s_topn": 272250
+          },
+          {
+           "s_name": "New South Wales",
+           "s_share": 31,
+           "s_growth": 6.2,
+           "s_os": 2510260,
+           "s_pop": 8097060,
+           "s_top": "China",
+           "s_topn": 261330
+          },
+          {
+           "s_name": "Australian Capital Territory",
+           "s_share": 29.8,
+           "s_growth": 6.9,
+           "s_os": 134900,
+           "s_pop": 452510,
+           "s_top": "India",
+           "s_topn": 17510
+          },
+          {
+           "s_name": "South Australia",
+           "s_share": 25.1,
+           "s_growth": 3.9,
+           "s_os": 452410,
+           "s_pop": 1802600,
+           "s_top": "England",
+           "s_topn": 98770
+          },
+          {
+           "s_name": "Queensland",
+           "s_share": 24.2,
+           "s_growth": 6.2,
+           "s_os": 1263640,
+           "s_pop": 5215810,
+           "s_top": "New Zealand",
+           "s_topn": 229920
+          },
+          {
+           "s_name": "Northern Territory",
+           "s_share": 23.9,
+           "s_growth": 7.8,
+           "s_os": 59240,
+           "s_pop": 248150,
+           "s_top": "Philippines",
+           "s_topn": 7320
+          },
+          {
+           "s_name": "Tasmania",
+           "s_share": 16.3,
+           "s_growth": 5.5,
+           "s_os": 92320,
+           "s_pop": 567240,
+           "s_top": "England",
+           "s_topn": 20420
+          }
+         ]
+        },
+        "key": "s_name",
+        "fields": [
+         "s_name",
+         "s_share",
+         "s_growth",
+         "s_os",
+         "s_pop",
+         "s_top",
+         "s_topn"
+        ]
+       }
       }
      ],
      "mark": {
       "type": "geoshape",
       "stroke": "#ffffff",
-      "strokeWidth": 1.25
+      "strokeWidth": 1.25,
+      "cursor": "pointer"
      },
      "encoding": {
+      "opacity": {
+       "condition": [
+        {
+         "test": "!(hl == '' || datum.properties.STATE_NAME == hl)",
+         "value": 0.2
+        },
+        {
+         "param": "cell",
+         "empty": true,
+         "value": 1
+        }
+       ],
+       "value": 0.2
+      },
       "color": {
        "field": "cls",
        "type": "ordinal",
@@ -6412,21 +6554,73 @@
       },
       "tooltip": [
        {
-        "field": "properties.STATE_NAME",
+        "field": "bivclass",
+        "title": "Class"
+       },
+       {
+        "field": "s_name",
         "title": "State / territory"
        },
        {
-        "field": "share",
-        "title": "Born overseas 2021 (%)",
+        "field": "s_share",
+        "title": "Born overseas, 2021 (%)",
         "format": ".1f"
        },
        {
-        "field": "chg",
-        "title": "Change since 2001 (pts)",
+        "field": "s_os",
+        "title": "Overseas-born residents",
+        "format": ","
+       },
+       {
+        "field": "s_pop",
+        "title": "Total population, 2021",
+        "format": ","
+       },
+       {
+        "field": "s_top",
+        "title": "Largest overseas birthplace"
+       },
+       {
+        "field": "s_topn",
+        "title": "Residents born there",
+        "format": ","
+       },
+       {
+        "field": "s_growth",
+        "title": "Change in share since 2001 (pts)",
         "format": "+.1f"
        }
-      ]
-     }
+      ],
+      "stroke": {
+       "condition": {
+        "param": "hov18",
+        "empty": false,
+        "value": "#111111"
+       },
+       "value": "#ffffff"
+      },
+      "strokeWidth": {
+       "condition": {
+        "param": "hov18",
+        "empty": false,
+        "value": 2.5
+       },
+       "value": 1.25
+      }
+     },
+     "params": [
+      {
+       "name": "hov18",
+       "select": {
+        "type": "point",
+        "fields": [
+         "s_name"
+        ],
+        "on": "pointerover",
+        "clear": "pointerout"
+       }
+      }
+     ]
     },
     {
      "data": {
@@ -6886,10 +7080,24 @@
      }
     ]
    },
+   "params": [
+    {
+     "name": "cell",
+     "select": {
+      "type": "point",
+      "fields": [
+       "cls"
+      ],
+      "on": "pointerover",
+      "clear": "pointerout"
+     }
+    }
+   ],
    "mark": {
     "type": "rect",
     "stroke": "#ffffff",
-    "strokeWidth": 2
+    "strokeWidth": 2,
+    "cursor": "pointer"
    },
    "encoding": {
     "x": {

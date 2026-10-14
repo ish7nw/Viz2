@@ -66,7 +66,9 @@ a { color: var(--link); }
 .refs { padding-left: 0; list-style: none; font-size: 14px; }
 .refs li { padding-left: 24px; text-indent: -24px; margin-bottom: 6px; overflow-wrap: anywhere; }
 #vg-tooltip-element { font-family: var(--f-body) !important; font-size: 12px !important; background: #fff !important; color: var(--ink) !important; border: 1px solid var(--rule) !important; box-shadow: 0 1px 4px rgba(0,0,0,.15) !important; }
-#vg-tooltip-element td.key { color: var(--muted) !important; }
+#vg-tooltip-element { max-width: 420px !important; }
+#vg-tooltip-element td.key { color: var(--muted) !important; white-space: nowrap; text-align: left !important; padding-right: 10px !important; }
+#vg-tooltip-element td.value { white-space: nowrap; font-weight: 600; }
 /* "Oceanic Shimmer" gradient (21st.dev community gradients), applied to Figure 2 */
 .gradient {
   /* CSS approximation: the bitmap grain texture require canvas. Export an image for the exact result. */
@@ -85,6 +87,19 @@ a { color: var(--link); }
 #cV { position: relative; }
 #cV > svg { position: relative; z-index: 1; }
 .waited-overlay { position: absolute; z-index: 0; pointer-events: none; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+.btn { font: inherit; font-size: 14px; padding: 5px 12px; border: 1px solid #8a8a8a; border-radius: 4px; background: #fff; color: var(--ink); cursor: pointer; }
+.btn:hover { background: #f2f2f2; }
+.btn:focus-visible, select:focus-visible, .vega-bindings input:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.hint { font-size: 13px; color: var(--muted); }
+.hint-block { font-size: 14px; color: var(--muted); }
+select { font: inherit; font-size: 14px; padding: 3px 6px; }
+.vega-bindings:empty { display: none; }
+.vega-bindings { font-size: 14px; display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 8px 0 2px; }
+.vega-bind { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.vega-bind-name { font-weight: 600; }
+.vega-bind label { display: inline-flex; align-items: center; gap: 3px; margin-right: 8px; cursor: pointer; }
+.vega-bind input[type="range"] { width: min(320px, 60vw); }
+#cV .vega-bindings { color: #fff; padding: 0 14px 6px; position: relative; z-index: 2; }
 </style>
 
 <main>
@@ -98,28 +113,23 @@ a { color: var(--link); }
 <p>Figure 1 shows the overseas-born share of the population from the first country-of-birth records in 1891. Three phases stand out: a long decline from 1891 to 1947, through Federation, the Immigration Restriction Act, two world wars and the Depression; a steep rise after 1947 under the post-war migration program; and a second rise from 2000, interrupted briefly by the COVID-19 border closure in 2020–21.</p>
 <figure>
   <div class="chart" id="c1" role="img" aria-label="Line chart of the share of Australia's population born overseas, 1891 to 2025."></div>
-  <figcaption><b>Figure 1.</b> Share of Australia’s population born overseas, 1891–2025, with spot values at turning points. Shaded bands mark policy eras. Pre-1992 values are Census counts; later values are estimated resident population; 2025 is preliminary. Source: ABS (2026a).</figcaption>
+  <figcaption><b>Figure 1.</b> Share of Australia’s population born overseas, 1891–2025, with spot values at turning points. Shaded bands mark policy eras. Pre-1992 values are Census counts; later values are estimated resident population; 2025 is preliminary. <i>Drag the chart to pan and scroll to zoom into a period; double-click to reset. Hover for any year.</i> Source: ABS (2026a).</figcaption>
 </figure>
 
 <h2>2 Arrival</h2>
 <p>The First Fleet of eleven ships left Portsmouth on 13 May 1787 with more than 1,500 people and reached Botany Bay in January 1788, after stops at Tenerife, Rio de Janeiro and Cape Town (Figure 2). About 162,000 convicts were transported to Australia between 1788 and 1868.</p>
+<div class="ctl"><button type="button" id="playFleet" class="btn" aria-pressed="false">Play voyage</button><span class="hint">or drag the day slider under the map</span></div>
 <figure>
   <div class="chart gradient" id="cV" role="img" aria-label="World map tracing the First Fleet route from Portsmouth to Botany Bay."></div>
-  <figcaption><b>Figure 2.</b> Route of the First Fleet, May 1787 to January 1788 (route map). Countries where the fleet stopped on the way (Spain, for Tenerife; Brazil; South Africa) are filled with an animated gradient. Stop dates are given by month. The Southern Ocean leg is approximated through waypoints. Sources: State Library of NSW; National Museum of Australia.</figcaption>
+  <figcaption><b>Figure 2.</b> Route of the First Fleet, May 1787 to January 1788 (route map). Countries where the fleet stopped on the way (Spain, for Tenerife; Brazil; South Africa) are filled with an animated gradient. Stop dates are given by month. The Southern Ocean leg is approximated through waypoints. <i>Use the day slider or the play button to follow the fleet; ports turn orange once reached.</i> Sources: State Library of NSW; National Museum of Australia.</figcaption>
 </figure>
 
 <h2>3 Countries of origin</h2>
 <h3>3.1 Where residents were born</h3>
 <p>Figure 3 places the ten largest overseas birthplaces on a map centred on Sydney. Rings mark equal distance from Sydney every 2,500 km, so each country can be read against how far it is from Australia. New Zealand is the nearest large source at about 2,200 km. India and China lie at 9,000–10,000 km, and England lies beyond 15,000 km.</p>
-<fieldset class="ctl" id="yrWorld">
-  <legend>Year</legend>
-  <label><input type="radio" name="yrWorld" value="2015"> 2015</label>
-  <label><input type="radio" name="yrWorld" value="2020"> 2020</label>
-  <label><input type="radio" name="yrWorld" value="2025" checked> 2025</label>
-</fieldset>
 <figure>
   <div class="chart" id="c2" role="img" aria-label="Azimuthal equidistant world map centred on Sydney with proportional circles for the top ten countries of birth and rings every 2,500 km."></div>
-  <figcaption><b>Figure 3.</b> Residents born in the ten largest overseas birthplaces (proportional symbols), with lines of equal great-circle distance from Sydney every 2,500 km (contour lines). Azimuthal equidistant projection centred on Sydney. Colour shows region of birth. Source: ABS (2026a).</figcaption>
+  <figcaption><b>Figure 3.</b> Residents born in the ten largest overseas birthplaces (proportional symbols), with lines of equal great-circle distance from Sydney every 2,500 km (contour lines). Azimuthal equidistant projection centred on Sydney. Colour shows region of birth. <i>Choose a year below the map; click a region in the legend to isolate it (shift-click to add more).</i> Source: ABS (2026a).</figcaption>
   <details><summary>Show data</summary><div class="tbl" id="t2"></div></details>
 </figure>
 
@@ -127,30 +137,24 @@ a { color: var(--link); }
 <p>Figure 4 draws a line from each birthplace to Australia, with line width proportional to the number of residents in 2025. The three widest flows, from India, England and China, together account for 2.67 million people, about 30% of the overseas-born population.</p>
 <figure>
   <div class="chart" id="cF" role="img" aria-label="Flow map from the top ten countries of birth to Australia, line width proportional to residents in 2025."></div>
-  <figcaption><b>Figure 4.</b> Residents by country of birth, 2025, shown as flows to Australia (flow map). Lines are great-circle paths and do not represent travel routes. Source: ABS (2026a).</figcaption>
+  <figcaption><b>Figure 4.</b> Residents by country of birth, 2025, shown as flows to Australia (flow map). Lines are great-circle paths and do not represent travel routes. <i>Hover a line to isolate it.</i> Source: ABS (2026a).</figcaption>
 </figure>
 
 <h3>3.3 Change, 2015–2025</h3>
 <p>Between 2015 and 2025 the India-born population grew by 522,000, the largest increase of any country, followed by China (223,000), the Philippines (171,000) and Nepal (163,000). England is the only top-ten birthplace that declined, by about 36,000, reflecting the ageing of the post-war cohort (Figure 5).</p>
 <figure>
   <div class="chart" id="cS" role="img" aria-label="Spike map of change in residents by country of birth, 2015 to 2025."></div>
-  <figcaption><b>Figure 5.</b> Change in residents by country of birth, 2015–2025 (spike map). Spike height is proportional to the change; upward spikes show growth and downward spikes show decline. Source: ABS (2026a, 2026b).</figcaption>
+  <figcaption><b>Figure 5.</b> Change in residents by country of birth, 2015–2025 (spike map). Spike height is proportional to the change; upward spikes show growth and downward spikes show decline. <i>Switch the baseline year below the map.</i> Source: ABS (2026a, 2026b).</figcaption>
 </figure>
 
 <h2>4 Settlement</h2>
+<p class="hint-block">Figures 6 to 12 are linked. Click a state in any of them, or choose one here, to highlight it in all seven. Click it again, or click empty space, to clear.</p>
+<div class="ctl"><label for="hlState"><b>Highlight a state</b></label> <select id="hlState"><option value="">All states</option></select></div>
 <h3>4.1 Share born overseas by state</h3>
 <p>Western Australia has had the highest overseas-born share at every Census since 2001 (Figure 6). Tasmania has the lowest share but recorded the largest increase between 2016 and 2021, from 13.1% to 16.3%. Western Australia was the only jurisdiction where the share fell in that period, from 35.0% to 34.1%.</p>
-<fieldset class="ctl" id="yrState">
-  <legend>Census year</legend>
-  <label><input type="radio" name="yrState" value="2001"> 2001</label>
-  <label><input type="radio" name="yrState" value="2006"> 2006</label>
-  <label><input type="radio" name="yrState" value="2011"> 2011</label>
-  <label><input type="radio" name="yrState" value="2016"> 2016</label>
-  <label><input type="radio" name="yrState" value="2021" checked> 2021</label>
-</fieldset>
 <figure>
   <div class="chart" id="c3" role="img" aria-label="Choropleth map of Australian states shaded by the share of residents born overseas."></div>
-  <figcaption><b>Figure 6.</b> Share of residents born overseas by state and territory (choropleth). Colour scale fixed at 10–36% across years. Country of birth by state is published for Census years only. Source: ABS (2026a).</figcaption>
+  <figcaption><b>Figure 6.</b> Share of residents born overseas by state and territory (choropleth). Colour scale fixed at 10–36% across years. Country of birth by state is published for Census years only. <i>Drag the Census-year slider below the map.</i> Source: ABS (2026a).</figcaption>
   <details><summary>Show data</summary><div class="tbl" id="t3"></div></details>
 </figure>
 <figure>
@@ -162,14 +166,14 @@ a { color: var(--link); }
 <p>Figure 8 combines the 2021 share with its growth since 2001. Victoria is high on both measures. The Northern Territory has a below-average share but the largest growth, 7.8 percentage points. Western Australia started from a high base and grew more slowly.</p>
 <figure>
   <div class="chart" id="cB" role="img" aria-label="Bivariate choropleth of share born overseas in 2021 against growth since 2001."></div>
-  <figcaption><b>Figure 8.</b> Share born overseas in 2021 against change since 2001, in percentage points (bivariate choropleth, 3 × 3 classes). Share classes: below 24%, 24–30%, 30% and over. Growth classes: below 5.6, 5.6–7.0, above 7.0 points. Source: ABS (2026a).</figcaption>
+  <figcaption><b>Figure 8.</b> Share born overseas in 2021 against change since 2001, in percentage points (bivariate choropleth, 3 × 3 classes). Share classes: below 24%, 24–30%, 30% and over. Growth classes: below 5.6, 5.6–7.0, above 7.0 points. <i>Hover a cell of the colour key to show only the states in that class.</i> Source: ABS (2026a).</figcaption>
 </figure>
 
 <h3>4.3 Where overseas-born residents live</h3>
 <p>Figures 9 to 11 show the same 2021 totals in three ways. The dot density map shows concentration in the south-east. The cartogram resizes each state by its overseas-born population, and the pie charts compare overseas-born and Australian-born residents within each state.</p>
 <figure>
   <div class="chart" id="cD" role="img" aria-label="Dot density map with one dot per 10,000 overseas-born residents, 2021."></div>
-  <figcaption><b>Figure 9.</b> Overseas-born residents, 2021; one dot represents 10,000 people (dot density). Dots are placed at random within each state, so position within a state carries no meaning. Source: ABS (2026a).</figcaption>
+  <figcaption><b>Figure 9.</b> Overseas-born residents, 2021; one dot represents 10,000 people (dot density). Dots are placed at random within each state, so position within a state carries no meaning. <i>Change how many people one dot represents below the map.</i> Source: ABS (2026a).</figcaption>
 </figure>
 <figure>
   <div class="chart" id="cC" role="img" aria-label="Dorling cartogram of states as circles sized by overseas-born population and coloured by share."></div>
@@ -286,6 +290,67 @@ function config(t) {
 }
 const REG_DOMAIN = ["Asia", "Europe", "Oceania & Africa"];
 
+/* ---------- shared state for interaction ---------- */
+const state = { yrWorld: 2025, yrState: 2021, hl: "" };
+const HL = (expr) => `hl == '' || ${expr} == hl`;
+const TOTPOP_BY_NAME = { "New South Wales": 8097060, "Victoria": 6547820, "Queensland": 5215810, "South Australia": 1802600, "Western Australia": 2749370, "Tasmania": 567240, "Northern Territory": 248150, "Australian Capital Territory": 452510 };
+
+
+/* ---------- hover highlight + stats tooltip, shared by every map ---------- */
+const STATE_STATS = ST.map(([n, ab, lon, lat, sh, tot, top, topn]) => ({
+  s_name: n, s_share: sh[4], s_growth: +(sh[4] - sh[0]).toFixed(1), s_os: tot, s_pop: TOTPOP_BY_NAME[n], s_top: top, s_topn: topn
+}));
+const STATE_TT = [
+  { field: "s_name", title: "State / territory" },
+  { field: "s_share", title: "Born overseas, 2021 (%)", format: ".1f" },
+  { field: "s_os", title: "Overseas-born residents", format: "," },
+  { field: "s_pop", title: "Total population, 2021", format: "," },
+  { field: "s_top", title: "Largest overseas birthplace" },
+  { field: "s_topn", title: "Residents born there", format: "," },
+  { field: "s_growth", title: "Change in share since 2001 (pts)", format: "+.1f" }
+];
+let HOVER_N = 0;
+function hoverable(layer, t, keyField, extraTT, opt) {
+  opt = opt || {};
+  const pname = "hov" + (HOVER_N++);
+  const L = { ...layer };
+  L.transform = [...(layer.transform || []), { lookup: keyField, from: { data: { values: STATE_STATS }, key: "s_name", fields: Object.keys(STATE_STATS[0]) } }];
+  L.params = [...(layer.params || []), { name: pname, select: { type: "point", fields: ["s_name"], on: "pointerover", clear: "pointerout" } }];
+  L.mark = { ...layer.mark, cursor: "pointer" };
+  const baseStroke = layer.mark.stroke || t.surface, baseW = layer.mark.strokeWidth || 1;
+  L.encoding = { ...(layer.encoding || {}),
+    stroke: { condition: { param: pname, empty: false, value: opt.hoverStroke || "#111111" }, value: baseStroke },
+    strokeWidth: { condition: { param: pname, empty: false, value: opt.hoverWidth || 2.5 }, value: baseW },
+    tooltip: [...(extraTT || []), ...STATE_TT] };
+  return L;
+}
+const COUNTRY_NAME = { England: "United Kingdom" };
+const COUNTRY_STATS = COB.map(([c, lon, lat, km, a, b, d]) => ({
+  c_world: COUNTRY_NAME[c] || c, c_label: c === "England" ? "England (born in)" : c, c15: a, c20: b, c25: d, c_km: km,
+  c_chg: d - a, c_pct: Math.round((d / a - 1) * 100)
+}));
+function hoverCountry(layer, t, opt) {
+  opt = opt || {};
+  const pname = "hovc" + (HOVER_N++);
+  const L = { ...layer };
+  L.transform = [...(layer.transform || []),
+    { lookup: "properties.name", from: { data: { values: COUNTRY_STATS }, key: "c_world", fields: ["c_label", "c15", "c20", "c25", "c_km", "c_chg", "c_pct"] } },
+    { calculate: "datum.properties.name", as: "cty" },
+    { calculate: "datum.c_label == 'England (born in)' ? datum.properties.name + ' (figures for England)' : datum.properties.name", as: "ctyl" },
+    { calculate: "datum.properties.name == 'Australia' ? 'Destination' : isValid(datum.c25) ? format(datum.c25, ',') : 'Not in the top ten'", as: "t25" },
+    { calculate: "isValid(datum.c15) ? format(datum.c15, ',') : '–'", as: "t15" },
+    { calculate: "isValid(datum.c_chg) ? (datum.c_chg >= 0 ? '+' : '−') + format(abs(datum.c_chg), ',') + ' (' + (datum.c_pct >= 0 ? '+' : '') + datum.c_pct + '%)' : '–'", as: "tchg" },
+    { calculate: "isValid(datum.c_km) ? format(datum.c_km, ',') + ' km' : '–'", as: "tkm" }];
+  L.params = [...(layer.params || []), { name: pname, select: { type: "point", fields: ["cty"], on: "pointerover", clear: "pointerout" } }];
+  L.mark = { ...layer.mark, cursor: "pointer" };
+  const baseStroke = layer.mark.stroke || t.surface, baseW = layer.mark.strokeWidth || 0.5;
+  L.encoding = { ...(layer.encoding || {}),
+    stroke: { condition: { param: pname, empty: false, value: opt.hoverStroke || "#111111" }, value: baseStroke },
+    strokeWidth: { condition: { param: pname, empty: false, value: 1.75 }, value: baseW },
+    tooltip: [{ field: "ctyl", title: "Country" }, { field: "t25", title: "Australian residents born here, 2025" }, { field: "t15", title: "Australian residents born here, 2015" }, { field: "tchg", title: "Change 2015–2025" }, { field: "tkm", title: "Distance from Sydney" }] };
+  return L;
+}
+
 /* ---------- Plate 1: the one line ---------- */
 function spec1(t, w) {
   const narrow = w < 600;
@@ -295,32 +360,32 @@ function spec1(t, w) {
     config: config(t),
     encoding: { x: { field: "year", type: "quantitative", scale: { domain: [1888, 2028], nice: false }, axis: { format: "d", title: null, tickCount: 8, grid: false } } },
     layer: [
-      { data: { values: ERAS }, mark: { type: "rect", opacity: 1 },
+      { data: { values: ERAS }, mark: { type: "rect", opacity: 1, clip: true },
         encoding: { x: { field: "s", type: "quantitative" }, x2: { field: "e" }, y: { value: 0 }, y2: { value: narrow ? 280 : 340 },
           color: { condition: { test: "datum.i % 2 == 0", value: t.band }, value: t.surface } } },
-      { data: { values: ERAS }, mark: { type: "text", align: "left", baseline: "top", dx: 4, dy: 4, fontSize: 10.5, font: t.mono, color: t.muted, limit: 120 },
+      { data: { values: ERAS }, mark: { type: "text", align: "left", baseline: "top", dx: 4, dy: 4, fontSize: 10.5, font: t.mono, color: t.muted, limit: 120, clip: true },
         transform: [{ filter: narrow ? "false" : "datum.e - datum.s >= 15" }],
         encoding: { x: { field: "s", type: "quantitative" }, y: { value: 0 }, text: { field: "n" } } },
-      { data: { values: SERIES },
-        mark: { type: "line", strokeWidth: 2.25, color: t.line, interpolate: "monotone" },
+      { data: { values: SERIES }, params: [{ name: "zoom", select: { type: "interval", encodings: ["x"] }, bind: "scales" }],
+        mark: { type: "line", strokeWidth: 2.25, color: t.line, interpolate: "monotone", clip: true },
         encoding: { y: { field: "pct", type: "quantitative", scale: { domain: [0, 36] }, axis: { title: null, values: [0, 10, 20, 30], labelExpr: "datum.value + '%'", gridDash: [2, 3] } } } },
       { data: { values: SERIES }, params: [{ name: "hov", select: { type: "point", encodings: ["x"], nearest: true, on: "pointerover", clear: "pointerout" } }],
-        mark: { type: "rule", strokeWidth: 1 },
+        mark: { type: "rule", strokeWidth: 1, clip: true },
         encoding: { color: { value: t.muted }, opacity: { condition: { param: "hov", empty: false, value: 0.7 }, value: 0 },
           tooltip: [ { field: "year", title: "Year", format: "d" }, { field: "pct", title: "Born overseas (%)", format: ".1f" }, { field: "os", title: "Overseas-born (millions)", format: ".2f" } ] } },
-      { data: { values: narrow ? SPOTS_ALL.filter(d => !d.minor) : SPOTS_ALL }, mark: { type: "point", filled: true, size: 70, strokeWidth: 2 },
+      { data: { values: narrow ? SPOTS_ALL.filter(d => !d.minor) : SPOTS_ALL }, mark: { type: "point", filled: true, size: 70, strokeWidth: 2, clip: true },
         encoding: { y: { field: "pct", type: "quantitative" }, fill: { value: t.surface }, stroke: { value: t.line } } },
       { data: { values: narrow ? SPOTS_ALL.filter(d => !d.minor) : SPOTS_ALL }, transform: [{ filter: "datum.pos == 'above'" }],
-        mark: { type: "text", dy: -14, fontSize: 12, fontWeight: 600, font: t.mono },
+        mark: { type: "text", dy: -14, fontSize: 12, fontWeight: 600, font: t.mono, clip: true },
         encoding: { y: { field: "pct", type: "quantitative" }, text: { field: "t" }, color: { value: t.ink } } },
       { data: { values: narrow ? SPOTS_ALL.filter(d => !d.minor) : SPOTS_ALL }, transform: [{ filter: "datum.pos == 'left'" }],
-        mark: { type: "text", align: "right", dx: -10, dy: -10, fontSize: 12, fontWeight: 600, font: t.mono },
+        mark: { type: "text", align: "right", dx: -10, dy: -10, fontSize: 12, fontWeight: 600, font: t.mono, clip: true },
         encoding: { y: { field: "pct", type: "quantitative" }, text: { field: "t" }, color: { value: t.ink } } },
       { data: { values: narrow ? SPOTS_ALL.filter(d => !d.minor) : SPOTS_ALL }, transform: [{ filter: "datum.pos == 'belowleft'" }],
-        mark: { type: "text", align: "right", dx: -6, dy: 20, fontSize: 12, fontWeight: 600, font: t.mono },
+        mark: { type: "text", align: "right", dx: -6, dy: 20, fontSize: 12, fontWeight: 600, font: t.mono, clip: true },
         encoding: { y: { field: "pct", type: "quantitative" }, text: { field: "t" }, color: { value: t.ink } } },
       { data: { values: narrow ? SPOTS_ALL.filter(d => !d.minor) : SPOTS_ALL }, transform: [{ filter: "datum.pos == 'below'" }],
-        mark: { type: "text", dy: 16, fontSize: 12, fontWeight: 600, font: t.mono },
+        mark: { type: "text", dy: 16, fontSize: 12, fontWeight: 600, font: t.mono, clip: true },
         encoding: { y: { field: "pct", type: "quantitative" }, text: { field: "t" }, color: { value: t.ink } } }
     ]
   };
@@ -345,11 +410,11 @@ function spec2(t, yr, w) {
     $schema: "https://vega.github.io/schema/vega-lite/v5.json",
     width: "container", height: narrow ? Math.round(w + 90) : 680, autosize: { type: "fit-x", contains: "padding" },
     config: config(t),
-    params: [{ name: "yr", value: yr }],
+    params: [{ name: "yr", value: yr, bind: { input: "radio", options: [2015, 2020, 2025], name: "Year " } }],
     projection: proj,
     layer: [
       { data: { sphere: true }, mark: { type: "geoshape", fill: t.ocean, stroke: t.rule, strokeWidth: 1 } },
-      { data: { values: WORLD, format: { type: "topojson", feature: "countries" } }, mark: { type: "geoshape", fill: t.land, stroke: t.surface, strokeWidth: 0.5 } },
+      hoverCountry({ data: { values: WORLD, format: { type: "topojson", feature: "countries" } }, mark: { type: "geoshape", fill: t.land, stroke: t.surface, strokeWidth: 0.5 } }, t),
       { data: { values: RINGS.rings, format: { type: "json", property: "features" } }, mark: { type: "geoshape", filled: false, stroke: t.contour, strokeWidth: 1, strokeDash: [4, 3], strokeOpacity: 0.85 } },
       { data: { values: RINGS.ringLabels },
         mark: { type: "text", fontSize: 10.5, font: t.mono, fontWeight: 500, stroke: t.ocean, strokeWidth: 4, strokeJoin: "round" },
@@ -365,9 +430,11 @@ function spec2(t, yr, w) {
         encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" },
           longitude2: { field: "llon" }, latitude2: { field: "llat" }, color: { value: t.muted } } },
       { data: { values: COB_LONG }, transform: [{ filter: "datum.year == yr" }],
-        mark: { type: "circle", opacity: 0.82, stroke: t.surface, strokeWidth: 1.5 },
+        params: [{ name: "reg", select: { type: "point", fields: ["region"] }, bind: "legend" }],
+        mark: { type: "circle", stroke: t.surface, strokeWidth: 1.5, cursor: "pointer" },
         encoding: {
           longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" },
+          opacity: { condition: { param: "reg", value: 0.85 }, value: 0.1 },
           size: { field: "v", type: "quantitative", scale: sizeScale, legend: { title: "Residents born there", values: [100000, 500000, 1000000], format: narrow ? ".1s" : ",.0f", orient: "bottom", direction: "horizontal", symbolFillColor: t.muted, symbolOpacity: 0.35, symbolStrokeColor: t.muted } },
           color: { field: "region", type: "nominal", scale: colorScale, legend: { title: "Region of birth", orient: "bottom", direction: narrow ? "vertical" : "horizontal" } },
           order: { field: "v", sort: "descending" },
@@ -389,11 +456,11 @@ function spec2(t, yr, w) {
 const AUS_PROJ = { type: "conicEqualArea", parallels: [-18, -36], rotate: [-134, 0] };
 function spec3(t, yr, w) {
   const narrow = w < 600;
-  return {
+  const out = {
     $schema: "https://vega.github.io/schema/vega-lite/v5.json",
     width: "container", height: narrow ? Math.round(w * 0.8 + 60) : 520, autosize: { type: "fit-x", contains: "padding" },
     config: config(t),
-    params: [{ name: "yr", value: yr }],
+    params: [{ name: "yr", value: yr, bind: { input: "range", min: 2001, max: 2021, step: 5, name: "Census year " } }, { name: "hl", value: state.hl }],
     projection: AUS_PROJ,
     layer: [
       { data: { values: STATES, format: { type: "topojson", feature: "states" } },
@@ -403,9 +470,9 @@ function spec3(t, yr, w) {
         ],
         mark: { type: "geoshape", stroke: t.surface, strokeWidth: 1.25 },
         encoding: {
+          opacity: { condition: { test: HL("datum.properties.STATE_NAME"), value: 1 }, value: 0.25 },
           color: { field: "pct", type: "quantitative", scale: { domain: [10, 36], scheme: "yellowgreenblue" },
-            legend: { title: "Born overseas (%)", orient: "bottom", direction: "horizontal", gradientLength: narrow ? 180 : 240, values: [10, 15, 20, 25, 30, 35], labelExpr: "datum.value + '%'" } },
-          tooltip: [ { field: "properties.STATE_NAME", title: "State / territory" }, { field: "pct", title: "Born overseas (%)", format: ".1f" } ]
+            legend: { title: "Born overseas (%)", orient: "bottom", direction: "horizontal", gradientLength: narrow ? 180 : 240, values: [10, 15, 20, 25, 30, 35], labelExpr: "datum.value + '%'" } }
         } },
       { data: { values: [{ lon: 149.05, lat: -35.45, llon: 152.6, llat: -37.3 }] }, mark: { type: "rule", strokeWidth: 0.75 },
         encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, longitude2: { field: "llon" }, latitude2: { field: "llat" }, color: { value: t.muted } } },
@@ -421,7 +488,8 @@ function spec3(t, yr, w) {
         mark: { type: "text", fontSize: narrow ? 11 : 13, lineHeight: narrow ? 13 : 15, font: t.mono, fontWeight: 500, baseline: "middle" },
         encoding: {
           longitude: { field: "x", type: "quantitative" }, latitude: { field: "y", type: "quantitative" }, text: { field: "lbl" },
-          color: { condition: { test: "datum.pct >= 27", value: t.onDark }, value: t.ink }
+          opacity: { condition: { test: HL("datum.name"), value: 1 }, value: 0.35 },
+          color: { condition: { test: "datum.pct >= 27 && (" + HL("datum.name") + ")", value: t.onDark }, value: t.ink }
         } },
       { data: { values: ST_LABELS },
         transform: [
@@ -437,6 +505,9 @@ function spec3(t, yr, w) {
         mark: { type: "geoshape", opacity: 0, filled: false, strokeOpacity: 0 } }
     ]
   };
+  out.layer[0].transform.push({ calculate: "yr", as: "census" });
+  out.layer[0] = hoverable(out.layer[0], t, "properties.STATE_NAME", [{ field: "census", title: "Census year" }, { field: "pct", title: "Born overseas that year (%)", format: ".1f" }]);
+  return out;
 }
 
 /* ---------- Plate 4: nested proportional symbols ---------- */
@@ -453,22 +524,23 @@ function spec4(t, w) {
       text: { field: "lines" }, color: { value: t.ink } }
   });
   ST_LABELS.forEach(d => { d.lines = [d.l1, d.l2]; });
-  return {
+  const out = {
     $schema: "https://vega.github.io/schema/vega-lite/v5.json",
     width: "container", height: narrow ? Math.round(w * 0.95 + 110) : 560, autosize: { type: "fit-x", contains: "padding" },
     config: config(t),
+    params: [{ name: "hl", value: state.hl }],
     projection: AUS_PROJ,
     layer: [
-      { data: { values: STATES, format: { type: "topojson", feature: "states" } }, mark: { type: "geoshape", fill: t.land, stroke: t.surface, strokeWidth: 1.25 } },
+      { data: { values: STATES, format: { type: "topojson", feature: "states" } }, mark: { type: "geoshape", fill: t.land, stroke: t.surface, strokeWidth: 1.25, cursor: "pointer" } },
       { data: { values: ST_LABELS }, mark: { type: "rule", strokeWidth: 0.75 }, transform: [{ filter: narrow ? "false" : "true" }],
         encoding: { ...loc, longitude2: { field: "clon" }, latitude2: { field: "clat" }, color: { value: t.muted } } },
-      { data: { values: ST_LABELS }, mark: { type: "circle", filled: false, strokeWidth: 1.5 },
-        encoding: { ...loc, size: { field: "tot", type: "quantitative", scale: size,
+      { data: { values: ST_LABELS }, mark: { type: "circle", filled: false, strokeWidth: 1.5, cursor: "pointer" },
+        encoding: { ...loc, opacity: { condition: { test: HL("datum.name"), value: 1 }, value: 0.2 }, size: { field: "tot", type: "quantitative", scale: size,
             legend: { title: "Born overseas", values: [100000, 1000000, 2500000], format: narrow ? ".2s" : ",.0f", orient: "bottom", direction: "horizontal", symbolStrokeColor: t.ink, symbolFillColor: "transparent", symbolStrokeWidth: 1.25 } },
           color: { value: t.ink }, order: { field: "tot", sort: "descending" },
           tooltip: [ { field: "name", title: "State / territory" }, { field: "tot", title: "Born overseas", format: "," }, { field: "top", title: "Top country of birth" }, { field: "topn", title: "Residents born there", format: "," } ] } },
-      { data: { values: ST_LABELS }, mark: { type: "circle", opacity: 0.9, stroke: t.surface, strokeWidth: 1 },
-        encoding: { ...loc, size: { field: "topn", type: "quantitative", scale: size, legend: null },
+      { data: { values: ST_LABELS }, mark: { type: "circle", stroke: t.surface, strokeWidth: 1, cursor: "pointer" },
+        encoding: { ...loc, opacity: { condition: { test: HL("datum.name"), value: 0.9 }, value: 0.15 }, size: { field: "topn", type: "quantitative", scale: size, legend: null },
           color: { field: "topRegion", type: "nominal", scale: colorScale, legend: { title: "Top country’s region", orient: "bottom", direction: "vertical" } },
           tooltip: [ { field: "name", title: "State / territory" }, { field: "top", title: "Top country of birth" }, { field: "topn", title: "Residents born there", format: "," } ] } },
       callout("r"), callout("l"),
@@ -479,6 +551,10 @@ function spec4(t, w) {
         mark: { type: "geoshape", opacity: 0, filled: false, strokeOpacity: 0 } }
     ]
   };
+  out.layer[0] = hoverable(out.layer[0], t, "properties.STATE_NAME");
+  out.layer[2] = { ...out.layer[2], transform: [{ lookup: "name", from: { data: { values: STATE_STATS }, key: "s_name", fields: Object.keys(STATE_STATS[0]) } }], encoding: { ...out.layer[2].encoding, tooltip: STATE_TT } };
+  out.layer[3] = { ...out.layer[3], transform: [{ lookup: "name", from: { data: { values: STATE_STATS }, key: "s_name", fields: Object.keys(STATE_STATS[0]) } }], encoding: { ...out.layer[3].encoding, tooltip: STATE_TT } };
+  return out;
 }
 
 /* ---------- extra data ---------- */
@@ -486,7 +562,7 @@ const EXTRA = {"dots":[[149.16,-36.63,"NSW"],[147.75,-34.02,"NSW"],[141.86,-32.7
 const WORLD_PROJ = { type: "equalEarth", rotate: [-75, 0] };
 const extent = (pts) => ({ data: { values: [{ type: "Feature", properties: {}, geometry: { type: "MultiPoint", coordinates: pts } }] }, mark: { type: "geoshape", opacity: 0, filled: false, strokeOpacity: 0 } });
 const worldBase = (t) => [
-  { data: { values: WORLD, format: { type: "topojson", feature: "countries" } }, mark: { type: "geoshape", fill: t.land, stroke: t.surface, strokeWidth: 0.5, clip: true } }
+  hoverCountry({ data: { values: WORLD, format: { type: "topojson", feature: "countries" } }, mark: { type: "geoshape", fill: t.land, stroke: t.surface, strokeWidth: 0.5, clip: true } }, t)
 ];
 const ausBase = (t, fill) => ({ data: { values: STATES, format: { type: "topojson", feature: "states" } }, mark: { type: "geoshape", fill: fill || t.land, stroke: t.surface, strokeWidth: 1.25 } });
 const SYD = { lon: 151.21, lat: -33.87 };
@@ -502,6 +578,37 @@ const FLEET_STOPS = [
   { n: "Botany Bay", d: "18–20 Jan 1788", lon: 151.2, lat: -33.98, side: "r" }
 ];
 const FLEET_PATH = [[-1.09, 50.8], [-9, 44], [-16.25, 28.47], [-24, 8], [-34, -8], [-43.2, -22.9], [-15, -32], [18.42, -33.92], [50, -40], [100, -41.5], [140, -44.5], [147.5, -44.3], [151.2, -33.98]];
+// day of voyage (0 = 13 May 1787) when the fleet reached and left each stop; FLEET_PATH index of each stop
+const FLEET_SCHEDULE = [
+  { idx: 0, arrive: 0, depart: 0 },
+  { idx: 2, arrive: 21, depart: 28 },
+  { idx: 5, arrive: 84, depart: 114 },
+  { idx: 7, arrive: 153, depart: 183 },
+  { idx: 12, arrive: 250, depart: 250 }
+];
+FLEET_STOPS.forEach((st, i) => { st.arrive = FLEET_SCHEDULE[i].arrive; });
+function gcInterp(a, b, f) {
+  const r = Math.PI / 180, [l1, p1] = [a[0] * r, a[1] * r], [l2, p2] = [b[0] * r, b[1] * r];
+  const d = 2 * Math.asin(Math.sqrt(Math.sin((p2 - p1) / 2) ** 2 + Math.cos(p1) * Math.cos(p2) * Math.sin((l2 - l1) / 2) ** 2));
+  if (d === 0) return [a[0], a[1], 0];
+  const A = Math.sin((1 - f) * d) / Math.sin(d), B = Math.sin(f * d) / Math.sin(d);
+  const x = A * Math.cos(p1) * Math.cos(l1) + B * Math.cos(p2) * Math.cos(l2), y = A * Math.cos(p1) * Math.sin(l1) + B * Math.cos(p2) * Math.sin(l2), z = A * Math.sin(p1) + B * Math.sin(p2);
+  return [Math.atan2(y, x) / r, Math.atan2(z, Math.hypot(x, y)) / r, d];
+}
+const FLEET_TRACK = (() => {
+  const out = [];
+  for (let s = 0; s < FLEET_SCHEDULE.length - 1; s++) {
+    const from = FLEET_SCHEDULE[s], to = FLEET_SCHEDULE[s + 1];
+    const pts = [];
+    for (let i = from.idx; i < to.idx; i++) for (let k = 0; k < 24; k++) pts.push(gcInterp(FLEET_PATH[i], FLEET_PATH[i + 1], k / 24));
+    pts.push([...FLEET_PATH[to.idx], 0]);
+    const seg = [0]; for (let i = 1; i < pts.length; i++) seg.push(seg[i - 1] + gcInterp(pts[i - 1], pts[i], 0)[2]);
+    const total = seg[seg.length - 1];
+    pts.forEach((p, i) => out.push({ lon: p[0], lat: p[1], day: from.depart + (to.arrive - from.depart) * seg[i] / total }));
+    out.push({ lon: FLEET_PATH[to.idx][0], lat: FLEET_PATH[to.idx][1], day: to.depart });
+  }
+  return out.map((p, i) => ({ ...p, seq: i }));
+})();
 let WAITED_FILL_OPACITY = 0;
 function specVoyage(t, w) {
   const narrow = w < 600;
@@ -525,18 +632,42 @@ function specVoyage(t, w) {
       mark: m, encoding: { ...loc, text: { field: "l" }, color: { value: "#EAF7FB" } } };
   };
   const route = { data: { values: [{ type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: FLEET_PATH } }] } };
+  s.params = [{ name: "day", value: state.day, bind: { input: "range", min: 0, max: 250, step: 1, name: "Day of voyage " } }];
+  const trackLoc = { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" } };
+  const shipLabel = (halo) => {
+    const m = { type: "text", align: "left", dx: 12, dy: -12, fontSize: 12, fontWeight: 700, font: t.body };
+    if (halo) Object.assign(m, { stroke: HALO, strokeWidth: 3.5, strokeJoin: "round", strokeOpacity: 0.85 });
+    return { data: { values: FLEET_TRACK }, transform: [{ filter: "datum.day <= day" }, { aggregate: [{ op: "argmax", field: "day", as: "cur" }] },
+        { calculate: "datum.cur.lon", as: "lon" }, { calculate: "datum.cur.lat", as: "lat" },
+        { calculate: "'Day ' + day + ' · ' + timeFormat(datetime(1787, 4, 13 + day), '%-d %b %Y')", as: "l" }],
+      mark: m, encoding: { ...trackLoc, text: { field: "l" }, color: { value: "#FFE8A3" } } };
+  };
   s.layer = [
-    { data: { values: WORLD, format: { type: "topojson", feature: "countries" } },
+    hoverCountry({ data: { values: WORLD, format: { type: "topojson", feature: "countries" } },
       transform: [{ filter: "indexof(['Spain', 'Brazil', 'South Africa'], datum.properties.name) < 0" }],
-      mark: { type: "geoshape", fill: "#EFE6D2", fillOpacity: 0.92, stroke: "#123A6B", strokeOpacity: 0.35, strokeWidth: 0.5, clip: true } },
+      mark: { type: "geoshape", fill: "#EFE6D2", fillOpacity: 0.92, stroke: "#123A6B", strokeOpacity: 0.35, strokeWidth: 0.5, clip: true } }, t, { hoverStroke: "#123A6B" }),
     { name: "waited", data: { values: WORLD, format: { type: "topojson", feature: "countries" } },
-      transform: [{ filter: "indexof(['Spain', 'Brazil', 'South Africa'], datum.properties.name) >= 0" }],
-      mark: { type: "geoshape", fill: "#387A38", fillOpacity: WAITED_FILL_OPACITY, stroke: "#123A6B", strokeOpacity: 0.5, strokeWidth: 0.6, clip: true },
-      encoding: { tooltip: [{ field: "properties.name", title: "Fleet stopped in" }] } },
-    { ...route, mark: { type: "geoshape", filled: false, stroke: "#FFFFFF", strokeOpacity: 0.55, strokeWidth: 5, clip: true } },
-    { ...route, mark: { type: "geoshape", filled: false, stroke: "#E8590C", strokeWidth: 2.5, strokeDash: [6, 4], clip: true } },
+      transform: [{ filter: "indexof(['Spain', 'Brazil', 'South Africa'], datum.properties.name) >= 0" }, { calculate: "datum.properties.name", as: "cty" },
+        { calculate: "{ 'Spain': 'Santa Cruz de Tenerife', 'Brazil': 'Rio de Janeiro', 'South Africa': 'Cape Town' }[datum.cty]", as: "port" },
+        { calculate: "{ 'Spain': '3–10 June 1787 (7 days)', 'Brazil': '5 Aug – 4 Sep 1787 (30 days)', 'South Africa': '13 Oct – 12 Nov 1787 (30 days)' }[datum.cty]", as: "when" }],
+      mark: { type: "geoshape", fill: "#387A38", cursor: "pointer", fillOpacity: WAITED_FILL_OPACITY, stroke: "#123A6B", strokeOpacity: 0.5, strokeWidth: 0.6, clip: true },
+      params: [{ name: "hovw", select: { type: "point", fields: ["cty"], on: "pointerover", clear: "pointerout" } }],
+      encoding: { strokeWidth: { condition: { param: "hovw", empty: false, value: 2 }, value: 0.6 }, strokeOpacity: { condition: { param: "hovw", empty: false, value: 1 }, value: 0.5 },
+        tooltip: [{ field: "cty", title: "Fleet stopped in" }, { field: "port", title: "Port" }, { field: "when", title: "Anchored" }] } },
+    { ...route, mark: { type: "geoshape", filled: false, stroke: "#FFFFFF", strokeOpacity: 0.35, strokeWidth: 2, strokeDash: [3, 4], clip: true } },
+    { data: { values: FLEET_TRACK }, transform: [{ filter: "datum.day <= day" }],
+      mark: { type: "line", stroke: "#FFFFFF", strokeOpacity: 0.6, strokeWidth: 5, strokeCap: "round", clip: true },
+      encoding: { ...trackLoc, order: { field: "seq", type: "quantitative" } } },
+    { data: { values: FLEET_TRACK }, transform: [{ filter: "datum.day <= day" }],
+      mark: { type: "line", stroke: "#E8590C", strokeWidth: 2.75, strokeDash: [6, 4], clip: true },
+      encoding: { ...trackLoc, order: { field: "seq", type: "quantitative" } } },
     { data: { values: FLEET_STOPS }, mark: { type: "point", filled: true, size: 70, stroke: "#FFFFFF", strokeWidth: 2 },
-      encoding: { ...loc, color: { value: "#123A6B" }, tooltip: [{ field: "n", title: "Stop" }, { field: "d", title: "When" }] } },
+      encoding: { ...loc, color: { condition: { test: "datum.arrive <= day", value: "#E8590C" }, value: "#123A6B" }, tooltip: [{ field: "n", title: "Stop" }, { field: "d", title: "When" }] } },
+    { data: { values: FLEET_TRACK }, transform: [{ filter: "datum.day <= day" }, { aggregate: [{ op: "argmax", field: "day", as: "cur" }] },
+        { calculate: "datum.cur.lon", as: "lon" }, { calculate: "datum.cur.lat", as: "lat" }],
+      mark: { type: "point", shape: "triangle-up", filled: true, size: 160, stroke: HALO, strokeWidth: 1.5 },
+      encoding: { ...trackLoc, color: { value: "#FFE8A3" } } },
+    shipLabel(true), shipLabel(),
     txt("r", true), txt("r"), txt("l", true), txt("l"), txt("b", true), txt("b"),
     note(true), note(),
     extent([[-55, 58], [165, 58], [165, -55], [-55, -55]])
@@ -556,8 +687,10 @@ function specFlow(t, w) {
     encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, text: { field: "lbl" }, color: { value: t.ink } } });
   s.layer = [
     ...worldBase(t),
-    { data: { values: flows }, mark: { type: "geoshape", filled: false, strokeCap: "round", opacity: 0.75, clip: true },
-      encoding: { strokeWidth: { field: "properties.v", type: "quantitative", scale: { domain: [0, 1000000], range: [0.5, narrow ? 9 : 14] }, legend: { title: narrow ? "Residents (2025)" : "Residents born there (2025)", values: narrow ? [250000, 1000000] : [200000, 500000, 1000000], format: narrow ? ".2s" : ",.0f", orient: "bottom", direction: narrow ? "vertical" : "horizontal", symbolType: "stroke", symbolStrokeColor: t.muted } },
+    { data: { values: flows }, transform: [{ calculate: "datum.properties.c", as: "c" }],
+      params: [{ name: "hf", select: { type: "point", fields: ["c"], on: "pointerover", clear: "pointerout" } }],
+      mark: { type: "geoshape", filled: false, strokeCap: "round", clip: true, cursor: "pointer" },
+      encoding: { opacity: { condition: { param: "hf", empty: true, value: 0.8 }, value: 0.12 }, strokeWidth: { field: "properties.v", type: "quantitative", scale: { domain: [0, 1000000], range: [0.5, narrow ? 9 : 14] }, legend: { title: narrow ? "Residents (2025)" : "Residents born there (2025)", values: narrow ? [250000, 1000000] : [200000, 500000, 1000000], format: narrow ? ".2s" : ",.0f", orient: "bottom", direction: narrow ? "vertical" : "horizontal", symbolType: "stroke", symbolStrokeColor: t.muted } },
         stroke: { field: "properties.region", type: "nominal", scale: { domain: REG_DOMAIN, range: [t.s1, t.s2, t.s3] }, legend: { title: "Region of birth", orient: "bottom", direction: narrow ? "vertical" : "horizontal", symbolType: "stroke", symbolStrokeWidth: 4 } },
         order: { field: "properties.v", sort: "descending" },
         tooltip: [{ field: "properties.c", title: "Country of birth" }, { field: "properties.v", title: "Residents (2025)", format: "," }, { field: "properties.km", title: "Distance (km)", format: "," }] } },
@@ -578,22 +711,31 @@ function specSpike(t, w) {
   const narrow = w < 600;
   const s = base(t, w, narrow ? Math.round(w * 0.85) : 520, true);
   s.projection = WORLD_PROJ;
+  s.params = [{ name: "base", value: 2015, bind: { input: "radio", options: [2015, 2020], labels: ["2015", "2020"], name: "Change since " } }];
   const K = 40 / 522000;
-  const sp = COB.map(([c, lon, lat, km, a, b, d]) => { const ch = d - a; return { c, lon, lat, ch, top: lat + ch * K, pos: ch >= 0 ? "Grew" : "Shrank", lbl: c + " " + (ch >= 0 ? "+" : "−") + Math.round(Math.abs(ch) / 1000) + "k", show: narrow ? ["India", "China", "England"].includes(c) : (Math.abs(ch) >= 150000 || ch < 0 || ["New Zealand", "South Africa"].includes(c)) }; });
+  const sp = COB.map(([c, lon, lat, km, a, b, d]) => ({ c, lon, lat, a, b, d }));
+  const showExpr = narrow ? "indexof(['India', 'China', 'England'], datum.c) >= 0" : "abs(datum.ch) >= 150000 || datum.ch < 0 || indexof(['New Zealand', 'South Africa'], datum.c) >= 0";
+  const tf = [
+    { calculate: "datum.d - (base == 2015 ? datum.a : datum.b)", as: "ch" },
+    { calculate: `datum.lat + datum.ch * ${K}`, as: "top" },
+    { calculate: "datum.ch >= 0 ? 'Grew' : 'Shrank'", as: "pos" },
+    { calculate: "datum.c + ' ' + (datum.ch >= 0 ? '+' : '−') + format(abs(datum.ch) / 1000, ',.0f') + 'k'", as: "lbl" }
+  ];
+  const loc = { longitude: { field: "lon", type: "quantitative" } };
   s.layer = [
     ...worldBase(t),
-    { data: { values: sp }, mark: { type: "rule", strokeWidth: narrow ? 3 : 4, strokeCap: "butt" },
-      encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, latitude2: { field: "top" }, longitude2: { field: "lon" },
-        color: { field: "pos", type: "nominal", scale: { domain: ["Grew", "Shrank"], range: [t.s1, t.s2] }, legend: { title: "Change 2015–2025", orient: "bottom" } },
-        tooltip: [{ field: "c", title: "Country of birth" }, { field: "ch", title: "Change 2015–25 (people)", format: "+," }] } },
+    { data: { values: sp }, transform: tf, mark: { type: "rule", strokeWidth: narrow ? 3 : 4, strokeCap: "butt" },
+      encoding: { ...loc, latitude: { field: "lat", type: "quantitative" }, latitude2: { field: "top" }, longitude2: { field: "lon" },
+        color: { field: "pos", type: "nominal", scale: { domain: ["Grew", "Shrank"], range: [t.s1, t.s2] }, legend: { title: "Change to 2025", orient: "bottom" } },
+        tooltip: [{ field: "c", title: "Country of birth" }, { field: "ch", title: "Change (people)", format: "+," }, { field: "d", title: "Residents in 2025", format: "," }] } },
     { data: { values: sp }, mark: { type: "circle", size: 18 },
-      encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, color: { value: t.ink } } },
-    { data: { values: sp }, transform: [{ filter: "datum.show && datum.ch >= 0" }],
+      encoding: { ...loc, latitude: { field: "lat", type: "quantitative" }, color: { value: t.ink } } },
+    { data: { values: sp }, transform: [...tf, { filter: `(${showExpr}) && datum.ch >= 0` }],
       mark: { type: "text", dy: -7, fontSize: narrow ? 10 : 11.5, font: t.body, fontWeight: 500, baseline: "bottom" },
-      encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "top", type: "quantitative" }, text: { field: "lbl" }, color: { value: t.ink } } },
-    { data: { values: sp }, transform: [{ filter: "datum.show && datum.ch < 0" }],
+      encoding: { ...loc, latitude: { field: "top", type: "quantitative" }, text: { field: "lbl" }, color: { value: t.ink } } },
+    { data: { values: sp }, transform: [...tf, { filter: `(${showExpr}) && datum.ch < 0` }],
       mark: { type: "text", dy: 8, fontSize: narrow ? 10 : 11.5, font: t.body, fontWeight: 500, baseline: "top" },
-      encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "top", type: "quantitative" }, text: { field: "lbl" }, color: { value: t.ink } } },
+      encoding: { ...loc, latitude: { field: "top", type: "quantitative" }, text: { field: "lbl" }, color: { value: t.ink } } },
     extent([[-15, 66], [178, 66], [178, -46], [-15, -46]])
   ];
   return s;
@@ -604,16 +746,19 @@ function specSmall(t, w) {
   const narrow = w < 600;
   const cols = narrow ? 2 : 5;
   const cw = Math.floor((w - (cols - 1) * 10 - 8) / cols);
-  return {
+  const out = {
     $schema: "https://vega.github.io/schema/vega-lite/v5.json", config: { ...config(t), facet: { spacing: 10 }, header: { labelFont: t.mono, labelFontSize: 12, labelColor: t.ink, title: null } },
+    params: [{ name: "hl", value: state.hl }],
     data: { values: SHARE },
     transform: [{ lookup: "name", from: { data: { values: STATES, format: { type: "topojson", feature: "states" } }, key: "properties.STATE_NAME" }, as: "geo" }],
     facet: { field: "year", type: "ordinal", header: { title: null, labelOrient: "top" } }, columns: cols,
-    spec: { width: cw, height: Math.round(cw * 0.85), projection: AUS_PROJ, mark: { type: "geoshape", stroke: t.surface, strokeWidth: 0.75 },
-      encoding: { shape: { field: "geo", type: "geojson" },
+    spec: { width: cw, height: Math.round(cw * 0.85), projection: AUS_PROJ, mark: { type: "geoshape", stroke: t.surface, strokeWidth: 0.75, cursor: "pointer" },
+      encoding: { shape: { field: "geo", type: "geojson" }, opacity: { condition: { test: HL("datum.name"), value: 1 }, value: 0.25 },
         color: { field: "pct", type: "quantitative", scale: { domain: [10, 36], scheme: "yellowgreenblue" }, legend: { title: "Born overseas (%)", orient: "bottom", direction: "horizontal", gradientLength: 200, values: [10, 20, 30], labelExpr: "datum.value + '%'" } },
         tooltip: [{ field: "name", title: "State / territory" }, { field: "year", title: "Census" }, { field: "pct", title: "Born overseas (%)", format: ".1f" }] } }
   };
+  out.spec = hoverable({ ...out.spec, transform: [] }, t, "name", [{ field: "year", title: "Census year" }, { field: "pct", title: "Born overseas that year (%)", format: ".1f" }]);
+  return out;
 }
 
 /* ---------- Bivariate choropleth ---------- */
@@ -631,8 +776,9 @@ function specBiv(t, w) {
     layer: [
       { data: { values: STATES, format: { type: "topojson", feature: "states" } },
         transform: [{ lookup: "properties.STATE_NAME", from: { data: { values: BIV }, key: "name", fields: ["cls", "share", "chg"] } }],
-        mark: { type: "geoshape", stroke: t.surface, strokeWidth: 1.25 },
-        encoding: { color: { field: "cls", type: "ordinal", scale: { domain: [0, 1, 2, 3, 4, 5, 6, 7, 8], range: BIV_COLORS }, legend: null },
+        mark: { type: "geoshape", stroke: t.surface, strokeWidth: 1.25, cursor: "pointer" },
+        encoding: { opacity: { condition: [{ test: "!(" + HL("datum.properties.STATE_NAME") + ")", value: 0.2 }, { param: "cell", empty: true, value: 1 }], value: 0.2 },
+          color: { field: "cls", type: "ordinal", scale: { domain: [0, 1, 2, 3, 4, 5, 6, 7, 8], range: BIV_COLORS }, legend: null },
           tooltip: [{ field: "properties.STATE_NAME", title: "State / territory" }, { field: "share", title: "Born overseas 2021 (%)", format: ".1f" }, { field: "chg", title: "Change since 2001 (pts)", format: "+.1f" }] } },
       { data: { values: BIV }, mark: { type: "text", fontSize: narrow ? 9.5 : 11, lineHeight: 13, font: t.mono, fontWeight: 600, baseline: "middle" },
         transform: [{ filter: "datum.abbr != 'ACT'" }],
@@ -645,16 +791,19 @@ function specBiv(t, w) {
       extent([[112, -10], [162, -10], [162, -44], [112, -44]])
     ]
   };
+  map.layer[0].transform.push({ calculate: "['Low', 'Medium', 'High'][floor(datum.cls / 3)] + ' share, ' + ['low', 'medium', 'high'][datum.cls % 3] + ' growth'", as: "bivclass" });
+  map.layer[0] = hoverable(map.layer[0], t, "properties.STATE_NAME", [{ field: "bivclass", title: "Class" }]);
   const cells = []; for (let a = 0; a < 3; a++) for (let b = 0; b < 3; b++) cells.push({ a, b, cls: a * 3 + b });
   const legend = {
     width: 96, height: 96, data: { values: cells },
-    mark: { type: "rect", stroke: t.surface, strokeWidth: 2 },
+    params: [{ name: "cell", select: { type: "point", fields: ["cls"], on: "pointerover", clear: "pointerout" } }],
+    mark: { type: "rect", stroke: t.surface, strokeWidth: 2, cursor: "pointer" },
     encoding: {
       x: { field: "b", type: "ordinal", axis: { title: "Growth 2001–21 →", labelExpr: "['<5.6','5.6–7','>7'][datum.value]", labelAngle: 0, domain: false, ticks: false, titleFontSize: 11, labelFontSize: 10 } },
       y: { field: "a", type: "ordinal", sort: "descending", axis: { title: "Share 2021 →", labelExpr: "['<24%','24–30%','≥30%'][datum.value]", domain: false, ticks: false, titleFontSize: 11, labelFontSize: 10 } },
       color: { field: "cls", type: "ordinal", scale: { domain: [0, 1, 2, 3, 4, 5, 6, 7, 8], range: BIV_COLORS }, legend: null } }
   };
-  return { $schema: "https://vega.github.io/schema/vega-lite/v5.json", config: config(t), [narrow ? "vconcat" : "hconcat"]: [map, legend], spacing: 24, resolve: { scale: { color: "independent" } } };
+  return { $schema: "https://vega.github.io/schema/vega-lite/v5.json", config: config(t), params: [{ name: "hl", value: state.hl }], [narrow ? "vconcat" : "hconcat"]: [map, legend], spacing: 24, resolve: { scale: { color: "independent" } } };
 }
 
 /* ---------- Dot density ---------- */
@@ -662,20 +811,25 @@ function specDots(t, w) {
   const narrow = w < 600;
   const s = base(t, w, narrow ? Math.round(w * 0.85) : 520);
   s.projection = AUS_PROJ;
-  const dots = EXTRA.dots.map(([lon, lat, ab]) => ({ lon, lat, ab }));
+  const cnt = {}, ab2name = Object.fromEntries(ST.map(r => [r[1], r[0]]));
+  const dots = EXTRA.dots.map(([lon, lat, ab]) => { cnt[ab] = (cnt[ab] || 0) + 1; return { lon, lat, ab, name: ab2name[ab], i: cnt[ab] - 1 }; });
+  s.params = [{ name: "per", value: 10000, bind: { input: "radio", options: [10000, 20000, 50000], labels: ["10,000", "20,000", "50,000"], name: "One dot = " } }, { name: "hl", value: state.hl }];
   const lbl = ST_LABELS.map(d => ({ abbr: d.abbr, tot: d.tot, x: d.clon, y: d.clat, side: d.cside, l: d.abbr + " " + short(d.tot) }));
   const lab = (side) => ({ data: { values: lbl }, transform: [{ filter: narrow ? "false" : `datum.side == '${side}'` }],
     mark: { type: "text", align: side === "r" ? "left" : "right", fontSize: 11.5, font: t.mono, fontWeight: 500, baseline: "middle" },
     encoding: { longitude: { field: "x", type: "quantitative" }, latitude: { field: "y", type: "quantitative" }, text: { field: "l" }, color: { value: t.ink } } });
   s.layer = [
-    ausBase(t),
-    { data: { values: dots }, mark: { type: "circle", size: narrow ? 5 : 9, opacity: 0.8 },
-      encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, color: { value: t.line } } },
+    { ...ausBase(t), mark: { ...ausBase(t).mark, cursor: "pointer" } },
+    { data: { values: dots }, transform: [{ filter: "datum.i % (per / 10000) == 0" }],
+      mark: { type: "circle", size: narrow ? 5 : 9 },
+      encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, color: { value: t.line },
+        opacity: { condition: { test: HL("datum.name"), value: 0.85 }, value: 0.12 } } },
     lab("r"), lab("l"),
-    { data: { values: [{ x: narrow ? 113 : 104, y: -44.5, l: "● = 10,000 people born overseas" }] }, mark: { type: "text", align: "left", fontSize: 11.5, font: t.body, fontWeight: 600 },
+    { data: { values: [{ x: narrow ? 113 : 104, y: -44.5 }] }, transform: [{ calculate: "'● = ' + format(per, ',') + ' people born overseas'", as: "l" }], mark: { type: "text", align: "left", fontSize: 11.5, font: t.body, fontWeight: 600 },
       encoding: { longitude: { field: "x", type: "quantitative" }, latitude: { field: "y", type: "quantitative" }, text: { field: "l" }, color: { value: t.ink } } },
     extent(narrow ? [[112, -10], [155, -10], [155, -45], [112, -45]] : [[101, -8], [168, -8], [168, -46], [101, -46]])
   ];
+  s.layer[0] = hoverable(s.layer[0], t, "properties.STATE_NAME");
   return s;
 }
 
@@ -689,11 +843,12 @@ function specDorling(t, w) {
   const d = EXTRA.dorling.map(o => { const rp = o.r * ppu; return { ...o, name: nm[o.abbr], size: Math.PI * rp * rp, tot: ST_LABELS.find(s => s.abbr === o.abbr).tot, share: share21[o.abbr], big: rp > 34, rp }; });
   d.forEach(o => { o.l = o.big ? [o.abbr, short(o.tot)] : [o.abbr]; o.out = o.rp < 14; });
   const enc = { x: { field: "x", type: "quantitative", scale: { domain: X, nice: false, zero: false }, axis: null }, y: { field: "y", type: "quantitative", scale: { domain: Y, reverse: true, nice: false, zero: false }, axis: null } };
-  return {
+  const out = {
     $schema: "https://vega.github.io/schema/vega-lite/v5.json", width: pw, height: ph, config: config(t), data: { values: d },
+    params: [{ name: "hl", value: state.hl }],
     layer: [
-      { mark: { type: "circle", opacity: 1, stroke: t.surface, strokeWidth: 1.5 },
-        encoding: { ...enc, size: { field: "size", type: "quantitative", scale: null },
+      { mark: { type: "circle", stroke: t.surface, strokeWidth: 1.5, cursor: "pointer" },
+        encoding: { ...enc, opacity: { condition: { test: HL("datum.name"), value: 1 }, value: 0.2 }, size: { field: "size", type: "quantitative", scale: null },
           color: { field: "share", type: "quantitative", scale: { domain: [10, 36], scheme: "yellowgreenblue" }, legend: { title: "Born overseas, 2021 (%)", orient: "bottom", direction: "horizontal", gradientLength: 200, labelExpr: "datum.value + '%'" } },
           tooltip: [{ field: "name", title: "State / territory" }, { field: "tot", title: "Born overseas", format: "," }, { field: "share", title: "Share (%)", format: ".1f" }] } },
       { transform: [{ filter: "!datum.out" }], mark: { type: "text", fontSize: narrow ? 10.5 : 12.5, lineHeight: 15, font: t.mono, fontWeight: 600, baseline: "middle" },
@@ -703,6 +858,8 @@ function specDorling(t, w) {
     ],
     transform: [{ calculate: "datum.x + datum.r", as: "xr" }]
   };
+  out.layer[0] = hoverable({ ...out.layer[0], mark: { ...out.layer[0].mark, stroke: t.surface, strokeWidth: 1.5 } }, t, "name");
+  return out;
 }
 
 /* ---------- Pie-chart map ---------- */
@@ -722,12 +879,13 @@ function specPies(t, w) {
     const above = d.abbr === "NSW";
     labels.push({ abbr: d.abbr, lon, lat: above ? lat + (r + 17) / ppd : lat - (r + 5) / ppd, r, l: d.abbr + " " + (sh * 100).toFixed(1) + "%" });
   });
+  s.params = [{ name: "hl", value: state.hl }];
   s.layer = [
     ausBase(t),
     { data: { values: [{ lon: 149.05, lat: -35.45, llon: 153.6, llat: -37.4 }] }, mark: { type: "rule", strokeWidth: 0.75 },
       encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, longitude2: { field: "llon" }, latitude2: { field: "llat" }, color: { value: t.muted } } },
-    { data: { values: slices }, mark: { type: "arc", stroke: t.surface, strokeWidth: 1.25 },
-      encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" },
+    { data: { values: slices }, mark: { type: "arc", stroke: t.surface, strokeWidth: 1.25, cursor: "pointer" },
+      encoding: { opacity: { condition: { test: HL("datum.name"), value: 1 }, value: 0.2 }, longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" },
         theta: { field: "a0", type: "quantitative", scale: null }, theta2: { field: "a1" }, radius: { field: "r", type: "quantitative", scale: null },
         color: { field: "part", type: "nominal", scale: { domain: ["Born overseas", "Born in Australia"], range: [t.line, "#c4c4c4"] }, legend: { title: "2021 population", orient: "bottom" } },
         tooltip: [{ field: "name", title: "State / territory" }, { field: "part", title: "Group" }, { field: "n", title: "People", format: "," }, { field: "pct", title: "Share (%)", format: ".1f" }] } },
@@ -736,6 +894,8 @@ function specPies(t, w) {
       encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, text: { field: "l" }, color: { value: t.ink } } },
     extent([[112, -10], [158, -10], [158, -45], [112, -45]])
   ];
+  s.layer[0] = hoverable(s.layer[0], t, "properties.STATE_NAME");
+  s.layer[2] = { ...s.layer[2], transform: [{ lookup: "name", from: { data: { values: STATE_STATS }, key: "s_name", fields: Object.keys(STATE_STATS[0]) } }], encoding: { ...s.layer[2].encoding, tooltip: [{ field: "part", title: "Slice" }, { field: "n", title: "People in slice", format: "," }, { field: "pct", title: "Share of state (%)", format: ".1f" }, ...STATE_TT] } };
   return s;
 }
 
@@ -820,10 +980,25 @@ function tables() {
 }
 
 /* ---------- render ---------- */
-const state = { yrWorld: 2025, yrState: 2021 };
+state.day = 250;
 const views = {};
 let lastW = 0;
 const opts = { actions: false, renderer: "svg", tooltip: { theme: "custom" } };
+const STATE_VIEWS = ["c3", "cM", "cB", "cD", "cC", "cP", "c4"];
+const ABBR2NAME = Object.fromEntries(ST.map(r => [r[1], r[0]]));
+function stateNameOf(item) {
+  const d = item && item.datum;
+  if (!d) return null;
+  if (d.properties && d.properties.STATE_NAME) return d.properties.STATE_NAME;
+  if (d.name && ABBR2NAME[d.abbr || d.ab] === d.name) return d.name;
+  if (typeof d.name === "string" && ST.some(r => r[0] === d.name)) return d.name;
+  return null;
+}
+function setHighlight(name) {
+  state.hl = name || "";
+  for (const id of STATE_VIEWS) if (views[id]) views[id].signal("hl", state.hl).runAsync();
+  const sel = document.getElementById("hlState"); if (sel) sel.value = state.hl;
+}
 async function render() {
   const t = T();
   const cw = (id) => { const el = document.getElementById(id); const cs = getComputedStyle(el); return el.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight); };
@@ -831,30 +1006,58 @@ async function render() {
   try {
     views.c1 = (await vegaEmbed("#c1", spec1(t, cw("c1")), opts)).view;
     views.c2 = (await vegaEmbed("#c2", spec2(t, state.yrWorld, cw("c2")), opts)).view;
+    views.c2.addSignalListener("yr", (n, v) => { state.yrWorld = v; });
     views.c3 = (await vegaEmbed("#c3", spec3(t, state.yrState, cw("c3")), opts)).view;
+    views.c3.addSignalListener("yr", (n, v) => { state.yrState = v; });
     views.c4 = (await vegaEmbed("#c4", spec4(t, cw("c4")), opts)).view;
     const more = [["cV", specVoyage], ["cF", specFlow], ["cS", specSpike], ["cM", specSmall], ["cB", specBiv], ["cD", specDots], ["cC", specDorling], ["cP", specPies]];
     for (const [id, fn] of more) { try { views[id] = (await vegaEmbed("#" + id, fn(t, cw(id)), opts)).view; } catch (e) { console.error(id, e); } }
+    if (views.cV) views.cV.addSignalListener("day", (n, v) => { state.day = v; });
+    for (const id of STATE_VIEWS) {
+      if (!views[id]) continue;
+      views[id].addEventListener("click", (ev, item) => {
+        const name = stateNameOf(item);
+        if (name) setHighlight(state.hl === name ? "" : name);
+        else if (!item || !item.datum || item.mark?.marktype === "group") setHighlight("");
+      });
+    }
     try { setupWaited(); } catch (e) { console.error("waited", e); }
   } catch (e) { console.error(e); }
-  const tip = document.getElementById("vg-tooltip-element");
-  if (tip) { tip.style.background = t.surface; tip.style.color = t.ink; tip.style.border = "1px solid " + t.rule; }
 }
-function bindSeg(id, key, viewId) {
-  document.getElementById(id).addEventListener("change", (e) => {
-    const v = +e.target.value; state[key] = v;
-    if (views[viewId]) views[viewId].signal("yr", v).runAsync();
+// state dropdown (keyboard-friendly way to drive the linked highlight)
+(() => {
+  const sel = document.getElementById("hlState");
+  if (!sel) return;
+  ST.forEach(r => { const o = document.createElement("option"); o.value = r[0]; o.textContent = r[0]; sel.appendChild(o); });
+  sel.addEventListener("change", () => setHighlight(sel.value));
+})();
+// play the voyage
+(() => {
+  const btn = document.getElementById("playFleet");
+  if (!btn) return;
+  let raf = 0, playing = false;
+  const stop = () => { playing = false; cancelAnimationFrame(raf); btn.textContent = "Play voyage"; btn.setAttribute("aria-pressed", "false"); };
+  btn.addEventListener("click", () => {
+    if (playing) return stop();
+    const v = views.cV; if (!v) return;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) { v.signal("day", 250).runAsync(); return; }
+    playing = true; btn.textContent = "Pause"; btn.setAttribute("aria-pressed", "true");
+    let startDay = state.day >= 250 ? 0 : state.day, t0 = performance.now();
+    const step = (now) => {
+      if (!playing) return;
+      const d = Math.min(250, Math.floor(startDay + (now - t0) / 1000 * 25));
+      if (d !== state.day) v.signal("day", d).runAsync();
+      if (d >= 250) return stop();
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
   });
-}
-bindSeg("yrWorld", "yrWorld", "c2");
-bindSeg("yrState", "yrState", "c3");
+})();
 tables();
 render();
 let rt;
 const rerender = () => { clearTimeout(rt); rt = setTimeout(render, 60); };
-try { matchMedia("(prefers-color-scheme: dark)").addEventListener("change", rerender); } catch (e) {}
-addEventListener("resize", () => { const el = document.getElementById("c1"); if (Math.abs(el.clientWidth - 24 - lastW) > 40) rerender(); });
-new MutationObserver(rerender).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+addEventListener("resize", () => { const el = document.getElementById("c1"); if (Math.abs(el.clientWidth - lastW) > 40) rerender(); });
 </script>
 </body></html>
 </body></html>
