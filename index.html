@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
 </head><body>
-<title>From Every Shore</title>
+<title>Australian Immigration</title>
 <style>
 /* Layout: a single-column report, numbered sections, figures with captions below */
 :root {
@@ -103,9 +103,45 @@ select { font: inherit; font-size: 14px; padding: 3px 6px; }
 .vega-bind label { display: inline-flex; align-items: center; gap: 3px; margin-right: 8px; cursor: pointer; }
 .vega-bind input[type="range"] { width: min(320px, 60vw); }
 #cV .vega-bindings { color: #fff; padding: 0 14px 6px; position: relative; z-index: 2; }
+/* ---------- hero: shutter title (vanilla port of hero-shutter-text) ---------- */
+.hero { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; background: #ffffff; padding: 56px 8px 40px; margin: -40px -30px 32px; border-bottom: 1px solid #e4e4e7; overflow: hidden; }
+.hero-grid { position: absolute; inset: 0; opacity: 0.05; pointer-events: none;
+  background-image: linear-gradient(to right, #888 1px, transparent 1px), linear-gradient(to bottom, #888 1px, transparent 1px);
+  background-size: clamp(20px, 5vw, 60px) clamp(20px, 5vw, 60px); }
+.hero-corner { position: absolute; width: 48px; height: 48px; border-color: #e4e4e7; border-style: solid; border-width: 0; pointer-events: none; }
+.hero-corner.tl { top: 24px; left: 24px; border-left-width: 1px; border-top-width: 1px; }
+.hero-corner.br { bottom: 24px; right: 24px; border-right-width: 1px; border-bottom-width: 1px; }
+.hero-text { position: relative; z-index: 1; margin: 0; width: 100%; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; column-gap: 0.25em; row-gap: 0.05em;
+  font-size: clamp(38px, 8.6vw, 92px); line-height: 1; font-weight: 900; letter-spacing: -0.05em; color: #18181b; }
+.hero-word { display: inline-flex; white-space: nowrap; }
+.hero-ch { position: relative; display: inline-block; padding: 0.04em 0.1vw 0.16em; overflow: hidden; }
+.hero-ch .main { display: inline-block; opacity: 0; filter: blur(10px); }
+.hero-ch .slice { position: absolute; inset: 0; padding: 0.04em 0.1vw 0.16em; opacity: 0; pointer-events: none; z-index: 1; }
+.hero-ch .s1 { color: #4f46e5; clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%); }
+.hero-ch .s2 { color: #27272a; clip-path: polygon(0 35%, 100% 35%, 100% 65%, 0 65%); }
+.hero-ch .s3 { color: #4f46e5; clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%); }
+.hero-ctl { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.hero-btn { width: 56px; height: 56px; display: grid; place-items: center; border: 0; border-radius: 999px; background: #18181b; color: #fff; cursor: pointer;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,.25); transition: transform .3s ease, background-color .3s; }
+.hero-btn:hover { transform: scale(1.1) rotate(180deg); }
+.hero-btn:active { transform: scale(0.9); }
+.hero-btn:focus-visible { outline: 2px solid #4f46e5; outline-offset: 3px; }
+.hero-hint { margin: 0; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5em; font-weight: 700; color: #a1a1aa; }
+@media (max-width: 600px) { .hero { margin: -24px -14px 24px; padding: 44px 6px 30px; } .hero-corner.tl { top: 14px; left: 14px; } .hero-corner.br { bottom: 14px; right: 14px; } }
 </style>
 
 <main>
+<header class="hero" id="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <span class="hero-corner tl" aria-hidden="true"></span><span class="hero-corner br" aria-hidden="true"></span>
+  <h1 class="hero-text" id="heroText" aria-label="Australian Immigration"></h1>
+  <div class="hero-ctl">
+    <button type="button" class="hero-btn" id="heroBtn" aria-label="Replay title animation">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+    </button>
+    <p class="hero-hint">Click to re-shutter</p>
+  </div>
+</header>
 <p class="meta">Data: Australian Bureau of Statistics (country of birth, June 2025; 2021 state estimates). Built with Vega-Lite.</p>
 
 
@@ -984,6 +1020,39 @@ function tables() {
   const rows4 = ST.map(([n, , , , , tot, top, topn]) => `<tr><td>${n}</td><td>${fmt(tot)}</td><td>${top}</td><td>${fmt(topn)}</td><td>${(topn / tot * 100).toFixed(1)}%</td></tr>`).join("");
   document.getElementById("t4").innerHTML = `<table><thead><tr><th>State / territory (2021)</th><th>Born overseas</th><th>Top country</th><th>Born there</th><th>Share of overseas-born</th></tr></thead><tbody>${rows4}</tbody></table>`;
 }
+
+/* ---------- hero shutter title ---------- */
+(() => {
+  const TEXT = "Australian Immigration";
+  const el = document.getElementById("heroText"), btn = document.getElementById("heroBtn");
+  if (!el) return;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function play() {
+    el.innerHTML = "";
+    let i = 0;
+    TEXT.split(" ").forEach((word) => {
+      const w = document.createElement("span"); w.className = "hero-word"; w.setAttribute("aria-hidden", "true");
+      for (const ch of word) {
+        const box = document.createElement("span"); box.className = "hero-ch";
+        const main = document.createElement("span"); main.className = "main"; main.textContent = ch; box.appendChild(main);
+        const delay = i * 40;
+        if (reduce) { main.style.opacity = 1; main.style.filter = "none"; }
+        else {
+          main.animate([{ opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)" }], { duration: 800, delay: delay + 300, easing: "ease-out", fill: "forwards" });
+          [["s1", "-100%", "100%", 0], ["s2", "100%", "-100%", 100], ["s3", "-100%", "100%", 200]].forEach(([cls, from, to, extra]) => {
+            const sl = document.createElement("span"); sl.className = "slice " + cls; sl.textContent = ch; box.appendChild(sl);
+            sl.animate([{ transform: `translateX(${from})`, opacity: 0 }, { opacity: 1, offset: 0.5 }, { transform: `translateX(${to})`, opacity: 0 }],
+              { duration: 700, delay: delay + extra, easing: "ease-in-out", fill: "forwards" });
+          });
+        }
+        w.appendChild(box); i++;
+      }
+      el.appendChild(w); i++;
+    });
+  }
+  play();
+  if (btn) btn.addEventListener("click", play);
+})();
 
 /* ---------- render ---------- */
 state.day = 250;
