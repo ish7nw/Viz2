@@ -1664,13 +1664,13 @@
       "year": 1891,
       "pct": 32.4,
       "t": "1891 · 32.4%",
-      "pos": "above"
+      "pos": "right"
      },
      {
       "year": 1901,
       "pct": 22.7,
       "t": "1901 · 22.7%",
-      "pos": "above"
+      "pos": "right"
      },
      {
       "year": 1947,
@@ -1734,13 +1734,13 @@
       "year": 1891,
       "pct": 32.4,
       "t": "1891 · 32.4%",
-      "pos": "above"
+      "pos": "right"
      },
      {
       "year": 1901,
       "pct": 22.7,
       "t": "1901 · 22.7%",
-      "pos": "above"
+      "pos": "right"
      },
      {
       "year": 1947,
@@ -1810,13 +1810,91 @@
       "year": 1891,
       "pct": 32.4,
       "t": "1891 · 32.4%",
-      "pos": "above"
+      "pos": "right"
      },
      {
       "year": 1901,
       "pct": 22.7,
       "t": "1901 · 22.7%",
-      "pos": "above"
+      "pos": "right"
+     },
+     {
+      "year": 1947,
+      "pct": 9.8,
+      "t": "1947 · 9.8%",
+      "pos": "below"
+     },
+     {
+      "year": 1971,
+      "pct": 20.2,
+      "t": "1971 · 20.2%",
+      "pos": "above",
+      "minor": true
+     },
+     {
+      "year": 2000,
+      "pct": 23,
+      "t": "2000 · 23.0%",
+      "pos": "below",
+      "minor": true
+     },
+     {
+      "year": 2021,
+      "pct": 29.3,
+      "t": "2021 · 29.3%",
+      "pos": "belowleft",
+      "minor": true
+     },
+     {
+      "year": 2025,
+      "pct": 32,
+      "t": "2025 · 32.0%",
+      "pos": "left"
+     }
+    ]
+   },
+   "transform": [
+    {
+     "filter": "datum.pos == 'right'"
+    }
+   ],
+   "mark": {
+    "type": "text",
+    "align": "left",
+    "dx": 10,
+    "dy": -2,
+    "fontSize": 12,
+    "fontWeight": 600,
+    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+    "clip": true
+   },
+   "encoding": {
+    "y": {
+     "field": "pct",
+     "type": "quantitative"
+    },
+    "text": {
+     "field": "t"
+    },
+    "color": {
+     "value": "#222222"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "year": 1891,
+      "pct": 32.4,
+      "t": "1891 · 32.4%",
+      "pos": "right"
+     },
+     {
+      "year": 1901,
+      "pct": 22.7,
+      "t": "1901 · 22.7%",
+      "pos": "right"
      },
      {
       "year": 1947,
@@ -1888,13 +1966,13 @@
       "year": 1891,
       "pct": 32.4,
       "t": "1891 · 32.4%",
-      "pos": "above"
+      "pos": "right"
      },
      {
       "year": 1901,
       "pct": 22.7,
       "t": "1901 · 22.7%",
-      "pos": "above"
+      "pos": "right"
      },
      {
       "year": 1947,
@@ -1966,13 +2044,13 @@
       "year": 1891,
       "pct": 32.4,
       "t": "1891 · 32.4%",
-      "pos": "above"
+      "pos": "right"
      },
      {
       "year": 1901,
       "pct": 22.7,
       "t": "1901 · 22.7%",
-      "pos": "above"
+      "pos": "right"
      },
      {
       "year": 1947,
