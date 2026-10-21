@@ -11,7 +11,15 @@
 @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/ibm-plex-sans-condensed-latin-500-normal.woff2") format("woff2"); }
 @font-face { font-family: "IBM Plex Sans Condensed"; font-style: italic; font-weight: 500; font-display: swap; src: url("fonts/ibm-plex-sans-condensed-latin-500-italic.woff2") format("woff2"); }
 @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/ibm-plex-sans-condensed-latin-600-normal.woff2") format("woff2"); }
-/* Layout: a single-column report, numbered sections, figures with captions below */
+/*
+  Page styles for the Australian Immigration report.
+  Rough order: colours and fonts, page background, the white report panel,
+  headings and text, figures and captions, controls, tables, tooltips,
+  the two gradients used on the First Fleet map, and finally the shutter title.
+*/
+
+/* Colours and font stacks. The charts read these too (see T() in script.js),
+   so changing a colour here changes it in the maps as well. */
 :root {
   color-scheme: light;
   --bg: #ffffff;
@@ -38,17 +46,20 @@
   --accent: #1a5fb4;
 }
 * { box-sizing: border-box; }
-/* topographic contour background, fixed behind the report panel */
+/* Page background: grey with topographic contour lines (img/contours.svg), fixed so it doesn't scroll */
 body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: #F3F4F2 url("img/contours.svg") center / cover no-repeat; }
+/* Base text: serif for reading, padding keeps text off the screen edge on phones */
 body {
   background: #F3F4F2; color: var(--ink); font-family: var(--f-serif); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
   padding-block: 40px 64px;
 }
+/* The white report panel everything sits in */
 main { max-width: 940px; margin: 0 auto; background: #ffffff; border: 1px solid #d6d9d3; border-radius: 3px; padding: 40px 30px 48px; position: relative; }
 @media (max-width: 600px) { main { padding: 24px 14px 32px; } }
 h1 { font-size: 28px; line-height: 1.25; margin: 0 0 6px; font-weight: 700; text-wrap: balance; }
-/* Type hierarchy (FIT2179 notes 11): sans serif for headings, captions, labels; serif for long reading text */
+/* Headings and text. Sans serif for headings, captions and labels, serif for paragraphs.
+   Paragraphs are capped at ~62 characters per line so they stay easy to read. */
 h2, h3, figcaption, .meta, .ctl, .btn, select, details, table, caption, .hint, .hint-block, .vega-bindings { font-family: var(--f-sans); }
 .meta { margin: 0 0 8px; font-size: 13.5px; color: var(--muted); max-width: none; }
 h2 { font-size: 28px; line-height: 1.2; letter-spacing: -0.012em; font-weight: 600; margin: 64px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule); text-wrap: balance; }
@@ -60,6 +71,7 @@ h2 + p { font-size: 18.5px; line-height: 1.6; }
 @media (max-width: 600px) { h2 + p { font-size: 17.5px; } h2 { font-size: 25px; } }
 .abstract { border-left: 3px solid var(--rule); padding-left: 14px; margin: 0 0 8px; }
 .abstract p { font-size: 15px; }
+/* Figures and captions. A caption has three parts: description, a "Try" line, and the source. */
 figure { margin: 24px 0 40px; min-width: 0; }
 .chart, .chart.vega-embed { display: block; width: 100%; min-width: 0; overflow-x: auto; }
 .chart .vega-embed { width: 100%; display: block; }
@@ -69,11 +81,13 @@ figcaption b { font-weight: 600; color: var(--ink); }
 figcaption .try { display: block; margin-top: 6px; color: var(--ink); font-style: normal; }
 figcaption .try-k { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-right: 8px; }
 figcaption .src { display: block; margin-top: 4px; font-size: 13px; }
+/* Small controls above some figures (Play voyage button, Highlight a state dropdown) */
 .ctl { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; font-size: 14px; margin: 4px 0 8px; }
 .ctl legend { float: left; margin-right: 8px; font-weight: 600; padding: 0; }
 fieldset.ctl { border: 0; padding: 0; }
 .ctl label { display: inline-flex; gap: 4px; align-items: center; cursor: pointer; font-variant-numeric: tabular-nums; }
 .ctl input:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+/* "Show data" tables under a few figures */
 details { font-size: 14px; margin-top: 6px; }
 details summary { cursor: pointer; color: var(--link); }
 .tbl { overflow-x: auto; margin-top: 8px; }
@@ -84,9 +98,11 @@ th, td { text-align: left; padding: 4px 12px 4px 0; vertical-align: top; }
 th:first-child, td:first-child { text-align: left; }
 thead th { border-top: 1.5px solid var(--ink); border-bottom: 1px solid var(--ink); font-weight: 600; }
 tbody tr:last-child td { border-bottom: 1.5px solid var(--ink); }
+/* Links and the reference list (hanging indent, long URLs wrap) */
 a { color: var(--link); }
 .refs { padding-left: 0; list-style: none; font-size: 15px; max-width: 72ch; }
 .refs li { padding-left: 24px; text-indent: -24px; margin-bottom: 6px; overflow-wrap: anywhere; }
+/* Map tooltips: region name on top in bold, figures underneath */
 #vg-tooltip-element { font-family: var(--f-sans) !important; font-size: 12.5px !important; line-height: 1.4 !important; padding: 8px 10px !important; background: #fff !important; color: var(--ink) !important; border: 1px solid var(--rule) !important; box-shadow: 0 1px 4px rgba(0,0,0,.15) !important; }
 #vg-tooltip-element { max-width: 420px !important; }
 #vg-tooltip-element td.key { color: var(--muted) !important; white-space: nowrap; text-align: left !important; padding-right: 10px !important; }
@@ -114,6 +130,7 @@ a { color: var(--link); }
 #cV { position: relative; }
 #cV > svg { position: relative; z-index: 1; }
 .waited-overlay { position: absolute; z-index: 0; pointer-events: none; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+/* Buttons, dropdowns and the sliders/radios Vega-Lite adds under some maps */
 .btn { font: inherit; font-size: 14px; padding: 5px 12px; border: 1px solid #8a8a8a; border-radius: 4px; background: #fff; color: var(--ink); cursor: pointer; }
 .btn:hover { background: #f2f2f2; }
 .btn:focus-visible, select:focus-visible, .vega-bindings input:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
@@ -128,7 +145,7 @@ select { font: inherit; font-size: 14px; padding: 3px 6px; }
 .vega-bind label { display: inline-flex; align-items: center; gap: 3px; margin-right: 8px; cursor: pointer; }
 .vega-bind input[type="range"] { width: min(320px, 60vw); }
 #cV .vega-bindings { color: #fff; padding: 0 14px 6px; position: relative; z-index: 2; }
-/* ---------- hero: shutter title (vanilla port of hero-shutter-text) ---------- */
+/* Title block: "Australian Immigration" with the shutter animation (the JS for it is near the end of script.js) */
 .hero { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; background: #ffffff; padding: 64px 8px 64px; margin: -40px -30px 32px; border-bottom: 1px solid #e4e4e7; overflow: hidden; }
 .hero-grid { position: absolute; inset: 0; opacity: 0.05; pointer-events: none;
   background-image: linear-gradient(to right, #888 1px, transparent 1px), linear-gradient(to bottom, #888 1px, transparent 1px);
