@@ -9,6 +9,9 @@
 <body>
 <!-- Everything visible lives inside <main>, the white panel. Styles are in style.css. -->
 <main>
+<!-- ======================================================================
+     TITLE
+     ====================================================================== -->
 <!-- Title: the letters are added and animated by the shutter code in script.js -->
 <header class="hero" id="hero">
   <div class="hero-grid" aria-hidden="true"></div>
@@ -16,12 +19,18 @@
   <h1 class="hero-text" id="heroText" aria-label="Australian Immigration"></h1>
   <p class="hero-sub">Arrivals, origins and settlement, 1788–2025</p>
 </header>
+<!-- ======================================================================
+     INTRO LINE (data source)
+     ====================================================================== -->
 <p class="meta">Data: Australian Bureau of Statistics (country of birth, June 2025; 2021 state estimates). Built with Vega-Lite.</p>
 
 
 
 
 
+<!-- ======================================================================
+     SECTION 1: MIGRATION OVER TIME (Figure 1)
+     ====================================================================== -->
 <h2><span class="sec">01</span>Migration over time</h2>
 <p>Figure 1 shows the overseas-born share of the population from the first country-of-birth records in 1891. Three phases stand out: a long decline from 1891 to 1947, through Federation, the Immigration Restriction Act, two world wars and the Depression; a steep rise after 1947 under the post-war migration program; and a second rise from 2000, interrupted briefly by the COVID-19 border closure in 2020–21.</p>
 <!-- Figure 1 | IDIOM: Spot values | drawn by spec1() in script.js -->
@@ -30,6 +39,9 @@
   <figcaption><b>Figure 1.</b> Share of Australia’s population born overseas, 1891–2025, with spot values at turning points. Shaded bands mark policy eras. Pre-1992 values are Census counts; later values are estimated resident population; 2025 is preliminary. <span class="try"><span class="try-k">Try</span>Drag the chart to pan and scroll to zoom into a period; double-click to reset. Hover for any year.</span><span class="src">Source: ABS (2026a).</span></figcaption>
 </figure>
 
+<!-- ======================================================================
+     SECTION 2: ARRIVAL (Figure 2)
+     ====================================================================== -->
 <h2><span class="sec">02</span>Arrival</h2>
 <p>The First Fleet of eleven ships left Portsmouth on 13 May 1787 with more than 1,500 people and reached Botany Bay in January 1788, after stops at Tenerife, Rio de Janeiro and Cape Town (Figure 2). About 162,000 convicts were transported to Australia between 1788 and 1868.</p>
 <!-- Play / pause for the voyage animation (handled at the bottom of script.js) -->
@@ -40,7 +52,11 @@
   <figcaption><b>Figure 2.</b> Route of the First Fleet, May 1787 to January 1788 (route map). Countries where the fleet stopped on the way (Spain, for Tenerife; Brazil; South Africa) are filled with an animated gradient. Stop dates are given by month. The Southern Ocean leg is approximated through waypoints. <span class="try"><span class="try-k">Try</span>Use the day slider or the play button to follow the fleet; ports turn orange once reached.</span><span class="src">Sources: State Library of NSW; National Museum of Australia.</span></figcaption>
 </figure>
 
+<!-- ======================================================================
+     SECTION 3: COUNTRIES OF ORIGIN (Figures 3-5)
+     ====================================================================== -->
 <h2><span class="sec">03</span>Countries of origin</h2>
+<!-- ---------- 3.1 Where residents were born (Figure 3) ---------- -->
 <h3><span class="num">3.1</span>Where residents were born</h3>
 <p>Figure 3 places the ten largest overseas birthplaces on a map centred on Sydney. Rings mark equal distance from Sydney every 2,500 km, so each country can be read against how far it is from Australia. New Zealand is the nearest large source at about 2,200 km. India and China lie at 9,000–10,000 km, and England lies beyond 15,000 km.</p>
 <!-- Figure 3 | IDIOM: Proportional symbols + contour lines | drawn by spec2() in script.js -->
@@ -50,6 +66,7 @@
   <details><summary>Show data</summary><div class="tbl" id="t2"></div></details>
 </figure>
 
+<!-- ---------- 3.2 Flows (Figure 4) ---------- -->
 <h3><span class="num">3.2</span>Flows</h3>
 <p>Figure 4 draws a line from each birthplace to Australia, with line width proportional to the number of residents in 2025. The three widest flows, from India, England and China, together account for 2.67 million people, about 30% of the overseas-born population.</p>
 <!-- Figure 4 | IDIOM: Flow map | drawn by specFlow() in script.js -->
@@ -58,6 +75,7 @@
   <figcaption><b>Figure 4.</b> Residents by country of birth, 2025, shown as flows to Australia (flow map). Lines are great-circle paths and do not represent travel routes. <span class="try"><span class="try-k">Try</span>Hover a line to isolate it.</span><span class="src">Source: ABS (2026a).</span></figcaption>
 </figure>
 
+<!-- ---------- 3.3 Change, 2015-2025 (Figure 5) ---------- -->
 <h3><span class="num">3.3</span>Change, 2015–2025</h3>
 <p>Between 2015 and 2025 the India-born population grew by 522,000, the largest increase of any country, followed by China (223,000), the Philippines (171,000) and Nepal (163,000). England is the only top-ten birthplace that declined, by about 36,000, reflecting the ageing of the post-war cohort (Figure 5).</p>
 <!-- Figure 5 | IDIOM: Spike map | drawn by specSpike() in script.js -->
@@ -66,10 +84,14 @@
   <figcaption><b>Figure 5.</b> Change in residents by country of birth, 2015–2025 (spike map). Spike height is proportional to the change; upward spikes show growth and downward spikes show decline. <span class="try"><span class="try-k">Try</span>Switch the baseline year below the map.</span><span class="src">Source: ABS (2026a, 2026b).</span></figcaption>
 </figure>
 
+<!-- ======================================================================
+     SECTION 4: SETTLEMENT (Figures 6-12)
+     ====================================================================== -->
 <h2><span class="sec">04</span>Settlement</h2>
 <!-- Section 4: all the state and region maps are linked through this dropdown and by clicking -->
 <p class="hint-block">Figures 6 to 12 are linked. Click a state or a region in any of them, or choose a state here, to highlight that state in all seven. Click it again, or click empty space, to clear.</p>
 <div class="ctl"><label for="hlState"><b>Highlight a state</b></label> <select id="hlState"><option value="">All states</option></select></div>
+<!-- ---------- 4.1 Share born overseas by region (Figures 6-7) ---------- -->
 <h3><span class="num">4.1</span>Share born overseas by region</h3>
 <p>Below the state level, the overseas-born population is concentrated in the capital cities (Figure 6). In 2021, 34.4% of residents of the Greater Capital City areas were born overseas, against 14.5% in the rest of the country. Sydney – Parramatta had the highest share of the 88 SA4 regions, 52.2%, followed by Sydney – Ryde (48.0%) and Sydney – South West (47.4%). The lowest shares were in inland New South Wales, led by Far West and Orana at 7.3%. Outside the capitals, only the Gold Coast came close to the national figure, at 28.9%.</p>
 <!-- Figure 6 | IDIOM: Choropleth | drawn by spec3() in script.js -->
@@ -84,6 +106,7 @@
   <figcaption><b>Figure 7.</b> Share of residents born overseas by SA4 region, Census years 2011, 2016 and 2021 (small multiples). Same seven classes as Figure 6. <span class="src">Sources: ABS (2023a, 2023b, 2023c).</span></figcaption>
 </figure>
 
+<!-- ---------- 4.2 Level and growth (Figure 8) ---------- -->
 <h3><span class="num">4.2</span>Level and growth</h3>
 <p>Figure 8 combines the 2021 share with its change since 2011. Fifteen regions are high on both measures, all of them in the capital cities: eight in Sydney, four in Melbourne, two in Brisbane and one in Perth. Sydney – Ryde grew the most, by 7.9 percentage points, to 48.0%. Most of regional Australia is low on both measures, and in six regions the share did not rise at all, including Illawarra and the Mornington Peninsula.</p>
 <!-- Figure 8 | IDIOM: Bivariate choropleth | drawn by specBiv() in script.js -->
@@ -92,6 +115,7 @@
   <figcaption><b>Figure 8.</b> Share born overseas in 2021 against change since 2011, in percentage points, by SA4 region (bivariate choropleth, 3 × 3 classes). Share classes: below 15%, 15–30%, 30% and over. Change classes: below 1.5, 1.5–3, 3 points and over. <span class="try"><span class="try-k">Try</span>Hover a cell of the colour key to show only the regions in that class.</span><span class="src">Sources: ABS (2022, 2023a, 2023c).</span></figcaption>
 </figure>
 
+<!-- ---------- 4.3 Where overseas-born residents live (Figures 9-11) ---------- -->
 <h3><span class="num">4.3</span>Where overseas-born residents live</h3>
 <p>Figures 9 to 11 show the same 2021 totals in three ways. The dot density map shows concentration in the south-east. The cartogram resizes each state by its overseas-born population, and the pie charts compare overseas-born and Australian-born residents within each state.</p>
 <!-- Figure 9 | IDIOM: Dot density | drawn by specDots() in script.js -->
@@ -110,6 +134,7 @@
   <figcaption><b>Figure 11.</b> Overseas-born and Australian-born residents by state, 2021 (chart map). Pie area is proportional to total state population. <span class="src">Source: ABS (2026a).</span></figcaption>
 </figure>
 
+<!-- ---------- 4.4 Largest communities (Figure 12) ---------- -->
 <h3><span class="num">4.4</span>Largest communities</h3>
 <p>The largest overseas birthplace differs by state: China in New South Wales, India in Victoria and the ACT, New Zealand in Queensland, the Philippines in the Northern Territory, and England in Western Australia, South Australia and Tasmania (Figure 12).</p>
 <!-- Figure 12 | IDIOM: Nested proportional symbols | drawn by spec4() in script.js -->
@@ -119,7 +144,9 @@
   <details><summary>Show data</summary><div class="tbl" id="t4"></div></details>
 </figure>
 
-<!-- References (APA) -->
+<!-- ======================================================================
+     REFERENCES (APA)
+     ====================================================================== -->
 <h2>References</h2>
 <ul class="refs">
   <li>Australian Bureau of Statistics. (2022). <i>Statistical Areas Level 4, ASGS Edition 3 (July 2021 – June 2026)</i> [Digital boundaries, ArcGIS REST service]. <a href="https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA4/MapServer/0">https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA4/MapServer/0</a></li>
@@ -134,6 +161,9 @@
 </ul>
 </main>
 
+<!-- ======================================================================
+     SCRIPTS: Vega libraries, then data.js, then script.js
+     ====================================================================== -->
 <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0/build/vega.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0/build/vega-lite.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0/build/vega-embed.min.js"></script>

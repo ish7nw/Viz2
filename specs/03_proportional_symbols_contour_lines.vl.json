@@ -7,7 +7,7 @@
  },
  "config": {
   "background": null,
-  "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+  "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
   "padding": 4,
   "view": {
    "stroke": null
@@ -18,16 +18,17 @@
    "gridColor": "#d0d0d0",
    "domainColor": "#d0d0d0",
    "tickColor": "#d0d0d0",
-   "labelFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+   "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "labelFontSize": 11,
-   "titleFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
-   "titleFontWeight": 500
+   "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFontWeight": 500,
+   "titleFontSize": 11.5
   },
   "legend": {
    "labelColor": "#5c5c5c",
    "titleColor": "#222222",
-   "labelFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
-   "titleFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+   "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFontWeight": 600,
    "labelFontSize": 12,
    "titleFontSize": 12,
@@ -35,7 +36,7 @@
   },
   "text": {
    "color": "#222222",
-   "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+   "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   },
   "tooltipFormat": {
    "numberFormat": ",.0f"
@@ -72,8 +73,24 @@
    "mark": {
     "type": "geoshape",
     "fill": "#f1f5f8",
-    "stroke": "#d0d0d0",
-    "strokeWidth": 1
+    "stroke": "#b9c2c9",
+    "strokeWidth": 0.8
+   }
+  },
+  {
+   "data": {
+    "graticule": {
+     "step": [
+      30,
+      30
+     ]
+    }
+   },
+   "mark": {
+    "type": "geoshape",
+    "filled": false,
+    "stroke": "#c9d3da",
+    "strokeWidth": 0.4
    }
   },
   {
@@ -38424,7 +38441,7 @@
     "type": "geoshape",
     "fill": "#e4e4e4",
     "stroke": "#ffffff",
-    "strokeWidth": 0.5,
+    "strokeWidth": 0.4,
     "cursor": "pointer"
    },
    "transform": [
@@ -38574,7 +38591,7 @@
    ],
    "params": [
     {
-     "name": "hovc11",
+     "name": "hovc17",
      "select": {
       "type": "point",
       "fields": [
@@ -38588,7 +38605,7 @@
    "encoding": {
     "stroke": {
      "condition": {
-      "param": "hovc11",
+      "param": "hovc17",
       "empty": false,
       "value": "#111111"
      },
@@ -38596,11 +38613,11 @@
     },
     "strokeWidth": {
      "condition": {
-      "param": "hovc11",
+      "param": "hovc17",
       "empty": false,
       "value": 1.75
      },
-     "value": 0.5
+     "value": 0.4
     },
     "tooltip": [
      {
@@ -43810,13 +43827,23 @@
    "mark": {
     "type": "geoshape",
     "filled": false,
-    "stroke": "#7a7a7a",
-    "strokeWidth": 1,
-    "strokeDash": [
-     4,
-     3
-    ],
-    "strokeOpacity": 0.85
+    "stroke": "#7d8a93"
+   },
+   "encoding": {
+    "strokeWidth": {
+     "condition": {
+      "test": "datum.properties.km % 5000 == 0",
+      "value": 0.9
+     },
+     "value": 0.45
+    },
+    "strokeOpacity": {
+     "condition": {
+      "test": "datum.properties.km % 5000 == 0",
+      "value": 0.8
+     },
+     "value": 0.55
+    }
    }
   },
   {
@@ -43859,13 +43886,22 @@
      }
     ]
    },
+   "transform": [
+    {
+     "filter": "datum.km % 5000 == 0"
+    },
+    {
+     "calculate": "format(datum.km, ',') + ' km'",
+     "as": "lbl"
+    }
+   ],
    "mark": {
     "type": "text",
-    "fontSize": 10.5,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
-    "fontWeight": 500,
+    "fontSize": 10,
+    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+    "fontStyle": "italic",
     "stroke": "#f1f5f8",
-    "strokeWidth": 4,
+    "strokeWidth": 3.5,
     "strokeJoin": "round"
    },
    "encoding": {
@@ -43880,13 +43916,7 @@
     "text": {
      "field": "lbl"
     }
-   },
-   "transform": [
-    {
-     "calculate": "format(datum.km, ',') + ' km'",
-     "as": "lbl"
-    }
-   ]
+   }
   },
   {
    "data": {
@@ -43928,11 +43958,20 @@
      }
     ]
    },
+   "transform": [
+    {
+     "filter": "datum.km % 5000 == 0"
+    },
+    {
+     "calculate": "format(datum.km, ',') + ' km'",
+     "as": "lbl"
+    }
+   ],
    "mark": {
     "type": "text",
-    "fontSize": 10.5,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
-    "fontWeight": 500
+    "fontSize": 10,
+    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+    "fontStyle": "italic"
    },
    "encoding": {
     "longitude": {
@@ -43947,15 +43986,9 @@
      "field": "lbl"
     },
     "color": {
-     "value": "#7a7a7a"
+     "value": "#5f6d77"
     }
-   },
-   "transform": [
-    {
-     "calculate": "format(datum.km, ',') + ' km'",
-     "as": "lbl"
-    }
-   ]
+   }
   },
   {
    "data": {
@@ -44362,7 +44395,7 @@
    ],
    "mark": {
     "type": "rule",
-    "strokeWidth": 0.75
+    "strokeWidth": 0.5
    },
    "encoding": {
     "longitude": {
@@ -44380,7 +44413,7 @@
      "field": "llat"
     },
     "color": {
-     "value": "#5c5c5c"
+     "value": "#8a8a8a"
     }
    }
   },
@@ -44798,8 +44831,7 @@
    ],
    "mark": {
     "type": "circle",
-    "stroke": "#ffffff",
-    "strokeWidth": 1.5,
+    "strokeWidth": 1,
     "cursor": "pointer"
    },
    "encoding": {
@@ -44814,9 +44846,26 @@
     "opacity": {
      "condition": {
       "param": "reg",
-      "value": 0.85
+      "value": 0.72
      },
-     "value": 0.1
+     "value": 0.08
+    },
+    "stroke": {
+     "field": "region",
+     "type": "nominal",
+     "scale": {
+      "domain": [
+       "Asia",
+       "Europe",
+       "Oceania & Africa"
+      ],
+      "range": [
+       "#0f6b50",
+       "#9a4300",
+       "#4e4a86"
+      ]
+     },
+     "legend": null
     },
     "size": {
      "field": "v",
@@ -44841,9 +44890,10 @@
       "format": ",.0f",
       "orient": "bottom",
       "direction": "horizontal",
-      "symbolFillColor": "#5c5c5c",
-      "symbolOpacity": 0.35,
-      "symbolStrokeColor": "#5c5c5c"
+      "symbolFillColor": "#bfbfbf",
+      "symbolStrokeColor": "#8a8a8a",
+      "symbolStrokeWidth": 1,
+      "symbolOpacity": 0.8
      }
     },
     "color": {
@@ -44864,7 +44914,8 @@
      "legend": {
       "title": "Region of birth",
       "orient": "bottom",
-      "direction": "horizontal"
+      "direction": "horizontal",
+      "symbolOpacity": 0.8
      }
     },
     "order": {
@@ -44893,7 +44944,7 @@
      },
      {
       "field": "change",
-      "title": "Change 2015–25 (%)",
+      "title": "Change 2015–2025 (%)",
       "format": "+d"
      }
     ]
@@ -45294,30 +45345,27 @@
      }
     ]
    },
-   "mark": {
-    "type": "text",
-    "align": "left",
-    "dx": 4,
-    "baseline": "middle",
-    "fontSize": 11.5,
-    "lineHeight": 14,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-   },
    "transform": [
     {
      "filter": "datum.year == yr"
     },
     {
-     "filter": "datum.side == 'r'"
-    },
-    {
      "filter": "true"
     },
     {
-     "calculate": "[datum.c, format(datum.v, ',') + ' · ' + format(datum.km, ',') + ' km']",
-     "as": "lbl"
+     "filter": "datum.side == 'r'"
     }
    ],
+   "mark": {
+    "type": "text",
+    "align": "left",
+    "dx": 3,
+    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+    "baseline": "bottom",
+    "dy": 1,
+    "fontSize": 11.5,
+    "fontWeight": 600
+   },
    "encoding": {
     "longitude": {
      "field": "llon",
@@ -45328,7 +45376,7 @@
      "type": "quantitative"
     },
     "text": {
-     "field": "lbl"
+     "field": "c"
     },
     "color": {
      "value": "#222222"
@@ -45730,30 +45778,30 @@
      }
     ]
    },
-   "mark": {
-    "type": "text",
-    "align": "right",
-    "dx": -4,
-    "baseline": "middle",
-    "fontSize": 11.5,
-    "lineHeight": 14,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-   },
    "transform": [
     {
      "filter": "datum.year == yr"
     },
     {
-     "filter": "datum.side == 'l'"
-    },
-    {
      "filter": "true"
     },
     {
-     "calculate": "[datum.c, format(datum.v, ',') + ' · ' + format(datum.km, ',') + ' km']",
+     "filter": "datum.side == 'r'"
+    },
+    {
+     "calculate": "format(datum.v / 1000, ',.0f') + ',000'",
      "as": "lbl"
     }
    ],
+   "mark": {
+    "type": "text",
+    "align": "left",
+    "dx": 3,
+    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+    "baseline": "top",
+    "dy": 2,
+    "fontSize": 10.5
+   },
    "encoding": {
     "longitude": {
      "field": "llon",
@@ -45767,7 +45815,876 @@
      "field": "lbl"
     },
     "color": {
+     "value": "#5c5c5c"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "c": "India",
+      "lon": 78.9,
+      "lat": 22,
+      "km": 9847,
+      "year": 2015,
+      "v": 449040,
+      "llon": 56.551,
+      "llat": 22.272,
+      "side": "l",
+      "region": "Asia",
+      "change": 116
+     },
+     {
+      "c": "India",
+      "lon": 78.9,
+      "lat": 22,
+      "km": 9847,
+      "year": 2020,
+      "v": 724060,
+      "llon": 56.551,
+      "llat": 22.272,
+      "side": "l",
+      "region": "Asia",
+      "change": 116
+     },
+     {
+      "c": "India",
+      "lon": 78.9,
+      "lat": 22,
+      "km": 9847,
+      "year": 2025,
+      "v": 971020,
+      "llon": 56.551,
+      "llat": 22.272,
+      "side": "l",
+      "region": "Asia",
+      "change": 116
+     },
+     {
+      "c": "England",
+      "lon": -1.5,
+      "lat": 52.6,
+      "km": 17011,
+      "year": 2015,
+      "v": 1006540,
+      "llon": 20.052,
+      "llat": 50.579,
+      "side": "r",
+      "region": "Europe",
+      "change": -4
+     },
+     {
+      "c": "England",
+      "lon": -1.5,
+      "lat": 52.6,
+      "km": 17011,
+      "year": 2020,
+      "v": 986210,
+      "llon": 20.052,
+      "llat": 50.579,
+      "side": "r",
+      "region": "Europe",
+      "change": -4
+     },
+     {
+      "c": "England",
+      "lon": -1.5,
+      "lat": 52.6,
+      "km": 17011,
+      "year": 2025,
+      "v": 970950,
+      "llon": 20.052,
+      "llat": 50.579,
+      "side": "r",
+      "region": "Europe",
+      "change": -4
+     },
+     {
+      "c": "China",
+      "lon": 104,
+      "lat": 34.5,
+      "km": 9054,
+      "year": 2015,
+      "v": 508870,
+      "llon": 116.858,
+      "llat": 48.687,
+      "side": "r",
+      "region": "Asia",
+      "change": 44
+     },
+     {
+      "c": "China",
+      "lon": 104,
+      "lat": 34.5,
+      "km": 9054,
+      "year": 2020,
+      "v": 638990,
+      "llon": 116.858,
+      "llat": 48.687,
+      "side": "r",
+      "region": "Asia",
+      "change": 44
+     },
+     {
+      "c": "China",
+      "lon": 104,
+      "lat": 34.5,
+      "km": 9054,
+      "year": 2025,
+      "v": 731540,
+      "llon": 116.858,
+      "llat": 48.687,
+      "side": "r",
+      "region": "Asia",
+      "change": 44
+     },
+     {
+      "c": "New Zealand",
+      "lon": 174,
+      "lat": -41,
+      "km": 2155,
+      "year": 2015,
+      "v": 575430,
+      "llon": -175.329,
+      "llat": -40.506,
+      "side": "r",
+      "region": "Oceania & Africa",
+      "change": 11
+     },
+     {
+      "c": "New Zealand",
+      "lon": 174,
+      "lat": -41,
+      "km": 2155,
+      "year": 2020,
+      "v": 584490,
+      "llon": -175.329,
+      "llat": -40.506,
+      "side": "r",
+      "region": "Oceania & Africa",
+      "change": 11
+     },
+     {
+      "c": "New Zealand",
+      "lon": 174,
+      "lat": -41,
+      "km": 2155,
+      "year": 2025,
+      "v": 637680,
+      "llon": -175.329,
+      "llat": -40.506,
+      "side": "r",
+      "region": "Oceania & Africa",
+      "change": 11
+     },
+     {
+      "c": "Philippines",
+      "lon": 122,
+      "lat": 12.5,
+      "km": 6011,
+      "year": 2015,
+      "v": 241130,
+      "llon": 134.785,
+      "llat": 11.11,
+      "side": "r",
+      "region": "Asia",
+      "change": 71
+     },
+     {
+      "c": "Philippines",
+      "lon": 122,
+      "lat": 12.5,
+      "km": 6011,
+      "year": 2020,
+      "v": 308380,
+      "llon": 134.785,
+      "llat": 11.11,
+      "side": "r",
+      "region": "Asia",
+      "change": 71
+     },
+     {
+      "c": "Philippines",
+      "lon": 122,
+      "lat": 12.5,
+      "km": 6011,
+      "year": 2025,
+      "v": 412530,
+      "llon": 134.785,
+      "llat": 11.11,
+      "side": "r",
+      "region": "Asia",
+      "change": 71
+     },
+     {
+      "c": "Vietnam",
+      "lon": 106.5,
+      "lat": 15.5,
+      "km": 7248,
+      "year": 2015,
+      "v": 235590,
+      "llon": 112.34,
+      "llat": 5.313,
+      "side": "r",
+      "region": "Asia",
+      "change": 39
+     },
+     {
+      "c": "Vietnam",
+      "lon": 106.5,
+      "lat": 15.5,
+      "km": 7248,
+      "year": 2020,
+      "v": 275920,
+      "llon": 112.34,
+      "llat": 5.313,
+      "side": "r",
+      "region": "Asia",
+      "change": 39
+     },
+     {
+      "c": "Vietnam",
+      "lon": 106.5,
+      "lat": 15.5,
+      "km": 7248,
+      "year": 2025,
+      "v": 326630,
+      "llon": 112.34,
+      "llat": 5.313,
+      "side": "r",
+      "region": "Asia",
+      "change": 39
+     },
+     {
+      "c": "South Africa",
+      "lon": 24.5,
+      "lat": -29,
+      "km": 11057,
+      "year": 2015,
+      "v": 177390,
+      "llon": 12.505,
+      "llat": -32.157,
+      "side": "l",
+      "region": "Oceania & Africa",
+      "change": 30
+     },
+     {
+      "c": "South Africa",
+      "lon": 24.5,
+      "lat": -29,
+      "km": 11057,
+      "year": 2020,
+      "v": 200890,
+      "llon": 12.505,
+      "llat": -32.157,
+      "side": "l",
+      "region": "Oceania & Africa",
+      "change": 30
+     },
+     {
+      "c": "South Africa",
+      "lon": 24.5,
+      "lat": -29,
+      "km": 11057,
+      "year": 2025,
+      "v": 229950,
+      "llon": 12.505,
+      "llat": -32.157,
+      "side": "l",
+      "region": "Oceania & Africa",
+      "change": 30
+     },
+     {
+      "c": "Nepal",
+      "lon": 84.1,
+      "lat": 28.3,
+      "km": 9879,
+      "year": 2015,
+      "v": 50150,
+      "llon": 70.332,
+      "llat": 38.424,
+      "side": "l",
+      "region": "Asia",
+      "change": 326
+     },
+     {
+      "c": "Nepal",
+      "lon": 84.1,
+      "lat": 28.3,
+      "km": 9879,
+      "year": 2020,
+      "v": 132400,
+      "llon": 70.332,
+      "llat": 38.424,
+      "side": "l",
+      "region": "Asia",
+      "change": 326
+     },
+     {
+      "c": "Nepal",
+      "lon": 84.1,
+      "lat": 28.3,
+      "km": 9879,
+      "year": 2025,
+      "v": 213580,
+      "llon": 70.332,
+      "llat": 38.424,
+      "side": "l",
+      "region": "Asia",
+      "change": 326
+     },
+     {
+      "c": "Sri Lanka",
+      "lon": 80.7,
+      "lat": 7.8,
+      "km": 8732,
+      "year": 2015,
+      "v": 119700,
+      "llon": 70.372,
+      "llat": -14.214,
+      "side": "l",
+      "region": "Asia",
+      "change": 54
+     },
+     {
+      "c": "Sri Lanka",
+      "lon": 80.7,
+      "lat": 7.8,
+      "km": 8732,
+      "year": 2020,
+      "v": 142690,
+      "llon": 70.372,
+      "llat": -14.214,
+      "side": "l",
+      "region": "Asia",
+      "change": 54
+     },
+     {
+      "c": "Sri Lanka",
+      "lon": 80.7,
+      "lat": 7.8,
+      "km": 8732,
+      "year": 2025,
+      "v": 184800,
+      "llon": 70.372,
+      "llat": -14.214,
+      "side": "l",
+      "region": "Asia",
+      "change": 54
+     },
+     {
+      "c": "Malaysia",
+      "lon": 102,
+      "lat": 3.8,
+      "km": 6640,
+      "year": 2015,
+      "v": 143420,
+      "llon": 94.248,
+      "llat": -7.251,
+      "side": "l",
+      "region": "Asia",
+      "change": 29
+     },
+     {
+      "c": "Malaysia",
+      "lon": 102,
+      "lat": 3.8,
+      "km": 6640,
+      "year": 2020,
+      "v": 178760,
+      "llon": 94.248,
+      "llat": -7.251,
+      "side": "l",
+      "region": "Asia",
+      "change": 29
+     },
+     {
+      "c": "Malaysia",
+      "lon": 102,
+      "lat": 3.8,
+      "km": 6640,
+      "year": 2025,
+      "v": 184320,
+      "llon": 94.248,
+      "llat": -7.251,
+      "side": "l",
+      "region": "Asia",
+      "change": 29
+     }
+    ]
+   },
+   "transform": [
+    {
+     "filter": "datum.year == yr"
+    },
+    {
+     "filter": "true"
+    },
+    {
+     "filter": "datum.side == 'l'"
+    }
+   ],
+   "mark": {
+    "type": "text",
+    "align": "right",
+    "dx": -3,
+    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+    "baseline": "bottom",
+    "dy": 1,
+    "fontSize": 11.5,
+    "fontWeight": 600
+   },
+   "encoding": {
+    "longitude": {
+     "field": "llon",
+     "type": "quantitative"
+    },
+    "latitude": {
+     "field": "llat",
+     "type": "quantitative"
+    },
+    "text": {
+     "field": "c"
+    },
+    "color": {
      "value": "#222222"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "c": "India",
+      "lon": 78.9,
+      "lat": 22,
+      "km": 9847,
+      "year": 2015,
+      "v": 449040,
+      "llon": 56.551,
+      "llat": 22.272,
+      "side": "l",
+      "region": "Asia",
+      "change": 116
+     },
+     {
+      "c": "India",
+      "lon": 78.9,
+      "lat": 22,
+      "km": 9847,
+      "year": 2020,
+      "v": 724060,
+      "llon": 56.551,
+      "llat": 22.272,
+      "side": "l",
+      "region": "Asia",
+      "change": 116
+     },
+     {
+      "c": "India",
+      "lon": 78.9,
+      "lat": 22,
+      "km": 9847,
+      "year": 2025,
+      "v": 971020,
+      "llon": 56.551,
+      "llat": 22.272,
+      "side": "l",
+      "region": "Asia",
+      "change": 116
+     },
+     {
+      "c": "England",
+      "lon": -1.5,
+      "lat": 52.6,
+      "km": 17011,
+      "year": 2015,
+      "v": 1006540,
+      "llon": 20.052,
+      "llat": 50.579,
+      "side": "r",
+      "region": "Europe",
+      "change": -4
+     },
+     {
+      "c": "England",
+      "lon": -1.5,
+      "lat": 52.6,
+      "km": 17011,
+      "year": 2020,
+      "v": 986210,
+      "llon": 20.052,
+      "llat": 50.579,
+      "side": "r",
+      "region": "Europe",
+      "change": -4
+     },
+     {
+      "c": "England",
+      "lon": -1.5,
+      "lat": 52.6,
+      "km": 17011,
+      "year": 2025,
+      "v": 970950,
+      "llon": 20.052,
+      "llat": 50.579,
+      "side": "r",
+      "region": "Europe",
+      "change": -4
+     },
+     {
+      "c": "China",
+      "lon": 104,
+      "lat": 34.5,
+      "km": 9054,
+      "year": 2015,
+      "v": 508870,
+      "llon": 116.858,
+      "llat": 48.687,
+      "side": "r",
+      "region": "Asia",
+      "change": 44
+     },
+     {
+      "c": "China",
+      "lon": 104,
+      "lat": 34.5,
+      "km": 9054,
+      "year": 2020,
+      "v": 638990,
+      "llon": 116.858,
+      "llat": 48.687,
+      "side": "r",
+      "region": "Asia",
+      "change": 44
+     },
+     {
+      "c": "China",
+      "lon": 104,
+      "lat": 34.5,
+      "km": 9054,
+      "year": 2025,
+      "v": 731540,
+      "llon": 116.858,
+      "llat": 48.687,
+      "side": "r",
+      "region": "Asia",
+      "change": 44
+     },
+     {
+      "c": "New Zealand",
+      "lon": 174,
+      "lat": -41,
+      "km": 2155,
+      "year": 2015,
+      "v": 575430,
+      "llon": -175.329,
+      "llat": -40.506,
+      "side": "r",
+      "region": "Oceania & Africa",
+      "change": 11
+     },
+     {
+      "c": "New Zealand",
+      "lon": 174,
+      "lat": -41,
+      "km": 2155,
+      "year": 2020,
+      "v": 584490,
+      "llon": -175.329,
+      "llat": -40.506,
+      "side": "r",
+      "region": "Oceania & Africa",
+      "change": 11
+     },
+     {
+      "c": "New Zealand",
+      "lon": 174,
+      "lat": -41,
+      "km": 2155,
+      "year": 2025,
+      "v": 637680,
+      "llon": -175.329,
+      "llat": -40.506,
+      "side": "r",
+      "region": "Oceania & Africa",
+      "change": 11
+     },
+     {
+      "c": "Philippines",
+      "lon": 122,
+      "lat": 12.5,
+      "km": 6011,
+      "year": 2015,
+      "v": 241130,
+      "llon": 134.785,
+      "llat": 11.11,
+      "side": "r",
+      "region": "Asia",
+      "change": 71
+     },
+     {
+      "c": "Philippines",
+      "lon": 122,
+      "lat": 12.5,
+      "km": 6011,
+      "year": 2020,
+      "v": 308380,
+      "llon": 134.785,
+      "llat": 11.11,
+      "side": "r",
+      "region": "Asia",
+      "change": 71
+     },
+     {
+      "c": "Philippines",
+      "lon": 122,
+      "lat": 12.5,
+      "km": 6011,
+      "year": 2025,
+      "v": 412530,
+      "llon": 134.785,
+      "llat": 11.11,
+      "side": "r",
+      "region": "Asia",
+      "change": 71
+     },
+     {
+      "c": "Vietnam",
+      "lon": 106.5,
+      "lat": 15.5,
+      "km": 7248,
+      "year": 2015,
+      "v": 235590,
+      "llon": 112.34,
+      "llat": 5.313,
+      "side": "r",
+      "region": "Asia",
+      "change": 39
+     },
+     {
+      "c": "Vietnam",
+      "lon": 106.5,
+      "lat": 15.5,
+      "km": 7248,
+      "year": 2020,
+      "v": 275920,
+      "llon": 112.34,
+      "llat": 5.313,
+      "side": "r",
+      "region": "Asia",
+      "change": 39
+     },
+     {
+      "c": "Vietnam",
+      "lon": 106.5,
+      "lat": 15.5,
+      "km": 7248,
+      "year": 2025,
+      "v": 326630,
+      "llon": 112.34,
+      "llat": 5.313,
+      "side": "r",
+      "region": "Asia",
+      "change": 39
+     },
+     {
+      "c": "South Africa",
+      "lon": 24.5,
+      "lat": -29,
+      "km": 11057,
+      "year": 2015,
+      "v": 177390,
+      "llon": 12.505,
+      "llat": -32.157,
+      "side": "l",
+      "region": "Oceania & Africa",
+      "change": 30
+     },
+     {
+      "c": "South Africa",
+      "lon": 24.5,
+      "lat": -29,
+      "km": 11057,
+      "year": 2020,
+      "v": 200890,
+      "llon": 12.505,
+      "llat": -32.157,
+      "side": "l",
+      "region": "Oceania & Africa",
+      "change": 30
+     },
+     {
+      "c": "South Africa",
+      "lon": 24.5,
+      "lat": -29,
+      "km": 11057,
+      "year": 2025,
+      "v": 229950,
+      "llon": 12.505,
+      "llat": -32.157,
+      "side": "l",
+      "region": "Oceania & Africa",
+      "change": 30
+     },
+     {
+      "c": "Nepal",
+      "lon": 84.1,
+      "lat": 28.3,
+      "km": 9879,
+      "year": 2015,
+      "v": 50150,
+      "llon": 70.332,
+      "llat": 38.424,
+      "side": "l",
+      "region": "Asia",
+      "change": 326
+     },
+     {
+      "c": "Nepal",
+      "lon": 84.1,
+      "lat": 28.3,
+      "km": 9879,
+      "year": 2020,
+      "v": 132400,
+      "llon": 70.332,
+      "llat": 38.424,
+      "side": "l",
+      "region": "Asia",
+      "change": 326
+     },
+     {
+      "c": "Nepal",
+      "lon": 84.1,
+      "lat": 28.3,
+      "km": 9879,
+      "year": 2025,
+      "v": 213580,
+      "llon": 70.332,
+      "llat": 38.424,
+      "side": "l",
+      "region": "Asia",
+      "change": 326
+     },
+     {
+      "c": "Sri Lanka",
+      "lon": 80.7,
+      "lat": 7.8,
+      "km": 8732,
+      "year": 2015,
+      "v": 119700,
+      "llon": 70.372,
+      "llat": -14.214,
+      "side": "l",
+      "region": "Asia",
+      "change": 54
+     },
+     {
+      "c": "Sri Lanka",
+      "lon": 80.7,
+      "lat": 7.8,
+      "km": 8732,
+      "year": 2020,
+      "v": 142690,
+      "llon": 70.372,
+      "llat": -14.214,
+      "side": "l",
+      "region": "Asia",
+      "change": 54
+     },
+     {
+      "c": "Sri Lanka",
+      "lon": 80.7,
+      "lat": 7.8,
+      "km": 8732,
+      "year": 2025,
+      "v": 184800,
+      "llon": 70.372,
+      "llat": -14.214,
+      "side": "l",
+      "region": "Asia",
+      "change": 54
+     },
+     {
+      "c": "Malaysia",
+      "lon": 102,
+      "lat": 3.8,
+      "km": 6640,
+      "year": 2015,
+      "v": 143420,
+      "llon": 94.248,
+      "llat": -7.251,
+      "side": "l",
+      "region": "Asia",
+      "change": 29
+     },
+     {
+      "c": "Malaysia",
+      "lon": 102,
+      "lat": 3.8,
+      "km": 6640,
+      "year": 2020,
+      "v": 178760,
+      "llon": 94.248,
+      "llat": -7.251,
+      "side": "l",
+      "region": "Asia",
+      "change": 29
+     },
+     {
+      "c": "Malaysia",
+      "lon": 102,
+      "lat": 3.8,
+      "km": 6640,
+      "year": 2025,
+      "v": 184320,
+      "llon": 94.248,
+      "llat": -7.251,
+      "side": "l",
+      "region": "Asia",
+      "change": 29
+     }
+    ]
+   },
+   "transform": [
+    {
+     "filter": "datum.year == yr"
+    },
+    {
+     "filter": "true"
+    },
+    {
+     "filter": "datum.side == 'l'"
+    },
+    {
+     "calculate": "format(datum.v / 1000, ',.0f') + ',000'",
+     "as": "lbl"
+    }
+   ],
+   "mark": {
+    "type": "text",
+    "align": "right",
+    "dx": -3,
+    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+    "baseline": "top",
+    "dy": 2,
+    "fontSize": 10.5
+   },
+   "encoding": {
+    "longitude": {
+     "field": "llon",
+     "type": "quantitative"
+    },
+    "latitude": {
+     "field": "llat",
+     "type": "quantitative"
+    },
+    "text": {
+     "field": "lbl"
+    },
+    "color": {
+     "value": "#5c5c5c"
     }
    }
   },
@@ -45782,11 +46699,10 @@
     ]
    },
    "mark": {
-    "type": "point",
-    "shape": "cross",
-    "size": 90,
-    "strokeWidth": 2,
-    "filled": true
+    "type": "circle",
+    "size": 22,
+    "color": "#222222",
+    "opacity": 1
    },
    "encoding": {
     "longitude": {
@@ -45796,9 +46712,6 @@
     "latitude": {
      "field": "lat",
      "type": "quantitative"
-    },
-    "color": {
-     "value": "#222222"
     }
    }
   },
@@ -45815,11 +46728,11 @@
    "mark": {
     "type": "text",
     "align": "right",
-    "dx": -7,
-    "dy": -9,
+    "dx": -5,
+    "dy": -6,
     "fontSize": 11,
     "fontWeight": 600,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
    },
    "encoding": {
     "longitude": {

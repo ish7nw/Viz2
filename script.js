@@ -1,7 +1,7 @@
 /*
   script.js - builds every chart on the page.
 
-  How it fits together:
+  How it fits together (search for "PART" or "FIGURE" to jump between sections):
     1. Small data tables (yearly shares, countries, states) - right below.
        The big map shapes (WORLD, STATES, SA4, RINGS, EXTRA) are in data.js.
     2. Shared settings: colours, fonts, the linked state highlight, hover tooltips.
@@ -19,6 +19,10 @@
   Search for "IDIOM:" to jump to the exact layer that makes each map idiom.
 */
 
+/* ======================================================================
+   PART 1. DATA TABLES
+   Small tables typed in by hand. The big map shapes are in data.js.
+   ====================================================================== */
 /* ---------- data tables ---------- */
 // PCT: share of the population born overseas, one value per year from 1891 to 2025.
 // OSM: the same thing as a head count, in millions.
@@ -81,6 +85,10 @@ const fmt = (v) => v.toLocaleString("en-AU");
 const short = (v) => v >= 1e6 ? (v / 1e6).toFixed(2) + "M" : Math.round(v / 1000) + "k";
 ST_LABELS.forEach(d => { d.l1 = d.abbr + " · " + short(d.tot) + " born overseas"; d.l2 = "Top: " + d.top + " " + short(d.topn); });
 
+/* ======================================================================
+   PART 2. SHARED SETTINGS
+   Theme, linked state highlight, hover tooltips
+   ====================================================================== */
 /* ---------- theme ---------- */
 // Pull the colours from style.css so the maps match the page, and set fonts/axes/legends for every chart.
 function T() {
@@ -167,7 +175,16 @@ function hoverCountry(layer, t, opt) {
   return L;
 }
 
-/* ---------- Figure 1: spot values ---------- */
+/* ======================================================================
+   PART 3. THE FIGURES
+   One function per figure. They're not in page order, so search "FIGURE 6" etc.
+   ====================================================================== */
+
+/* ======================================================================
+   FIGURE 1 | Page section 1 | IDIOM: Spot values
+   Function: spec1()
+   ====================================================================== */
+
 // The overseas-born share since 1891. Shaded bands are policy eras; the labelled points
 // ("1947 · 9.8%") are the spot values. Drag to pan, scroll to zoom.
 function spec1(t, w) {
@@ -215,7 +232,11 @@ function spec1(t, w) {
   };
 }
 
-/* ---------- Figure 3: proportional symbols + contour lines ---------- */
+/* ======================================================================
+   FIGURE 3 | Page section 3.1 | IDIOM: Proportional symbols + contour lines
+   Function: spec2()
+   ====================================================================== */
+
 // World map centred on Sydney (azimuthal equidistant), so distance from Sydney reads true.
 // Rings every 2,500 km are the contour lines; circle area = residents born in that country.
 function spec2(t, yr, w) {
@@ -224,14 +245,21 @@ function spec2(t, yr, w) {
   const proj = { type: "azimuthalEquidistant", rotate: [-151.21, 33.87], clipAngle: 179 };
   const sizeScale = { domain: [0, 1010000], range: [0, Math.round(2300 * k * k)] };
   const colorScale = { domain: REG_DOMAIN, range: [t.s1, t.s2, t.s3] };
-  const labelText = (align, dx) => ({
-    data: { values: COB_LONG },
-    mark: { type: "text", align, dx, baseline: "middle", fontSize: narrow ? 10.5 : 11.5, lineHeight: 14, font: t.body },
-    transform: [{ filter: "datum.year == yr" }, { filter: `datum.side == '${align === "left" ? "r" : "l"}'` },
-      { filter: narrow ? "indexof(['India','England','China','New Zealand'], datum.c) >= 0" : "true" },
-      { calculate: narrow ? "datum.c + ' ' + format(datum.v / 1000, ',.0f') + 'k'" : "[datum.c, format(datum.v, ',') + ' · ' + format(datum.km, ',') + ' km']", as: "lbl" }],
-    encoding: { longitude: { field: "llon", type: "quantitative" }, latitude: { field: "llat", type: "quantitative" }, text: { field: "lbl" }, color: { value: t.ink } }
-  });
+  const loc = { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" } };
+  const thisYear = [{ filter: "datum.year == yr" }, { filter: narrow ? "indexof(['India','England','China','New Zealand'], datum.c) >= 0" : "true" }];
+  // Country labels, the way an atlas does it: the name in dark type, the figure underneath in grey.
+  const labelText = (align, dx) => {
+    const side = { filter: `datum.side == '${align === "left" ? "r" : "l"}'` };
+    const at = { longitude: { field: "llon", type: "quantitative" }, latitude: { field: "llat", type: "quantitative" } };
+    const m = { type: "text", align, dx, font: t.body };
+    return narrow
+      ? [{ data: { values: COB_LONG }, transform: [...thisYear, side, { calculate: "datum.c + ' ' + format(datum.v / 1000, ',.0f') + 'k'", as: "lbl" }],
+          mark: { ...m, baseline: "middle", fontSize: 10.5 }, encoding: { ...at, text: { field: "lbl" }, color: { value: t.ink } } }]
+      : [{ data: { values: COB_LONG }, transform: [...thisYear, side],
+          mark: { ...m, baseline: "bottom", dy: 1, fontSize: 11.5, fontWeight: 600 }, encoding: { ...at, text: { field: "c" }, color: { value: t.ink } } },
+         { data: { values: COB_LONG }, transform: [...thisYear, side, { calculate: "format(datum.v / 1000, ',.0f') + ',000'", as: "lbl" }],
+          mark: { ...m, baseline: "top", dy: 2, fontSize: 10.5 }, encoding: { ...at, text: { field: "lbl" }, color: { value: t.muted } } }];
+  };
   return {
     $schema: "https://vega.github.io/schema/vega-lite/v5.json",
     width: "container", height: narrow ? Math.round(w + 90) : 680, autosize: { type: "fit-x", contains: "padding" },
@@ -239,49 +267,53 @@ function spec2(t, yr, w) {
     params: [{ name: "yr", value: yr, bind: { input: "radio", options: [2015, 2020, 2025], name: "Year " } }],
     projection: proj,
     layer: [
-      { data: { sphere: true }, mark: { type: "geoshape", fill: t.ocean, stroke: t.rule, strokeWidth: 1 } },
-      hoverCountry({ data: { values: WORLD, format: { type: "topojson", feature: "countries" } }, mark: { type: "geoshape", fill: t.land, stroke: t.surface, strokeWidth: 0.5 } }, t),
+      { data: { sphere: true }, mark: { type: "geoshape", fill: t.ocean, stroke: "#b9c2c9", strokeWidth: 0.8 } },
+      // faint graticule every 30 degrees, like a printed atlas
+      { data: { graticule: { step: [30, 30] } }, mark: { type: "geoshape", filled: false, stroke: "#c9d3da", strokeWidth: 0.4 } },
+      hoverCountry({ data: { values: WORLD, format: { type: "topojson", feature: "countries" } }, mark: { type: "geoshape", fill: t.land, stroke: "#ffffff", strokeWidth: 0.4 } }, t),
       // IDIOM: CONTOUR LINES (isolines) - rings of equal distance from Sydney, every 2,500 km.
-      // The two layers after this one add the "2,500 km" labels.
-      { data: { values: RINGS.rings, format: { type: "json", property: "features" } }, mark: { type: "geoshape", filled: false, stroke: t.contour, strokeWidth: 1, strokeDash: [4, 3], strokeOpacity: 0.85 } },
-      { data: { values: RINGS.ringLabels },
-        mark: { type: "text", fontSize: 10.5, font: t.mono, fontWeight: 500, stroke: t.ocean, strokeWidth: 4, strokeJoin: "round" },
-        encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, text: { field: "lbl" } },
-        transform: [{ calculate: "format(datum.km, ',') + ' km'", as: "lbl" }] },
-      { data: { values: RINGS.ringLabels },
-        mark: { type: "text", fontSize: 10.5, font: t.mono, fontWeight: 500 },
-        encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, text: { field: "lbl" }, color: { value: t.contour } },
-        transform: [{ calculate: "format(datum.km, ',') + ' km'", as: "lbl" }] },
-      { data: { values: COB_LONG }, transform: [{ filter: "datum.year == yr" }],
-        mark: { type: "rule", strokeWidth: 0.75 },
-        transform: [{ filter: "datum.year == yr" }, { filter: narrow ? "indexof(['India','England','China','New Zealand'], datum.c) >= 0" : "true" }],
-        encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" },
-          longitude2: { field: "llon" }, latitude2: { field: "llat" }, color: { value: t.muted } } },
+      // Thin solid lines, with every 5,000 km drawn a little heavier and labelled (index contours).
+      { data: { values: RINGS.rings, format: { type: "json", property: "features" } }, mark: { type: "geoshape", filled: false, stroke: "#7d8a93" },
+        encoding: { strokeWidth: { condition: { test: "datum.properties.km % 5000 == 0", value: 0.9 }, value: 0.45 },
+          strokeOpacity: { condition: { test: "datum.properties.km % 5000 == 0", value: 0.8 }, value: 0.55 } } },
+      { data: { values: RINGS.ringLabels }, transform: [{ filter: "datum.km % 5000 == 0" }, { calculate: "format(datum.km, ',') + ' km'", as: "lbl" }],
+        mark: { type: "text", fontSize: 10, font: t.body, fontStyle: "italic", stroke: t.ocean, strokeWidth: 3.5, strokeJoin: "round" },
+        encoding: { ...loc, text: { field: "lbl" } } },
+      { data: { values: RINGS.ringLabels }, transform: [{ filter: "datum.km % 5000 == 0" }, { calculate: "format(datum.km, ',') + ' km'", as: "lbl" }],
+        mark: { type: "text", fontSize: 10, font: t.body, fontStyle: "italic" },
+        encoding: { ...loc, text: { field: "lbl" }, color: { value: "#5f6d77" } } },
+      // short hairline leaders from each circle to its label
+      { data: { values: COB_LONG }, transform: thisYear,
+        mark: { type: "rule", strokeWidth: 0.5 },
+        encoding: { ...loc, longitude2: { field: "llon" }, latitude2: { field: "llat" }, color: { value: "#8a8a8a" } } },
       // IDIOM: PROPORTIONAL SYMBOLS - circle area = residents born in that country (size encoding below),
       // colour = region of birth. Clicking the legend filters by region.
       { data: { values: COB_LONG }, transform: [{ filter: "datum.year == yr" }],
         params: [{ name: "reg", select: { type: "point", fields: ["region"] }, bind: "legend" }],
-        mark: { type: "circle", stroke: t.surface, strokeWidth: 1.5, cursor: "pointer" },
+        mark: { type: "circle", strokeWidth: 1, cursor: "pointer" },
         encoding: {
-          longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" },
-          opacity: { condition: { param: "reg", value: 0.85 }, value: 0.1 },
-          size: { field: "v", type: "quantitative", scale: sizeScale, legend: { title: "Residents born there", values: [100000, 500000, 1000000], format: narrow ? ".1s" : ",.0f", orient: "bottom", direction: "horizontal", symbolFillColor: t.muted, symbolOpacity: 0.35, symbolStrokeColor: t.muted } },
-          color: { field: "region", type: "nominal", scale: colorScale, legend: { title: "Region of birth", orient: "bottom", direction: narrow ? "vertical" : "horizontal" } },
+          ...loc,
+          opacity: { condition: { param: "reg", value: 0.72 }, value: 0.08 },
+          stroke: { field: "region", type: "nominal", scale: { domain: REG_DOMAIN, range: ["#0f6b50", "#9a4300", "#4e4a86"] }, legend: null },
+          size: { field: "v", type: "quantitative", scale: sizeScale, legend: { title: "Residents born there", values: [100000, 500000, 1000000], format: narrow ? ".1s" : ",.0f", orient: "bottom", direction: "horizontal", symbolFillColor: "#bfbfbf", symbolStrokeColor: "#8a8a8a", symbolStrokeWidth: 1, symbolOpacity: 0.8 } },
+          color: { field: "region", type: "nominal", scale: colorScale, legend: { title: "Region of birth", orient: "bottom", direction: narrow ? "vertical" : "horizontal", symbolOpacity: 0.8 } },
           order: { field: "v", sort: "descending" },
-          tooltip: [ { field: "c", title: "Country of birth" }, { field: "year", title: "Year", format: "d" }, { field: "v", title: "Residents", format: "," }, { field: "km", title: "Distance from Sydney (km)", format: "," }, { field: "change", title: "Change 2015–25 (%)", format: "+d" } ]
+          tooltip: [ { field: "c", title: "Country of birth" }, { field: "year", title: "Year", format: "d" }, { field: "v", title: "Residents", format: "," }, { field: "km", title: "Distance from Sydney (km)", format: "," }, { field: "change", title: "Change 2015–2025 (%)", format: "+d" } ]
         } },
-      labelText("left", 4),
-      labelText("right", -4),
+      ...labelText("left", 3),
+      ...labelText("right", -3),
+      // Sydney: a small dot and its name, nothing fancier
+      { data: { values: [{ lon: 151.21, lat: -33.87, n: "Sydney" }] }, mark: { type: "circle", size: 22, color: t.ink, opacity: 1 }, encoding: loc },
       { data: { values: [{ lon: 151.21, lat: -33.87, n: "Sydney" }] },
-        mark: { type: "point", shape: "cross", size: 90, strokeWidth: 2, filled: true },
-        encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, color: { value: t.ink } } },
-      { data: { values: [{ lon: 151.21, lat: -33.87, n: "Sydney" }] },
-        mark: { type: "text", align: "right", dx: -7, dy: -9, fontSize: 11, fontWeight: 600, font: t.body },
-        encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, text: { field: "n" }, color: { value: t.ink } } }
+        mark: { type: "text", align: "right", dx: -5, dy: -6, fontSize: 11, fontWeight: 600, font: t.body },
+        encoding: { ...loc, text: { field: "n" }, color: { value: t.ink } } }
     ]
   };
 }
 
+/* ======================================================================
+   MAP HELPERS: projections and shared layers
+   ====================================================================== */
 /* ---------- projection for every Australian map ---------- */
 // Conic equal-area keeps region sizes honest, which matters for choropleths.
 const AUS_PROJ = { type: "conicEqualArea", parallels: [-18, -36], rotate: [-134, 0] };
@@ -295,7 +327,11 @@ const waterLabels = (t, vals, narrow) => ({ data: { values: vals },
   mark: { type: "text", font: t.mono, fontStyle: "italic", fontWeight: 500, fontSize: narrow ? 10 : 11.5, color: "#3a6a92", baseline: "middle" },
   encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, text: { field: "n" } } });
 
-/* ---------- Figure 12: nested proportional symbols ---------- */
+/* ======================================================================
+   FIGURE 12 | Page section 4.4 | IDIOM: Nested proportional symbols
+   Function: spec4()
+   ====================================================================== */
+
 // Open circle = everyone born overseas in the state; filled circle = people from the single
 // biggest birthplace. Same size scale for both, so the filled one shows its share.
 function spec4(t, w) {
@@ -360,7 +396,11 @@ const SYD = { lon: 151.21, lat: -33.87 };
 const TOTPOP = { NSW: 8097060, Vic: 6547820, Qld: 5215810, SA: 1802600, WA: 2749370, Tas: 567240, NT: 248150, ACT: 452510 };
 const base = (t, w, h, ocean) => ({ $schema: "https://vega.github.io/schema/vega-lite/v5.json", width: "container", height: h, autosize: { type: "fit-x", contains: "padding" }, config: ocean ? { ...config(t), view: { stroke: null, fill: t.ocean } } : config(t) });
 
-/* ---------- Figure 2: First Fleet route map + animation ---------- */
+/* ======================================================================
+   FIGURE 2 | Page section 2 | IDIOM: Route map (animated)
+   Function: specVoyage()
+   ====================================================================== */
+
 // FLEET_STOPS are the five ports, FLEET_PATH the waypoints of the route.
 // The whole animation is driven by one number, `day` (0 = 13 May 1787, 250 = Botany Bay).
 const FLEET_STOPS = [
@@ -479,7 +519,11 @@ function specVoyage(t, w) {
   return s;
 }
 
-/* ---------- Figure 4: flow map ---------- */
+/* ======================================================================
+   FIGURE 4 | Page section 3.2 | IDIOM: Flow map
+   Function: specFlow()
+   ====================================================================== */
+
 // A line from each of the top ten birthplaces to Sydney (shortest path on the globe);
 // line width = residents born there in 2025. Hover a line to pick it out.
 function specFlow(t, w) {
@@ -513,7 +557,11 @@ function specFlow(t, w) {
   return s;
 }
 
-/* ---------- Figure 5: spike map ---------- */
+/* ======================================================================
+   FIGURE 5 | Page section 3.3 | IDIOM: Spike map
+   Function: specSpike()
+   ====================================================================== */
+
 // Spike height = change in residents up to 2025, measured from 2015 or 2020 (the radio buttons).
 // Up is growth, down is decline.
 function specSpike(t, w) {
@@ -552,6 +600,9 @@ function specSpike(t, w) {
   return s;
 }
 
+/* ======================================================================
+   FIGURES 6-8 SHARED: SA4 regions, standardised classes, insets
+   ====================================================================== */
 /* ---------- Figures 6-8: SA4 regions ---------- */
 // All three maps use the same 88 regions, the same % measure and the same fixed classes,
 // so a colour means the same thing in every map and every year.
@@ -621,7 +672,11 @@ function insetView(t, d, size, fill) {
   };
 }
 
-/* Figure 6: SA4 choropleth with a Census-year slider and city insets */
+/* ======================================================================
+   FIGURE 6 | Page section 4.1 | IDIOM: Choropleth
+   Function: spec3()
+   ====================================================================== */
+
 // `yr` is the slider; each region picks its 2011, 2016 or 2021 value from it.
 // Layout: big map on the left, Sydney and Melbourne zooms on the right (stacked under it on phones).
 function spec3(t, yr, w) {
@@ -647,7 +702,11 @@ function spec3(t, yr, w) {
   };
 }
 
-/* Figure 7: small multiples, one map per Census year, same classes as Figure 6 */
+/* ======================================================================
+   FIGURE 7 | Page section 4.1 | IDIOM: Small multiples
+   Function: specSmall()
+   ====================================================================== */
+
 function specSmall(t, w) {
   const narrow = w < 600;
   const cw = Math.floor((w - 2 * 10 - 8) / 3);
@@ -667,7 +726,11 @@ function specSmall(t, w) {
     hconcat: yrs.map(panel), spacing: 10 };
 }
 
-/* Figure 8: bivariate choropleth, 2021 share against change since 2011, by SA4 */
+/* ======================================================================
+   FIGURE 8 | Page section 4.2 | IDIOM: Bivariate choropleth
+   Function: specBiv()
+   ====================================================================== */
+
 const BIV_COLORS = ["#e8e8e8", "#ace4e4", "#5ac8c8", "#dfb0d6", "#a5add3", "#5698b9", "#be64ac", "#8c62aa", "#3b4994"];
 const BIV_SHARE = [15, 30], BIV_GROW = [1.5, 3];
 function specBiv(t, w) {
@@ -703,7 +766,11 @@ function specBiv(t, w) {
     [narrow ? "vconcat" : "hconcat"]: [main, side], bounds: "full", spacing: narrow ? 14 : 24, resolve: { scale: { color: "independent" } } };
 }
 
-/* ---------- Figure 9: dot density ---------- */
+/* ======================================================================
+   FIGURE 9 | Page section 4.3 | IDIOM: Dot density
+   Function: specDots()
+   ====================================================================== */
+
 // One dot per 10,000 overseas-born people, scattered randomly inside each state.
 // The slider changes how many people a dot stands for.
 function specDots(t, w) {
@@ -733,7 +800,11 @@ function specDots(t, w) {
   return s;
 }
 
-/* ---------- Figure 10: Dorling cartogram ---------- */
+/* ======================================================================
+   FIGURE 10 | Page section 4.3 | IDIOM: Dorling cartogram
+   Function: specDorling()
+   ====================================================================== */
+
 // Each state becomes a circle sized by its overseas-born population, kept roughly in place.
 function specDorling(t, w) {
   const narrow = w < 600;
@@ -765,7 +836,11 @@ function specDorling(t, w) {
   return out;
 }
 
-/* ---------- Figure 11: pie-chart map ---------- */
+/* ======================================================================
+   FIGURE 11 | Page section 4.3 | IDIOM: Pie-chart map
+   Function: specPies()
+   ====================================================================== */
+
 // A pie on each state: overseas-born vs Australian-born. Pie area follows total population.
 function specPies(t, w) {
   const narrow = w < 600;
@@ -806,6 +881,10 @@ function specPies(t, w) {
 }
 
 
+/* ======================================================================
+   PART 4. EXTRAS
+   Animated gradient on Figure 2, data tables, shutter title
+   ====================================================================== */
 /* ---------- Figure 2 extra: animated green-to-gray countries ---------- */
 // Spain, Brazil and South Africa get a moving gradient. Vega can't animate a fill like this,
 // so after the map draws we lay a CSS gradient over each country and cut it to the country's shape.
@@ -925,6 +1004,10 @@ function tables() {
   if (btn) btn.addEventListener("click", play);
 })();
 
+/* ======================================================================
+   PART 5. DRAW THE PAGE AND WIRE UP THE CONTROLS
+   render(), state dropdown, Play button, fonts, resize
+   ====================================================================== */
 /* ---------- render: draw everything ---------- */
 // views keeps each drawn chart so the dropdown, sliders and Play button can talk to it.
 // STATE_VIEWS are the linked maps that respond to the state highlight.
