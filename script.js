@@ -328,7 +328,7 @@ const waterLabels = (t, vals, narrow) => ({ data: { values: vals },
   encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, text: { field: "n" } } });
 
 /* ======================================================================
-   FIGURE 12 | Page section 4.4 | IDIOM: Nested proportional symbols
+   FIGURE 13 | Page section 4.4 | IDIOM: Nested proportional symbols
    Function: spec4()
    ====================================================================== */
 
@@ -601,9 +601,9 @@ function specSpike(t, w) {
 }
 
 /* ======================================================================
-   FIGURES 6-8 SHARED: SA4 regions, standardised classes, insets
+   FIGURES 6, 8 AND 9 SHARED: SA4 regions, standardised classes, insets
    ====================================================================== */
-/* ---------- Figures 6-8: SA4 regions ---------- */
+/* ---------- Figures 6, 8 and 9: SA4 regions ---------- */
 // All three maps use the same 88 regions, the same % measure and the same fixed classes,
 // so a colour means the same thing in every map and every year.
 // ABS Statistical Areas Level 4 (ASGS 2021). Shares: Census 2011 and 2016 on that year's SA4s, 2021 on 2021 SA4s.
@@ -631,7 +631,7 @@ const SA4_TT = (yrField) => [
   { field: "properties.os21", title: "Overseas-born residents, 2021", format: "," }
 ];
 // one SA4 fill layer with hover highlight and the linked state highlight
-// IDIOM: CHOROPLETH (the fill) - each SA4 region is coloured by its class. Used by Figures 6, 7 and 8.
+// IDIOM: CHOROPLETH (the fill) - each SA4 region is coloured by its class. Used by Figures 6, 8 and 9.
 function sa4Layer(t, o) {
   const pname = "hovr" + (HOVER_N++);
   return {
@@ -703,7 +703,7 @@ function spec3(t, yr, w) {
 }
 
 /* ======================================================================
-   FIGURE 7 | Page section 4.1 | IDIOM: Small multiples
+   FIGURE 8 | Page section 4.1 | IDIOM: Small multiples
    Function: specSmall()
    ====================================================================== */
 
@@ -727,7 +727,7 @@ function specSmall(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 8 | Page section 4.2 | IDIOM: Bivariate choropleth
+   FIGURE 9 | Page section 4.2 | IDIOM: Bivariate choropleth
    Function: specBiv()
    ====================================================================== */
 
@@ -767,7 +767,7 @@ function specBiv(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 9 | Page section 4.3 | IDIOM: Dot density
+   FIGURE 10 | Page section 4.3 | IDIOM: Dot density
    Function: specDots()
    ====================================================================== */
 
@@ -801,7 +801,7 @@ function specDots(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 10 | Page section 4.3 | IDIOM: Dorling cartogram
+   FIGURE 11 | Page section 4.3 | IDIOM: Dorling cartogram
    Function: specDorling()
    ====================================================================== */
 
@@ -837,7 +837,7 @@ function specDorling(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 11 | Page section 4.3 | IDIOM: Pie-chart map
+   FIGURE 12 | Page section 4.3 | IDIOM: Pie-chart map
    Function: specPies()
    ====================================================================== */
 
@@ -957,7 +957,7 @@ function setupWaited() {
 }
 
 /* ---------- "Show data" tables ---------- */
-// Fills the expandable tables under Figures 3, 6 and 12.
+// Fills the expandable tables under Figures 3, 6 and 13.
 const topojson_props = (topo, key) => topo.objects[key].geometries.map(g => g.properties);
 function tables() {
   const rows2 = COB.map(([c, , , km, a, b, d]) => `<tr><td>${c}</td><td>${fmt(a)}</td><td>${fmt(b)}</td><td>${fmt(d)}</td><td>${fmt(km)}</td></tr>`).join("");
@@ -1005,6 +1005,237 @@ function tables() {
 })();
 
 /* ======================================================================
+   FIGURE 7 | Page section 4.1 | IDIOM: Choropleth (interactive zoom map)
+   Function: specZoom()
+   ====================================================================== */
+
+// The capital cities at a much finer grain: ABS SA2 areas (roughly suburbs), 2021 Census.
+// SA2_PACKED (in data.js) is a compact text format; unpackSA2() turns it back into GeoJSON.
+// Same seven colour classes as Figures 6 and 8, so the colours mean the same thing.
+const SA2_ALPHA = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_-";
+function unpackSA2(txt) {
+  const IX = {}; for (let i = 0; i < SA2_ALPHA.length; i++) IX[SA2_ALPHA[i]] = i;
+  const nums = (s) => { const out = []; let i = 0; while (i < s.length) { let z = 0, sh = 0, c; do { c = IX[s[i++]]; z += (c & 31) * 2 ** sh; sh += 5; } while (c & 32); out.push(z % 2 ? -(z + 1) / 2 : z / 2); } return out; };
+  const area = (r) => { let a = 0; for (let i = 0; i < r.length; i++) { const p = r[i], q = r[(i + 1) % r.length]; a += p[0] * q[1] - q[0] * p[1]; } return a / 2; };
+  const STATE_OF = { 1: "New South Wales", 2: "Victoria", 3: "Queensland", 4: "South Australia", 5: "Western Australia", 6: "Tasmania", 7: "Northern Territory", 8: "Australian Capital Territory" };
+  const CITY_OF = { 1: "Sydney", 2: "Melbourne", 3: "Brisbane", 4: "Adelaide", 5: "Perth", 6: "Hobart", 7: "Darwin", 8: "Canberra" };
+  return txt.split("\n").map((line) => {
+    const [code, name, tot36, os36, geo] = line.split(";");
+    const tot = parseInt(tot36, 36), os = parseInt(os36, 36);
+    const polys = geo.split("#").map((pg) => pg.split("|").map((rs, ri) => {
+      const v = nums(rs); let x = v[0], y = v[1]; const pts = [[x / 1000, y / 1000]];
+      for (let i = 2; i < v.length; i += 2) { x += v[i]; y += v[i + 1]; pts.push([x / 1000, y / 1000]); }
+      const a = area(pts); if ((ri === 0 && a > 0) || (ri > 0 && a < 0)) pts.reverse(); // d3 wants clockwise outer rings
+      pts.push(pts[0]); return pts;
+    }));
+    const pct = tot >= 300 ? Math.round(1000 * os / tot) / 10 : null; // too few residents for a reliable share
+    return { type: "Feature", properties: { code, name: name.trim(), state: STATE_OF[code[0]], city: CITY_OF[code[0]], pct, os, tot },
+      geometry: polys.length > 1 ? { type: "MultiPolygon", coordinates: polys } : { type: "Polygon", coordinates: polys[0] } };
+  });
+}
+let SA2_FEATURES = null;
+const sa2Features = () => SA2_FEATURES || (SA2_FEATURES = unpackSA2(SA2_PACKED));
+
+// Where each city button flies to: centre [lon, lat] and zoom (projection scale for a ~900px map)
+const CITY_VIEWS = {
+  Sydney: [151.0, -33.82, 58000], Melbourne: [145.05, -37.83, 52000], Brisbane: [153.03, -27.48, 52000],
+  Perth: [115.88, -31.95, 50000], Adelaide: [138.6, -34.9, 60000], Canberra: [149.12, -35.3, 75000],
+  Hobart: [147.3, -42.86, 70000], Darwin: [130.92, -12.45, 85000]
+};
+const zoomState = { cx: 151.0, cy: -33.82, zs: 58000, city: "Sydney" };
+
+function specZoom(t, w) {
+  const narrow = w < 600;
+  const h = narrow ? Math.round(w * 1.05) : 560;
+  const k = w / 900; // keep the same view at any width
+  const loc = { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" } };
+  return {
+    $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+    width: w, height: h, autosize: { type: "none" }, padding: 0,
+    config: { ...config(t), view: { stroke: null, fill: t.ocean } },
+    params: [{ name: "cx", value: zoomState.cx }, { name: "cy", value: zoomState.cy }, { name: "zs", value: zoomState.zs * k }, { name: "hl", value: state.hl }],
+    projection: { type: "mercator", center: { expr: "[cx, cy]" }, scale: { expr: "zs" } },
+    layer: [
+      // land outside the capital-city areas, in plain grey
+      { data: { values: STATES, format: { type: "topojson", feature: "states" } }, mark: { type: "geoshape", fill: t.land, stroke: "#ffffff", strokeWidth: 1, clip: true } },
+      // IDIOM: CHOROPLETH - each SA2 area coloured by its share born overseas (same classes as Figure 6)
+      { data: { values: sa2Features() },
+        transform: [{ calculate: "datum.properties.pct", as: "pct" }, SA4_CLASS("datum.pct"),
+          { calculate: "isValid(datum.pct) ? datum.cl : 'Too few residents'", as: "cl" },
+          { calculate: "isValid(datum.pct) ? format(datum.pct, '.1f') + '%' : 'Too few residents to show'", as: "pctl" }],
+        params: [{ name: "hovz", select: { type: "point", fields: ["properties.code"], on: "pointerover", clear: "pointerout" } }],
+        mark: { type: "geoshape", cursor: "grab", clip: true, strokeJoin: "round" },
+        encoding: {
+          color: { field: "cl", type: "ordinal", scale: { domain: [...SA4_LABELS, "Too few residents"], range: [...SA4_COLORS, "#d9d9d9"] },
+            legend: { title: "Born overseas (%)", orient: "none", legendX: 10, legendY: h - (narrow ? 66 : 74), direction: "horizontal", columns: 4, labelFontSize: narrow ? 9.5 : 11, titleFontSize: narrow ? 10 : 11,
+              symbolType: "square", symbolSize: narrow ? 80 : 140, symbolStrokeWidth: 0, fillColor: "rgba(255,255,255,0.88)", padding: narrow ? 5 : 8, cornerRadius: 3, labelLimit: 130, columnPadding: narrow ? 5 : 10,
+              values: SA4_LABELS } },
+          opacity: { condition: { test: HL("datum.properties.state"), value: 1 }, value: 0.25 },
+          stroke: { condition: { param: "hovz", empty: false, value: "#111111" }, value: "#ffffff" },
+          strokeWidth: { condition: { param: "hovz", empty: false, value: 2 }, value: 0.35 },
+          tooltip: [{ field: "properties.name", title: "Area" }, { field: "properties.city", title: "City" }, { field: "pctl", title: "Born overseas, 2021" },
+            { field: "properties.os", title: "Residents born overseas", format: "," }, { field: "properties.tot", title: "All residents", format: "," }]
+        } }
+    ]
+  };
+}
+
+// Pan (drag), zoom (buttons, or Ctrl/Cmd + scroll) and fly-to (city buttons) for Figure 7.
+// They all just change three numbers - cx, cy (map centre) and zs (scale) - inside the drawn chart.
+function setupZoomControls() {
+  const host = document.getElementById("cZ");
+  const v = views.cZ; if (!host || !v) return;
+  const k = () => host.clientWidth / 900;
+  const R = 180 / Math.PI;
+  const apply = () => { v.signal("cx", zoomState.cx).signal("cy", zoomState.cy).signal("zs", zoomState.zs * k()).runAsync(); };
+  const clampZoom = (z) => Math.max(4000, Math.min(400000, z));
+  // mercator helpers (projection maths, so the point under the cursor stays put when zooming)
+  const yOf = (lat) => Math.log(Math.tan(Math.PI / 4 + lat / R / 2));
+  const latOf = (y) => (2 * Math.atan(Math.exp(y)) - Math.PI / 2) * R;
+  function zoomAt(factor, px, py) {
+    const s0 = zoomState.zs * k(), s1 = clampZoom(zoomState.zs * factor) * k();
+    const w = host.clientWidth, h = host.clientHeight;
+    const dx = px - w / 2, dy = py - h / 2;
+    const lon = zoomState.cx + dx / s0 * R, ym = yOf(zoomState.cy) - dy / s0;
+    zoomState.zs = s1 / k();
+    zoomState.cx = lon - dx / s1 * R;
+    zoomState.cy = latOf(ym + dy / s1);
+    apply();
+  }
+  let anim = 0;
+  function flyTo(name) {
+    const [tx, ty, tz] = CITY_VIEWS[name]; zoomState.city = name;
+    document.querySelectorAll("#zoomCities button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.city === name)));
+    cancelAnimationFrame(anim);
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) { Object.assign(zoomState, { cx: tx, cy: ty, zs: tz }); return apply(); }
+    const from = { ...zoomState }, t0 = performance.now(), D = 900;
+    const ease = (u) => u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+    const step = (now) => {
+      const u = Math.min(1, (now - t0) / D), e = ease(u);
+      // zoom out a little in the middle of the flight, like a camera pulling back
+      const out = Math.sin(Math.PI * u) * 0.55;
+      zoomState.cx = from.cx + (tx - from.cx) * e; zoomState.cy = from.cy + (ty - from.cy) * e;
+      zoomState.zs = Math.exp(Math.log(from.zs) + (Math.log(tz) - Math.log(from.zs)) * e) * (1 - out * (Math.abs(tx - from.cx) > 2 ? 1 : 0));
+      apply(); if (u < 1) anim = requestAnimationFrame(step);
+    };
+    anim = requestAnimationFrame(step);
+  }
+  if (!setupZoomControls.wired) {
+    setupZoomControls.wired = true;
+    document.querySelectorAll("#zoomCities button").forEach(b => b.addEventListener("click", () => flyTo(b.dataset.city)));
+    document.getElementById("zoomIn").addEventListener("click", () => zoomAt(1.5, host.clientWidth / 2, host.clientHeight / 2));
+    document.getElementById("zoomOut").addEventListener("click", () => zoomAt(1 / 1.5, host.clientWidth / 2, host.clientHeight / 2));
+    // Ctrl/Cmd + scroll zooms; a plain scroll keeps scrolling the page
+    host.addEventListener("wheel", (e) => {
+      if (!(e.ctrlKey || e.metaKey)) return;
+      e.preventDefault(); const r = host.getBoundingClientRect();
+      zoomAt(Math.exp(-e.deltaY * 0.0022), e.clientX - r.left, e.clientY - r.top);
+    }, { passive: false });
+    // drag to pan
+    let drag = null;
+    host.addEventListener("pointerdown", (e) => { if (e.button !== 0) return; drag = { x: e.clientX, y: e.clientY, cx: zoomState.cx, cy: zoomState.cy }; host.setPointerCapture(e.pointerId); host.classList.add("dragging"); });
+    host.addEventListener("pointermove", (e) => {
+      if (!drag) return; const s = zoomState.zs * k();
+      zoomState.cx = drag.cx - (e.clientX - drag.x) / s * R;
+      zoomState.cy = latOf(yOf(drag.cy) + (e.clientY - drag.y) / s);
+      apply();
+    });
+    const end = () => { drag = null; host.classList.remove("dragging"); };
+    host.addEventListener("pointerup", end); host.addEventListener("pointercancel", end);
+    // keyboard: arrows pan, +/- zoom
+    host.addEventListener("keydown", (e) => {
+      const s = zoomState.zs * k(), step = 60;
+      if (e.key === "+" || e.key === "=") zoomAt(1.4, host.clientWidth / 2, host.clientHeight / 2);
+      else if (e.key === "-") zoomAt(1 / 1.4, host.clientWidth / 2, host.clientHeight / 2);
+      else if (e.key.startsWith("Arrow")) {
+        const dx = e.key === "ArrowLeft" ? -step : e.key === "ArrowRight" ? step : 0, dy = e.key === "ArrowUp" ? -step : e.key === "ArrowDown" ? step : 0;
+        zoomState.cx += dx / s * R; zoomState.cy = latOf(yOf(zoomState.cy) - dy / s); apply();
+      } else return;
+      e.preventDefault();
+    });
+  }
+  document.querySelectorAll("#zoomCities button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.city === zoomState.city)));
+}
+
+/* ======================================================================
+   FIGURE 14 | Page section 4.4 | IDIOM: Linked choropleths (state map + world map)
+   Function: specTop()
+   ====================================================================== */
+
+// Each state is coloured by its largest overseas birthplace, and that country is coloured the same on
+// the world map. Hovering either side highlights the matching places on the other.
+const TOP_COLORS = { England: "#4c72b0", India: "#dd8452", China: "#c44e52", "New Zealand": "#55a868", Philippines: "#8172b3" };
+const TOP_WORLD = { England: "United Kingdom", India: "India", China: "China", "New Zealand": "New Zealand", Philippines: "Philippines" };
+// where each country name sits on the world map (just beside the country)
+const TOP_LABELS = [
+  { cty: "England", label: "England", lon: 1, lat: 54.5, align: "left" },
+  { cty: "India", label: "India", lon: 70, lat: 15, align: "right" },
+  { cty: "China", label: "China", lon: 103, lat: 34, align: "center" },
+  { cty: "Philippines", label: "Philippines", lon: 127.5, lat: 13, align: "left" },
+  { cty: "New Zealand", label: "New Zealand", lon: 166, lat: -46, align: "right" }
+];
+function specTop(t, w) {
+  const narrow = w < 600;
+  const tops = Object.keys(TOP_COLORS);
+  const states = ST_LABELS.map(d => ({ name: d.name, abbr: d.abbr, cty: d.top, topn: d.topn, tot: d.tot, sh: Math.round(1000 * d.topn / d.tot) / 10 }));
+  const byCty = {}; states.forEach(s => { (byCty[s.cty] = byCty[s.cty] || []).push(s.abbr); });
+  const world2cty = Object.fromEntries(Object.entries(TOP_WORLD).map(([c, wn]) => [wn, c]));
+  const colour = { field: "cty", type: "nominal", scale: { domain: tops, range: tops.map(c => TOP_COLORS[c]) },
+    legend: { title: "Largest overseas birthplace, 2021", titleLimit: 400, orient: "bottom", direction: "horizontal", columns: narrow ? 3 : 5, symbolType: "square", symbolSize: 150, labelExpr: "datum.label == 'England' ? 'England (UK)' : datum.label" } };
+  // dim everything except the hovered country (from either map)
+  const active = "length(data('selS_store')) || length(data('selW_store'))";
+  const lit = { or: [{ param: "selS", empty: false }, { param: "selW", empty: false }] };
+  const op = (on, off) => ({ condition: [{ test: lit, value: on }, { test: active, value: off }], value: on });
+  const loc = { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" } };
+  const mapW = narrow ? w - 8 : Math.floor((w - 30) / 2);
+  const world = {
+    width: mapW, height: narrow ? Math.round(mapW * 0.7) : 340,
+    // fitted to a box from Britain to New Zealand, so the five countries fill the frame
+    projection: { type: "equalEarth", rotate: [-85, 0], fit: { type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: [[-10, 60], [180, 60], [180, -47], [-10, -47]] } } },
+    title: { text: "Where they were born", anchor: "start", font: t.body, fontSize: 13, fontWeight: 600, color: t.ink },
+    layer: [
+      { data: { values: WORLD, format: { type: "topojson", feature: "countries" } },
+        transform: [{ calculate: `${JSON.stringify(world2cty)}[datum.properties.name] || ''`, as: "cty" }, { filter: "datum.cty == ''" }],
+        mark: { type: "geoshape", fill: t.land, stroke: "#ffffff", strokeWidth: 0.3, clip: true } },
+      // the five birthplace countries, in their colours
+      { data: { values: WORLD, format: { type: "topojson", feature: "countries" } },
+        transform: [{ calculate: `${JSON.stringify(world2cty)}[datum.properties.name] || ''`, as: "cty" }, { filter: "datum.cty != ''" },
+          { calculate: `${JSON.stringify(Object.fromEntries(Object.entries(byCty).map(([c, l]) => [c, l.join(", ")])))}[datum.cty]`, as: "states" }],
+        params: [{ name: "selW", select: { type: "point", fields: ["cty"], on: "pointerover", clear: "pointerout" } }],
+        mark: { type: "geoshape", stroke: "#ffffff", strokeWidth: 0.5, cursor: "pointer", clip: true },
+        encoding: { color: colour, opacity: op(1, 0.25),
+          tooltip: [{ field: "properties.name", title: "Country" }, { field: "states", title: "Largest group in" }] } },
+      // a faint outline of Australia so the two maps read together
+      { data: { values: STATES, format: { type: "topojson", feature: "states" } }, mark: { type: "geoshape", fill: "#bdbdbd", stroke: null, clip: true } },
+      // country names next to each coloured country
+      { data: { values: TOP_LABELS }, mark: { type: "text", font: t.body, fontSize: narrow ? 10 : 11.5, fontWeight: 600, fill: t.ink, align: { expr: "datum.align" }, baseline: "middle" },
+        encoding: { ...loc, text: { field: "label" }, opacity: op(1, 0.3) } }
+    ]
+  };
+  const aus = {
+    width: mapW, height: narrow ? Math.round(mapW * 0.85) : 340, projection: AUS_PROJ,
+    title: { text: "Where they live", anchor: "start", font: t.body, fontSize: 13, fontWeight: 600, color: t.ink },
+    layer: [
+      // IDIOM: CHOROPLETH (categorical) - each state filled with the colour of its largest overseas birthplace
+      { data: { values: STATES, format: { type: "topojson", feature: "states" } },
+        transform: [{ lookup: "properties.STATE_NAME", from: { data: { values: states }, key: "name", fields: ["cty", "topn", "tot", "sh", "abbr"] } }],
+        params: [{ name: "selS", select: { type: "point", fields: ["cty"], on: "pointerover", clear: "pointerout" } }],
+        mark: { type: "geoshape", stroke: "#ffffff", strokeWidth: 1, cursor: "pointer" },
+        encoding: { color: colour, opacity: op(1, 0.25),
+          tooltip: [{ field: "properties.STATE_NAME", title: "State / territory" }, { field: "cty", title: "Largest overseas birthplace" },
+            { field: "topn", title: "Residents born there", format: "," }, { field: "sh", title: "Share of the state's overseas-born (%)", format: ".1f" }] } },
+      { data: { values: ST_LABELS.map(d => ({ ...d, cty: d.top })) }, transform: [{ filter: "datum.abbr != 'ACT'" }],
+        mark: { type: "text", font: t.body, fontSize: narrow ? 10 : 11.5, fontWeight: 600, lineHeight: 13, color: "#ffffff" },
+        encoding: { ...loc, text: { field: "abbr" }, opacity: op(1, 0.4) } },
+      extent([[112, -10], [154, -10], [154, -44], [112, -44]])
+    ]
+  };
+  return { $schema: "https://vega.github.io/schema/vega-lite/v5.json", config: { ...config(t), view: { stroke: null } },
+    [narrow ? "vconcat" : "hconcat"]: [world, aus], spacing: narrow ? 16 : 30, resolve: { scale: { color: "shared" } } };
+}
+
+
+/* ======================================================================
    PART 5. DRAW THE PAGE AND WIRE UP THE CONTROLS
    render(), state dropdown, Play button, fonts, resize
    ====================================================================== */
@@ -1015,7 +1246,7 @@ state.day = 250;
 const views = {};
 let lastW = 0;
 const opts = { actions: false, renderer: "svg", tooltip: { theme: "custom" } };
-const STATE_VIEWS = ["c3", "cM", "cB", "cD", "cC", "cP", "c4"];
+const STATE_VIEWS = ["c3", "cZ", "cM", "cB", "cD", "cC", "cP", "c4"];
 const ABBR2NAME = Object.fromEntries(ST.map(r => [r[1], r[0]]));
 function stateNameOf(item) {
   const d = item && item.datum;
@@ -1042,11 +1273,12 @@ async function render() {
     views.c3 = (await vegaEmbed("#c3", spec3(t, state.yrState, cw("c3")), opts)).view;
     views.c3.addSignalListener("yr", (n, v) => { state.yrState = v; });
     views.c4 = (await vegaEmbed("#c4", spec4(t, cw("c4")), opts)).view;
-    const more = [["cV", specVoyage], ["cF", specFlow], ["cS", specSpike], ["cM", specSmall], ["cB", specBiv], ["cD", specDots], ["cC", specDorling], ["cP", specPies]];
+    const more = [["cV", specVoyage], ["cF", specFlow], ["cS", specSpike], ["cZ", specZoom], ["cM", specSmall], ["cB", specBiv], ["cD", specDots], ["cC", specDorling], ["cP", specPies], ["cT", specTop]];
     for (const [id, fn] of more) { try { views[id] = (await vegaEmbed("#" + id, fn(t, cw(id)), opts)).view; } catch (e) { console.error(id, e); } }
     if (views.cV) views.cV.addSignalListener("day", (n, v) => { state.day = v; });
+    try { setupZoomControls(); } catch (e) { console.error("zoom", e); }
     for (const id of STATE_VIEWS) {
-      if (!views[id]) continue;
+      if (!views[id] || id === "cZ") continue; // the zoom map uses clicks for dragging, so it only follows the highlight
       views[id].addEventListener("click", (ev, item) => {
         const name = stateNameOf(item);
         if (name) setHighlight(state.hl === name ? "" : name);

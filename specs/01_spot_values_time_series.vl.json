@@ -7,7 +7,7 @@
  },
  "config": {
   "background": null,
-  "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+  "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
   "padding": 4,
   "view": {
    "stroke": null
@@ -18,16 +18,17 @@
    "gridColor": "#d0d0d0",
    "domainColor": "#d0d0d0",
    "tickColor": "#d0d0d0",
-   "labelFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+   "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "labelFontSize": 11,
-   "titleFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
-   "titleFontWeight": 500
+   "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFontWeight": 500,
+   "titleFontSize": 11.5
   },
   "legend": {
    "labelColor": "#5c5c5c",
    "titleColor": "#222222",
-   "labelFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
-   "titleFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+   "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFontWeight": 600,
    "labelFontSize": 12,
    "titleFontSize": 12,
@@ -35,7 +36,7 @@
   },
   "text": {
    "color": "#222222",
-   "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+   "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   },
   "tooltipFormat": {
    "numberFormat": ",.0f"
@@ -178,7 +179,7 @@
     "dx": 4,
     "dy": 4,
     "fontSize": 10.5,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+    "font": "IBM Plex Sans Condensed, Arial Narrow, sans-serif",
     "color": "#5c5c5c",
     "limit": 120,
     "clip": true
@@ -1787,7 +1788,7 @@
     "dy": -14,
     "fontSize": 12,
     "fontWeight": 600,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+    "font": "IBM Plex Sans Condensed, Arial Narrow, sans-serif",
     "clip": true
    },
    "encoding": {
@@ -1865,7 +1866,7 @@
     "dy": -2,
     "fontSize": 12,
     "fontWeight": 600,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+    "font": "IBM Plex Sans Condensed, Arial Narrow, sans-serif",
     "clip": true
    },
    "encoding": {
@@ -1943,7 +1944,7 @@
     "dy": -10,
     "fontSize": 12,
     "fontWeight": 600,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+    "font": "IBM Plex Sans Condensed, Arial Narrow, sans-serif",
     "clip": true
    },
    "encoding": {
@@ -2021,7 +2022,7 @@
     "dy": 20,
     "fontSize": 12,
     "fontWeight": 600,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+    "font": "IBM Plex Sans Condensed, Arial Narrow, sans-serif",
     "clip": true
    },
    "encoding": {
@@ -2097,7 +2098,7 @@
     "dy": 16,
     "fontSize": 12,
     "fontWeight": 600,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+    "font": "IBM Plex Sans Condensed, Arial Narrow, sans-serif",
     "clip": true
    },
    "encoding": {

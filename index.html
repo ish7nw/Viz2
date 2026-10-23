@@ -85,63 +85,82 @@
 </figure>
 
 <!-- ======================================================================
-     SECTION 4: SETTLEMENT (Figures 6-12)
+     SECTION 4: SETTLEMENT (Figures 6-14)
      ====================================================================== -->
 <h2><span class="sec">04</span>Settlement</h2>
 <!-- Section 4: all the state and region maps are linked through this dropdown and by clicking -->
-<p class="hint-block">Figures 6 to 12 are linked. Click a state or a region in any of them, or choose a state here, to highlight that state in all seven. Click it again, or click empty space, to clear.</p>
+<p class="hint-block">Figures 6 to 13 are linked. Click a state or a region in any of them, or choose a state here, to highlight that state in all of them. Click it again, or click empty space, to clear.</p>
 <div class="ctl"><label for="hlState"><b>Highlight a state</b></label> <select id="hlState"><option value="">All states</option></select></div>
-<!-- ---------- 4.1 Share born overseas by region (Figures 6-7) ---------- -->
+<!-- ---------- 4.1 Share born overseas by region (Figures 6-8) ---------- -->
 <h3><span class="num">4.1</span>Share born overseas by region</h3>
 <p>Below the state level, the overseas-born population is concentrated in the capital cities (Figure 6). In 2021, 34.4% of residents of the Greater Capital City areas were born overseas, against 14.5% in the rest of the country. Sydney – Parramatta had the highest share of the 88 SA4 regions, 52.2%, followed by Sydney – Ryde (48.0%) and Sydney – South West (47.4%). The lowest shares were in inland New South Wales, led by Far West and Orana at 7.3%. Outside the capitals, only the Gold Coast came close to the national figure, at 28.9%.</p>
 <!-- Figure 6 | IDIOM: Choropleth | drawn by spec3() in script.js -->
 <figure>
   <div class="chart" id="c3" role="img" aria-label="Choropleth map of the 88 SA4 regions of Australia shaded by the share of residents born overseas, with insets for Sydney and Melbourne."></div>
-  <figcaption><b>Figure 6.</b> Share of residents born overseas by SA4 region, Census 2011, 2016 and 2021 (choropleth, seven classes). Insets enlarge Greater Sydney and Greater Melbourne, outlined on the main map. Dark lines are state borders. 2011 and 2016 values use that year’s SA4 boundaries; the two Western Australia – Outback regions show the 2011 value of the single region they replaced. <span class="try"><span class="try-k">Try</span>Drag the Census-year slider below the map; hover a region for its figures.</span><span class="src">Sources: ABS (2022, 2023a, 2023b, 2023c).</span></figcaption>
+  <figcaption><b>Figure 6.</b> Share of residents born overseas by SA4 region, Census 2011, 2016 and 2021 (choropleth, seven classes). Insets enlarge Greater Sydney and Greater Melbourne, outlined on the main map. Dark lines are state borders. 2011 and 2016 values use that year’s SA4 boundaries; the two Western Australia – Outback regions show the 2011 value of the single region they replaced. <span class="try"><span class="try-k">Try</span>Drag the Census-year slider below the map; hover a region for its figures.</span><span class="src">Sources: ABS (2022a, 2023a, 2023b, 2023c).</span></figcaption>
   <details><summary>Show data</summary><div class="tbl" id="t3"></div></details>
 </figure>
-<!-- Figure 7 | IDIOM: Small multiples | drawn by specSmall() in script.js -->
+<p>Zooming in to suburbs shows how uneven this is inside each city (Figure 7). Of the 1,400 capital-city SA2 areas with at least 300 residents, 161 had a majority born overseas: 80 in Sydney, 60 in Melbourne, 11 in Brisbane, 7 in Perth, 2 in Canberra and 1 in Adelaide. The highest shares were in Haymarket in central Sydney (76.9%) and the north of the Melbourne CBD (75.4%), followed by Auburn – North and Parramatta – North (both 75.3%). In Sydney the high shares run west from the city centre through Burwood and Strathfield to Parramatta and Auburn. Hobart’s highest share, in Sandy Bay, was 35.9%.</p>
+<!-- Figure 7 | IDIOM: Choropleth (interactive zoom map) | drawn by specZoom() in script.js; pan and zoom by setupZoomControls() -->
+<figure>
+  <div class="ctl zoom-ctl" id="zoomCities" role="group" aria-label="Fly to a capital city">
+    <b>Fly to</b>
+    <button class="btn" data-city="Sydney">Sydney</button><button class="btn" data-city="Melbourne">Melbourne</button><button class="btn" data-city="Brisbane">Brisbane</button><button class="btn" data-city="Perth">Perth</button><button class="btn" data-city="Adelaide">Adelaide</button><button class="btn" data-city="Canberra">Canberra</button><button class="btn" data-city="Hobart">Hobart</button><button class="btn" data-city="Darwin">Darwin</button>
+  </div>
+  <div class="zoom-wrap">
+    <div class="chart zoom-map" id="cZ" tabindex="0" role="img" aria-label="Zoomable map of capital-city suburbs (SA2 areas) shaded by the share of residents born overseas, 2021. Use the arrow keys to pan and plus or minus to zoom."></div>
+    <div class="zoom-btns"><button class="btn" id="zoomIn" aria-label="Zoom in">+</button><button class="btn" id="zoomOut" aria-label="Zoom out">−</button></div>
+  </div>
+  <figcaption><b>Figure 7.</b> Share of residents born overseas by SA2 area in the eight Greater Capital City areas, Census 2021 (choropleth, same seven classes as Figure 6). Areas with fewer than 300 residents, such as airports and industrial estates, are shown in grey. <span class="try"><span class="try-k">Try</span>Choose a city to fly there, drag to pan, and zoom with the + and − buttons or Ctrl/⌘ + scroll; hover an area for its figures.</span><span class="src">Sources: ABS (2022b, 2023d).</span></figcaption>
+</figure>
+<!-- Figure 8 | IDIOM: Small multiples | drawn by specSmall() in script.js -->
 <figure>
   <div class="chart" id="cM" role="img" aria-label="Three small choropleth maps of the share born overseas by SA4 region, 2011, 2016 and 2021."></div>
-  <figcaption><b>Figure 7.</b> Share of residents born overseas by SA4 region, Census years 2011, 2016 and 2021 (small multiples). Same seven classes as Figure 6. <span class="src">Sources: ABS (2023a, 2023b, 2023c).</span></figcaption>
+  <figcaption><b>Figure 8.</b> Share of residents born overseas by SA4 region, Census years 2011, 2016 and 2021 (small multiples). Same seven classes as Figure 6. <span class="src">Sources: ABS (2023a, 2023b, 2023c).</span></figcaption>
 </figure>
 
-<!-- ---------- 4.2 Level and growth (Figure 8) ---------- -->
+<!-- ---------- 4.2 Level and growth (Figure 9) ---------- -->
 <h3><span class="num">4.2</span>Level and growth</h3>
-<p>Figure 8 combines the 2021 share with its change since 2011. Fifteen regions are high on both measures, all of them in the capital cities: eight in Sydney, four in Melbourne, two in Brisbane and one in Perth. Sydney – Ryde grew the most, by 7.9 percentage points, to 48.0%. Most of regional Australia is low on both measures, and in six regions the share did not rise at all, including Illawarra and the Mornington Peninsula.</p>
-<!-- Figure 8 | IDIOM: Bivariate choropleth | drawn by specBiv() in script.js -->
+<p>Figure 9 combines the 2021 share with its change since 2011. Fifteen regions are high on both measures, all of them in the capital cities: eight in Sydney, four in Melbourne, two in Brisbane and one in Perth. Sydney – Ryde grew the most, by 7.9 percentage points, to 48.0%. Most of regional Australia is low on both measures, and in six regions the share did not rise at all, including Illawarra and the Mornington Peninsula.</p>
+<!-- Figure 9 | IDIOM: Bivariate choropleth | drawn by specBiv() in script.js -->
 <figure>
   <div class="chart" id="cB" role="img" aria-label="Bivariate choropleth of SA4 regions: share born overseas in 2021 against change since 2011."></div>
-  <figcaption><b>Figure 8.</b> Share born overseas in 2021 against change since 2011, in percentage points, by SA4 region (bivariate choropleth, 3 × 3 classes). Share classes: below 15%, 15–30%, 30% and over. Change classes: below 1.5, 1.5–3, 3 points and over. <span class="try"><span class="try-k">Try</span>Hover a cell of the colour key to show only the regions in that class.</span><span class="src">Sources: ABS (2022, 2023a, 2023c).</span></figcaption>
+  <figcaption><b>Figure 9.</b> Share born overseas in 2021 against change since 2011, in percentage points, by SA4 region (bivariate choropleth, 3 × 3 classes). Share classes: below 15%, 15–30%, 30% and over. Change classes: below 1.5, 1.5–3, 3 points and over. <span class="try"><span class="try-k">Try</span>Hover a cell of the colour key to show only the regions in that class.</span><span class="src">Sources: ABS (2022a, 2023a, 2023c).</span></figcaption>
 </figure>
 
-<!-- ---------- 4.3 Where overseas-born residents live (Figures 9-11) ---------- -->
+<!-- ---------- 4.3 Where overseas-born residents live (Figures 10-12) ---------- -->
 <h3><span class="num">4.3</span>Where overseas-born residents live</h3>
-<p>Figures 9 to 11 show the same 2021 totals in three ways. The dot density map shows concentration in the south-east. The cartogram resizes each state by its overseas-born population, and the pie charts compare overseas-born and Australian-born residents within each state.</p>
-<!-- Figure 9 | IDIOM: Dot density | drawn by specDots() in script.js -->
+<p>Figures 10 to 12 show the same 2021 totals in three ways. The dot density map shows concentration in the south-east. The cartogram resizes each state by its overseas-born population, and the pie charts compare overseas-born and Australian-born residents within each state.</p>
+<!-- Figure 10 | IDIOM: Dot density | drawn by specDots() in script.js -->
 <figure>
   <div class="chart" id="cD" role="img" aria-label="Dot density map with one dot per 10,000 overseas-born residents, 2021."></div>
-  <figcaption><b>Figure 9.</b> Overseas-born residents, 2021; one dot represents 10,000 people (dot density). Dots are placed at random within each state, so position within a state carries no meaning. <span class="try"><span class="try-k">Try</span>Change how many people one dot represents below the map.</span><span class="src">Source: ABS (2026a).</span></figcaption>
+  <figcaption><b>Figure 10.</b> Overseas-born residents, 2021; one dot represents 10,000 people (dot density). Dots are placed at random within each state, so position within a state carries no meaning. <span class="try"><span class="try-k">Try</span>Change how many people one dot represents below the map.</span><span class="src">Source: ABS (2026a).</span></figcaption>
 </figure>
-<!-- Figure 10 | IDIOM: Dorling cartogram | drawn by specDorling() in script.js -->
+<!-- Figure 11 | IDIOM: Dorling cartogram | drawn by specDorling() in script.js -->
 <figure>
   <div class="chart" id="cC" role="img" aria-label="Dorling cartogram of states as circles sized by overseas-born population and coloured by share."></div>
-  <figcaption><b>Figure 10.</b> States drawn as circles with area proportional to overseas-born residents and colour showing the overseas-born share, 2021 (Dorling cartogram). Circles keep approximate geographic position. <span class="src">Source: ABS (2026a).</span></figcaption>
+  <figcaption><b>Figure 11.</b> States drawn as circles with area proportional to overseas-born residents and colour showing the overseas-born share, 2021 (Dorling cartogram). Circles keep approximate geographic position. <span class="src">Source: ABS (2026a).</span></figcaption>
 </figure>
-<!-- Figure 11 | IDIOM: Pie-chart map | drawn by specPies() in script.js -->
+<!-- Figure 12 | IDIOM: Pie-chart map | drawn by specPies() in script.js -->
 <figure>
   <div class="chart" id="cP" role="img" aria-label="Map of Australia with a pie chart in each state showing overseas-born and Australian-born population, 2021."></div>
-  <figcaption><b>Figure 11.</b> Overseas-born and Australian-born residents by state, 2021 (chart map). Pie area is proportional to total state population. <span class="src">Source: ABS (2026a).</span></figcaption>
+  <figcaption><b>Figure 12.</b> Overseas-born and Australian-born residents by state, 2021 (chart map). Pie area is proportional to total state population. <span class="src">Source: ABS (2026a).</span></figcaption>
 </figure>
 
-<!-- ---------- 4.4 Largest communities (Figure 12) ---------- -->
+<!-- ---------- 4.4 Largest communities (Figures 13-14) ---------- -->
 <h3><span class="num">4.4</span>Largest communities</h3>
-<p>The largest overseas birthplace differs by state: China in New South Wales, India in Victoria and the ACT, New Zealand in Queensland, the Philippines in the Northern Territory, and England in Western Australia, South Australia and Tasmania (Figure 12).</p>
-<!-- Figure 12 | IDIOM: Nested proportional symbols | drawn by spec4() in script.js -->
+<p>The largest overseas birthplace differs by state: China in New South Wales, India in Victoria and the ACT, New Zealand in Queensland, the Philippines in the Northern Territory, and England in Western Australia, South Australia and Tasmania (Figure 13).</p>
+<!-- Figure 13 | IDIOM: Nested proportional symbols | drawn by spec4() in script.js -->
 <figure>
   <div class="chart" id="c4" role="img" aria-label="Map of Australian states with nested proportional circles for overseas-born population and the top overseas country of birth, 2021."></div>
-  <figcaption><b>Figure 12.</b> Overseas-born residents (open circle) and residents born in the largest single overseas birthplace (filled circle) by state, 2021 (nested proportional symbols). Both circles use the same area scale. <span class="src">Source: ABS (2026a).</span></figcaption>
+  <figcaption><b>Figure 13.</b> Overseas-born residents (open circle) and residents born in the largest single overseas birthplace (filled circle) by state, 2021 (nested proportional symbols). Both circles use the same area scale. <span class="src">Source: ABS (2026a).</span></figcaption>
   <details><summary>Show data</summary><div class="tbl" id="t4"></div></details>
+</figure>
+<p>Figure 14 matches each state to that birthplace on a world map. England is the largest group in three states, India in two, and China, New Zealand and the Philippines in one each. Hovering one map highlights the matching places on the other.</p>
+<!-- Figure 14 | IDIOM: Linked categorical choropleths (world map + state map) | drawn by specTop() in script.js -->
+<figure>
+  <div class="chart" id="cT" role="img" aria-label="Two linked maps: a world map with five birthplace countries coloured, and a map of Australian states each coloured by its largest overseas birthplace, 2021."></div>
+  <figcaption><b>Figure 14.</b> Largest overseas birthplace in each state and territory, 2021, and where that country is (linked choropleths, five categories). A country and the states where it is the largest group share one colour. Figures for the United Kingdom are for people born in England. <span class="try"><span class="try-k">Try</span>Hover a country to see the states where it is the largest group, or hover a state to find its country.</span><span class="src">Source: ABS (2026a); Natural Earth (n.d.).</span></figcaption>
 </figure>
 
 <!-- ======================================================================
@@ -149,15 +168,18 @@
      ====================================================================== -->
 <h2>References</h2>
 <ul class="refs">
-  <li>Australian Bureau of Statistics. (2022). <i>Statistical Areas Level 4, ASGS Edition 3 (July 2021 – June 2026)</i> [Digital boundaries, ArcGIS REST service]. <a href="https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA4/MapServer/0">https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA4/MapServer/0</a></li>
+  <li>Australian Bureau of Statistics. (2022a). <i>Statistical Areas Level 4, ASGS Edition 3 (July 2021 – June 2026)</i> [Digital boundaries, ArcGIS REST service]. <a href="https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA4/MapServer/0">https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA4/MapServer/0</a></li>
+  <li>Australian Bureau of Statistics. (2022b). <i>Statistical Areas Level 2, ASGS Edition 3 (July 2021 – June 2026)</i> [Digital boundaries, ArcGIS REST service]. <a href="https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA2/MapServer/0">https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/SA2/MapServer/0</a></li>
   <li>Australian Bureau of Statistics. (2023a). <i>Census 2011, B09 Country of birth of person by sex</i> [Dataset, ABS Data API]. <a href="https://data.api.abs.gov.au/rest/data/ABS,ABS_CENSUS2011_B09,1.0.0">https://data.api.abs.gov.au/rest/data/ABS,ABS_CENSUS2011_B09,1.0.0</a></li>
   <li>Australian Bureau of Statistics. (2023b). <i>Census 2016, T06 Country of birth of person by sex (SA2+)</i> [Dataset, ABS Data API]. <a href="https://data.api.abs.gov.au/rest/data/ABS,ABS_C16_T06_SA,1.0.0">https://data.api.abs.gov.au/rest/data/ABS,ABS_C16_T06_SA,1.0.0</a></li>
   <li>Australian Bureau of Statistics. (2023c). <i>Census 2021, G01 Selected person characteristics by sex (SA2+)</i> [Dataset, ABS Data API]. <a href="https://data.api.abs.gov.au/rest/data/ABS,C21_G01_SA2,1.0.0">https://data.api.abs.gov.au/rest/data/ABS,C21_G01_SA2,1.0.0</a></li>
+  <li>Australian Bureau of Statistics. (2023d). <i>2021 Census G01 Selected person characteristics by sex, SA2</i> [Feature layer, ArcGIS REST service]. <a href="https://geo.abs.gov.au/arcgis/rest/services/Hosted/ABS_2021_Census_G01_SA2/FeatureServer">https://geo.abs.gov.au/arcgis/rest/services/Hosted/ABS_2021_Census_G01_SA2/FeatureServer</a></li>
   <li>Australian Bureau of Statistics. (2026a). <i>Australia’s population by country of birth, Jun 2025</i>. <a href="https://www.abs.gov.au/statistics/people/population/australias-population-country-birth/jun-2025">https://www.abs.gov.au/statistics/people/population/australias-population-country-birth/jun-2025</a></li>
   <li>Australian Bureau of Statistics. (2026b). <i>8 things of interest about Australia’s overseas-born population</i> [Media release]. <a href="https://www.abs.gov.au/media-centre/media-releases/8-things-interest-about-australias-overseas-born-population">https://www.abs.gov.au/media-centre/media-releases/8-things-interest-about-australias-overseas-born-population</a></li>
   <li>National Museum of Australia. (n.d.). <i>Convict transportation peaks</i>. <a href="https://www.nma.gov.au/defining-moments/resources/convict-transportation-peaks">https://www.nma.gov.au/defining-moments/resources/convict-transportation-peaks</a></li>
+  <li>Natural Earth. (n.d.). <i>Admin 0 – Countries, 1:50m cultural vectors</i> [Data set]. <a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/">https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/</a></li>
   <li>State Library of New South Wales. (n.d.). <i>First Fleet: Highlights from the First Fleet collections</i>. Google Arts &amp; Culture. <a href="https://artsandculture.google.com/story/zAURIml9CVl_Kw">https://artsandculture.google.com/story/zAURIml9CVl_Kw</a></li>
-  <li>Boundary data: rowanhogan/australian-states (derived from ABS ASGS), simplified with mapshaper; world-atlas, Natural Earth 1:110m. Colour schemes from ColorBrewer (Brewer, 2002) and Stevens (2015) for the bivariate map.</li>
+  <li>Boundary data: rowanhogan/australian-states (derived from ABS ASGS), simplified with mapshaper; world map from Natural Earth (1:50m countries, via world-atlas), simplified with mapshaper; suburb (SA2) boundaries simplified in the browser with shared edges kept. Colour schemes from ColorBrewer (Brewer, 2002) and Stevens (2015) for the bivariate map.</li>
 </ul>
 </main>
 

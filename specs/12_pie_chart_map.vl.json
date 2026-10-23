@@ -1,13 +1,13 @@
 {
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
  "width": 900,
- "height": 560,
+ "height": 540,
  "autosize": {
   "type": "pad"
  },
  "config": {
   "background": null,
-  "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+  "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
   "padding": 4,
   "view": {
    "stroke": null
@@ -18,16 +18,17 @@
    "gridColor": "#d0d0d0",
    "domainColor": "#d0d0d0",
    "tickColor": "#d0d0d0",
-   "labelFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+   "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "labelFontSize": 11,
-   "titleFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
-   "titleFontWeight": 500
+   "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFontWeight": 500,
+   "titleFontSize": 11.5
   },
   "legend": {
    "labelColor": "#5c5c5c",
    "titleColor": "#222222",
-   "labelFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
-   "titleFont": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
+   "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFontWeight": 600,
    "labelFontSize": 12,
    "titleFontSize": 12,
@@ -35,11 +36,22 @@
   },
   "text": {
    "color": "#222222",
-   "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
+   "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   },
   "tooltipFormat": {
    "numberFormat": ",.0f"
   }
+ },
+ "projection": {
+  "type": "conicEqualArea",
+  "parallels": [
+   -18,
+   -36
+  ],
+  "rotate": [
+   -134,
+   0
+  ]
  },
  "params": [
   {
@@ -73,17 +85,6 @@
    }
   }
  ],
- "projection": {
-  "type": "conicEqualArea",
-  "parallels": [
-   -18,
-   -36
-  ],
-  "rotate": [
-   -134,
-   0
-  ]
- },
  "layer": [
   {
    "data": {
@@ -6365,7 +6366,7 @@
    ],
    "params": [
     {
-     "name": "hov13",
+     "name": "hov33",
      "select": {
       "type": "point",
       "fields": [
@@ -6379,7 +6380,7 @@
    "encoding": {
     "stroke": {
      "condition": {
-      "param": "hov13",
+      "param": "hov33",
       "empty": false,
       "value": "#111111"
      },
@@ -6387,7 +6388,7 @@
     },
     "strokeWidth": {
      "condition": {
-      "param": "hov13",
+      "param": "hov33",
       "empty": false,
       "value": 2.5
      },
@@ -6434,156 +6435,10 @@
    "data": {
     "values": [
      {
-      "name": "Western Australia",
-      "abbr": "WA",
-      "lon": 121.6,
-      "lat": -26,
-      "tot": 938900,
-      "top": "England",
-      "topn": 211730,
-      "clon": 112.5,
-      "clat": -24,
-      "cside": "l",
-      "topRegion": "Europe",
-      "l1": "WA · 939k born overseas",
-      "l2": "Top: England 212k",
-      "lines": [
-       "WA · 939k born overseas",
-       "Top: England 212k"
-      ]
-     },
-     {
-      "name": "Victoria",
-      "abbr": "Vic",
-      "lon": 144.3,
-      "lat": -36.9,
-      "tot": 2072570,
-      "top": "India",
-      "topn": 272250,
-      "clon": 141,
-      "clat": -40.5,
-      "cside": "l",
-      "topRegion": "Asia",
-      "l1": "Vic · 2.07M born overseas",
-      "l2": "Top: India 272k",
-      "lines": [
-       "Vic · 2.07M born overseas",
-       "Top: India 272k"
-      ]
-     },
-     {
-      "name": "New South Wales",
-      "abbr": "NSW",
-      "lon": 146.8,
-      "lat": -32.3,
-      "tot": 2510260,
-      "top": "China",
-      "topn": 261330,
-      "clon": 156,
-      "clat": -30,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "NSW · 2.51M born overseas",
-      "l2": "Top: China 261k",
-      "lines": [
-       "NSW · 2.51M born overseas",
-       "Top: China 261k"
-      ]
-     },
-     {
-      "name": "Australian Capital Territory",
-      "abbr": "ACT",
       "lon": 149.05,
       "lat": -35.45,
-      "tot": 134900,
-      "top": "India",
-      "topn": 17510,
-      "clon": 156,
-      "clat": -35.2,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "ACT · 135k born overseas",
-      "l2": "Top: India 18k",
-      "lines": [
-       "ACT · 135k born overseas",
-       "Top: India 18k"
-      ]
-     },
-     {
-      "name": "South Australia",
-      "abbr": "SA",
-      "lon": 135.3,
-      "lat": -30,
-      "tot": 452410,
-      "top": "England",
-      "topn": 98770,
-      "clon": 131,
-      "clat": -36,
-      "cside": "l",
-      "topRegion": "Europe",
-      "l1": "SA · 452k born overseas",
-      "l2": "Top: England 99k",
-      "lines": [
-       "SA · 452k born overseas",
-       "Top: England 99k"
-      ]
-     },
-     {
-      "name": "Queensland",
-      "abbr": "Qld",
-      "lon": 144.8,
-      "lat": -22.4,
-      "tot": 1263640,
-      "top": "New Zealand",
-      "topn": 229920,
-      "clon": 155.5,
-      "clat": -21,
-      "cside": "r",
-      "topRegion": "Oceania & Africa",
-      "l1": "Qld · 1.26M born overseas",
-      "l2": "Top: New Zealand 230k",
-      "lines": [
-       "Qld · 1.26M born overseas",
-       "Top: New Zealand 230k"
-      ]
-     },
-     {
-      "name": "Northern Territory",
-      "abbr": "NT",
-      "lon": 133.4,
-      "lat": -19.4,
-      "tot": 59240,
-      "top": "Philippines",
-      "topn": 7320,
-      "clon": 137.5,
-      "clat": -10,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "NT · 59k born overseas",
-      "l2": "Top: Philippines 7k",
-      "lines": [
-       "NT · 59k born overseas",
-       "Top: Philippines 7k"
-      ]
-     },
-     {
-      "name": "Tasmania",
-      "abbr": "Tas",
-      "lon": 146.6,
-      "lat": -42.05,
-      "tot": 92320,
-      "top": "England",
-      "topn": 20420,
-      "clon": 150.5,
-      "clat": -44.5,
-      "cside": "r",
-      "topRegion": "Europe",
-      "l1": "Tas · 92k born overseas",
-      "l2": "Top: England 20k",
-      "lines": [
-       "Tas · 92k born overseas",
-       "Top: England 20k"
-      ]
+      "llon": 153.6,
+      "llat": -37.4
      }
     ]
    },
@@ -6591,11 +6446,6 @@
     "type": "rule",
     "strokeWidth": 0.75
    },
-   "transform": [
-    {
-     "filter": "true"
-    }
-   ],
    "encoding": {
     "longitude": {
      "field": "lon",
@@ -6606,10 +6456,10 @@
      "type": "quantitative"
     },
     "longitude2": {
-     "field": "clon"
+     "field": "llon"
     },
     "latitude2": {
-     "field": "clat"
+     "field": "llat"
     },
     "color": {
      "value": "#5c5c5c"
@@ -6620,174 +6470,206 @@
    "data": {
     "values": [
      {
-      "name": "Western Australia",
       "abbr": "WA",
+      "name": "Western Australia",
       "lon": 121.6,
       "lat": -26,
-      "tot": 938900,
-      "top": "England",
-      "topn": 211730,
-      "clon": 112.5,
-      "clat": -24,
-      "cside": "l",
-      "topRegion": "Europe",
-      "l1": "WA · 939k born overseas",
-      "l2": "Top: England 212k",
-      "lines": [
-       "WA · 939k born overseas",
-       "Top: England 212k"
-      ]
+      "r": 25.63926626327568,
+      "a0": 0,
+      "a1": 2.1456852605909402,
+      "part": "Born overseas",
+      "n": 938900,
+      "pct": 34.149641554246976
      },
      {
-      "name": "Victoria",
+      "abbr": "WA",
+      "name": "Western Australia",
+      "lon": 121.6,
+      "lat": -26,
+      "r": 25.63926626327568,
+      "a0": 2.1456852605909402,
+      "a1": 6.283185307179586,
+      "part": "Born in Australia",
+      "n": 1810470,
+      "pct": 65.85035844575302
+     },
+     {
       "abbr": "Vic",
-      "lon": 144.3,
-      "lat": -36.9,
-      "tot": 2072570,
-      "top": "India",
-      "topn": 272250,
-      "clon": 141,
-      "clat": -40.5,
-      "cside": "l",
-      "topRegion": "Asia",
-      "l1": "Vic · 2.07M born overseas",
-      "l2": "Top: India 272k",
-      "lines": [
-       "Vic · 2.07M born overseas",
-       "Top: India 272k"
-      ]
+      "name": "Victoria",
+      "lon": 143.4,
+      "lat": -37.3,
+      "r": 39.56738636979779,
+      "a0": 0,
+      "a1": 1.9888056440313255,
+      "part": "Born overseas",
+      "n": 2072570,
+      "pct": 31.652824909664588
      },
      {
-      "name": "New South Wales",
+      "abbr": "Vic",
+      "name": "Victoria",
+      "lon": 143.4,
+      "lat": -37.3,
+      "r": 39.56738636979779,
+      "a0": 1.9888056440313255,
+      "a1": 6.283185307179586,
+      "part": "Born in Australia",
+      "n": 4475250,
+      "pct": 68.34717509033541
+     },
+     {
       "abbr": "NSW",
-      "lon": 146.8,
-      "lat": -32.3,
-      "tot": 2510260,
-      "top": "China",
-      "topn": 261330,
-      "clon": 156,
-      "clat": -30,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "NSW · 2.51M born overseas",
-      "l2": "Top: China 261k",
-      "lines": [
-       "NSW · 2.51M born overseas",
-       "Top: China 261k"
-      ]
+      "name": "New South Wales",
+      "lon": 148,
+      "lat": -31.2,
+      "r": 44,
+      "a0": 0,
+      "a1": 1.9479204488049522,
+      "part": "Born overseas",
+      "n": 2510260,
+      "pct": 31.00211681770914
      },
      {
-      "name": "Australian Capital Territory",
+      "abbr": "NSW",
+      "name": "New South Wales",
+      "lon": 148,
+      "lat": -31.2,
+      "r": 44,
+      "a0": 1.9479204488049522,
+      "a1": 6.283185307179586,
+      "part": "Born in Australia",
+      "n": 5586800,
+      "pct": 68.99788318229085
+     },
+     {
       "abbr": "ACT",
-      "lon": 149.05,
-      "lat": -35.45,
-      "tot": 134900,
-      "top": "India",
-      "topn": 17510,
-      "clon": 156,
-      "clat": -35.2,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "ACT · 135k born overseas",
-      "l2": "Top: India 18k",
-      "lines": [
-       "ACT · 135k born overseas",
-       "Top: India 18k"
-      ]
+      "name": "Australian Capital Territory",
+      "lon": 153.6,
+      "lat": -37.4,
+      "r": 10.401670405720479,
+      "a0": 0,
+      "a1": 1.873111528891132,
+      "part": "Born overseas",
+      "n": 134900,
+      "pct": 29.811495878544118
      },
      {
-      "name": "South Australia",
+      "abbr": "ACT",
+      "name": "Australian Capital Territory",
+      "lon": 153.6,
+      "lat": -37.4,
+      "r": 10.401670405720479,
+      "a0": 1.873111528891132,
+      "a1": 6.283185307179586,
+      "part": "Born in Australia",
+      "n": 317610,
+      "pct": 70.18850412145588
+     },
+     {
       "abbr": "SA",
+      "name": "South Australia",
       "lon": 135.3,
       "lat": -30,
-      "tot": 452410,
-      "top": "England",
-      "topn": 98770,
-      "clon": 131,
-      "clat": -36,
-      "cside": "l",
-      "topRegion": "Europe",
-      "l1": "SA · 452k born overseas",
-      "l2": "Top: England 99k",
-      "lines": [
-       "SA · 452k born overseas",
-       "Top: England 99k"
-      ]
+      "r": 20.76054169310609,
+      "a0": 0,
+      "a1": 1.5769310245318522,
+      "part": "Born overseas",
+      "n": 452410,
+      "pct": 25.097636746921115
      },
      {
-      "name": "Queensland",
+      "abbr": "SA",
+      "name": "South Australia",
+      "lon": 135.3,
+      "lat": -30,
+      "r": 20.76054169310609,
+      "a0": 1.5769310245318522,
+      "a1": 6.283185307179586,
+      "part": "Born in Australia",
+      "n": 1350190,
+      "pct": 74.90236325307889
+     },
+     {
       "abbr": "Qld",
+      "name": "Queensland",
       "lon": 144.8,
       "lat": -22.4,
-      "tot": 1263640,
-      "top": "New Zealand",
-      "topn": 229920,
-      "clon": 155.5,
-      "clat": -21,
-      "cside": "r",
-      "topRegion": "Oceania & Africa",
-      "l1": "Qld · 1.26M born overseas",
-      "l2": "Top: New Zealand 230k",
-      "lines": [
-       "Qld · 1.26M born overseas",
-       "Top: New Zealand 230k"
-      ]
+      "r": 35.31424121005329,
+      "a0": 0,
+      "a1": 1.5222341844439142,
+      "part": "Born overseas",
+      "n": 1263640,
+      "pct": 24.227109499770886
      },
      {
-      "name": "Northern Territory",
+      "abbr": "Qld",
+      "name": "Queensland",
+      "lon": 144.8,
+      "lat": -22.4,
+      "r": 35.31424121005329,
+      "a0": 1.5222341844439142,
+      "a1": 6.283185307179586,
+      "part": "Born in Australia",
+      "n": 3952170,
+      "pct": 75.77289050022911
+     },
+     {
       "abbr": "NT",
+      "name": "Northern Territory",
       "lon": 133.4,
       "lat": -19.4,
-      "tot": 59240,
-      "top": "Philippines",
-      "topn": 7320,
-      "clon": 137.5,
-      "clat": -10,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "NT · 59k born overseas",
-      "l2": "Top: Philippines 7k",
-      "lines": [
-       "NT · 59k born overseas",
-       "Top: Philippines 7k"
-      ]
+      "r": 7.7027559393867735,
+      "a0": 0,
+      "a1": 1.499963318949501,
+      "part": "Born overseas",
+      "n": 59240,
+      "pct": 23.87265766673383
      },
      {
-      "name": "Tasmania",
+      "abbr": "NT",
+      "name": "Northern Territory",
+      "lon": 133.4,
+      "lat": -19.4,
+      "r": 7.7027559393867735,
+      "a0": 1.499963318949501,
+      "a1": 6.283185307179586,
+      "part": "Born in Australia",
+      "n": 188910,
+      "pct": 76.12734233326617
+     },
+     {
       "abbr": "Tas",
+      "name": "Tasmania",
       "lon": 146.6,
-      "lat": -42.05,
-      "tot": 92320,
-      "top": "England",
-      "topn": 20420,
-      "clon": 150.5,
-      "clat": -44.5,
-      "cside": "r",
-      "topRegion": "Europe",
-      "l1": "Tas · 92k born overseas",
-      "l2": "Top: England 20k",
-      "lines": [
-       "Tas · 92k born overseas",
-       "Top: England 20k"
-      ]
+      "lat": -42.3,
+      "r": 11.645882980352681,
+      "a0": 0,
+      "a1": 1.0226071284796903,
+      "part": "Born overseas",
+      "n": 92320,
+      "pct": 16.27529793385516
+     },
+     {
+      "abbr": "Tas",
+      "name": "Tasmania",
+      "lon": 146.6,
+      "lat": -42.3,
+      "r": 11.645882980352681,
+      "a0": 1.0226071284796903,
+      "a1": 6.283185307179586,
+      "part": "Born in Australia",
+      "n": 474920,
+      "pct": 83.72470206614484
      }
     ]
    },
    "mark": {
-    "type": "circle",
-    "filled": false,
-    "strokeWidth": 1.5,
+    "type": "arc",
+    "stroke": "#ffffff",
+    "strokeWidth": 1.25,
     "cursor": "pointer"
    },
    "encoding": {
-    "longitude": {
-     "field": "lon",
-     "type": "quantitative"
-    },
-    "latitude": {
-     "field": "lat",
-     "type": "quantitative"
-    },
     "opacity": {
      "condition": {
       "test": "hl == '' || datum.name == hl",
@@ -6795,335 +6677,6 @@
      },
      "value": 0.2
     },
-    "size": {
-     "field": "tot",
-     "type": "quantitative",
-     "scale": {
-      "domain": [
-       0,
-       2600000
-      ],
-      "range": [
-       0,
-       6400
-      ]
-     },
-     "legend": {
-      "title": "Born overseas",
-      "values": [
-       100000,
-       1000000,
-       2500000
-      ],
-      "format": ",.0f",
-      "orient": "bottom",
-      "direction": "horizontal",
-      "symbolStrokeColor": "#222222",
-      "symbolFillColor": "transparent",
-      "symbolStrokeWidth": 1.25
-     }
-    },
-    "color": {
-     "value": "#222222"
-    },
-    "order": {
-     "field": "tot",
-     "sort": "descending"
-    },
-    "tooltip": [
-     {
-      "field": "s_name",
-      "title": "State / territory"
-     },
-     {
-      "field": "s_share",
-      "title": "Born overseas, 2021 (%)",
-      "format": ".1f"
-     },
-     {
-      "field": "s_os",
-      "title": "Overseas-born residents",
-      "format": ","
-     },
-     {
-      "field": "s_pop",
-      "title": "Total population, 2021",
-      "format": ","
-     },
-     {
-      "field": "s_top",
-      "title": "Largest overseas birthplace"
-     },
-     {
-      "field": "s_topn",
-      "title": "Residents born there",
-      "format": ","
-     },
-     {
-      "field": "s_growth",
-      "title": "Change in share since 2001 (pts)",
-      "format": "+.1f"
-     }
-    ]
-   },
-   "transform": [
-    {
-     "lookup": "name",
-     "from": {
-      "data": {
-       "values": [
-        {
-         "s_name": "Western Australia",
-         "s_share": 34.1,
-         "s_growth": 5.5,
-         "s_os": 938900,
-         "s_pop": 2749370,
-         "s_top": "England",
-         "s_topn": 211730
-        },
-        {
-         "s_name": "Victoria",
-         "s_share": 31.7,
-         "s_growth": 7.2,
-         "s_os": 2072570,
-         "s_pop": 6547820,
-         "s_top": "India",
-         "s_topn": 272250
-        },
-        {
-         "s_name": "New South Wales",
-         "s_share": 31,
-         "s_growth": 6.2,
-         "s_os": 2510260,
-         "s_pop": 8097060,
-         "s_top": "China",
-         "s_topn": 261330
-        },
-        {
-         "s_name": "Australian Capital Territory",
-         "s_share": 29.8,
-         "s_growth": 6.9,
-         "s_os": 134900,
-         "s_pop": 452510,
-         "s_top": "India",
-         "s_topn": 17510
-        },
-        {
-         "s_name": "South Australia",
-         "s_share": 25.1,
-         "s_growth": 3.9,
-         "s_os": 452410,
-         "s_pop": 1802600,
-         "s_top": "England",
-         "s_topn": 98770
-        },
-        {
-         "s_name": "Queensland",
-         "s_share": 24.2,
-         "s_growth": 6.2,
-         "s_os": 1263640,
-         "s_pop": 5215810,
-         "s_top": "New Zealand",
-         "s_topn": 229920
-        },
-        {
-         "s_name": "Northern Territory",
-         "s_share": 23.9,
-         "s_growth": 7.8,
-         "s_os": 59240,
-         "s_pop": 248150,
-         "s_top": "Philippines",
-         "s_topn": 7320
-        },
-        {
-         "s_name": "Tasmania",
-         "s_share": 16.3,
-         "s_growth": 5.5,
-         "s_os": 92320,
-         "s_pop": 567240,
-         "s_top": "England",
-         "s_topn": 20420
-        }
-       ]
-      },
-      "key": "s_name",
-      "fields": [
-       "s_name",
-       "s_share",
-       "s_growth",
-       "s_os",
-       "s_pop",
-       "s_top",
-       "s_topn"
-      ]
-     }
-    }
-   ]
-  },
-  {
-   "data": {
-    "values": [
-     {
-      "name": "Western Australia",
-      "abbr": "WA",
-      "lon": 121.6,
-      "lat": -26,
-      "tot": 938900,
-      "top": "England",
-      "topn": 211730,
-      "clon": 112.5,
-      "clat": -24,
-      "cside": "l",
-      "topRegion": "Europe",
-      "l1": "WA · 939k born overseas",
-      "l2": "Top: England 212k",
-      "lines": [
-       "WA · 939k born overseas",
-       "Top: England 212k"
-      ]
-     },
-     {
-      "name": "Victoria",
-      "abbr": "Vic",
-      "lon": 144.3,
-      "lat": -36.9,
-      "tot": 2072570,
-      "top": "India",
-      "topn": 272250,
-      "clon": 141,
-      "clat": -40.5,
-      "cside": "l",
-      "topRegion": "Asia",
-      "l1": "Vic · 2.07M born overseas",
-      "l2": "Top: India 272k",
-      "lines": [
-       "Vic · 2.07M born overseas",
-       "Top: India 272k"
-      ]
-     },
-     {
-      "name": "New South Wales",
-      "abbr": "NSW",
-      "lon": 146.8,
-      "lat": -32.3,
-      "tot": 2510260,
-      "top": "China",
-      "topn": 261330,
-      "clon": 156,
-      "clat": -30,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "NSW · 2.51M born overseas",
-      "l2": "Top: China 261k",
-      "lines": [
-       "NSW · 2.51M born overseas",
-       "Top: China 261k"
-      ]
-     },
-     {
-      "name": "Australian Capital Territory",
-      "abbr": "ACT",
-      "lon": 149.05,
-      "lat": -35.45,
-      "tot": 134900,
-      "top": "India",
-      "topn": 17510,
-      "clon": 156,
-      "clat": -35.2,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "ACT · 135k born overseas",
-      "l2": "Top: India 18k",
-      "lines": [
-       "ACT · 135k born overseas",
-       "Top: India 18k"
-      ]
-     },
-     {
-      "name": "South Australia",
-      "abbr": "SA",
-      "lon": 135.3,
-      "lat": -30,
-      "tot": 452410,
-      "top": "England",
-      "topn": 98770,
-      "clon": 131,
-      "clat": -36,
-      "cside": "l",
-      "topRegion": "Europe",
-      "l1": "SA · 452k born overseas",
-      "l2": "Top: England 99k",
-      "lines": [
-       "SA · 452k born overseas",
-       "Top: England 99k"
-      ]
-     },
-     {
-      "name": "Queensland",
-      "abbr": "Qld",
-      "lon": 144.8,
-      "lat": -22.4,
-      "tot": 1263640,
-      "top": "New Zealand",
-      "topn": 229920,
-      "clon": 155.5,
-      "clat": -21,
-      "cside": "r",
-      "topRegion": "Oceania & Africa",
-      "l1": "Qld · 1.26M born overseas",
-      "l2": "Top: New Zealand 230k",
-      "lines": [
-       "Qld · 1.26M born overseas",
-       "Top: New Zealand 230k"
-      ]
-     },
-     {
-      "name": "Northern Territory",
-      "abbr": "NT",
-      "lon": 133.4,
-      "lat": -19.4,
-      "tot": 59240,
-      "top": "Philippines",
-      "topn": 7320,
-      "clon": 137.5,
-      "clat": -10,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "NT · 59k born overseas",
-      "l2": "Top: Philippines 7k",
-      "lines": [
-       "NT · 59k born overseas",
-       "Top: Philippines 7k"
-      ]
-     },
-     {
-      "name": "Tasmania",
-      "abbr": "Tas",
-      "lon": 146.6,
-      "lat": -42.05,
-      "tot": 92320,
-      "top": "England",
-      "topn": 20420,
-      "clon": 150.5,
-      "clat": -44.5,
-      "cside": "r",
-      "topRegion": "Europe",
-      "l1": "Tas · 92k born overseas",
-      "l2": "Top: England 20k",
-      "lines": [
-       "Tas · 92k born overseas",
-       "Top: England 20k"
-      ]
-     }
-    ]
-   },
-   "mark": {
-    "type": "circle",
-    "stroke": "#ffffff",
-    "strokeWidth": 1,
-    "cursor": "pointer"
-   },
-   "encoding": {
     "longitude": {
      "field": "lon",
      "type": "quantitative"
@@ -7132,50 +6685,52 @@
      "field": "lat",
      "type": "quantitative"
     },
-    "opacity": {
-     "condition": {
-      "test": "hl == '' || datum.name == hl",
-      "value": 0.9
-     },
-     "value": 0.15
-    },
-    "size": {
-     "field": "topn",
+    "theta": {
+     "field": "a0",
      "type": "quantitative",
-     "scale": {
-      "domain": [
-       0,
-       2600000
-      ],
-      "range": [
-       0,
-       6400
-      ]
-     },
-     "legend": null
+     "scale": null
+    },
+    "theta2": {
+     "field": "a1"
+    },
+    "radius": {
+     "field": "r",
+     "type": "quantitative",
+     "scale": null
     },
     "color": {
-     "field": "topRegion",
+     "field": "part",
      "type": "nominal",
      "scale": {
       "domain": [
-       "Asia",
-       "Europe",
-       "Oceania & Africa"
+       "Born overseas",
+       "Born in Australia"
       ],
       "range": [
-       "#1b9e77",
-       "#d95f02",
-       "#7570b3"
+       "#225ea8",
+       "#c4c4c4"
       ]
      },
      "legend": {
-      "title": "Top country’s region",
-      "orient": "bottom",
-      "direction": "vertical"
+      "title": "2021 population",
+      "orient": "bottom"
      }
     },
     "tooltip": [
+     {
+      "field": "part",
+      "title": "Slice"
+     },
+     {
+      "field": "n",
+      "title": "People in slice",
+      "format": ","
+     },
+     {
+      "field": "pct",
+      "title": "Share of state (%)",
+      "format": ".1f"
+     },
      {
       "field": "s_name",
       "title": "State / territory"
@@ -7309,549 +6864,69 @@
    "data": {
     "values": [
      {
-      "name": "Western Australia",
       "abbr": "WA",
       "lon": 121.6,
-      "lat": -26,
-      "tot": 938900,
-      "top": "England",
-      "topn": 211730,
-      "clon": 112.5,
-      "clat": -24,
-      "cside": "l",
-      "topRegion": "Europe",
-      "l1": "WA · 939k born overseas",
-      "l2": "Top: England 212k",
-      "lines": [
-       "WA · 939k born overseas",
-       "Top: England 212k"
-      ]
+      "lat": -28.135353084855932,
+      "r": 25.63926626327568,
+      "l": "WA 34.1%"
      },
      {
-      "name": "Victoria",
       "abbr": "Vic",
-      "lon": 144.3,
-      "lat": -36.9,
-      "tot": 2072570,
-      "top": "India",
-      "topn": 272250,
-      "clon": 141,
-      "clat": -40.5,
-      "cside": "l",
-      "topRegion": "Asia",
-      "l1": "Vic · 2.07M born overseas",
-      "l2": "Top: India 272k",
-      "lines": [
-       "Vic · 2.07M born overseas",
-       "Top: India 272k"
-      ]
+      "lon": 143.4,
+      "lat": -40.40605042402015,
+      "r": 39.56738636979779,
+      "l": "Vic 31.7%"
      },
      {
-      "name": "New South Wales",
       "abbr": "NSW",
-      "lon": 146.8,
-      "lat": -32.3,
-      "tot": 2510260,
-      "top": "China",
-      "topn": 261330,
-      "clon": 156,
-      "clat": -30,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "NSW · 2.51M born overseas",
-      "l2": "Top: China 261k",
-      "lines": [
-       "NSW · 2.51M born overseas",
-       "Top: China 261k"
-      ]
+      "lon": 148,
+      "lat": -26.948705694942255,
+      "r": 44,
+      "l": "NSW 31.0%"
      },
      {
-      "name": "Australian Capital Territory",
       "abbr": "ACT",
-      "lon": 149.05,
-      "lat": -35.45,
-      "tot": 134900,
-      "top": "India",
-      "topn": 17510,
-      "clon": 156,
-      "clat": -35.2,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "ACT · 135k born overseas",
-      "l2": "Top: India 18k",
-      "lines": [
-       "ACT · 135k born overseas",
-       "Top: India 18k"
-      ]
+      "lon": 153.6,
+      "lat": -38.47339399482321,
+      "r": 10.401670405720479,
+      "l": "ACT 29.8%"
      },
      {
-      "name": "South Australia",
       "abbr": "SA",
       "lon": 135.3,
-      "lat": -30,
-      "tot": 452410,
-      "top": "England",
-      "topn": 98770,
-      "clon": 131,
-      "clat": -36,
-      "cside": "l",
-      "topRegion": "Europe",
-      "l1": "SA · 452k born overseas",
-      "l2": "Top: England 99k",
-      "lines": [
-       "SA · 452k born overseas",
-       "Top: England 99k"
-      ]
+      "lat": -31.795338429427943,
+      "r": 20.76054169310609,
+      "l": "SA 25.1%"
      },
      {
-      "name": "Queensland",
       "abbr": "Qld",
       "lon": 144.8,
-      "lat": -22.4,
-      "tot": 1263640,
-      "top": "New Zealand",
-      "topn": 229920,
-      "clon": 155.5,
-      "clat": -21,
-      "cside": "r",
-      "topRegion": "Oceania & Africa",
-      "l1": "Qld · 1.26M born overseas",
-      "l2": "Top: New Zealand 230k",
-      "lines": [
-       "Qld · 1.26M born overseas",
-       "Top: New Zealand 230k"
-      ]
+      "lat": -25.209634492934814,
+      "r": 35.31424121005329,
+      "l": "Qld 24.2%"
      },
      {
-      "name": "Northern Territory",
       "abbr": "NT",
       "lon": 133.4,
-      "lat": -19.4,
-      "tot": 59240,
-      "top": "Philippines",
-      "topn": 7320,
-      "clon": 137.5,
-      "clat": -10,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "NT · 59k born overseas",
-      "l2": "Top: Philippines 7k",
-      "lines": [
-       "NT · 59k born overseas",
-       "Top: Philippines 7k"
-      ]
+      "lat": -20.2852976062894,
+      "r": 7.7027559393867735,
+      "l": "NT 23.9%"
      },
      {
-      "name": "Tasmania",
       "abbr": "Tas",
       "lon": 146.6,
-      "lat": -42.05,
-      "tot": 92320,
-      "top": "England",
-      "topn": 20420,
-      "clon": 150.5,
-      "clat": -44.5,
-      "cside": "r",
-      "topRegion": "Europe",
-      "l1": "Tas · 92k born overseas",
-      "l2": "Top: England 20k",
-      "lines": [
-       "Tas · 92k born overseas",
-       "Top: England 20k"
-      ]
+      "lat": -43.46010733634477,
+      "r": 11.645882980352681,
+      "l": "Tas 16.3%"
      }
     ]
    },
-   "transform": [
-    {
-     "filter": "datum.cside == 'r'"
-    }
-   ],
    "mark": {
     "type": "text",
-    "align": "left",
-    "dx": 4,
-    "baseline": "middle",
+    "baseline": "top",
     "fontSize": 11.5,
-    "lineHeight": 14,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-   },
-   "encoding": {
-    "longitude": {
-     "field": "clon",
-     "type": "quantitative"
-    },
-    "latitude": {
-     "field": "clat",
-     "type": "quantitative"
-    },
-    "text": {
-     "field": "lines"
-    },
-    "color": {
-     "value": "#222222"
-    }
-   }
-  },
-  {
-   "data": {
-    "values": [
-     {
-      "name": "Western Australia",
-      "abbr": "WA",
-      "lon": 121.6,
-      "lat": -26,
-      "tot": 938900,
-      "top": "England",
-      "topn": 211730,
-      "clon": 112.5,
-      "clat": -24,
-      "cside": "l",
-      "topRegion": "Europe",
-      "l1": "WA · 939k born overseas",
-      "l2": "Top: England 212k",
-      "lines": [
-       "WA · 939k born overseas",
-       "Top: England 212k"
-      ]
-     },
-     {
-      "name": "Victoria",
-      "abbr": "Vic",
-      "lon": 144.3,
-      "lat": -36.9,
-      "tot": 2072570,
-      "top": "India",
-      "topn": 272250,
-      "clon": 141,
-      "clat": -40.5,
-      "cside": "l",
-      "topRegion": "Asia",
-      "l1": "Vic · 2.07M born overseas",
-      "l2": "Top: India 272k",
-      "lines": [
-       "Vic · 2.07M born overseas",
-       "Top: India 272k"
-      ]
-     },
-     {
-      "name": "New South Wales",
-      "abbr": "NSW",
-      "lon": 146.8,
-      "lat": -32.3,
-      "tot": 2510260,
-      "top": "China",
-      "topn": 261330,
-      "clon": 156,
-      "clat": -30,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "NSW · 2.51M born overseas",
-      "l2": "Top: China 261k",
-      "lines": [
-       "NSW · 2.51M born overseas",
-       "Top: China 261k"
-      ]
-     },
-     {
-      "name": "Australian Capital Territory",
-      "abbr": "ACT",
-      "lon": 149.05,
-      "lat": -35.45,
-      "tot": 134900,
-      "top": "India",
-      "topn": 17510,
-      "clon": 156,
-      "clat": -35.2,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "ACT · 135k born overseas",
-      "l2": "Top: India 18k",
-      "lines": [
-       "ACT · 135k born overseas",
-       "Top: India 18k"
-      ]
-     },
-     {
-      "name": "South Australia",
-      "abbr": "SA",
-      "lon": 135.3,
-      "lat": -30,
-      "tot": 452410,
-      "top": "England",
-      "topn": 98770,
-      "clon": 131,
-      "clat": -36,
-      "cside": "l",
-      "topRegion": "Europe",
-      "l1": "SA · 452k born overseas",
-      "l2": "Top: England 99k",
-      "lines": [
-       "SA · 452k born overseas",
-       "Top: England 99k"
-      ]
-     },
-     {
-      "name": "Queensland",
-      "abbr": "Qld",
-      "lon": 144.8,
-      "lat": -22.4,
-      "tot": 1263640,
-      "top": "New Zealand",
-      "topn": 229920,
-      "clon": 155.5,
-      "clat": -21,
-      "cside": "r",
-      "topRegion": "Oceania & Africa",
-      "l1": "Qld · 1.26M born overseas",
-      "l2": "Top: New Zealand 230k",
-      "lines": [
-       "Qld · 1.26M born overseas",
-       "Top: New Zealand 230k"
-      ]
-     },
-     {
-      "name": "Northern Territory",
-      "abbr": "NT",
-      "lon": 133.4,
-      "lat": -19.4,
-      "tot": 59240,
-      "top": "Philippines",
-      "topn": 7320,
-      "clon": 137.5,
-      "clat": -10,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "NT · 59k born overseas",
-      "l2": "Top: Philippines 7k",
-      "lines": [
-       "NT · 59k born overseas",
-       "Top: Philippines 7k"
-      ]
-     },
-     {
-      "name": "Tasmania",
-      "abbr": "Tas",
-      "lon": 146.6,
-      "lat": -42.05,
-      "tot": 92320,
-      "top": "England",
-      "topn": 20420,
-      "clon": 150.5,
-      "clat": -44.5,
-      "cside": "r",
-      "topRegion": "Europe",
-      "l1": "Tas · 92k born overseas",
-      "l2": "Top: England 20k",
-      "lines": [
-       "Tas · 92k born overseas",
-       "Top: England 20k"
-      ]
-     }
-    ]
-   },
-   "transform": [
-    {
-     "filter": "datum.cside == 'l'"
-    }
-   ],
-   "mark": {
-    "type": "text",
-    "align": "right",
-    "dx": -4,
-    "baseline": "middle",
-    "fontSize": 11.5,
-    "lineHeight": 14,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif"
-   },
-   "encoding": {
-    "longitude": {
-     "field": "clon",
-     "type": "quantitative"
-    },
-    "latitude": {
-     "field": "clat",
-     "type": "quantitative"
-    },
-    "text": {
-     "field": "lines"
-    },
-    "color": {
-     "value": "#222222"
-    }
-   }
-  },
-  {
-   "data": {
-    "values": [
-     {
-      "name": "Western Australia",
-      "abbr": "WA",
-      "lon": 121.6,
-      "lat": -26,
-      "tot": 938900,
-      "top": "England",
-      "topn": 211730,
-      "clon": 112.5,
-      "clat": -24,
-      "cside": "l",
-      "topRegion": "Europe",
-      "l1": "WA · 939k born overseas",
-      "l2": "Top: England 212k",
-      "lines": [
-       "WA · 939k born overseas",
-       "Top: England 212k"
-      ]
-     },
-     {
-      "name": "Victoria",
-      "abbr": "Vic",
-      "lon": 144.3,
-      "lat": -36.9,
-      "tot": 2072570,
-      "top": "India",
-      "topn": 272250,
-      "clon": 141,
-      "clat": -40.5,
-      "cside": "l",
-      "topRegion": "Asia",
-      "l1": "Vic · 2.07M born overseas",
-      "l2": "Top: India 272k",
-      "lines": [
-       "Vic · 2.07M born overseas",
-       "Top: India 272k"
-      ]
-     },
-     {
-      "name": "New South Wales",
-      "abbr": "NSW",
-      "lon": 146.8,
-      "lat": -32.3,
-      "tot": 2510260,
-      "top": "China",
-      "topn": 261330,
-      "clon": 156,
-      "clat": -30,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "NSW · 2.51M born overseas",
-      "l2": "Top: China 261k",
-      "lines": [
-       "NSW · 2.51M born overseas",
-       "Top: China 261k"
-      ]
-     },
-     {
-      "name": "Australian Capital Territory",
-      "abbr": "ACT",
-      "lon": 149.05,
-      "lat": -35.45,
-      "tot": 134900,
-      "top": "India",
-      "topn": 17510,
-      "clon": 156,
-      "clat": -35.2,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "ACT · 135k born overseas",
-      "l2": "Top: India 18k",
-      "lines": [
-       "ACT · 135k born overseas",
-       "Top: India 18k"
-      ]
-     },
-     {
-      "name": "South Australia",
-      "abbr": "SA",
-      "lon": 135.3,
-      "lat": -30,
-      "tot": 452410,
-      "top": "England",
-      "topn": 98770,
-      "clon": 131,
-      "clat": -36,
-      "cside": "l",
-      "topRegion": "Europe",
-      "l1": "SA · 452k born overseas",
-      "l2": "Top: England 99k",
-      "lines": [
-       "SA · 452k born overseas",
-       "Top: England 99k"
-      ]
-     },
-     {
-      "name": "Queensland",
-      "abbr": "Qld",
-      "lon": 144.8,
-      "lat": -22.4,
-      "tot": 1263640,
-      "top": "New Zealand",
-      "topn": 229920,
-      "clon": 155.5,
-      "clat": -21,
-      "cside": "r",
-      "topRegion": "Oceania & Africa",
-      "l1": "Qld · 1.26M born overseas",
-      "l2": "Top: New Zealand 230k",
-      "lines": [
-       "Qld · 1.26M born overseas",
-       "Top: New Zealand 230k"
-      ]
-     },
-     {
-      "name": "Northern Territory",
-      "abbr": "NT",
-      "lon": 133.4,
-      "lat": -19.4,
-      "tot": 59240,
-      "top": "Philippines",
-      "topn": 7320,
-      "clon": 137.5,
-      "clat": -10,
-      "cside": "r",
-      "topRegion": "Asia",
-      "l1": "NT · 59k born overseas",
-      "l2": "Top: Philippines 7k",
-      "lines": [
-       "NT · 59k born overseas",
-       "Top: Philippines 7k"
-      ]
-     },
-     {
-      "name": "Tasmania",
-      "abbr": "Tas",
-      "lon": 146.6,
-      "lat": -42.05,
-      "tot": 92320,
-      "top": "England",
-      "topn": 20420,
-      "clon": 150.5,
-      "clat": -44.5,
-      "cside": "r",
-      "topRegion": "Europe",
-      "l1": "Tas · 92k born overseas",
-      "l2": "Top: England 20k",
-      "lines": [
-       "Tas · 92k born overseas",
-       "Top: England 20k"
-      ]
-     }
-    ]
-   },
-   "transform": [
-    {
-     "filter": "false"
-    }
-   ],
-   "mark": {
-    "type": "text",
-    "align": "left",
-    "dx": 9,
-    "dy": -9,
-    "fontSize": 10.5,
-    "font": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif",
-    "fontWeight": 600,
-    "baseline": "middle"
+    "font": "IBM Plex Sans Condensed, Arial Narrow, sans-serif",
+    "fontWeight": 600
    },
    "encoding": {
     "longitude": {
@@ -7863,7 +6938,7 @@
      "type": "quantitative"
     },
     "text": {
-     "field": "abbr"
+     "field": "l"
     },
     "color": {
      "value": "#222222"
@@ -7880,20 +6955,20 @@
        "type": "MultiPoint",
        "coordinates": [
         [
-         101,
-         -8
+         112,
+         -10
         ],
         [
-         168,
-         -8
+         158,
+         -10
         ],
         [
-         168,
-         -46
+         158,
+         -45
         ],
         [
-         101,
-         -46
+         112,
+         -45
         ]
        ]
       }

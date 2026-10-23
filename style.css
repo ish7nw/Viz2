@@ -18,6 +18,9 @@
   the two gradients used on the First Fleet map, and finally the shutter title.
 */
 
+/* ======================================================================
+   CSS 1. COLOURS AND FONTS
+   ====================================================================== */
 /* Colours and font stacks. The charts read these too (see T() in script.js),
    so changing a colour here changes it in the maps as well. */
 :root {
@@ -46,6 +49,9 @@
   --accent: #1a5fb4;
 }
 * { box-sizing: border-box; }
+/* ======================================================================
+   CSS 2. PAGE BACKGROUND AND THE WHITE PANEL
+   ====================================================================== */
 /* Page background: grey with topographic contour lines (img/contours.svg), fixed so it doesn't scroll */
 body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: #F3F4F2 url("img/contours.svg") center / cover no-repeat; }
 /* Base text: serif for reading, padding keeps text off the screen edge on phones */
@@ -58,6 +64,9 @@ body {
 main { max-width: 940px; margin: 0 auto; background: #ffffff; border: 1px solid #d6d9d3; border-radius: 3px; padding: 40px 30px 48px; position: relative; }
 @media (max-width: 600px) { main { padding: 24px 14px 32px; } }
 h1 { font-size: 28px; line-height: 1.25; margin: 0 0 6px; font-weight: 700; text-wrap: balance; }
+/* ======================================================================
+   CSS 3. HEADINGS AND TEXT
+   ====================================================================== */
 /* Headings and text. Sans serif for headings, captions and labels, serif for paragraphs.
    Paragraphs are capped at ~62 characters per line so they stay easy to read. */
 h2, h3, figcaption, .meta, .ctl, .btn, select, details, table, caption, .hint, .hint-block, .vega-bindings { font-family: var(--f-sans); }
@@ -71,6 +80,9 @@ h2 + p { font-size: 18.5px; line-height: 1.6; }
 @media (max-width: 600px) { h2 + p { font-size: 17.5px; } h2 { font-size: 25px; } }
 .abstract { border-left: 3px solid var(--rule); padding-left: 14px; margin: 0 0 8px; }
 .abstract p { font-size: 15px; }
+/* ======================================================================
+   CSS 4. FIGURES AND CAPTIONS
+   ====================================================================== */
 /* Figures and captions. A caption has three parts: description, a "Try" line, and the source. */
 figure { margin: 24px 0 40px; min-width: 0; }
 .chart, .chart.vega-embed { display: block; width: 100%; min-width: 0; overflow-x: auto; }
@@ -81,6 +93,9 @@ figcaption b { font-weight: 600; color: var(--ink); }
 figcaption .try { display: block; margin-top: 6px; color: var(--ink); font-style: normal; }
 figcaption .try-k { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-right: 8px; }
 figcaption .src { display: block; margin-top: 4px; font-size: 13px; }
+/* ======================================================================
+   CSS 5. CONTROLS, TABLES AND REFERENCES
+   ====================================================================== */
 /* Small controls above some figures (Play voyage button, Highlight a state dropdown) */
 .ctl { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; font-size: 14px; margin: 4px 0 8px; }
 .ctl legend { float: left; margin-right: 8px; font-weight: 600; padding: 0; }
@@ -102,6 +117,9 @@ tbody tr:last-child td { border-bottom: 1.5px solid var(--ink); }
 a { color: var(--link); }
 .refs { padding-left: 0; list-style: none; font-size: 15px; max-width: 72ch; }
 .refs li { padding-left: 24px; text-indent: -24px; margin-bottom: 6px; overflow-wrap: anywhere; }
+/* ======================================================================
+   CSS 6. MAP TOOLTIPS
+   ====================================================================== */
 /* Map tooltips: region name on top in bold, figures underneath */
 #vg-tooltip-element { font-family: var(--f-sans) !important; font-size: 12.5px !important; line-height: 1.4 !important; padding: 8px 10px !important; background: #fff !important; color: var(--ink) !important; border: 1px solid var(--rule) !important; box-shadow: 0 1px 4px rgba(0,0,0,.15) !important; }
 #vg-tooltip-element { max-width: 420px !important; }
@@ -112,6 +130,10 @@ a { color: var(--link); }
 #vg-tooltip-element td.value { white-space: nowrap; font-weight: 500 !important; color: var(--ink) !important; }
 #vg-tooltip-element tr:first-child td.key { display: none; }
 #vg-tooltip-element tr:first-child td.value { font-size: 15px !important; font-weight: 700 !important; padding-bottom: 5px !important; }
+/* ======================================================================
+   CSS 7. FIRST FLEET MAP GRADIENTS (Figure 2)
+   Oceanic Shimmer behind the map, green-to-gray on the stop countries
+   ====================================================================== */
 /* "Oceanic Shimmer" gradient (21st.dev community gradients), applied to Figure 2 */
 .gradient {
   /* CSS approximation: the bitmap grain texture require canvas. Export an image for the exact result. */
@@ -130,9 +152,21 @@ a { color: var(--link); }
 #cV { position: relative; }
 #cV > svg { position: relative; z-index: 1; }
 .waited-overlay { position: absolute; z-index: 0; pointer-events: none; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+/* ======================================================================
+   CSS 8. BUTTONS, DROPDOWNS AND SLIDERS
+   ====================================================================== */
 /* Buttons, dropdowns and the sliders/radios Vega-Lite adds under some maps */
 .btn { font: inherit; font-size: 14px; padding: 5px 12px; border: 1px solid #8a8a8a; border-radius: 4px; background: #fff; color: var(--ink); cursor: pointer; }
 .btn:hover { background: #f2f2f2; }
+/* Figure 7 zoom map: buttons sit over the top-right corner; the map shows a grab cursor */
+.zoom-ctl .btn { padding: 4px 10px; }
+.zoom-ctl .btn[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.zoom-wrap { position: relative; }
+.zoom-map { touch-action: none; cursor: grab; overflow: hidden; border: 1px solid var(--rule); }
+.zoom-map.dragging, .zoom-map.dragging * { cursor: grabbing !important; }
+.zoom-map:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.zoom-btns { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 4px; }
+.zoom-btns .btn { width: 34px; height: 34px; padding: 0; font-size: 20px; line-height: 1; }
 .btn:focus-visible, select:focus-visible, .vega-bindings input:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
 .hint { font-size: 13px; color: var(--muted); }
 .meta + h2 { margin-top: 28px; }
@@ -145,6 +179,9 @@ select { font: inherit; font-size: 14px; padding: 3px 6px; }
 .vega-bind label { display: inline-flex; align-items: center; gap: 3px; margin-right: 8px; cursor: pointer; }
 .vega-bind input[type="range"] { width: min(320px, 60vw); }
 #cV .vega-bindings { color: #fff; padding: 0 14px 6px; position: relative; z-index: 2; }
+/* ======================================================================
+   CSS 9. TITLE (SHUTTER TEXT)
+   ====================================================================== */
 /* Title block: "Australian Immigration" with the shutter animation (the JS for it is near the end of script.js) */
 .hero { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; background: #ffffff; padding: 64px 8px 64px; margin: -40px -30px 32px; border-bottom: 1px solid #e4e4e7; overflow: hidden; }
 .hero-grid { position: absolute; inset: 0; opacity: 0.05; pointer-events: none;
