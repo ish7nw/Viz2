@@ -1,0 +1,273 @@
+language,home_countries,state,speakers,residents,per_1000_residents
+Arabic,Algeria; Bahrain; Egypt; Iraq; Jordan; Kuwait; Lebanon; Libya; Morocco; Oman; Qatar; Saudi Arabia; Sudan; Syria; Tunisia; United Arab Emirates; Yemen; Palestine; Mauritania; W. Sahara,New South Wales,227205,8072106,28.1
+Arabic,Algeria; Bahrain; Egypt; Iraq; Jordan; Kuwait; Lebanon; Libya; Morocco; Oman; Qatar; Saudi Arabia; Sudan; Syria; Tunisia; United Arab Emirates; Yemen; Palestine; Mauritania; W. Sahara,Victoria,91505,6503473,14.1
+Arabic,Algeria; Bahrain; Egypt; Iraq; Jordan; Kuwait; Lebanon; Libya; Morocco; Oman; Qatar; Saudi Arabia; Sudan; Syria; Tunisia; United Arab Emirates; Yemen; Palestine; Mauritania; W. Sahara,Queensland,16157,5156123,3.1
+Arabic,Algeria; Bahrain; Egypt; Iraq; Jordan; Kuwait; Lebanon; Libya; Morocco; Oman; Qatar; Saudi Arabia; Sudan; Syria; Tunisia; United Arab Emirates; Yemen; Palestine; Mauritania; W. Sahara,South Australia,11011,1781522,6.2
+Arabic,Algeria; Bahrain; Egypt; Iraq; Jordan; Kuwait; Lebanon; Libya; Morocco; Oman; Qatar; Saudi Arabia; Sudan; Syria; Tunisia; United Arab Emirates; Yemen; Palestine; Mauritania; W. Sahara,Western Australia,15943,2660038,6.0
+Arabic,Algeria; Bahrain; Egypt; Iraq; Jordan; Kuwait; Lebanon; Libya; Morocco; Oman; Qatar; Saudi Arabia; Sudan; Syria; Tunisia; United Arab Emirates; Yemen; Palestine; Mauritania; W. Sahara,Tasmania,917,557531,1.6
+Arabic,Algeria; Bahrain; Egypt; Iraq; Jordan; Kuwait; Lebanon; Libya; Morocco; Oman; Qatar; Saudi Arabia; Sudan; Syria; Tunisia; United Arab Emirates; Yemen; Palestine; Mauritania; W. Sahara,Northern Territory,426,232617,1.8
+Arabic,Algeria; Bahrain; Egypt; Iraq; Jordan; Kuwait; Lebanon; Libya; Morocco; Oman; Qatar; Saudi Arabia; Sudan; Syria; Tunisia; United Arab Emirates; Yemen; Palestine; Mauritania; W. Sahara,Australian Capital Territory,3854,454473,8.5
+Persian,Iran,New South Wales,26826,8072106,3.3
+Persian,Iran,Victoria,22337,6503473,3.4
+Persian,Iran,Queensland,8453,5156123,1.6
+Persian,Iran,South Australia,5419,1781522,3.0
+Persian,Iran,Western Australia,7603,2660038,2.9
+Persian,Iran,Tasmania,454,557531,0.8
+Persian,Iran,Northern Territory,99,232617,0.4
+Persian,Iran,Australian Capital Territory,1228,454473,2.7
+Turkish,Turkey; N. Cyprus,New South Wales,23828,8072106,3.0
+Turkish,Turkey; N. Cyprus,Victoria,34901,6503473,5.4
+Turkish,Turkey; N. Cyprus,Queensland,2768,5156123,0.5
+Turkish,Turkey; N. Cyprus,South Australia,857,1781522,0.5
+Turkish,Turkey; N. Cyprus,Western Australia,1984,2660038,0.7
+Turkish,Turkey; N. Cyprus,Tasmania,88,557531,0.2
+Turkish,Turkey; N. Cyprus,Northern Territory,57,232617,0.2
+Turkish,Turkey; N. Cyprus,Australian Capital Territory,404,454473,0.9
+Vietnamese,Vietnam,New South Wales,117816,8072106,14.6
+Vietnamese,Vietnam,Victoria,118692,6503473,18.3
+Vietnamese,Vietnam,Queensland,31362,5156123,6.1
+Vietnamese,Vietnam,South Australia,21821,1781522,12.2
+Vietnamese,Vietnam,Western Australia,22761,2660038,8.6
+Vietnamese,Vietnam,Tasmania,1449,557531,2.6
+Vietnamese,Vietnam,Northern Territory,1562,232617,6.7
+Vietnamese,Vietnam,Australian Capital Territory,5065,454473,11.1
+Filipino / Tagalog,Philippines,New South Wales,82568,8072106,10.2
+Filipino / Tagalog,Philippines,Victoria,52623,6503473,8.1
+Filipino / Tagalog,Philippines,Queensland,35376,5156123,6.9
+Filipino / Tagalog,Philippines,South Australia,11181,1781522,6.3
+Filipino / Tagalog,Philippines,Western Australia,29715,2660038,11.2
+Filipino / Tagalog,Philippines,Tasmania,1359,557531,2.4
+Filipino / Tagalog,Philippines,Northern Territory,5146,232617,22.1
+Filipino / Tagalog,Philippines,Australian Capital Territory,3966,454473,8.7
+Indonesian,Indonesia,New South Wales,32317,8072106,4.0
+Indonesian,Indonesia,Victoria,17864,6503473,2.7
+Indonesian,Indonesia,Queensland,5841,5156123,1.1
+Indonesian,Indonesia,South Australia,1802,1781522,1.0
+Indonesian,Indonesia,Western Australia,12428,2660038,4.7
+Indonesian,Indonesia,Tasmania,395,557531,0.7
+Indonesian,Indonesia,Northern Territory,1301,232617,5.6
+Indonesian,Indonesia,Australian Capital Territory,1202,454473,2.6
+Thai,Thailand,New South Wales,27905,8072106,3.5
+Thai,Thailand,Victoria,14727,6503473,2.3
+Thai,Thailand,Queensland,10657,5156123,2.1
+Thai,Thailand,South Australia,2396,1781522,1.3
+Thai,Thailand,Western Australia,7806,2660038,2.9
+Thai,Thailand,Tasmania,591,557531,1.1
+Thai,Thailand,Northern Territory,1022,232617,4.4
+Thai,Thailand,Australian Capital Territory,1300,454473,2.9
+Khmer,Cambodia,New South Wales,12660,8072106,1.6
+Khmer,Cambodia,Victoria,17508,6503473,2.7
+Khmer,Cambodia,Queensland,2756,5156123,0.5
+Khmer,Cambodia,South Australia,4566,1781522,2.6
+Khmer,Cambodia,Western Australia,1592,2660038,0.6
+Khmer,Cambodia,Tasmania,75,557531,0.1
+Khmer,Cambodia,Northern Territory,205,232617,0.9
+Khmer,Cambodia,Australian Capital Territory,404,454473,0.9
+Mandarin,China; Taiwan,New South Wales,270725,8072106,33.5
+Mandarin,China; Taiwan,Victoria,221819,6503473,34.1
+Mandarin,China; Taiwan,Queensland,83620,5156123,16.2
+Mandarin,China; Taiwan,South Australia,32112,1781522,18.0
+Mandarin,China; Taiwan,Western Australia,51735,2660038,19.4
+Mandarin,China; Taiwan,Tasmania,8096,557531,14.5
+Mandarin,China; Taiwan,Northern Territory,2521,232617,10.8
+Mandarin,China; Taiwan,Australian Capital Territory,14373,454473,31.6
+Cantonese,China; Hong Kong,New South Wales,148838,8072106,18.4
+Cantonese,China; Hong Kong,Victoria,82386,6503473,12.7
+Cantonese,China; Hong Kong,Queensland,27395,5156123,5.3
+Cantonese,China; Hong Kong,South Australia,10167,1781522,5.7
+Cantonese,China; Hong Kong,Western Australia,19669,2660038,7.4
+Cantonese,China; Hong Kong,Tasmania,1520,557531,2.7
+Cantonese,China; Hong Kong,Northern Territory,804,232617,3.5
+Cantonese,China; Hong Kong,Australian Capital Territory,4228,454473,9.3
+Korean,South Korea; North Korea,New South Wales,62300,8072106,7.7
+Korean,South Korea; North Korea,Victoria,16835,6503473,2.6
+Korean,South Korea; North Korea,Queensland,21864,5156123,4.2
+Korean,South Korea; North Korea,South Australia,3669,1781522,2.1
+Korean,South Korea; North Korea,Western Australia,6997,2660038,2.6
+Korean,South Korea; North Korea,Tasmania,681,557531,1.2
+Korean,South Korea; North Korea,Northern Territory,329,232617,1.4
+Korean,South Korea; North Korea,Australian Capital Territory,2818,454473,6.2
+Japanese,Japan,New South Wales,17917,8072106,2.2
+Japanese,Japan,Victoria,12388,6503473,1.9
+Japanese,Japan,Queensland,17814,5156123,3.5
+Japanese,Japan,South Australia,2287,1781522,1.3
+Japanese,Japan,Western Australia,6075,2660038,2.3
+Japanese,Japan,Tasmania,597,557531,1.1
+Japanese,Japan,Northern Territory,223,232617,1.0
+Japanese,Japan,Australian Capital Territory,1221,454473,2.7
+Hindi,India; Fiji,New South Wales,80076,8072106,9.9
+Hindi,India; Fiji,Victoria,66892,6503473,10.3
+Hindi,India; Fiji,Queensland,21334,5156123,4.1
+Hindi,India; Fiji,South Australia,9865,1781522,5.5
+Hindi,India; Fiji,Western Australia,11922,2660038,4.5
+Hindi,India; Fiji,Tasmania,1278,557531,2.3
+Hindi,India; Fiji,Northern Territory,947,232617,4.1
+Hindi,India; Fiji,Australian Capital Territory,4818,454473,10.6
+Punjabi,India; Pakistan,New South Wales,53472,8072106,6.6
+Punjabi,India; Pakistan,Victoria,104970,6503473,16.1
+Punjabi,India; Pakistan,Queensland,30882,5156123,6.0
+Punjabi,India; Pakistan,South Australia,19964,1781522,11.2
+Punjabi,India; Pakistan,Western Australia,20597,2660038,7.7
+Punjabi,India; Pakistan,Tasmania,2561,557531,4.6
+Punjabi,India; Pakistan,Northern Territory,1582,232617,6.8
+Punjabi,India; Pakistan,Australian Capital Territory,5005,454473,11.0
+Nepali,Nepal; Bhutan,New South Wales,68133,8072106,8.4
+Nepali,Nepal; Bhutan,Victoria,21924,6503473,3.4
+Nepali,Nepal; Bhutan,Queensland,12004,5156123,2.3
+Nepali,Nepal; Bhutan,South Australia,9633,1781522,5.4
+Nepali,Nepal; Bhutan,Western Australia,5036,2660038,1.9
+Nepali,Nepal; Bhutan,Tasmania,7268,557531,13.0
+Nepali,Nepal; Bhutan,Northern Territory,3101,232617,13.3
+Nepali,Nepal; Bhutan,Australian Capital Territory,5826,454473,12.8
+Urdu,Pakistan,New South Wales,46631,8072106,5.8
+Urdu,Pakistan,Victoria,38053,6503473,5.9
+Urdu,Pakistan,Queensland,7677,5156123,1.5
+Urdu,Pakistan,South Australia,5058,1781522,2.8
+Urdu,Pakistan,Western Australia,8428,2660038,3.2
+Urdu,Pakistan,Tasmania,1472,557531,2.6
+Urdu,Pakistan,Northern Territory,873,232617,3.8
+Urdu,Pakistan,Australian Capital Territory,3620,454473,8.0
+Tamil,India; Sri Lanka,New South Wales,38411,8072106,4.8
+Tamil,India; Sri Lanka,Victoria,34065,6503473,5.2
+Tamil,India; Sri Lanka,Queensland,7286,5156123,1.4
+Tamil,India; Sri Lanka,South Australia,3321,1781522,1.9
+Tamil,India; Sri Lanka,Western Australia,8740,2660038,3.3
+Tamil,India; Sri Lanka,Tasmania,457,557531,0.8
+Tamil,India; Sri Lanka,Northern Territory,554,232617,2.4
+Tamil,India; Sri Lanka,Australian Capital Territory,2364,454473,5.2
+Bengali,Bangladesh; India,New South Wales,39600,8072106,4.9
+Bengali,Bangladesh; India,Victoria,15085,6503473,2.3
+Bengali,Bangladesh; India,Queensland,4535,5156123,0.9
+Bengali,Bangladesh; India,South Australia,2837,1781522,1.6
+Bengali,Bangladesh; India,Western Australia,3854,2660038,1.4
+Bengali,Bangladesh; India,Tasmania,681,557531,1.2
+Bengali,Bangladesh; India,Northern Territory,706,232617,3.0
+Bengali,Bangladesh; India,Australian Capital Territory,2698,454473,5.9
+Gujarati,India,New South Wales,26861,8072106,3.3
+Gujarati,India,Victoria,24139,6503473,3.7
+Gujarati,India,Queensland,9764,5156123,1.9
+Gujarati,India,South Australia,7415,1781522,4.2
+Gujarati,India,Western Australia,10159,2660038,3.8
+Gujarati,India,Tasmania,740,557531,1.3
+Gujarati,India,Northern Territory,452,232617,1.9
+Gujarati,India,Australian Capital Territory,1748,454473,3.8
+Malayalam,India,New South Wales,20810,8072106,2.6
+Malayalam,India,Victoria,25406,6503473,3.9
+Malayalam,India,Queensland,13039,5156123,2.5
+Malayalam,India,South Australia,4769,1781522,2.7
+Malayalam,India,Western Australia,9703,2660038,3.6
+Malayalam,India,Tasmania,597,557531,1.1
+Malayalam,India,Northern Territory,1581,232617,6.8
+Malayalam,India,Australian Capital Territory,2764,454473,6.1
+Sinhalese,Sri Lanka,New South Wales,13592,8072106,1.7
+Sinhalese,Sri Lanka,Victoria,49499,6503473,7.6
+Sinhalese,Sri Lanka,Queensland,7862,5156123,1.5
+Sinhalese,Sri Lanka,South Australia,4237,1781522,2.4
+Sinhalese,Sri Lanka,Western Australia,6328,2660038,2.4
+Sinhalese,Sri Lanka,Tasmania,1106,557531,2.0
+Sinhalese,Sri Lanka,Northern Territory,978,232617,4.2
+Sinhalese,Sri Lanka,Australian Capital Territory,2152,454473,4.7
+Greek,Greece; Cyprus,New South Wales,78657,8072106,9.7
+Greek,Greece; Cyprus,Victoria,107220,6503473,16.5
+Greek,Greece; Cyprus,Queensland,10472,5156123,2.0
+Greek,Greece; Cyprus,South Australia,21841,1781522,12.3
+Greek,Greece; Cyprus,Western Australia,4488,2660038,1.7
+Greek,Greece; Cyprus,Tasmania,1128,557531,2.0
+Greek,Greece; Cyprus,Northern Territory,3263,232617,14.0
+Greek,Greece; Cyprus,Australian Capital Territory,2507,454473,5.5
+Italian,Italy; Switzerland,New South Wales,64089,8072106,7.9
+Italian,Italy; Switzerland,Victoria,92371,6503473,14.2
+Italian,Italy; Switzerland,Queensland,17997,5156123,3.5
+Italian,Italy; Switzerland,South Australia,23869,1781522,13.4
+Italian,Italy; Switzerland,Western Australia,25412,2660038,9.6
+Italian,Italy; Switzerland,Tasmania,944,557531,1.7
+Italian,Italy; Switzerland,Northern Territory,637,232617,2.7
+Italian,Italy; Switzerland,Australian Capital Territory,2819,454473,6.2
+Macedonian,Macedonia,New South Wales,28096,8072106,3.5
+Macedonian,Macedonia,Victoria,29296,6503473,4.5
+Macedonian,Macedonia,Queensland,1307,5156123,0.3
+Macedonian,Macedonia,South Australia,556,1781522,0.3
+Macedonian,Macedonia,Western Australia,5881,2660038,2.2
+Macedonian,Macedonia,Tasmania,15,557531,0.0
+Macedonian,Macedonia,Northern Territory,22,232617,0.1
+Macedonian,Macedonia,Australian Capital Territory,786,454473,1.7
+Serbian,Serbia; Montenegro; Bosnia and Herz.,New South Wales,22906,8072106,2.8
+Serbian,Serbia; Montenegro; Bosnia and Herz.,Victoria,17780,6503473,2.7
+Serbian,Serbia; Montenegro; Bosnia and Herz.,Queensland,5193,5156123,1.0
+Serbian,Serbia; Montenegro; Bosnia and Herz.,South Australia,4304,1781522,2.4
+Serbian,Serbia; Montenegro; Bosnia and Herz.,Western Australia,5546,2660038,2.1
+Serbian,Serbia; Montenegro; Bosnia and Herz.,Tasmania,163,557531,0.3
+Serbian,Serbia; Montenegro; Bosnia and Herz.,Northern Territory,53,232617,0.2
+Serbian,Serbia; Montenegro; Bosnia and Herz.,Australian Capital Territory,1235,454473,2.7
+Croatian,Croatia; Bosnia and Herz.,New South Wales,20303,8072106,2.5
+Croatian,Croatia; Bosnia and Herz.,Victoria,19270,6503473,3.0
+Croatian,Croatia; Bosnia and Herz.,Queensland,3920,5156123,0.8
+Croatian,Croatia; Bosnia and Herz.,South Australia,2864,1781522,1.6
+Croatian,Croatia; Bosnia and Herz.,Western Australia,5053,2660038,1.9
+Croatian,Croatia; Bosnia and Herz.,Tasmania,195,557531,0.3
+Croatian,Croatia; Bosnia and Herz.,Northern Territory,19,232617,0.1
+Croatian,Croatia; Bosnia and Herz.,Australian Capital Territory,2226,454473,4.9
+French,France; Belgium; Switzerland; Luxembourg,New South Wales,23478,8072106,2.9
+French,France; Belgium; Switzerland; Luxembourg,Victoria,18540,6503473,2.9
+French,France; Belgium; Switzerland; Luxembourg,Queensland,12357,5156123,2.4
+French,France; Belgium; Switzerland; Luxembourg,South Australia,2749,1781522,1.5
+French,France; Belgium; Switzerland; Luxembourg,Western Australia,9757,2660038,3.7
+French,France; Belgium; Switzerland; Luxembourg,Tasmania,819,557531,1.5
+French,France; Belgium; Switzerland; Luxembourg,Northern Territory,633,232617,2.7
+French,France; Belgium; Switzerland; Luxembourg,Australian Capital Territory,2316,454473,5.1
+German,Germany; Austria; Switzerland; Luxembourg,New South Wales,20194,8072106,2.5
+German,Germany; Austria; Switzerland; Luxembourg,Victoria,16462,6503473,2.5
+German,Germany; Austria; Switzerland; Luxembourg,Queensland,15262,5156123,3.0
+German,Germany; Austria; Switzerland; Luxembourg,South Australia,5444,1781522,3.1
+German,Germany; Austria; Switzerland; Luxembourg,Western Australia,8893,2660038,3.3
+German,Germany; Austria; Switzerland; Luxembourg,Tasmania,1453,557531,2.6
+German,Germany; Austria; Switzerland; Luxembourg,Northern Territory,696,232617,3.0
+German,Germany; Austria; Switzerland; Luxembourg,Australian Capital Territory,1788,454473,3.9
+Russian,Russia; Belarus; Kazakhstan; Kyrgyzstan,New South Wales,20030,8072106,2.5
+Russian,Russia; Belarus; Kazakhstan; Kyrgyzstan,Victoria,18203,6503473,2.8
+Russian,Russia; Belarus; Kazakhstan; Kyrgyzstan,Queensland,7757,5156123,1.5
+Russian,Russia; Belarus; Kazakhstan; Kyrgyzstan,South Australia,3569,1781522,2.0
+Russian,Russia; Belarus; Kazakhstan; Kyrgyzstan,Western Australia,3862,2660038,1.5
+Russian,Russia; Belarus; Kazakhstan; Kyrgyzstan,Tasmania,339,557531,0.6
+Russian,Russia; Belarus; Kazakhstan; Kyrgyzstan,Northern Territory,147,232617,0.6
+Russian,Russia; Belarus; Kazakhstan; Kyrgyzstan,Australian Capital Territory,922,454473,2.0
+Polish,Poland,New South Wales,13399,8072106,1.7
+Polish,Poland,Victoria,13656,6503473,2.1
+Polish,Poland,Queensland,5493,5156123,1.1
+Polish,Poland,South Australia,5117,1781522,2.9
+Polish,Poland,Western Australia,5735,2660038,2.2
+Polish,Poland,Tasmania,626,557531,1.1
+Polish,Poland,Northern Territory,105,232617,0.5
+Polish,Poland,Australian Capital Territory,1046,454473,2.3
+Spanish,Spain; Mexico; Guatemala; Honduras; El Salvador; Nicaragua; Costa Rica; Panama; Cuba; Dominican Rep.; Puerto Rico; Colombia; Venezuela; Ecuador; Peru; Bolivia; Chile; Argentina; Uruguay; Paraguay; Eq. Guinea,New South Wales,71937,8072106,8.9
+Spanish,Spain; Mexico; Guatemala; Honduras; El Salvador; Nicaragua; Costa Rica; Panama; Cuba; Dominican Rep.; Puerto Rico; Colombia; Venezuela; Ecuador; Peru; Bolivia; Chile; Argentina; Uruguay; Paraguay; Eq. Guinea,Victoria,43249,6503473,6.7
+Spanish,Spain; Mexico; Guatemala; Honduras; El Salvador; Nicaragua; Costa Rica; Panama; Cuba; Dominican Rep.; Puerto Rico; Colombia; Venezuela; Ecuador; Peru; Bolivia; Chile; Argentina; Uruguay; Paraguay; Eq. Guinea,Queensland,29677,5156123,5.8
+Spanish,Spain; Mexico; Guatemala; Honduras; El Salvador; Nicaragua; Costa Rica; Panama; Cuba; Dominican Rep.; Puerto Rico; Colombia; Venezuela; Ecuador; Peru; Bolivia; Chile; Argentina; Uruguay; Paraguay; Eq. Guinea,South Australia,7285,1781522,4.1
+Spanish,Spain; Mexico; Guatemala; Honduras; El Salvador; Nicaragua; Costa Rica; Panama; Cuba; Dominican Rep.; Puerto Rico; Colombia; Venezuela; Ecuador; Peru; Bolivia; Chile; Argentina; Uruguay; Paraguay; Eq. Guinea,Western Australia,12956,2660038,4.9
+Spanish,Spain; Mexico; Guatemala; Honduras; El Salvador; Nicaragua; Costa Rica; Panama; Cuba; Dominican Rep.; Puerto Rico; Colombia; Venezuela; Ecuador; Peru; Bolivia; Chile; Argentina; Uruguay; Paraguay; Eq. Guinea,Tasmania,1557,557531,2.8
+Spanish,Spain; Mexico; Guatemala; Honduras; El Salvador; Nicaragua; Costa Rica; Panama; Cuba; Dominican Rep.; Puerto Rico; Colombia; Venezuela; Ecuador; Peru; Bolivia; Chile; Argentina; Uruguay; Paraguay; Eq. Guinea,Northern Territory,727,232617,3.1
+Spanish,Spain; Mexico; Guatemala; Honduras; El Salvador; Nicaragua; Costa Rica; Panama; Cuba; Dominican Rep.; Puerto Rico; Colombia; Venezuela; Ecuador; Peru; Bolivia; Chile; Argentina; Uruguay; Paraguay; Eq. Guinea,Australian Capital Territory,4116,454473,9.1
+Portuguese,Portugal; Brazil; Angola; Mozambique; Timor-Leste; Guinea-Bissau; Cabo Verde,New South Wales,30224,8072106,3.7
+Portuguese,Portugal; Brazil; Angola; Mozambique; Timor-Leste; Guinea-Bissau; Cabo Verde,Victoria,9238,6503473,1.4
+Portuguese,Portugal; Brazil; Angola; Mozambique; Timor-Leste; Guinea-Bissau; Cabo Verde,Queensland,14931,5156123,2.9
+Portuguese,Portugal; Brazil; Angola; Mozambique; Timor-Leste; Guinea-Bissau; Cabo Verde,South Australia,2651,1781522,1.5
+Portuguese,Portugal; Brazil; Angola; Mozambique; Timor-Leste; Guinea-Bissau; Cabo Verde,Western Australia,8194,2660038,3.1
+Portuguese,Portugal; Brazil; Angola; Mozambique; Timor-Leste; Guinea-Bissau; Cabo Verde,Tasmania,460,557531,0.8
+Portuguese,Portugal; Brazil; Angola; Mozambique; Timor-Leste; Guinea-Bissau; Cabo Verde,Northern Territory,590,232617,2.5
+Portuguese,Portugal; Brazil; Angola; Mozambique; Timor-Leste; Guinea-Bissau; Cabo Verde,Australian Capital Territory,916,454473,2.0
+Afrikaans,South Africa; Namibia,New South Wales,8997,8072106,1.1
+Afrikaans,South Africa; Namibia,Victoria,6003,6503473,0.9
+Afrikaans,South Africa; Namibia,Queensland,14954,5156123,2.9
+Afrikaans,South Africa; Namibia,South Australia,2891,1781522,1.6
+Afrikaans,South Africa; Namibia,Western Australia,14656,2660038,5.5
+Afrikaans,South Africa; Namibia,Tasmania,626,557531,1.1
+Afrikaans,South Africa; Namibia,Northern Territory,350,232617,1.5
+Afrikaans,South Africa; Namibia,Australian Capital Territory,701,454473,1.5
+Samoan,Samoa,New South Wales,17197,8072106,2.1
+Samoan,Samoa,Victoria,13116,6503473,2.0
+Samoan,Samoa,Queensland,16624,5156123,3.2
+Samoan,Samoa,South Australia,210,1781522,0.1
+Samoan,Samoa,Western Australia,924,2660038,0.3
+Samoan,Samoa,Tasmania,57,557531,0.1
+Samoan,Samoa,Northern Territory,151,232617,0.6
+Samoan,Samoa,Australian Capital Territory,525,454473,1.2

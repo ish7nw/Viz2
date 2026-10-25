@@ -1187,7 +1187,7 @@ function specTop(t, w) {
   const lit = { or: [{ param: "selS", empty: false }, { param: "selW", empty: false }] };
   const op = (on, off) => ({ condition: [{ test: lit, value: on }, { test: active, value: off }], value: on });
   const loc = { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" } };
-  const mapW = narrow ? w - 8 : Math.floor((w - 30) / 2);
+  const mapW = narrow ? w - 20 : Math.floor((w - 30) / 2);
   const world = {
     width: mapW, height: narrow ? Math.round(mapW * 0.7) : 340,
     // fitted to a box from Britain to New Zealand, so the five countries fill the frame
@@ -1236,6 +1236,329 @@ function specTop(t, w) {
 
 
 /* ======================================================================
+   FIGURE 15 | Page section 4.4 | IDIOM: Standardised choropleth small multiples, linked to a home-region map
+   Function: specLang()  (hover and buttons wired up by setupLangControls())
+   ====================================================================== */
+
+// The Census does not record which state of India or province of China someone was born in, so this
+// figure uses the language they speak at home instead (2021 Census, table G13). Each language is tied to
+// the Indian states or Chinese provinces where it is the main language (LANG_HOME below).
+// Australian rates are standardised: speakers per 1,000 residents of each state, with the same five
+// classes for every language, so the eight maps can be compared directly.
+const LANGS = [
+  // key, colour, where it is the main language, Australian speakers in each state (NSW, Vic, Qld, SA, WA, Tas, NT, ACT)
+  { lang: "Mandarin", col: "#c8393d", home: "Most of China (the national language)", n: [270725, 221819, 83620, 32112, 51735, 8096, 2521, 14373] },
+  { lang: "Cantonese", col: "#8e5ca8", home: "Guangdong, Hong Kong and Macau", n: [148838, 82386, 27395, 10167, 19669, 1520, 804, 4228] },
+  { lang: "Punjabi", col: "#e07b1a", home: "Punjab and Chandigarh", n: [53472, 104970, 30882, 19964, 20597, 2561, 1582, 5005] },
+  { lang: "Hindi", col: "#3a6ea5", home: "The Hindi belt: Uttar Pradesh, Bihar, Rajasthan, Madhya Pradesh, Delhi and others", n: [80076, 66892, 21334, 9865, 11922, 1278, 947, 4818] },
+  { lang: "Tamil", col: "#3f8f4a", home: "Tamil Nadu and Puducherry", n: [38411, 34065, 7286, 3321, 8740, 457, 554, 2364] },
+  { lang: "Gujarati", col: "#b8860b", home: "Gujarat, and Dadra and Nagar Haveli and Daman and Diu", n: [26861, 24139, 9764, 7415, 10159, 740, 452, 1748] },
+  { lang: "Malayalam", col: "#1f8a8a", home: "Kerala and Lakshadweep", n: [20810, 25406, 13039, 4769, 9703, 597, 1581, 2764] },
+  { lang: "Bengali", col: "#8b5a3c", home: "West Bengal and Tripura", n: [39600, 15085, 4535, 2837, 3854, 681, 706, 2698] }
+];
+const ABBR_OF = Object.fromEntries(ST.map(r => [r[0], r[1]]));
+const LANG_STATES = ["New South Wales", "Victoria", "Queensland", "South Australia", "Western Australia", "Tasmania", "Northern Territory", "Australian Capital Territory"];
+const LANG_POP = [8072106, 6503473, 5156123, 1781522, 2660038, 557531, 232617, 454473]; // all residents, 2021 Census
+const LANG_BREAKS = [2, 5, 10, 20];
+const LANG_CLASSES = ["Under 2", "2–5", "5–10", "10–20", "20 and over"];
+// Each language gets its own colour; the five classes are lighter-to-darker shades of it.
+const shade = (hex, k) => {
+  const c = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16));
+  const mix = [0.16, 0.34, 0.56, 0.8, 1][k], dark = k === 4 ? 0.72 : 1;
+  return "#" + c.map(v => Math.round((255 + (v - 255) * mix) * dark).toString(16).padStart(2, "0")).join("");
+};
+const LANG_ROWS = []; // one row per language and state, for tooltips and the data table
+LANGS.forEach(L => {
+  L.ramp = [0, 1, 2, 3, 4].map(k => shade(L.col, k));
+  L.rate = {};
+  LANG_STATES.forEach((s, i) => {
+    const r = Math.round(10000 * L.n[i] / LANG_POP[i]) / 10;
+    L.rate[s] = r;
+    LANG_ROWS.push({ lang: L.lang, state: s, n: L.n[i], rate: r, k: LANG_BREAKS.filter(b => r >= b).length });
+  });
+  L.total = L.n.reduce((a, b) => a + b, 0);
+  const top = LANG_STATES.reduce((a, s) => L.rate[s] > L.rate[a] ? s : a, LANG_STATES[0]);
+  L.top = ABBR_OF[top] + " " + L.rate[top].toFixed(1);
+});
+// where each language name sits on the home-region map
+const LANG_LABELS = [
+  { lang: "Mandarin", lon: 103, lat: 35, align: "center" },
+  { lang: "Cantonese", lon: 117.5, lat: 22.2, align: "left" },
+  { lang: "Punjabi", lon: 74.6, lat: 31.4, align: "right" },
+  { lang: "Hindi", lon: 80.5, lat: 25.6, align: "center" },
+  { lang: "Gujarati", lon: 68.3, lat: 22.6, align: "right" },
+  { lang: "Bengali", lon: 89.6, lat: 24.4, align: "left" },
+  { lang: "Malayalam", lon: 75.6, lat: 9.6, align: "right" },
+  { lang: "Tamil", lon: 80.6, lat: 10.6, align: "left" }
+];
+const langState = { pick: "", hover: null };
+
+function specLang(t, w) {
+  const narrow = w < 600;
+  const cols = narrow ? 2 : 4, gap = narrow ? 8 : 12;
+  const pw = Math.floor((w - (cols - 1) * gap - (narrow ? 26 : 4)) / cols);
+  const lit = (f) => `lang == '' || ${f} == lang`;
+  const loc = { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" } };
+  const byLang = Object.fromEntries(LANGS.map(L => [L.lang, L]));
+  const homeH = narrow ? Math.round(w * 0.9) : 400;
+
+  // ---- the home-region map: Indian states and Chinese provinces, coloured by language ----
+  const home = {
+    width: w - (narrow ? 26 : 4), height: homeH,
+    title: { text: narrow ? ["Where each language is spoken:", "Indian states and Chinese provinces"] : "Where each language is spoken: Indian states and Chinese provinces", anchor: "start", font: t.body, fontSize: 13, fontWeight: 600, color: t.ink },
+    projection: { type: "conicEqualArea", parallels: [15, 40], rotate: [-100, 0],
+      fit: { type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: [[67, 53], [134, 53], [134, 7], [67, 7]] } } },
+    layer: [
+      // neighbouring countries for context
+      { data: { values: WORLD, format: { type: "topojson", feature: "countries" } }, transform: [{ filter: "datum.properties.name != 'India' && datum.properties.name != 'China'" }],
+        mark: { type: "geoshape", fill: "#efefef", stroke: "#ffffff", strokeWidth: 0.6, clip: true } },
+      // IDIOM: CATEGORICAL CHOROPLETH - each state or province filled with the colour of its language
+      { data: { values: LANGMAP, format: { type: "topojson", feature: "regions" } },
+        transform: [{ calculate: "datum.properties.lang", as: "lang" },
+          { calculate: `${JSON.stringify(Object.fromEntries(LANGS.map(L => [L.lang, L.col])))}[datum.lang] || '#d9d9d9'`, as: "fillc" },
+          { calculate: `${JSON.stringify(Object.fromEntries(LANGS.map(L => [L.lang, L.total])))}[datum.lang]`, as: "aus" },
+          { calculate: "datum.lang == '' ? 'Another language (not counted separately by the Census)' : datum.lang", as: "langl" }],
+        mark: { type: "geoshape", stroke: "#ffffff", strokeWidth: 0.6, cursor: "pointer", clip: true },
+        encoding: { color: { field: "fillc", type: "nominal", scale: null },
+          opacity: { condition: { test: lit("datum.lang"), value: 1 }, value: 0.22 },
+          tooltip: [{ field: "properties.name", title: "State / province" }, { field: "properties.cty", title: "Country" },
+            { field: "langl", title: "Main language" }, { field: "aus", title: "Speakers in Australia, 2021", format: "," }] } },
+      // country borders on top, a little darker
+      { data: { values: WORLD, format: { type: "topojson", feature: "countries" } }, transform: [{ filter: "datum.properties.name == 'India' || datum.properties.name == 'China'" }],
+        mark: { type: "geoshape", filled: false, stroke: "#6b6b6b", strokeWidth: 0.9, clip: true, interactive: false } },
+      { data: { values: [{ n: "INDIA", lon: 77.8, lat: 17.5 }] },
+        mark: { type: "text", font: t.body, fontSize: narrow ? 9 : 11, fontWeight: 600, letterSpacing: 2, fill: t.muted, interactive: false }, encoding: { ...loc, text: { field: "n" } } },
+      { data: { values: LANG_LABELS }, mark: { type: "text", font: t.body, fontSize: narrow ? 10 : 12, fontWeight: 700, align: { expr: "datum.align" }, baseline: "middle", fill: t.ink, interactive: false },
+        encoding: { ...loc, text: { field: "lang" }, opacity: { condition: { test: lit("datum.lang"), value: 1 }, value: 0.25 } } }
+    ]
+  };
+
+  // ---- eight small maps of Australia, one per language, all with the same classes ----
+  // IDIOM: STANDARDISED CHOROPLETH (small multiples) - speakers per 1,000 residents of each state
+  const panel = (L) => ({
+    width: pw, height: Math.round(pw * 0.86), projection: AUS_PROJ,
+    title: { text: L.lang, subtitle: "Highest: " + L.top, anchor: "start", font: t.body, fontSize: narrow ? 12 : 13, fontWeight: 700, color: L.col,
+      subtitleFont: t.body, subtitleFontSize: narrow ? 10 : 11, subtitleColor: t.muted, offset: 2 },
+    data: { values: STATES, format: { type: "topojson", feature: "states" } },
+    transform: [
+      { calculate: `'${L.lang}'`, as: "lang" },
+      { calculate: `${JSON.stringify(L.rate)}[datum.properties.STATE_NAME]`, as: "rate" },
+      { calculate: `${JSON.stringify(Object.fromEntries(LANG_STATES.map((s, i) => [s, L.n[i]])))}[datum.properties.STATE_NAME]`, as: "n" },
+      { calculate: LANG_BREAKS.map(b => `(datum.rate >= ${b} ? 1 : 0)`).join(" + "), as: "k" },
+      { calculate: `${JSON.stringify(L.ramp)}[datum.k]`, as: "fillc" },
+      { calculate: `${JSON.stringify(LANG_CLASSES)}[datum.k]`, as: "cls" }
+    ],
+    mark: { type: "geoshape", stroke: "#ffffff", strokeWidth: 0.8, cursor: "pointer" },
+    encoding: { color: { field: "fillc", type: "nominal", scale: null },
+      opacity: { condition: { test: `(${lit("datum.lang")}) && (${HL("datum.properties.STATE_NAME")})`, value: 1 }, value: 0.22 },
+      tooltip: [{ field: "properties.STATE_NAME", title: "State / territory" }, { field: "lang", title: "Language at home" },
+        { field: "n", title: "Speakers, 2021", format: "," }, { field: "rate", title: "Per 1,000 residents", format: ".1f" }, { field: "cls", title: "Class" }] }
+  });
+  const rows = [];
+  for (let i = 0; i < LANGS.length; i += cols) rows.push({ hconcat: LANGS.slice(i, i + cols).map(panel), spacing: gap });
+
+  // ---- legend: the five classes, shown in grey because each map uses its own colour ----
+  const key = {
+    width: narrow ? w - 40 : 420, height: 14,
+    title: { text: narrow ? ["Speakers per 1,000 residents", "(same classes on every map; darker = more)"] : "Speakers per 1,000 residents (same classes on every map; darker = more)", anchor: "start", font: t.body, fontSize: 12, fontWeight: 600, color: t.ink },
+    data: { values: LANG_CLASSES.map((c, k) => ({ c, k, fillc: shade("#555555", k) })) },
+    mark: { type: "rect", stroke: "#ffffff" },
+    encoding: { x: { field: "c", type: "ordinal", sort: null, title: null, axis: { domain: false, ticks: false, labelFont: t.body, labelFontSize: 11, labelAngle: 0, labelPadding: 4 } },
+      color: { field: "fillc", type: "nominal", scale: null } }
+  };
+  return { $schema: "https://vega.github.io/schema/vega-lite/v5.json", config: { ...config(t), view: { stroke: null } },
+    params: [{ name: "lang", value: langState.hover || langState.pick }, { name: "hl", value: state.hl }],
+    vconcat: [home, ...rows, key], spacing: narrow ? 14 : 18 };
+}
+
+// Hover a region or a small map to pick out one language; the buttons (or a click) keep it picked.
+function setupLangControls() {
+  const v = views.cL; if (!v) return;
+  const set = () => v.signal("lang", langState.hover || langState.pick).runAsync();
+  const btns = document.querySelectorAll("#langPick button");
+  const mark = () => btns.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === langState.pick)));
+  const langOf = (item) => { const d = item && item.datum; return d && typeof d.lang === "string" && d.lang ? d.lang : null; };
+  v.addEventListener("pointerover", (e, item) => { const l = langOf(item); if (l) { langState.hover = l; set(); } });
+  v.addEventListener("pointerout", () => { langState.hover = null; set(); });
+  v.addEventListener("click", (e, item) => { const l = langOf(item); langState.pick = l && l !== langState.pick ? l : ""; langState.hover = null; mark(); set(); });
+  if (!setupLangControls.wired) {
+    setupLangControls.wired = true;
+    btns.forEach(b => b.addEventListener("click", () => { langState.pick = b.dataset.lang; langState.hover = null; mark(); if (views.cL) views.cL.signal("lang", langState.pick).runAsync(); }));
+  }
+  mark();
+}
+
+
+/* ======================================================================
+   FIGURE 16 | Page section 4.6 | IDIOM: Standardised choropleth with a language picker (linked world map, state map and bar chart)
+   Function: specWorldLang()  (dropdown and clicks wired up by setupWorldLangControls())
+   ====================================================================== */
+
+// 34 languages spoken at home, 2021 Census (table G13), with the countries where each is a main language.
+// n = speakers in NSW, Vic, Qld, SA, WA, Tas, NT, ACT (same order as LANG_STATES in Figure 15).
+// Pick one language and three views change together: its home countries, its rate in each state
+// (per 1,000 residents, the same five classes as Figure 15) and its place in the national ranking.
+const LANG_ALL = [
+  { lang: "Arabic", group: "Middle East & North Africa", countries: ["Algeria", "Bahrain", "Egypt", "Iraq", "Jordan", "Kuwait", "Lebanon", "Libya", "Morocco", "Oman", "Qatar", "Saudi Arabia", "Sudan", "Syria", "Tunisia", "United Arab Emirates", "Yemen", "Palestine", "Mauritania", "W. Sahara"], n: [227205, 91505, 16157, 11011, 15943, 917, 426, 3854] },
+  { lang: "Persian", group: "Middle East & North Africa", countries: ["Iran"], n: [26826, 22337, 8453, 5419, 7603, 454, 99, 1228] },
+  { lang: "Turkish", group: "Middle East & North Africa", countries: ["Turkey", "N. Cyprus"], n: [23828, 34901, 2768, 857, 1984, 88, 57, 404] },
+  { lang: "Vietnamese", group: "South-East Asia", countries: ["Vietnam"], n: [117816, 118692, 31362, 21821, 22761, 1449, 1562, 5065] },
+  { lang: "Filipino / Tagalog", group: "South-East Asia", countries: ["Philippines"], n: [82568, 52623, 35376, 11181, 29715, 1359, 5146, 3966] },
+  { lang: "Indonesian", group: "South-East Asia", countries: ["Indonesia"], n: [32317, 17864, 5841, 1802, 12428, 395, 1301, 1202] },
+  { lang: "Thai", group: "South-East Asia", countries: ["Thailand"], n: [27905, 14727, 10657, 2396, 7806, 591, 1022, 1300] },
+  { lang: "Khmer", group: "South-East Asia", countries: ["Cambodia"], n: [12660, 17508, 2756, 4566, 1592, 75, 205, 404] },
+  { lang: "Mandarin", group: "North-East Asia", countries: ["China", "Taiwan"], n: [270725, 221819, 83620, 32112, 51735, 8096, 2521, 14373] },
+  { lang: "Cantonese", group: "North-East Asia", countries: ["China", "Hong Kong"], n: [148838, 82386, 27395, 10167, 19669, 1520, 804, 4228] },
+  { lang: "Korean", group: "North-East Asia", countries: ["South Korea", "North Korea"], n: [62300, 16835, 21864, 3669, 6997, 681, 329, 2818] },
+  { lang: "Japanese", group: "North-East Asia", countries: ["Japan"], n: [17917, 12388, 17814, 2287, 6075, 597, 223, 1221] },
+  { lang: "Hindi", group: "South Asia", countries: ["India", "Fiji"], n: [80076, 66892, 21334, 9865, 11922, 1278, 947, 4818] },
+  { lang: "Punjabi", group: "South Asia", countries: ["India", "Pakistan"], n: [53472, 104970, 30882, 19964, 20597, 2561, 1582, 5005] },
+  { lang: "Nepali", group: "South Asia", countries: ["Nepal", "Bhutan"], n: [68133, 21924, 12004, 9633, 5036, 7268, 3101, 5826] },
+  { lang: "Urdu", group: "South Asia", countries: ["Pakistan"], n: [46631, 38053, 7677, 5058, 8428, 1472, 873, 3620] },
+  { lang: "Tamil", group: "South Asia", countries: ["India", "Sri Lanka"], n: [38411, 34065, 7286, 3321, 8740, 457, 554, 2364] },
+  { lang: "Bengali", group: "South Asia", countries: ["Bangladesh", "India"], n: [39600, 15085, 4535, 2837, 3854, 681, 706, 2698] },
+  { lang: "Gujarati", group: "South Asia", countries: ["India"], n: [26861, 24139, 9764, 7415, 10159, 740, 452, 1748] },
+  { lang: "Malayalam", group: "South Asia", countries: ["India"], n: [20810, 25406, 13039, 4769, 9703, 597, 1581, 2764] },
+  { lang: "Sinhalese", group: "South Asia", countries: ["Sri Lanka"], n: [13592, 49499, 7862, 4237, 6328, 1106, 978, 2152] },
+  { lang: "Greek", group: "Europe", countries: ["Greece", "Cyprus"], n: [78657, 107220, 10472, 21841, 4488, 1128, 3263, 2507] },
+  { lang: "Italian", group: "Europe", countries: ["Italy", "Switzerland"], n: [64089, 92371, 17997, 23869, 25412, 944, 637, 2819] },
+  { lang: "Macedonian", group: "Europe", countries: ["Macedonia"], n: [28096, 29296, 1307, 556, 5881, 15, 22, 786] },
+  { lang: "Serbian", group: "Europe", countries: ["Serbia", "Montenegro", "Bosnia and Herz."], n: [22906, 17780, 5193, 4304, 5546, 163, 53, 1235] },
+  { lang: "Croatian", group: "Europe", countries: ["Croatia", "Bosnia and Herz."], n: [20303, 19270, 3920, 2864, 5053, 195, 19, 2226] },
+  { lang: "French", group: "Europe", countries: ["France", "Belgium", "Switzerland", "Luxembourg"], n: [23478, 18540, 12357, 2749, 9757, 819, 633, 2316] },
+  { lang: "German", group: "Europe", countries: ["Germany", "Austria", "Switzerland", "Luxembourg"], n: [20194, 16462, 15262, 5444, 8893, 1453, 696, 1788] },
+  { lang: "Russian", group: "Europe", countries: ["Russia", "Belarus", "Kazakhstan", "Kyrgyzstan"], n: [20030, 18203, 7757, 3569, 3862, 339, 147, 922] },
+  { lang: "Polish", group: "Europe", countries: ["Poland"], n: [13399, 13656, 5493, 5117, 5735, 626, 105, 1046] },
+  { lang: "Spanish", group: "Americas", countries: ["Spain", "Mexico", "Guatemala", "Honduras", "El Salvador", "Nicaragua", "Costa Rica", "Panama", "Cuba", "Dominican Rep.", "Puerto Rico", "Colombia", "Venezuela", "Ecuador", "Peru", "Bolivia", "Chile", "Argentina", "Uruguay", "Paraguay", "Eq. Guinea"], n: [71937, 43249, 29677, 7285, 12956, 1557, 727, 4116] },
+  { lang: "Portuguese", group: "Americas", countries: ["Portugal", "Brazil", "Angola", "Mozambique", "Timor-Leste", "Guinea-Bissau", "Cabo Verde"], n: [30224, 9238, 14931, 2651, 8194, 460, 590, 916] },
+  { lang: "Afrikaans", group: "Africa & Pacific", countries: ["South Africa", "Namibia"], n: [8997, 6003, 14954, 2891, 14656, 626, 350, 701] },
+  { lang: "Samoan", group: "Africa & Pacific", countries: ["Samoa"], n: [17197, 13116, 16624, 210, 924, 57, 151, 525] }
+];
+const WL_COL = "#4b3f8f"; // one colour for this figure: the picked language
+const WL_RAMP = [0, 1, 2, 3, 4].map(k => shade(WL_COL, k));
+const AUS_POP = LANG_POP.reduce((a, b) => a + b, 0);
+const WL_RATE = {}, WL_N = {}, WL_HOME = {}, COUNTRY_LANGS = {};
+LANG_ALL.forEach(L => {
+  WL_RATE[L.lang] = {}; WL_N[L.lang] = {};
+  LANG_STATES.forEach((s, i) => { WL_RATE[L.lang][s] = Math.round(10000 * L.n[i] / LANG_POP[i]) / 10; WL_N[L.lang][s] = L.n[i]; });
+  L.total = L.n.reduce((a, b) => a + b, 0);
+  L.rate = Math.round(10000 * L.total / AUS_POP) / 10;
+  WL_HOME[L.lang] = L.countries;
+  L.countries.forEach(c => (COUNTRY_LANGS[c] = COUNTRY_LANGS[c] || []).push(L.lang));
+});
+const COUNTRY_LANGS_TXT = Object.fromEntries(Object.entries(COUNTRY_LANGS).map(([c, l]) => [c, l.join(", ")]));
+const wlState = { lang: "Arabic" };
+
+function specWorldLang(t, w) {
+  const narrow = w < 600;
+  const loc = { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" } };
+  const on = "indexof(" + JSON.stringify(WL_HOME) + "[lg], datum.properties.name) >= 0";
+
+  // ---- world map: the countries where the picked language is a main language ----
+  const world = {
+    width: w - (narrow ? 26 : 4), height: Math.round((w - (narrow ? 26 : 4)) * 0.47),
+    title: { text: { expr: "'Where ' + lg + ' is a main language'" }, anchor: "start", font: t.body, fontSize: 13, fontWeight: 600, color: t.ink },
+    // the whole world, centred on Greenwich, so the Americas and Samoa both fit
+    projection: { type: "equalEarth", rotate: [-5, 0], fit: { type: "Feature", properties: {}, geometry: { type: "MultiPoint", coordinates: [[-174.9, 72], [184.9, 72], [-174.9, -52], [184.9, -52], [5, 72], [5, -52]] } } },
+    data: { values: WORLD, format: { type: "topojson", feature: "countries" } },
+    transform: [{ filter: "datum.properties.name != 'Antarctica'" },
+      { calculate: on, as: "home" },
+      { calculate: `${JSON.stringify(COUNTRY_LANGS_TXT)}[datum.properties.name] || 'None of the 34 languages here'`, as: "langs" }],
+    mark: { type: "geoshape", stroke: "#ffffff", strokeWidth: 0.4, clip: true, cursor: "pointer" },
+    encoding: {
+      color: { condition: { test: "datum.home", value: WL_COL }, value: t.land },
+      tooltip: [{ field: "properties.name", title: "Country" }, { field: "langs", title: "Languages in this figure" }]
+    }
+  };
+
+  // ---- Australia: the picked language per 1,000 residents of each state ----
+  // IDIOM: STANDARDISED CHOROPLETH - rate per 1,000 residents, five fixed classes shared with Figure 15
+  const ausW = narrow ? w - 26 : Math.round((w - 40) * 0.5);
+  const aus = {
+    width: ausW, height: Math.round(ausW * 0.86), projection: AUS_PROJ,
+    title: { text: { expr: "lg + ' at home, per 1,000 residents'" }, anchor: "start", font: t.body, fontSize: 13, fontWeight: 600, color: t.ink },
+    layer: [
+      { data: { values: STATES, format: { type: "topojson", feature: "states" } },
+        transform: [
+          { calculate: `${JSON.stringify(WL_RATE)}[lg][datum.properties.STATE_NAME]`, as: "rate" },
+          { calculate: `${JSON.stringify(WL_N)}[lg][datum.properties.STATE_NAME]`, as: "n" },
+          { calculate: LANG_BREAKS.map(b => `(datum.rate >= ${b} ? 1 : 0)`).join(" + "), as: "k" },
+          { calculate: `${JSON.stringify(WL_RAMP)}[datum.k]`, as: "fillc" },
+          { calculate: `${JSON.stringify(LANG_CLASSES)}[datum.k]`, as: "cls" },
+          { calculate: "lg", as: "lang" }],
+        mark: { type: "geoshape", stroke: "#ffffff", strokeWidth: 1 },
+        encoding: { color: { field: "fillc", type: "nominal", scale: null },
+          opacity: { condition: { test: HL("datum.properties.STATE_NAME"), value: 1 }, value: 0.25 },
+          tooltip: [{ field: "properties.STATE_NAME", title: "State / territory" }, { field: "lang", title: "Language at home" },
+            { field: "n", title: "Speakers, 2021", format: "," }, { field: "rate", title: "Per 1,000 residents", format: ".1f" }, { field: "cls", title: "Class" }] } },
+      // the rate written on each state (ACT is too small, so it is left to the tooltip)
+      { data: { values: ST_LABELS }, transform: [{ filter: "datum.abbr != 'ACT'" },
+          { calculate: `${JSON.stringify(WL_RATE)}[lg][datum.name]`, as: "rate" },
+          { calculate: LANG_BREAKS.map(b => `(datum.rate >= ${b} ? 1 : 0)`).join(" + "), as: "k" },
+          { calculate: "datum.abbr + ' ' + format(datum.rate, '.1f')", as: "lab" }],
+        mark: { type: "text", font: t.body, fontSize: narrow ? 10 : 11.5, fontWeight: 600, interactive: false },
+        encoding: { ...loc, text: { field: "lab" }, color: { condition: { test: "datum.k >= 3", value: "#ffffff" }, value: t.ink } } }
+    ]
+  };
+
+  // ---- ranking: all 34 languages, Australia-wide, per 1,000 residents ----
+  const bars = {
+    width: narrow ? w - 160 : w - ausW - 150, height: LANG_ALL.length * (narrow ? 13 : 12),
+    title: { text: "All 34 languages, Australia, per 1,000 residents", anchor: "start", font: t.body, fontSize: 13, fontWeight: 600, color: t.ink },
+    data: { values: LANG_ALL.map(L => ({ lang: L.lang, rate: L.rate, total: L.total, group: L.group })) },
+    encoding: { y: { field: "lang", type: "nominal", sort: "-x", title: null, axis: { orient: narrow ? "right" : "left", domain: false, ticks: false, labelFont: t.body, labelFontSize: 10.5, labelPadding: 4,
+        labelFontWeight: { expr: "datum.value == lg ? 700 : 400" }, labelColor: { expr: `datum.value == lg ? '${WL_COL}' : '${t.ink}'` } } },
+      x: { field: "rate", type: "quantitative", title: null, axis: { grid: true, gridColor: "#e6e6e6", domain: false, ticks: false, labelFont: t.body, labelFontSize: 10, tickCount: 4 } } },
+    layer: [
+      { mark: { type: "bar", height: { band: 0.72 }, cursor: "pointer" },
+        encoding: { color: { condition: { test: "datum.lang == lg", value: WL_COL }, value: "#c9c5dc" },
+          tooltip: [{ field: "lang", title: "Language" }, { field: "group", title: "Region" }, { field: "total", title: "Speakers in Australia", format: "," }, { field: "rate", title: "Per 1,000 residents", format: ".1f" }] } },
+      { mark: { type: "text", align: "left", dx: 3, font: t.body, fontSize: 10, interactive: false },
+        encoding: { text: { field: "rate", format: ".1f" }, opacity: { condition: { test: "datum.lang == lg", value: 1 }, value: 0 } } }
+    ]
+  };
+
+  const key = {
+    width: narrow ? w - 40 : 380, height: 14,
+    title: { text: narrow ? ["Speakers per 1,000 residents", "(same classes as Figure 15)"] : "Speakers per 1,000 residents (same classes as Figure 15)", anchor: "start", font: t.body, fontSize: 12, fontWeight: 600, color: t.ink },
+    data: { values: LANG_CLASSES.map((c, k) => ({ c, fillc: WL_RAMP[k] })) },
+    mark: { type: "rect", stroke: "#ffffff" },
+    encoding: { x: { field: "c", type: "ordinal", sort: null, title: null, axis: { domain: false, ticks: false, labelFont: t.body, labelFontSize: 11, labelAngle: 0, labelPadding: 4 } },
+      color: { field: "fillc", type: "nominal", scale: null } }
+  };
+  const left = { vconcat: [aus, key], spacing: 16 };
+  return { $schema: "https://vega.github.io/schema/vega-lite/v5.json", config: { ...config(t), view: { stroke: null } },
+    params: [{ name: "lg", value: wlState.lang }, { name: "hl", value: state.hl }],
+    // align none: the bar chart's long labels should not push the maps to the right
+    vconcat: [world, narrow ? { vconcat: [aus, key, bars], spacing: 16, align: "none" } : { hconcat: [left, bars], spacing: 30 }], spacing: 18, align: "none" };
+}
+
+// Choose the language from the dropdown, or click a bar or a country.
+function setupWorldLangControls() {
+  const v = views.cW; if (!v) return;
+  const sel = document.getElementById("langAll");
+  const pick = (l) => { if (!l) return; wlState.lang = l; if (sel) sel.value = l; if (views.cW) views.cW.signal("lg", l).runAsync(); };
+  v.addEventListener("click", (e, item) => {
+    const d = item && item.datum; if (!d) return;
+    if (d.lang && WL_HOME[d.lang]) return pick(d.lang);
+    const name = d.properties && d.properties.name, langs = name && COUNTRY_LANGS[name];
+    if (langs) pick(langs[(langs.indexOf(wlState.lang) + 1) % langs.length]); // countries with several languages cycle through them
+  });
+  if (sel && !sel.options.length) {
+    const groups = {};
+    LANG_ALL.forEach(L => (groups[L.group] = groups[L.group] || []).push(L.lang));
+    Object.entries(groups).forEach(([g, ls]) => {
+      const og = document.createElement("optgroup"); og.label = g;
+      ls.slice().sort().forEach(l => { const o = document.createElement("option"); o.value = l; o.textContent = l; og.appendChild(o); });
+      sel.appendChild(og);
+    });
+    sel.addEventListener("change", () => pick(sel.value));
+  }
+  if (sel) sel.value = wlState.lang;
+}
+
+
+/* ======================================================================
    PART 5. DRAW THE PAGE AND WIRE UP THE CONTROLS
    render(), state dropdown, Play button, fonts, resize
    ====================================================================== */
@@ -1246,7 +1569,7 @@ state.day = 250;
 const views = {};
 let lastW = 0;
 const opts = { actions: false, renderer: "svg", tooltip: { theme: "custom" } };
-const STATE_VIEWS = ["c3", "cZ", "cM", "cB", "cD", "cC", "cP", "c4"];
+const STATE_VIEWS = ["c3", "cZ", "cM", "cB", "cD", "cC", "cP", "c4", "cL", "cW"];
 const ABBR2NAME = Object.fromEntries(ST.map(r => [r[1], r[0]]));
 function stateNameOf(item) {
   const d = item && item.datum;
@@ -1273,12 +1596,14 @@ async function render() {
     views.c3 = (await vegaEmbed("#c3", spec3(t, state.yrState, cw("c3")), opts)).view;
     views.c3.addSignalListener("yr", (n, v) => { state.yrState = v; });
     views.c4 = (await vegaEmbed("#c4", spec4(t, cw("c4")), opts)).view;
-    const more = [["cV", specVoyage], ["cF", specFlow], ["cS", specSpike], ["cZ", specZoom], ["cM", specSmall], ["cB", specBiv], ["cD", specDots], ["cC", specDorling], ["cP", specPies], ["cT", specTop]];
+    const more = [["cV", specVoyage], ["cF", specFlow], ["cS", specSpike], ["cZ", specZoom], ["cM", specSmall], ["cB", specBiv], ["cD", specDots], ["cC", specDorling], ["cP", specPies], ["cT", specTop], ["cL", specLang], ["cW", specWorldLang]];
     for (const [id, fn] of more) { try { views[id] = (await vegaEmbed("#" + id, fn(t, cw(id)), opts)).view; } catch (e) { console.error(id, e); } }
     if (views.cV) views.cV.addSignalListener("day", (n, v) => { state.day = v; });
     try { setupZoomControls(); } catch (e) { console.error("zoom", e); }
+    try { setupLangControls(); } catch (e) { console.error("lang", e); }
+    try { setupWorldLangControls(); } catch (e) { console.error("world lang", e); }
     for (const id of STATE_VIEWS) {
-      if (!views[id] || id === "cZ") continue; // the zoom map uses clicks for dragging, so it only follows the highlight
+      if (!views[id] || id === "cZ" || id === "cL" || id === "cW") continue; // the zoom map (dragging) and Figures 15-16 (picking a language) use clicks for themselves, so they only follow the highlight
       views[id].addEventListener("click", (ev, item) => {
         const name = stateNameOf(item);
         if (name) setHighlight(state.hl === name ? "" : name);
