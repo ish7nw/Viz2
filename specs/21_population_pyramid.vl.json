@@ -1,0 +1,1592 @@
+{
+ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ "config": {
+  "background": null,
+  "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+  "padding": 4,
+  "view": {
+   "stroke": null
+  },
+  "axis": {
+   "labelColor": "#5c5c5c",
+   "titleColor": "#5c5c5c",
+   "gridColor": "#d0d0d0",
+   "domainColor": "#d0d0d0",
+   "tickColor": "#d0d0d0",
+   "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "labelFontSize": 11,
+   "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFontWeight": 500,
+   "titleFontSize": 11.5
+  },
+  "legend": {
+   "labelColor": "#5c5c5c",
+   "titleColor": "#222222",
+   "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFontWeight": 600,
+   "labelFontSize": 12,
+   "titleFontSize": 12,
+   "symbolStrokeColor": "#ffffff"
+  },
+  "text": {
+   "color": "#222222",
+   "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  },
+  "tooltipFormat": {
+   "numberFormat": ",.0f"
+  }
+ },
+ "width": 810,
+ "height": 420,
+ "params": [
+  {
+   "name": "pyrYear",
+   "value": 2025,
+   "bind": {
+    "input": "radio",
+    "options": [
+     1996,
+     2025
+    ],
+    "name": "Year "
+   }
+  }
+ ],
+ "data": {
+  "values": [
+   {
+    "year": 1996,
+    "age": "0–4",
+    "ai": 0,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 17210,
+    "pct": 0.41,
+    "x": -0.41
+   },
+   {
+    "year": 1996,
+    "age": "0–4",
+    "ai": 0,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 16170,
+    "pct": 0.38,
+    "x": 0.38
+   },
+   {
+    "year": 1996,
+    "age": "0–4",
+    "ai": 0,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 645560,
+    "pct": 4.62,
+    "x": -4.62
+   },
+   {
+    "year": 1996,
+    "age": "0–4",
+    "ai": 0,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 612570,
+    "pct": 4.38,
+    "x": 4.38
+   },
+   {
+    "year": 1996,
+    "age": "5–9",
+    "ai": 1,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 41350,
+    "pct": 0.98,
+    "x": -0.98
+   },
+   {
+    "year": 1996,
+    "age": "5–9",
+    "ai": 1,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 39540,
+    "pct": 0.93,
+    "x": 0.93
+   },
+   {
+    "year": 1996,
+    "age": "5–9",
+    "ai": 1,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 625040,
+    "pct": 4.47,
+    "x": -4.47
+   },
+   {
+    "year": 1996,
+    "age": "5–9",
+    "ai": 1,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 594540,
+    "pct": 4.25,
+    "x": 4.25
+   },
+   {
+    "year": 1996,
+    "age": "10–14",
+    "ai": 2,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 67710,
+    "pct": 1.6,
+    "x": -1.6
+   },
+   {
+    "year": 1996,
+    "age": "10–14",
+    "ai": 2,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 64030,
+    "pct": 1.51,
+    "x": 1.51
+   },
+   {
+    "year": 1996,
+    "age": "10–14",
+    "ai": 2,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 599650,
+    "pct": 4.29,
+    "x": -4.29
+   },
+   {
+    "year": 1996,
+    "age": "10–14",
+    "ai": 2,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 571230,
+    "pct": 4.08,
+    "x": 4.08
+   },
+   {
+    "year": 1996,
+    "age": "15–19",
+    "ai": 3,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 93150,
+    "pct": 2.2,
+    "x": -2.2
+   },
+   {
+    "year": 1996,
+    "age": "15–19",
+    "ai": 3,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 87130,
+    "pct": 2.05,
+    "x": 2.05
+   },
+   {
+    "year": 1996,
+    "age": "15–19",
+    "ai": 3,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 558390,
+    "pct": 3.99,
+    "x": -3.99
+   },
+   {
+    "year": 1996,
+    "age": "15–19",
+    "ai": 3,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 533020,
+    "pct": 3.81,
+    "x": 3.81
+   },
+   {
+    "year": 1996,
+    "age": "20–24",
+    "ai": 4,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 120320,
+    "pct": 2.84,
+    "x": -2.84
+   },
+   {
+    "year": 1996,
+    "age": "20–24",
+    "ai": 4,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 119640,
+    "pct": 2.82,
+    "x": 2.82
+   },
+   {
+    "year": 1996,
+    "age": "20–24",
+    "ai": 4,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 584470,
+    "pct": 4.18,
+    "x": -4.18
+   },
+   {
+    "year": 1996,
+    "age": "20–24",
+    "ai": 4,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 564330,
+    "pct": 4.04,
+    "x": 4.04
+   },
+   {
+    "year": 1996,
+    "age": "25–29",
+    "ai": 5,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 146950,
+    "pct": 3.47,
+    "x": -3.47
+   },
+   {
+    "year": 1996,
+    "age": "25–29",
+    "ai": 5,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 152170,
+    "pct": 3.59,
+    "x": 3.59
+   },
+   {
+    "year": 1996,
+    "age": "25–29",
+    "ai": 5,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 559380,
+    "pct": 4,
+    "x": -4
+   },
+   {
+    "year": 1996,
+    "age": "25–29",
+    "ai": 5,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 551280,
+    "pct": 3.94,
+    "x": 3.94
+   },
+   {
+    "year": 1996,
+    "age": "30–34",
+    "ai": 6,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 193630,
+    "pct": 4.57,
+    "x": -4.57
+   },
+   {
+    "year": 1996,
+    "age": "30–34",
+    "ai": 6,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 198570,
+    "pct": 4.68,
+    "x": 4.68
+   },
+   {
+    "year": 1996,
+    "age": "30–34",
+    "ai": 6,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 524230,
+    "pct": 3.75,
+    "x": -3.75
+   },
+   {
+    "year": 1996,
+    "age": "30–34",
+    "ai": 6,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 522340,
+    "pct": 3.74,
+    "x": 3.74
+   },
+   {
+    "year": 1996,
+    "age": "35–39",
+    "ai": 7,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 206260,
+    "pct": 4.86,
+    "x": -4.86
+   },
+   {
+    "year": 1996,
+    "age": "35–39",
+    "ai": 7,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 211720,
+    "pct": 4.99,
+    "x": 4.99
+   },
+   {
+    "year": 1996,
+    "age": "35–39",
+    "ai": 7,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 517510,
+    "pct": 3.7,
+    "x": -3.7
+   },
+   {
+    "year": 1996,
+    "age": "35–39",
+    "ai": 7,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 514700,
+    "pct": 3.68,
+    "x": 3.68
+   },
+   {
+    "year": 1996,
+    "age": "40–44",
+    "ai": 8,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 204740,
+    "pct": 4.83,
+    "x": -4.83
+   },
+   {
+    "year": 1996,
+    "age": "40–44",
+    "ai": 8,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 209080,
+    "pct": 4.93,
+    "x": 4.93
+   },
+   {
+    "year": 1996,
+    "age": "40–44",
+    "ai": 8,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 468710,
+    "pct": 3.35,
+    "x": -3.35
+   },
+   {
+    "year": 1996,
+    "age": "40–44",
+    "ai": 8,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 467160,
+    "pct": 3.34,
+    "x": 3.34
+   },
+   {
+    "year": 1996,
+    "age": "45–49",
+    "ai": 9,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 232180,
+    "pct": 5.48,
+    "x": -5.48
+   },
+   {
+    "year": 1996,
+    "age": "45–49",
+    "ai": 9,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 221220,
+    "pct": 5.22,
+    "x": 5.22
+   },
+   {
+    "year": 1996,
+    "age": "45–49",
+    "ai": 9,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 419450,
+    "pct": 3,
+    "x": -3
+   },
+   {
+    "year": 1996,
+    "age": "45–49",
+    "ai": 9,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 415940,
+    "pct": 2.97,
+    "x": 2.97
+   },
+   {
+    "year": 1996,
+    "age": "50–54",
+    "ai": 10,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 188400,
+    "pct": 4.44,
+    "x": -4.44
+   },
+   {
+    "year": 1996,
+    "age": "50–54",
+    "ai": 10,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 167660,
+    "pct": 3.95,
+    "x": 3.95
+   },
+   {
+    "year": 1996,
+    "age": "50–54",
+    "ai": 10,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 326580,
+    "pct": 2.34,
+    "x": -2.34
+   },
+   {
+    "year": 1996,
+    "age": "50–54",
+    "ai": 10,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 327310,
+    "pct": 2.34,
+    "x": 2.34
+   },
+   {
+    "year": 1996,
+    "age": "55–59",
+    "ai": 11,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 162170,
+    "pct": 3.82,
+    "x": -3.82
+   },
+   {
+    "year": 1996,
+    "age": "55–59",
+    "ai": 11,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 143220,
+    "pct": 3.38,
+    "x": 3.38
+   },
+   {
+    "year": 1996,
+    "age": "55–59",
+    "ai": 11,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 255630,
+    "pct": 1.83,
+    "x": -1.83
+   },
+   {
+    "year": 1996,
+    "age": "55–59",
+    "ai": 11,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 262320,
+    "pct": 1.88,
+    "x": 1.88
+   },
+   {
+    "year": 1996,
+    "age": "60–64",
+    "ai": 12,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 135430,
+    "pct": 3.19,
+    "x": -3.19
+   },
+   {
+    "year": 1996,
+    "age": "60–64",
+    "ai": 12,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 122400,
+    "pct": 2.89,
+    "x": 2.89
+   },
+   {
+    "year": 1996,
+    "age": "60–64",
+    "ai": 12,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 216660,
+    "pct": 1.55,
+    "x": -1.55
+   },
+   {
+    "year": 1996,
+    "age": "60–64",
+    "ai": 12,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 232510,
+    "pct": 1.66,
+    "x": 1.66
+   },
+   {
+    "year": 1996,
+    "age": "65–69",
+    "ai": 13,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 118670,
+    "pct": 2.8,
+    "x": -2.8
+   },
+   {
+    "year": 1996,
+    "age": "65–69",
+    "ai": 13,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 107990,
+    "pct": 2.55,
+    "x": 2.55
+   },
+   {
+    "year": 1996,
+    "age": "65–69",
+    "ai": 13,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 217120,
+    "pct": 1.55,
+    "x": -1.55
+   },
+   {
+    "year": 1996,
+    "age": "65–69",
+    "ai": 13,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 245010,
+    "pct": 1.75,
+    "x": 1.75
+   },
+   {
+    "year": 1996,
+    "age": "70–74",
+    "ai": 14,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 95220,
+    "pct": 2.25,
+    "x": -2.25
+   },
+   {
+    "year": 1996,
+    "age": "70–74",
+    "ai": 14,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 99740,
+    "pct": 2.35,
+    "x": 2.35
+   },
+   {
+    "year": 1996,
+    "age": "70–74",
+    "ai": 14,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 179530,
+    "pct": 1.28,
+    "x": -1.28
+   },
+   {
+    "year": 1996,
+    "age": "70–74",
+    "ai": 14,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 225670,
+    "pct": 1.61,
+    "x": 1.61
+   },
+   {
+    "year": 1996,
+    "age": "75+",
+    "ai": 15,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 108040,
+    "pct": 2.55,
+    "x": -2.55
+   },
+   {
+    "year": 1996,
+    "age": "75+",
+    "ai": 15,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 148350,
+    "pct": 3.5,
+    "x": 3.5
+   },
+   {
+    "year": 1996,
+    "age": "75+",
+    "ai": 15,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 236010,
+    "pct": 1.69,
+    "x": -1.69
+   },
+   {
+    "year": 1996,
+    "age": "75+",
+    "ai": 15,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 410890,
+    "pct": 2.94,
+    "x": 2.94
+   },
+   {
+    "year": 2025,
+    "age": "0–4",
+    "ai": 0,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 28950,
+    "pct": 0.33,
+    "x": -0.33
+   },
+   {
+    "year": 2025,
+    "age": "0–4",
+    "ai": 0,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 27190,
+    "pct": 0.31,
+    "x": 0.31
+   },
+   {
+    "year": 2025,
+    "age": "0–4",
+    "ai": 0,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 749990,
+    "pct": 3.99,
+    "x": -3.99
+   },
+   {
+    "year": 2025,
+    "age": "0–4",
+    "ai": 0,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 711310,
+    "pct": 3.79,
+    "x": 3.79
+   },
+   {
+    "year": 2025,
+    "age": "5–9",
+    "ai": 1,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 74970,
+    "pct": 0.85,
+    "x": -0.85
+   },
+   {
+    "year": 2025,
+    "age": "5–9",
+    "ai": 1,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 71620,
+    "pct": 0.81,
+    "x": 0.81
+   },
+   {
+    "year": 2025,
+    "age": "5–9",
+    "ai": 1,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 749470,
+    "pct": 3.99,
+    "x": -3.99
+   },
+   {
+    "year": 2025,
+    "age": "5–9",
+    "ai": 1,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 707790,
+    "pct": 3.77,
+    "x": 3.77
+   },
+   {
+    "year": 2025,
+    "age": "10–14",
+    "ai": 2,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 114620,
+    "pct": 1.3,
+    "x": -1.3
+   },
+   {
+    "year": 2025,
+    "age": "10–14",
+    "ai": 2,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 108030,
+    "pct": 1.22,
+    "x": 1.22
+   },
+   {
+    "year": 2025,
+    "age": "10–14",
+    "ai": 2,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 750570,
+    "pct": 4,
+    "x": -4
+   },
+   {
+    "year": 2025,
+    "age": "10–14",
+    "ai": 2,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 709350,
+    "pct": 3.78,
+    "x": 3.78
+   },
+   {
+    "year": 2025,
+    "age": "15–19",
+    "ai": 3,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 156920,
+    "pct": 1.78,
+    "x": -1.78
+   },
+   {
+    "year": 2025,
+    "age": "15–19",
+    "ai": 3,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 148120,
+    "pct": 1.68,
+    "x": 1.68
+   },
+   {
+    "year": 2025,
+    "age": "15–19",
+    "ai": 3,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 720130,
+    "pct": 3.83,
+    "x": -3.83
+   },
+   {
+    "year": 2025,
+    "age": "15–19",
+    "ai": 3,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 679190,
+    "pct": 3.62,
+    "x": 3.62
+   },
+   {
+    "year": 2025,
+    "age": "20–24",
+    "ai": 4,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 317880,
+    "pct": 3.6,
+    "x": -3.6
+   },
+   {
+    "year": 2025,
+    "age": "20–24",
+    "ai": 4,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 284450,
+    "pct": 3.22,
+    "x": 3.22
+   },
+   {
+    "year": 2025,
+    "age": "20–24",
+    "ai": 4,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 625540,
+    "pct": 3.33,
+    "x": -3.33
+   },
+   {
+    "year": 2025,
+    "age": "20–24",
+    "ai": 4,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 587000,
+    "pct": 3.13,
+    "x": 3.13
+   },
+   {
+    "year": 2025,
+    "age": "25–29",
+    "ai": 5,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 414620,
+    "pct": 4.69,
+    "x": -4.69
+   },
+   {
+    "year": 2025,
+    "age": "25–29",
+    "ai": 5,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 413810,
+    "pct": 4.68,
+    "x": 4.68
+   },
+   {
+    "year": 2025,
+    "age": "25–29",
+    "ai": 5,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 614500,
+    "pct": 3.27,
+    "x": -3.27
+   },
+   {
+    "year": 2025,
+    "age": "25–29",
+    "ai": 5,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 582660,
+    "pct": 3.1,
+    "x": 3.1
+   },
+   {
+    "year": 2025,
+    "age": "30–34",
+    "ai": 6,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 416300,
+    "pct": 4.71,
+    "x": -4.71
+   },
+   {
+    "year": 2025,
+    "age": "30–34",
+    "ai": 6,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 440480,
+    "pct": 4.99,
+    "x": 4.99
+   },
+   {
+    "year": 2025,
+    "age": "30–34",
+    "ai": 6,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 611650,
+    "pct": 3.26,
+    "x": -3.26
+   },
+   {
+    "year": 2025,
+    "age": "30–34",
+    "ai": 6,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 596700,
+    "pct": 3.18,
+    "x": 3.18
+   },
+   {
+    "year": 2025,
+    "age": "35–39",
+    "ai": 7,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 427620,
+    "pct": 4.84,
+    "x": -4.84
+   },
+   {
+    "year": 2025,
+    "age": "35–39",
+    "ai": 7,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 457990,
+    "pct": 5.18,
+    "x": 5.18
+   },
+   {
+    "year": 2025,
+    "age": "35–39",
+    "ai": 7,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 573440,
+    "pct": 3.05,
+    "x": -3.05
+   },
+   {
+    "year": 2025,
+    "age": "35–39",
+    "ai": 7,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 559760,
+    "pct": 2.98,
+    "x": 2.98
+   },
+   {
+    "year": 2025,
+    "age": "40–44",
+    "ai": 8,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 413760,
+    "pct": 4.68,
+    "x": -4.68
+   },
+   {
+    "year": 2025,
+    "age": "40–44",
+    "ai": 8,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 426540,
+    "pct": 4.83,
+    "x": 4.83
+   },
+   {
+    "year": 2025,
+    "age": "40–44",
+    "ai": 8,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 536380,
+    "pct": 2.86,
+    "x": -2.86
+   },
+   {
+    "year": 2025,
+    "age": "40–44",
+    "ai": 8,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 536200,
+    "pct": 2.86,
+    "x": 2.86
+   },
+   {
+    "year": 2025,
+    "age": "45–49",
+    "ai": 9,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 321270,
+    "pct": 3.64,
+    "x": -3.64
+   },
+   {
+    "year": 2025,
+    "age": "45–49",
+    "ai": 9,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 335200,
+    "pct": 3.79,
+    "x": 3.79
+   },
+   {
+    "year": 2025,
+    "age": "45–49",
+    "ai": 9,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 491790,
+    "pct": 2.62,
+    "x": -2.62
+   },
+   {
+    "year": 2025,
+    "age": "45–49",
+    "ai": 9,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 502810,
+    "pct": 2.68,
+    "x": 2.68
+   },
+   {
+    "year": 2025,
+    "age": "50–54",
+    "ai": 10,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 277330,
+    "pct": 3.14,
+    "x": -3.14
+   },
+   {
+    "year": 2025,
+    "age": "50–54",
+    "ai": 10,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 295250,
+    "pct": 3.34,
+    "x": 3.34
+   },
+   {
+    "year": 2025,
+    "age": "50–54",
+    "ai": 10,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 553100,
+    "pct": 2.95,
+    "x": -2.95
+   },
+   {
+    "year": 2025,
+    "age": "50–54",
+    "ai": 10,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 561220,
+    "pct": 2.99,
+    "x": 2.99
+   },
+   {
+    "year": 2025,
+    "age": "55–59",
+    "ai": 11,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 260370,
+    "pct": 2.95,
+    "x": -2.95
+   },
+   {
+    "year": 2025,
+    "age": "55–59",
+    "ai": 11,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 279550,
+    "pct": 3.16,
+    "x": 3.16
+   },
+   {
+    "year": 2025,
+    "age": "55–59",
+    "ai": 11,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 501320,
+    "pct": 2.67,
+    "x": -2.67
+   },
+   {
+    "year": 2025,
+    "age": "55–59",
+    "ai": 11,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 512810,
+    "pct": 2.73,
+    "x": 2.73
+   },
+   {
+    "year": 2025,
+    "age": "60–64",
+    "ai": 12,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 262410,
+    "pct": 2.97,
+    "x": -2.97
+   },
+   {
+    "year": 2025,
+    "age": "60–64",
+    "ai": 12,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 283770,
+    "pct": 3.21,
+    "x": 3.21
+   },
+   {
+    "year": 2025,
+    "age": "60–64",
+    "ai": 12,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 485990,
+    "pct": 2.59,
+    "x": -2.59
+   },
+   {
+    "year": 2025,
+    "age": "60–64",
+    "ai": 12,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 504470,
+    "pct": 2.69,
+    "x": 2.69
+   },
+   {
+    "year": 2025,
+    "age": "65–69",
+    "ai": 13,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 226520,
+    "pct": 2.56,
+    "x": -2.56
+   },
+   {
+    "year": 2025,
+    "age": "65–69",
+    "ai": 13,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 255210,
+    "pct": 2.89,
+    "x": 2.89
+   },
+   {
+    "year": 2025,
+    "age": "65–69",
+    "ai": 13,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 439880,
+    "pct": 2.34,
+    "x": -2.34
+   },
+   {
+    "year": 2025,
+    "age": "65–69",
+    "ai": 13,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 466510,
+    "pct": 2.48,
+    "x": 2.48
+   },
+   {
+    "year": 2025,
+    "age": "70–74",
+    "ai": 14,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 195990,
+    "pct": 2.22,
+    "x": -2.22
+   },
+   {
+    "year": 2025,
+    "age": "70–74",
+    "ai": 14,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 221490,
+    "pct": 2.51,
+    "x": 2.51
+   },
+   {
+    "year": 2025,
+    "age": "70–74",
+    "ai": 14,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 371080,
+    "pct": 1.98,
+    "x": -1.98
+   },
+   {
+    "year": 2025,
+    "age": "70–74",
+    "ai": 14,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 404160,
+    "pct": 2.15,
+    "x": 2.15
+   },
+   {
+    "year": 2025,
+    "age": "75+",
+    "ai": 15,
+    "grp": "Overseas-born",
+    "sex": "Male",
+    "n": 409750,
+    "pct": 4.64,
+    "x": -4.64
+   },
+   {
+    "year": 2025,
+    "age": "75+",
+    "ai": 15,
+    "grp": "Overseas-born",
+    "sex": "Female",
+    "n": 466330,
+    "pct": 5.28,
+    "x": 5.28
+   },
+   {
+    "year": 2025,
+    "age": "75+",
+    "ai": 15,
+    "grp": "Australian-born",
+    "sex": "Male",
+    "n": 614200,
+    "pct": 3.27,
+    "x": -3.27
+   },
+   {
+    "year": 2025,
+    "age": "75+",
+    "ai": 15,
+    "grp": "Australian-born",
+    "sex": "Female",
+    "n": 768400,
+    "pct": 4.09,
+    "x": 4.09
+   }
+  ]
+ },
+ "transform": [
+  {
+   "filter": "datum.year == pyrYear"
+  }
+ ],
+ "encoding": {
+  "y": {
+   "field": "age",
+   "type": "ordinal",
+   "sort": [
+    "75+",
+    "70–74",
+    "65–69",
+    "60–64",
+    "55–59",
+    "50–54",
+    "45–49",
+    "40–44",
+    "35–39",
+    "30–34",
+    "25–29",
+    "20–24",
+    "15–19",
+    "10–14",
+    "5–9",
+    "0–4"
+   ],
+   "title": null,
+   "axis": {
+    "domain": false,
+    "ticks": false,
+    "labelPadding": 6
+   }
+  }
+ },
+ "layer": [
+  {
+   "transform": [
+    {
+     "filter": "datum.grp == 'Overseas-born'"
+    }
+   ],
+   "mark": {
+    "type": "bar",
+    "height": {
+     "band": 0.86
+    }
+   },
+   "encoding": {
+    "x": {
+     "field": "x",
+     "type": "quantitative",
+     "title": "% of the group (men left, women right)",
+     "scale": {
+      "domain": [
+       -7,
+       7
+      ],
+      "nice": false
+     },
+     "axis": {
+      "labelExpr": "abs(datum.value) + '%'",
+      "values": [
+       -6,
+       -4,
+       -2,
+       0,
+       2,
+       4,
+       6
+      ],
+      "grid": true,
+      "gridDash": [
+       2,
+       3
+      ]
+     }
+    },
+    "color": {
+     "field": "sex",
+     "type": "nominal",
+     "scale": {
+      "domain": [
+       "Male",
+       "Female"
+      ],
+      "range": [
+       "#5b8db8",
+       "#d9845f"
+      ]
+     },
+     "legend": {
+      "title": "Overseas-born",
+      "orient": "top",
+      "direction": "horizontal",
+      "symbolType": "square",
+      "labelExpr": "datum.label == 'Male' ? 'Men' : 'Women'"
+     }
+    },
+    "tooltip": [
+     {
+      "field": "grp",
+      "title": "Group"
+     },
+     {
+      "field": "sex",
+      "title": "Sex"
+     },
+     {
+      "field": "age",
+      "title": "Age"
+     },
+     {
+      "field": "n",
+      "title": "People",
+      "format": ","
+     },
+     {
+      "field": "pct",
+      "title": "% of the group",
+      "format": ".2f"
+     }
+    ]
+   }
+  },
+  {
+   "transform": [
+    {
+     "filter": "datum.grp == 'Australian-born'"
+    }
+   ],
+   "mark": {
+    "type": "bar",
+    "height": {
+     "band": 0.86
+    },
+    "filled": false,
+    "stroke": "#222222",
+    "strokeWidth": 1.4,
+    "strokeDash": [
+     3,
+     2
+    ]
+   },
+   "encoding": {
+    "x": {
+     "field": "x",
+     "type": "quantitative",
+     "title": "% of the group (men left, women right)",
+     "scale": {
+      "domain": [
+       -7,
+       7
+      ],
+      "nice": false
+     },
+     "axis": {
+      "labelExpr": "abs(datum.value) + '%'",
+      "values": [
+       -6,
+       -4,
+       -2,
+       0,
+       2,
+       4,
+       6
+      ],
+      "grid": true,
+      "gridDash": [
+       2,
+       3
+      ]
+     }
+    },
+    "tooltip": [
+     {
+      "field": "grp",
+      "title": "Group"
+     },
+     {
+      "field": "sex",
+      "title": "Sex"
+     },
+     {
+      "field": "age",
+      "title": "Age"
+     },
+     {
+      "field": "n",
+      "title": "People",
+      "format": ","
+     },
+     {
+      "field": "pct",
+      "title": "% of the group",
+      "format": ".2f"
+     }
+    ]
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "x": 0
+     }
+    ]
+   },
+   "mark": {
+    "type": "rule",
+    "color": "#222222",
+    "strokeWidth": 1
+   },
+   "encoding": {
+    "x": {
+     "field": "x",
+     "type": "quantitative"
+    },
+    "y": null
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "x": 6.859999999999999,
+      "txt": "Dashed outline: Australian-born"
+     }
+    ]
+   },
+   "mark": {
+    "type": "text",
+    "align": "right",
+    "baseline": "top",
+    "fontSize": 11,
+    "color": "#5c5c5c",
+    "fontStyle": "italic"
+   },
+   "encoding": {
+    "x": {
+     "field": "x",
+     "type": "quantitative"
+    },
+    "y": {
+     "value": 2
+    },
+    "text": {
+     "field": "txt"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,1682 @@
+{
+ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ "config": {
+  "background": null,
+  "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+  "padding": 4,
+  "view": {
+   "stroke": null
+  },
+  "axis": {
+   "labelColor": "#5c5c5c",
+   "titleColor": "#5c5c5c",
+   "gridColor": "#d0d0d0",
+   "domainColor": "#d0d0d0",
+   "tickColor": "#d0d0d0",
+   "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "labelFontSize": 11,
+   "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFontWeight": 500,
+   "titleFontSize": 11.5
+  },
+  "legend": {
+   "labelColor": "#5c5c5c",
+   "titleColor": "#222222",
+   "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFontWeight": 600,
+   "labelFontSize": 12,
+   "titleFontSize": 12,
+   "symbolStrokeColor": "#ffffff"
+  },
+  "text": {
+   "color": "#222222",
+   "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  },
+  "tooltipFormat": {
+   "numberFormat": ",.0f"
+  }
+ },
+ "width": 692,
+ "height": 430,
+ "encoding": {
+  "x": {
+   "field": "year",
+   "type": "ordinal",
+   "title": null,
+   "axis": {
+    "orient": "top",
+    "domain": false,
+    "ticks": false,
+    "labelAngle": 0,
+    "labelFontWeight": 600,
+    "labelFontSize": 12,
+    "labelPadding": 8,
+    "labelColor": "#222222"
+   }
+  },
+  "y": {
+   "field": "rank",
+   "type": "quantitative",
+   "title": null,
+   "scale": {
+    "domain": [
+     0.5,
+     12.5
+    ],
+    "reverse": true,
+    "nice": false,
+    "zero": false
+   },
+   "axis": null
+  }
+ },
+ "layer": [
+  {
+   "data": {
+    "values": [
+     {
+      "a": 10.5,
+      "b": 12.5
+     }
+    ]
+   },
+   "mark": {
+    "type": "rect",
+    "fill": "#d0d0d0",
+    "opacity": 0.35
+   },
+   "encoding": {
+    "x": null,
+    "y": {
+     "field": "a",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       0.5,
+       12.5
+      ],
+      "reverse": true,
+      "nice": false,
+      "zero": false
+     }
+    },
+    "y2": {
+     "field": "b"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "country": "Vietnam",
+      "year": 1996,
+      "rank": 4,
+      "n": 158740,
+      "key": "Other"
+     },
+     {
+      "country": "Scotland",
+      "year": 1996,
+      "rank": 5,
+      "n": 150110,
+      "key": "Other"
+     },
+     {
+      "country": "Greece",
+      "year": 1996,
+      "rank": 6,
+      "n": 138080,
+      "key": "Other"
+     },
+     {
+      "country": "Germany",
+      "year": 1996,
+      "rank": 7,
+      "n": 121910,
+      "key": "Other"
+     },
+     {
+      "country": "Netherlands",
+      "year": 1996,
+      "rank": 10,
+      "n": 96370,
+      "key": "Other"
+     },
+     {
+      "country": "Malaysia",
+      "year": 1996,
+      "rank": 11,
+      "n": 82530,
+      "key": "Other"
+     },
+     {
+      "country": "Vietnam",
+      "year": 2001,
+      "rank": 4,
+      "n": 163490,
+      "key": "Other"
+     },
+     {
+      "country": "Scotland",
+      "year": 2001,
+      "rank": 6,
+      "n": 141850,
+      "key": "Other"
+     },
+     {
+      "country": "Greece",
+      "year": 2001,
+      "rank": 7,
+      "n": 128700,
+      "key": "Other"
+     },
+     {
+      "country": "Germany",
+      "year": 2001,
+      "rank": 8,
+      "n": 118340,
+      "key": "Other"
+     },
+     {
+      "country": "Netherlands",
+      "year": 2001,
+      "rank": 11,
+      "n": 91900,
+      "key": "Other"
+     },
+     {
+      "country": "South Africa",
+      "year": 2001,
+      "rank": 12,
+      "n": 86820,
+      "key": "Other"
+     },
+     {
+      "country": "Vietnam",
+      "year": 2006,
+      "rank": 5,
+      "n": 178010,
+      "key": "Other"
+     },
+     {
+      "country": "Scotland",
+      "year": 2006,
+      "rank": 8,
+      "n": 136630,
+      "key": "Other"
+     },
+     {
+      "country": "Greece",
+      "year": 2006,
+      "rank": 9,
+      "n": 128980,
+      "key": "Other"
+     },
+     {
+      "country": "Germany",
+      "year": 2006,
+      "rank": 10,
+      "n": 124710,
+      "key": "Other"
+     },
+     {
+      "country": "South Africa",
+      "year": 2006,
+      "rank": 11,
+      "n": 119490,
+      "key": "Other"
+     },
+     {
+      "country": "Malaysia",
+      "year": 2006,
+      "rank": 12,
+      "n": 105710,
+      "key": "Other"
+     },
+     {
+      "country": "Vietnam",
+      "year": 2011,
+      "rank": 5,
+      "n": 207620,
+      "key": "Other"
+     },
+     {
+      "country": "South Africa",
+      "year": 2011,
+      "rank": 8,
+      "n": 161590,
+      "key": "Other"
+     },
+     {
+      "country": "Scotland",
+      "year": 2011,
+      "rank": 9,
+      "n": 141220,
+      "key": "Other"
+     },
+     {
+      "country": "Malaysia",
+      "year": 2011,
+      "rank": 10,
+      "n": 134140,
+      "key": "Other"
+     },
+     {
+      "country": "Germany",
+      "year": 2011,
+      "rank": 11,
+      "n": 125750,
+      "key": "Other"
+     },
+     {
+      "country": "Greece",
+      "year": 2011,
+      "rank": 12,
+      "n": 121180,
+      "key": "Other"
+     },
+     {
+      "country": "Vietnam",
+      "year": 2016,
+      "rank": 6,
+      "n": 243220,
+      "key": "Other"
+     },
+     {
+      "country": "South Africa",
+      "year": 2016,
+      "rank": 8,
+      "n": 180480,
+      "key": "Other"
+     },
+     {
+      "country": "Malaysia",
+      "year": 2016,
+      "rank": 9,
+      "n": 152900,
+      "key": "Other"
+     },
+     {
+      "country": "Scotland",
+      "year": 2016,
+      "rank": 10,
+      "n": 137760,
+      "key": "Other"
+     },
+     {
+      "country": "Sri Lanka",
+      "year": 2016,
+      "rank": 11,
+      "n": 124500,
+      "key": "Other"
+     },
+     {
+      "country": "Germany",
+      "year": 2016,
+      "rank": 12,
+      "n": 116700,
+      "key": "Other"
+     },
+     {
+      "country": "Vietnam",
+      "year": 2021,
+      "rank": 6,
+      "n": 274840,
+      "key": "Other"
+     },
+     {
+      "country": "South Africa",
+      "year": 2021,
+      "rank": 7,
+      "n": 202730,
+      "key": "Other"
+     },
+     {
+      "country": "Malaysia",
+      "year": 2021,
+      "rank": 8,
+      "n": 173990,
+      "key": "Other"
+     },
+     {
+      "country": "Sri Lanka",
+      "year": 2021,
+      "rank": 10,
+      "n": 140110,
+      "key": "Other"
+     },
+     {
+      "country": "Scotland",
+      "year": 2021,
+      "rank": 12,
+      "n": 127340,
+      "key": "Other"
+     },
+     {
+      "country": "Vietnam",
+      "year": 2025,
+      "rank": 6,
+      "n": 326630,
+      "key": "Other"
+     },
+     {
+      "country": "South Africa",
+      "year": 2025,
+      "rank": 7,
+      "n": 229950,
+      "key": "Other"
+     },
+     {
+      "country": "Sri Lanka",
+      "year": 2025,
+      "rank": 9,
+      "n": 184800,
+      "key": "Other"
+     },
+     {
+      "country": "Malaysia",
+      "year": 2025,
+      "rank": 10,
+      "n": 184320,
+      "key": "Other"
+     },
+     {
+      "country": "Pakistan",
+      "year": 2025,
+      "rank": 12,
+      "n": 143920,
+      "key": "Other"
+     },
+     {
+      "country": "England",
+      "year": 1996,
+      "rank": 1,
+      "n": 956680,
+      "key": "England"
+     },
+     {
+      "country": "New Zealand",
+      "year": 1996,
+      "rank": 2,
+      "n": 312240,
+      "key": "New Zealand"
+     },
+     {
+      "country": "Italy",
+      "year": 1996,
+      "rank": 3,
+      "n": 250360,
+      "key": "Italy"
+     },
+     {
+      "country": "China",
+      "year": 1996,
+      "rank": 8,
+      "n": 118640,
+      "key": "China"
+     },
+     {
+      "country": "Philippines",
+      "year": 1996,
+      "rank": 9,
+      "n": 104820,
+      "key": "Philippines"
+     },
+     {
+      "country": "India",
+      "year": 1996,
+      "rank": 12,
+      "n": 80470,
+      "key": "India"
+     },
+     {
+      "country": "England",
+      "year": 2001,
+      "rank": 1,
+      "n": 927630,
+      "key": "England"
+     },
+     {
+      "country": "New Zealand",
+      "year": 2001,
+      "rank": 2,
+      "n": 389600,
+      "key": "New Zealand"
+     },
+     {
+      "country": "Italy",
+      "year": 2001,
+      "rank": 3,
+      "n": 229850,
+      "key": "Italy"
+     },
+     {
+      "country": "China",
+      "year": 2001,
+      "rank": 5,
+      "n": 153360,
+      "key": "China"
+     },
+     {
+      "country": "Philippines",
+      "year": 2001,
+      "rank": 9,
+      "n": 114260,
+      "key": "Philippines"
+     },
+     {
+      "country": "India",
+      "year": 2001,
+      "rank": 10,
+      "n": 98070,
+      "key": "India"
+     },
+     {
+      "country": "England",
+      "year": 2006,
+      "rank": 1,
+      "n": 939260,
+      "key": "England"
+     },
+     {
+      "country": "New Zealand",
+      "year": 2006,
+      "rank": 2,
+      "n": 437890,
+      "key": "New Zealand"
+     },
+     {
+      "country": "China",
+      "year": 2006,
+      "rank": 3,
+      "n": 251960,
+      "key": "China"
+     },
+     {
+      "country": "Italy",
+      "year": 2006,
+      "rank": 4,
+      "n": 218040,
+      "key": "Italy"
+     },
+     {
+      "country": "India",
+      "year": 2006,
+      "rank": 6,
+      "n": 169720,
+      "key": "India"
+     },
+     {
+      "country": "Philippines",
+      "year": 2006,
+      "rank": 7,
+      "n": 141890,
+      "key": "Philippines"
+     },
+     {
+      "country": "England",
+      "year": 2011,
+      "rank": 1,
+      "n": 991040,
+      "key": "England"
+     },
+     {
+      "country": "New Zealand",
+      "year": 2011,
+      "rank": 2,
+      "n": 543950,
+      "key": "New Zealand"
+     },
+     {
+      "country": "China",
+      "year": 2011,
+      "rank": 3,
+      "n": 387420,
+      "key": "China"
+     },
+     {
+      "country": "India",
+      "year": 2011,
+      "rank": 4,
+      "n": 337120,
+      "key": "India"
+     },
+     {
+      "country": "Italy",
+      "year": 2011,
+      "rank": 6,
+      "n": 201680,
+      "key": "Italy"
+     },
+     {
+      "country": "Philippines",
+      "year": 2011,
+      "rank": 7,
+      "n": 193030,
+      "key": "Philippines"
+     },
+     {
+      "country": "England",
+      "year": 2016,
+      "rank": 1,
+      "n": 1002060,
+      "key": "England"
+     },
+     {
+      "country": "New Zealand",
+      "year": 2016,
+      "rank": 2,
+      "n": 568170,
+      "key": "New Zealand"
+     },
+     {
+      "country": "China",
+      "year": 2016,
+      "rank": 3,
+      "n": 557690,
+      "key": "China"
+     },
+     {
+      "country": "India",
+      "year": 2016,
+      "rank": 4,
+      "n": 489410,
+      "key": "India"
+     },
+     {
+      "country": "Philippines",
+      "year": 2016,
+      "rank": 5,
+      "n": 252690,
+      "key": "Philippines"
+     },
+     {
+      "country": "Italy",
+      "year": 2016,
+      "rank": 7,
+      "n": 195760,
+      "key": "Italy"
+     },
+     {
+      "country": "England",
+      "year": 2021,
+      "rank": 1,
+      "n": 973950,
+      "key": "England"
+     },
+     {
+      "country": "India",
+      "year": 2021,
+      "rank": 2,
+      "n": 712040,
+      "key": "India"
+     },
+     {
+      "country": "China",
+      "year": 2021,
+      "rank": 3,
+      "n": 584660,
+      "key": "China"
+     },
+     {
+      "country": "New Zealand",
+      "year": 2021,
+      "rank": 4,
+      "n": 584010,
+      "key": "New Zealand"
+     },
+     {
+      "country": "Philippines",
+      "year": 2021,
+      "rank": 5,
+      "n": 308240,
+      "key": "Philippines"
+     },
+     {
+      "country": "Italy",
+      "year": 2021,
+      "rank": 9,
+      "n": 167570,
+      "key": "Italy"
+     },
+     {
+      "country": "Nepal",
+      "year": 2021,
+      "rank": 11,
+      "n": 130290,
+      "key": "Nepal"
+     },
+     {
+      "country": "India",
+      "year": 2025,
+      "rank": 1,
+      "n": 971020,
+      "key": "India"
+     },
+     {
+      "country": "England",
+      "year": 2025,
+      "rank": 2,
+      "n": 970950,
+      "key": "England"
+     },
+     {
+      "country": "China",
+      "year": 2025,
+      "rank": 3,
+      "n": 731540,
+      "key": "China"
+     },
+     {
+      "country": "New Zealand",
+      "year": 2025,
+      "rank": 4,
+      "n": 637680,
+      "key": "New Zealand"
+     },
+     {
+      "country": "Philippines",
+      "year": 2025,
+      "rank": 5,
+      "n": 412530,
+      "key": "Philippines"
+     },
+     {
+      "country": "Nepal",
+      "year": 2025,
+      "rank": 8,
+      "n": 213580,
+      "key": "Nepal"
+     },
+     {
+      "country": "Italy",
+      "year": 2025,
+      "rank": 11,
+      "n": 152560,
+      "key": "Italy"
+     }
+    ]
+   },
+   "mark": {
+    "type": "line",
+    "strokeWidth": 3,
+    "interpolate": "monotone",
+    "strokeCap": "round",
+    "cursor": "pointer"
+   },
+   "encoding": {
+    "detail": {
+     "field": "country"
+    },
+    "color": {
+     "field": "key",
+     "type": "nominal",
+     "scale": {
+      "domain": [
+       "India",
+       "China",
+       "England",
+       "New Zealand",
+       "Italy",
+       "Philippines",
+       "Nepal",
+       "Other"
+      ],
+      "range": [
+       "#e07b1a",
+       "#c8393d",
+       "#3a6ea5",
+       "#3f8f4a",
+       "#7f4f9e",
+       "#c27aa8",
+       "#b8860b",
+       "#b9b9b9"
+      ]
+     },
+     "legend": null
+    },
+    "opacity": {
+     "condition": [
+      {
+       "param": "bc",
+       "empty": true,
+       "value": 1
+      }
+     ],
+     "value": 0.15
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "country": "Vietnam",
+      "year": 1996,
+      "rank": 4,
+      "n": 158740,
+      "key": "Other"
+     },
+     {
+      "country": "Scotland",
+      "year": 1996,
+      "rank": 5,
+      "n": 150110,
+      "key": "Other"
+     },
+     {
+      "country": "Greece",
+      "year": 1996,
+      "rank": 6,
+      "n": 138080,
+      "key": "Other"
+     },
+     {
+      "country": "Germany",
+      "year": 1996,
+      "rank": 7,
+      "n": 121910,
+      "key": "Other"
+     },
+     {
+      "country": "Netherlands",
+      "year": 1996,
+      "rank": 10,
+      "n": 96370,
+      "key": "Other"
+     },
+     {
+      "country": "Malaysia",
+      "year": 1996,
+      "rank": 11,
+      "n": 82530,
+      "key": "Other"
+     },
+     {
+      "country": "Vietnam",
+      "year": 2001,
+      "rank": 4,
+      "n": 163490,
+      "key": "Other"
+     },
+     {
+      "country": "Scotland",
+      "year": 2001,
+      "rank": 6,
+      "n": 141850,
+      "key": "Other"
+     },
+     {
+      "country": "Greece",
+      "year": 2001,
+      "rank": 7,
+      "n": 128700,
+      "key": "Other"
+     },
+     {
+      "country": "Germany",
+      "year": 2001,
+      "rank": 8,
+      "n": 118340,
+      "key": "Other"
+     },
+     {
+      "country": "Netherlands",
+      "year": 2001,
+      "rank": 11,
+      "n": 91900,
+      "key": "Other"
+     },
+     {
+      "country": "South Africa",
+      "year": 2001,
+      "rank": 12,
+      "n": 86820,
+      "key": "Other"
+     },
+     {
+      "country": "Vietnam",
+      "year": 2006,
+      "rank": 5,
+      "n": 178010,
+      "key": "Other"
+     },
+     {
+      "country": "Scotland",
+      "year": 2006,
+      "rank": 8,
+      "n": 136630,
+      "key": "Other"
+     },
+     {
+      "country": "Greece",
+      "year": 2006,
+      "rank": 9,
+      "n": 128980,
+      "key": "Other"
+     },
+     {
+      "country": "Germany",
+      "year": 2006,
+      "rank": 10,
+      "n": 124710,
+      "key": "Other"
+     },
+     {
+      "country": "South Africa",
+      "year": 2006,
+      "rank": 11,
+      "n": 119490,
+      "key": "Other"
+     },
+     {
+      "country": "Malaysia",
+      "year": 2006,
+      "rank": 12,
+      "n": 105710,
+      "key": "Other"
+     },
+     {
+      "country": "Vietnam",
+      "year": 2011,
+      "rank": 5,
+      "n": 207620,
+      "key": "Other"
+     },
+     {
+      "country": "South Africa",
+      "year": 2011,
+      "rank": 8,
+      "n": 161590,
+      "key": "Other"
+     },
+     {
+      "country": "Scotland",
+      "year": 2011,
+      "rank": 9,
+      "n": 141220,
+      "key": "Other"
+     },
+     {
+      "country": "Malaysia",
+      "year": 2011,
+      "rank": 10,
+      "n": 134140,
+      "key": "Other"
+     },
+     {
+      "country": "Germany",
+      "year": 2011,
+      "rank": 11,
+      "n": 125750,
+      "key": "Other"
+     },
+     {
+      "country": "Greece",
+      "year": 2011,
+      "rank": 12,
+      "n": 121180,
+      "key": "Other"
+     },
+     {
+      "country": "Vietnam",
+      "year": 2016,
+      "rank": 6,
+      "n": 243220,
+      "key": "Other"
+     },
+     {
+      "country": "South Africa",
+      "year": 2016,
+      "rank": 8,
+      "n": 180480,
+      "key": "Other"
+     },
+     {
+      "country": "Malaysia",
+      "year": 2016,
+      "rank": 9,
+      "n": 152900,
+      "key": "Other"
+     },
+     {
+      "country": "Scotland",
+      "year": 2016,
+      "rank": 10,
+      "n": 137760,
+      "key": "Other"
+     },
+     {
+      "country": "Sri Lanka",
+      "year": 2016,
+      "rank": 11,
+      "n": 124500,
+      "key": "Other"
+     },
+     {
+      "country": "Germany",
+      "year": 2016,
+      "rank": 12,
+      "n": 116700,
+      "key": "Other"
+     },
+     {
+      "country": "Vietnam",
+      "year": 2021,
+      "rank": 6,
+      "n": 274840,
+      "key": "Other"
+     },
+     {
+      "country": "South Africa",
+      "year": 2021,
+      "rank": 7,
+      "n": 202730,
+      "key": "Other"
+     },
+     {
+      "country": "Malaysia",
+      "year": 2021,
+      "rank": 8,
+      "n": 173990,
+      "key": "Other"
+     },
+     {
+      "country": "Sri Lanka",
+      "year": 2021,
+      "rank": 10,
+      "n": 140110,
+      "key": "Other"
+     },
+     {
+      "country": "Scotland",
+      "year": 2021,
+      "rank": 12,
+      "n": 127340,
+      "key": "Other"
+     },
+     {
+      "country": "Vietnam",
+      "year": 2025,
+      "rank": 6,
+      "n": 326630,
+      "key": "Other"
+     },
+     {
+      "country": "South Africa",
+      "year": 2025,
+      "rank": 7,
+      "n": 229950,
+      "key": "Other"
+     },
+     {
+      "country": "Sri Lanka",
+      "year": 2025,
+      "rank": 9,
+      "n": 184800,
+      "key": "Other"
+     },
+     {
+      "country": "Malaysia",
+      "year": 2025,
+      "rank": 10,
+      "n": 184320,
+      "key": "Other"
+     },
+     {
+      "country": "Pakistan",
+      "year": 2025,
+      "rank": 12,
+      "n": 143920,
+      "key": "Other"
+     },
+     {
+      "country": "England",
+      "year": 1996,
+      "rank": 1,
+      "n": 956680,
+      "key": "England"
+     },
+     {
+      "country": "New Zealand",
+      "year": 1996,
+      "rank": 2,
+      "n": 312240,
+      "key": "New Zealand"
+     },
+     {
+      "country": "Italy",
+      "year": 1996,
+      "rank": 3,
+      "n": 250360,
+      "key": "Italy"
+     },
+     {
+      "country": "China",
+      "year": 1996,
+      "rank": 8,
+      "n": 118640,
+      "key": "China"
+     },
+     {
+      "country": "Philippines",
+      "year": 1996,
+      "rank": 9,
+      "n": 104820,
+      "key": "Philippines"
+     },
+     {
+      "country": "India",
+      "year": 1996,
+      "rank": 12,
+      "n": 80470,
+      "key": "India"
+     },
+     {
+      "country": "England",
+      "year": 2001,
+      "rank": 1,
+      "n": 927630,
+      "key": "England"
+     },
+     {
+      "country": "New Zealand",
+      "year": 2001,
+      "rank": 2,
+      "n": 389600,
+      "key": "New Zealand"
+     },
+     {
+      "country": "Italy",
+      "year": 2001,
+      "rank": 3,
+      "n": 229850,
+      "key": "Italy"
+     },
+     {
+      "country": "China",
+      "year": 2001,
+      "rank": 5,
+      "n": 153360,
+      "key": "China"
+     },
+     {
+      "country": "Philippines",
+      "year": 2001,
+      "rank": 9,
+      "n": 114260,
+      "key": "Philippines"
+     },
+     {
+      "country": "India",
+      "year": 2001,
+      "rank": 10,
+      "n": 98070,
+      "key": "India"
+     },
+     {
+      "country": "England",
+      "year": 2006,
+      "rank": 1,
+      "n": 939260,
+      "key": "England"
+     },
+     {
+      "country": "New Zealand",
+      "year": 2006,
+      "rank": 2,
+      "n": 437890,
+      "key": "New Zealand"
+     },
+     {
+      "country": "China",
+      "year": 2006,
+      "rank": 3,
+      "n": 251960,
+      "key": "China"
+     },
+     {
+      "country": "Italy",
+      "year": 2006,
+      "rank": 4,
+      "n": 218040,
+      "key": "Italy"
+     },
+     {
+      "country": "India",
+      "year": 2006,
+      "rank": 6,
+      "n": 169720,
+      "key": "India"
+     },
+     {
+      "country": "Philippines",
+      "year": 2006,
+      "rank": 7,
+      "n": 141890,
+      "key": "Philippines"
+     },
+     {
+      "country": "England",
+      "year": 2011,
+      "rank": 1,
+      "n": 991040,
+      "key": "England"
+     },
+     {
+      "country": "New Zealand",
+      "year": 2011,
+      "rank": 2,
+      "n": 543950,
+      "key": "New Zealand"
+     },
+     {
+      "country": "China",
+      "year": 2011,
+      "rank": 3,
+      "n": 387420,
+      "key": "China"
+     },
+     {
+      "country": "India",
+      "year": 2011,
+      "rank": 4,
+      "n": 337120,
+      "key": "India"
+     },
+     {
+      "country": "Italy",
+      "year": 2011,
+      "rank": 6,
+      "n": 201680,
+      "key": "Italy"
+     },
+     {
+      "country": "Philippines",
+      "year": 2011,
+      "rank": 7,
+      "n": 193030,
+      "key": "Philippines"
+     },
+     {
+      "country": "England",
+      "year": 2016,
+      "rank": 1,
+      "n": 1002060,
+      "key": "England"
+     },
+     {
+      "country": "New Zealand",
+      "year": 2016,
+      "rank": 2,
+      "n": 568170,
+      "key": "New Zealand"
+     },
+     {
+      "country": "China",
+      "year": 2016,
+      "rank": 3,
+      "n": 557690,
+      "key": "China"
+     },
+     {
+      "country": "India",
+      "year": 2016,
+      "rank": 4,
+      "n": 489410,
+      "key": "India"
+     },
+     {
+      "country": "Philippines",
+      "year": 2016,
+      "rank": 5,
+      "n": 252690,
+      "key": "Philippines"
+     },
+     {
+      "country": "Italy",
+      "year": 2016,
+      "rank": 7,
+      "n": 195760,
+      "key": "Italy"
+     },
+     {
+      "country": "England",
+      "year": 2021,
+      "rank": 1,
+      "n": 973950,
+      "key": "England"
+     },
+     {
+      "country": "India",
+      "year": 2021,
+      "rank": 2,
+      "n": 712040,
+      "key": "India"
+     },
+     {
+      "country": "China",
+      "year": 2021,
+      "rank": 3,
+      "n": 584660,
+      "key": "China"
+     },
+     {
+      "country": "New Zealand",
+      "year": 2021,
+      "rank": 4,
+      "n": 584010,
+      "key": "New Zealand"
+     },
+     {
+      "country": "Philippines",
+      "year": 2021,
+      "rank": 5,
+      "n": 308240,
+      "key": "Philippines"
+     },
+     {
+      "country": "Italy",
+      "year": 2021,
+      "rank": 9,
+      "n": 167570,
+      "key": "Italy"
+     },
+     {
+      "country": "Nepal",
+      "year": 2021,
+      "rank": 11,
+      "n": 130290,
+      "key": "Nepal"
+     },
+     {
+      "country": "India",
+      "year": 2025,
+      "rank": 1,
+      "n": 971020,
+      "key": "India"
+     },
+     {
+      "country": "England",
+      "year": 2025,
+      "rank": 2,
+      "n": 970950,
+      "key": "England"
+     },
+     {
+      "country": "China",
+      "year": 2025,
+      "rank": 3,
+      "n": 731540,
+      "key": "China"
+     },
+     {
+      "country": "New Zealand",
+      "year": 2025,
+      "rank": 4,
+      "n": 637680,
+      "key": "New Zealand"
+     },
+     {
+      "country": "Philippines",
+      "year": 2025,
+      "rank": 5,
+      "n": 412530,
+      "key": "Philippines"
+     },
+     {
+      "country": "Nepal",
+      "year": 2025,
+      "rank": 8,
+      "n": 213580,
+      "key": "Nepal"
+     },
+     {
+      "country": "Italy",
+      "year": 2025,
+      "rank": 11,
+      "n": 152560,
+      "key": "Italy"
+     }
+    ]
+   },
+   "params": [
+    {
+     "name": "bc",
+     "select": {
+      "type": "point",
+      "fields": [
+       "country"
+      ],
+      "on": "pointerover",
+      "clear": "pointerout"
+     }
+    }
+   ],
+   "mark": {
+    "type": "circle",
+    "size": 110,
+    "stroke": "#ffffff",
+    "strokeWidth": 1.5,
+    "opacity": 1,
+    "cursor": "pointer"
+   },
+   "encoding": {
+    "color": {
+     "field": "key",
+     "type": "nominal",
+     "scale": {
+      "domain": [
+       "India",
+       "China",
+       "England",
+       "New Zealand",
+       "Italy",
+       "Philippines",
+       "Nepal",
+       "Other"
+      ],
+      "range": [
+       "#e07b1a",
+       "#c8393d",
+       "#3a6ea5",
+       "#3f8f4a",
+       "#7f4f9e",
+       "#c27aa8",
+       "#b8860b",
+       "#b9b9b9"
+      ]
+     },
+     "legend": null
+    },
+    "opacity": {
+     "condition": [
+      {
+       "param": "bc",
+       "empty": true,
+       "value": 1
+      }
+     ],
+     "value": 0.15
+    },
+    "tooltip": [
+     {
+      "field": "country",
+      "title": "Born in"
+     },
+     {
+      "field": "year",
+      "title": "Year"
+     },
+     {
+      "field": "rank",
+      "title": "Rank"
+     },
+     {
+      "field": "n",
+      "title": "Residents",
+      "format": ","
+     }
+    ]
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "country": "Vietnam",
+      "year": 1996,
+      "rank": 4,
+      "n": 158740,
+      "key": "Other",
+      "side": "L",
+      "lc": "#5c5c5c"
+     },
+     {
+      "country": "Scotland",
+      "year": 1996,
+      "rank": 5,
+      "n": 150110,
+      "key": "Other",
+      "side": "L",
+      "lc": "#5c5c5c"
+     },
+     {
+      "country": "Greece",
+      "year": 1996,
+      "rank": 6,
+      "n": 138080,
+      "key": "Other",
+      "side": "L",
+      "lc": "#5c5c5c"
+     },
+     {
+      "country": "Germany",
+      "year": 1996,
+      "rank": 7,
+      "n": 121910,
+      "key": "Other",
+      "side": "L",
+      "lc": "#5c5c5c"
+     },
+     {
+      "country": "Netherlands",
+      "year": 1996,
+      "rank": 10,
+      "n": 96370,
+      "key": "Other",
+      "side": "L",
+      "lc": "#5c5c5c"
+     },
+     {
+      "country": "Malaysia",
+      "year": 1996,
+      "rank": 11,
+      "n": 82530,
+      "key": "Other",
+      "side": "L",
+      "lc": "#5c5c5c"
+     },
+     {
+      "country": "England",
+      "year": 1996,
+      "rank": 1,
+      "n": 956680,
+      "key": "England",
+      "side": "L",
+      "lc": "#3a6ea5"
+     },
+     {
+      "country": "New Zealand",
+      "year": 1996,
+      "rank": 2,
+      "n": 312240,
+      "key": "New Zealand",
+      "side": "L",
+      "lc": "#3f8f4a"
+     },
+     {
+      "country": "Italy",
+      "year": 1996,
+      "rank": 3,
+      "n": 250360,
+      "key": "Italy",
+      "side": "L",
+      "lc": "#7f4f9e"
+     },
+     {
+      "country": "China",
+      "year": 1996,
+      "rank": 8,
+      "n": 118640,
+      "key": "China",
+      "side": "L",
+      "lc": "#c8393d"
+     },
+     {
+      "country": "Philippines",
+      "year": 1996,
+      "rank": 9,
+      "n": 104820,
+      "key": "Philippines",
+      "side": "L",
+      "lc": "#c27aa8"
+     },
+     {
+      "country": "India",
+      "year": 1996,
+      "rank": 12,
+      "n": 80470,
+      "key": "India",
+      "side": "L",
+      "lc": "#e07b1a"
+     },
+     {
+      "country": "Vietnam",
+      "year": 2025,
+      "rank": 6,
+      "n": 326630,
+      "key": "Other",
+      "side": "R",
+      "lc": "#5c5c5c"
+     },
+     {
+      "country": "South Africa",
+      "year": 2025,
+      "rank": 7,
+      "n": 229950,
+      "key": "Other",
+      "side": "R",
+      "lc": "#5c5c5c"
+     },
+     {
+      "country": "Sri Lanka",
+      "year": 2025,
+      "rank": 9,
+      "n": 184800,
+      "key": "Other",
+      "side": "R",
+      "lc": "#5c5c5c"
+     },
+     {
+      "country": "Malaysia",
+      "year": 2025,
+      "rank": 10,
+      "n": 184320,
+      "key": "Other",
+      "side": "R",
+      "lc": "#5c5c5c"
+     },
+     {
+      "country": "Pakistan",
+      "year": 2025,
+      "rank": 12,
+      "n": 143920,
+      "key": "Other",
+      "side": "R",
+      "lc": "#5c5c5c"
+     },
+     {
+      "country": "India",
+      "year": 2025,
+      "rank": 1,
+      "n": 971020,
+      "key": "India",
+      "side": "R",
+      "lc": "#e07b1a"
+     },
+     {
+      "country": "England",
+      "year": 2025,
+      "rank": 2,
+      "n": 970950,
+      "key": "England",
+      "side": "R",
+      "lc": "#3a6ea5"
+     },
+     {
+      "country": "China",
+      "year": 2025,
+      "rank": 3,
+      "n": 731540,
+      "key": "China",
+      "side": "R",
+      "lc": "#c8393d"
+     },
+     {
+      "country": "New Zealand",
+      "year": 2025,
+      "rank": 4,
+      "n": 637680,
+      "key": "New Zealand",
+      "side": "R",
+      "lc": "#3f8f4a"
+     },
+     {
+      "country": "Philippines",
+      "year": 2025,
+      "rank": 5,
+      "n": 412530,
+      "key": "Philippines",
+      "side": "R",
+      "lc": "#c27aa8"
+     },
+     {
+      "country": "Nepal",
+      "year": 2025,
+      "rank": 8,
+      "n": 213580,
+      "key": "Nepal",
+      "side": "R",
+      "lc": "#b8860b"
+     },
+     {
+      "country": "Italy",
+      "year": 2025,
+      "rank": 11,
+      "n": 152560,
+      "key": "Italy",
+      "side": "R",
+      "lc": "#7f4f9e"
+     }
+    ]
+   },
+   "mark": {
+    "type": "text",
+    "fontSize": 11.5,
+    "baseline": "middle",
+    "align": {
+     "expr": "datum.side == 'L' ? 'right' : 'left'"
+    },
+    "dx": {
+     "expr": "datum.side == 'L' ? -10 : 10"
+    },
+    "fontWeight": {
+     "expr": "datum.key != 'Other' ? 700 : 400"
+    }
+   },
+   "encoding": {
+    "text": {
+     "field": "country"
+    },
+    "color": {
+     "field": "lc",
+     "type": "nominal",
+     "scale": null
+    },
+    "opacity": {
+     "condition": [
+      {
+       "param": "bc",
+       "empty": true,
+       "value": 1
+      }
+     ],
+     "value": 0.15
+    }
+   }
+  }
+ ]
+}

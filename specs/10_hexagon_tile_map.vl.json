@@ -1,0 +1,4043 @@
+{
+ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ "config": {
+  "background": null,
+  "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+  "padding": 4,
+  "view": {
+   "stroke": null
+  },
+  "axis": {
+   "labelColor": "#5c5c5c",
+   "titleColor": "#5c5c5c",
+   "gridColor": "#d0d0d0",
+   "domainColor": "#d0d0d0",
+   "tickColor": "#d0d0d0",
+   "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "labelFontSize": 11,
+   "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFontWeight": 500,
+   "titleFontSize": 11.5
+  },
+  "legend": {
+   "labelColor": "#5c5c5c",
+   "titleColor": "#222222",
+   "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFontWeight": 600,
+   "labelFontSize": 12,
+   "titleFontSize": 12,
+   "symbolStrokeColor": "#ffffff"
+  },
+  "text": {
+   "color": "#222222",
+   "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  },
+  "tooltipFormat": {
+   "numberFormat": ",.0f"
+  }
+ },
+ "width": 892,
+ "height": 705,
+ "params": [
+  {
+   "name": "hl",
+   "value": "",
+   "bind": {
+    "input": "select",
+    "options": [
+     "",
+     "Western Australia",
+     "Victoria",
+     "New South Wales",
+     "Australian Capital Territory",
+     "South Australia",
+     "Queensland",
+     "Northern Territory",
+     "Tasmania"
+    ],
+    "labels": [
+     "All states",
+     "Western Australia",
+     "Victoria",
+     "New South Wales",
+     "Australian Capital Territory",
+     "South Australia",
+     "Queensland",
+     "Northern Territory",
+     "Tasmania"
+    ],
+    "name": "Highlight a state "
+   }
+  }
+ ],
+ "layer": [
+  {
+   "data": {
+    "values": [
+     {
+      "code": "101",
+      "name": "Capital Region",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 13.4,
+      "os21": 32050,
+      "pop21": 238810,
+      "hx": 10,
+      "hy": 6.928,
+      "col": 10,
+      "row": 8
+     },
+     {
+      "code": "102",
+      "name": "Central Coast",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 16.1,
+      "os21": 55682,
+      "pop21": 346596,
+      "hx": 9,
+      "hy": 3.464,
+      "col": 9,
+      "row": 4
+     },
+     {
+      "code": "103",
+      "name": "Central West",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 8.4,
+      "os21": 17989,
+      "pop21": 212962,
+      "hx": 6,
+      "hy": 3.464,
+      "col": 6,
+      "row": 4
+     },
+     {
+      "code": "104",
+      "name": "Coffs Harbour - Grafton",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 12.6,
+      "os21": 18389,
+      "pop21": 146127,
+      "hx": 8.5,
+      "hy": 2.598,
+      "col": 8,
+      "row": 3
+     },
+     {
+      "code": "105",
+      "name": "Far West and Orana",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 7.3,
+      "os21": 8481,
+      "pop21": 115566,
+      "hx": 5,
+      "hy": 3.464,
+      "col": 5,
+      "row": 4
+     },
+     {
+      "code": "106",
+      "name": "Hunter Valley exc Newcastle",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 9.4,
+      "os21": 27349,
+      "pop21": 291946,
+      "hx": 7.5,
+      "hy": 2.598,
+      "col": 7,
+      "row": 3
+     },
+     {
+      "code": "107",
+      "name": "Illawarra",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 19.3,
+      "os21": 60704,
+      "pop21": 313842,
+      "hx": 9.5,
+      "hy": 6.062,
+      "col": 9,
+      "row": 7
+     },
+     {
+      "code": "108",
+      "name": "Mid North Coast",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 10.5,
+      "os21": 24029,
+      "pop21": 229035,
+      "hx": 10,
+      "hy": 3.464,
+      "col": 10,
+      "row": 4
+     },
+     {
+      "code": "109",
+      "name": "Murray",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 9.4,
+      "os21": 11656,
+      "pop21": 123552,
+      "hx": 5.5,
+      "hy": 4.33,
+      "col": 5,
+      "row": 5
+     },
+     {
+      "code": "110",
+      "name": "New England and North West",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 8.2,
+      "os21": 15268,
+      "pop21": 185560,
+      "hx": 6.5,
+      "hy": 2.598,
+      "col": 6,
+      "row": 3
+     },
+     {
+      "code": "111",
+      "name": "Newcastle and Lake Macquarie",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 12.5,
+      "os21": 48930,
+      "pop21": 390519,
+      "hx": 11.5,
+      "hy": 4.33,
+      "col": 11,
+      "row": 5
+     },
+     {
+      "code": "112",
+      "name": "Richmond - Tweed",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 13.9,
+      "os21": 35793,
+      "pop21": 257061,
+      "hx": 11,
+      "hy": 3.464,
+      "col": 11,
+      "row": 4
+     },
+     {
+      "code": "113",
+      "name": "Riverina",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 11.7,
+      "os21": 19228,
+      "pop21": 163656,
+      "hx": 7,
+      "hy": 5.196,
+      "col": 7,
+      "row": 6
+     },
+     {
+      "code": "114",
+      "name": "Southern Highlands and Shoalhaven",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 15,
+      "os21": 24099,
+      "pop21": 161006,
+      "hx": 8.5,
+      "hy": 6.062,
+      "col": 8,
+      "row": 7
+     },
+     {
+      "code": "115",
+      "name": "Sydney - Baulkham Hills and Hawkesbury",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 36.7,
+      "os21": 97138,
+      "pop21": 264371,
+      "hx": 7,
+      "hy": 3.464,
+      "col": 7,
+      "row": 4
+     },
+     {
+      "code": "116",
+      "name": "Sydney - Blacktown",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 44.6,
+      "os21": 178836,
+      "pop21": 400997,
+      "hx": 8,
+      "hy": 3.464,
+      "col": 8,
+      "row": 4
+     },
+     {
+      "code": "117",
+      "name": "Sydney - City and Inner South",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 45.5,
+      "os21": 150908,
+      "pop21": 331340,
+      "hx": 11.5,
+      "hy": 6.062,
+      "col": 11,
+      "row": 7
+     },
+     {
+      "code": "118",
+      "name": "Sydney - Eastern Suburbs",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 38.9,
+      "os21": 101760,
+      "pop21": 261410,
+      "hx": 11,
+      "hy": 5.196,
+      "col": 11,
+      "row": 6
+     },
+     {
+      "code": "119",
+      "name": "Sydney - Inner South West",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 45.6,
+      "os21": 276008,
+      "pop21": 605118,
+      "hx": 10.5,
+      "hy": 6.062,
+      "col": 10,
+      "row": 7
+     },
+     {
+      "code": "120",
+      "name": "Sydney - Inner West",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 43.1,
+      "os21": 131221,
+      "pop21": 304771,
+      "hx": 10,
+      "hy": 5.196,
+      "col": 10,
+      "row": 6
+     },
+     {
+      "code": "121",
+      "name": "Sydney - North Sydney and Hornsby",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 41.7,
+      "os21": 176754,
+      "pop21": 424045,
+      "hx": 9.5,
+      "hy": 4.33,
+      "col": 9,
+      "row": 5
+     },
+     {
+      "code": "122",
+      "name": "Sydney - Northern Beaches",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 30.2,
+      "os21": 79681,
+      "pop21": 263554,
+      "hx": 10.5,
+      "hy": 4.33,
+      "col": 10,
+      "row": 5
+     },
+     {
+      "code": "123",
+      "name": "Sydney - Outer South West",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 26.8,
+      "os21": 79795,
+      "pop21": 297292,
+      "hx": 8,
+      "hy": 5.196,
+      "col": 8,
+      "row": 6
+     },
+     {
+      "code": "124",
+      "name": "Sydney - Outer West and Blue Mountains",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 20.8,
+      "os21": 69180,
+      "pop21": 332056,
+      "hx": 6.5,
+      "hy": 4.33,
+      "col": 6,
+      "row": 5
+     },
+     {
+      "code": "125",
+      "name": "Sydney - Parramatta",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 52.2,
+      "os21": 257673,
+      "pop21": 493515,
+      "hx": 7.5,
+      "hy": 4.33,
+      "col": 7,
+      "row": 5
+     },
+     {
+      "code": "126",
+      "name": "Sydney - Ryde",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 48,
+      "os21": 97075,
+      "pop21": 202038,
+      "hx": 8.5,
+      "hy": 4.33,
+      "col": 8,
+      "row": 5
+     },
+     {
+      "code": "127",
+      "name": "Sydney - South West",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 47.4,
+      "os21": 225072,
+      "pop21": 474430,
+      "hx": 9,
+      "hy": 5.196,
+      "col": 9,
+      "row": 6
+     },
+     {
+      "code": "128",
+      "name": "Sydney - Sutherland",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 19.3,
+      "os21": 44294,
+      "pop21": 229604,
+      "hx": 11,
+      "hy": 6.928,
+      "col": 11,
+      "row": 8
+     },
+     {
+      "code": "201",
+      "name": "Ballarat",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 11.2,
+      "os21": 19505,
+      "pop21": 173937,
+      "hx": 3.5,
+      "hy": 6.062,
+      "col": 3,
+      "row": 7
+     },
+     {
+      "code": "202",
+      "name": "Bendigo",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 10.5,
+      "os21": 17639,
+      "pop21": 167764,
+      "hx": 5,
+      "hy": 5.196,
+      "col": 5,
+      "row": 6
+     },
+     {
+      "code": "203",
+      "name": "Geelong",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 16.5,
+      "os21": 54161,
+      "pop21": 327878,
+      "hx": 3.5,
+      "hy": 7.794,
+      "col": 3,
+      "row": 9
+     },
+     {
+      "code": "204",
+      "name": "Hume",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 10.6,
+      "os21": 19530,
+      "pop21": 184935,
+      "hx": 7.5,
+      "hy": 6.062,
+      "col": 7,
+      "row": 7
+     },
+     {
+      "code": "205",
+      "name": "Latrobe - Gippsland",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 12.4,
+      "os21": 37384,
+      "pop21": 300848,
+      "hx": 8,
+      "hy": 6.928,
+      "col": 8,
+      "row": 8
+     },
+     {
+      "code": "206",
+      "name": "Melbourne - Inner",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 35.9,
+      "os21": 221412,
+      "pop21": 617018,
+      "hx": 5,
+      "hy": 6.928,
+      "col": 5,
+      "row": 8
+     },
+     {
+      "code": "207",
+      "name": "Melbourne - Inner East",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 39.6,
+      "os21": 147808,
+      "pop21": 373472,
+      "hx": 6,
+      "hy": 6.928,
+      "col": 6,
+      "row": 8
+     },
+     {
+      "code": "208",
+      "name": "Melbourne - Inner South",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 31,
+      "os21": 130831,
+      "pop21": 422639,
+      "hx": 5.5,
+      "hy": 7.794,
+      "col": 5,
+      "row": 9
+     },
+     {
+      "code": "209",
+      "name": "Melbourne - North East",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 30.6,
+      "os21": 165657,
+      "pop21": 540664,
+      "hx": 5.5,
+      "hy": 6.062,
+      "col": 5,
+      "row": 7
+     },
+     {
+      "code": "210",
+      "name": "Melbourne - North West",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 35.2,
+      "os21": 149241,
+      "pop21": 424328,
+      "hx": 4.5,
+      "hy": 6.062,
+      "col": 4,
+      "row": 7
+     },
+     {
+      "code": "211",
+      "name": "Melbourne - Outer East",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 26.9,
+      "os21": 139191,
+      "pop21": 518301,
+      "hx": 6.5,
+      "hy": 6.062,
+      "col": 6,
+      "row": 7
+     },
+     {
+      "code": "212",
+      "name": "Melbourne - South East",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 44.6,
+      "os21": 383675,
+      "pop21": 860060,
+      "hx": 7,
+      "hy": 6.928,
+      "col": 7,
+      "row": 8
+     },
+     {
+      "code": "213",
+      "name": "Melbourne - West",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 42,
+      "os21": 358172,
+      "pop21": 853054,
+      "hx": 4,
+      "hy": 6.928,
+      "col": 4,
+      "row": 8
+     },
+     {
+      "code": "214",
+      "name": "Mornington Peninsula",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 19.3,
+      "os21": 59637,
+      "pop21": 308226,
+      "hx": 4.5,
+      "hy": 7.794,
+      "col": 4,
+      "row": 9
+     },
+     {
+      "code": "215",
+      "name": "North West",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 11.3,
+      "os21": 17527,
+      "pop21": 155568,
+      "hx": 4,
+      "hy": 5.196,
+      "col": 4,
+      "row": 6
+     },
+     {
+      "code": "216",
+      "name": "Shepparton",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 13,
+      "os21": 17849,
+      "pop21": 137618,
+      "hx": 6,
+      "hy": 5.196,
+      "col": 6,
+      "row": 6
+     },
+     {
+      "code": "217",
+      "name": "Warrnambool and South West",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 8.8,
+      "os21": 11223,
+      "pop21": 128069,
+      "hx": 3,
+      "hy": 6.928,
+      "col": 3,
+      "row": 8
+     },
+     {
+      "code": "301",
+      "name": "Brisbane - East",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 23.3,
+      "os21": 55945,
+      "pop21": 239817,
+      "hx": 11.5,
+      "hy": 0.866,
+      "col": 11,
+      "row": 1
+     },
+     {
+      "code": "302",
+      "name": "Brisbane - North",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 25.5,
+      "os21": 57333,
+      "pop21": 224598,
+      "hx": 10.5,
+      "hy": 0.866,
+      "col": 10,
+      "row": 1
+     },
+     {
+      "code": "303",
+      "name": "Brisbane - South",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 37.9,
+      "os21": 140512,
+      "pop21": 371026,
+      "hx": 11,
+      "hy": 1.732,
+      "col": 11,
+      "row": 2
+     },
+     {
+      "code": "304",
+      "name": "Brisbane - West",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 30.1,
+      "os21": 57036,
+      "pop21": 189213,
+      "hx": 9,
+      "hy": 1.732,
+      "col": 9,
+      "row": 2
+     },
+     {
+      "code": "305",
+      "name": "Brisbane Inner City",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 30.2,
+      "os21": 88282,
+      "pop21": 292245,
+      "hx": 10,
+      "hy": 1.732,
+      "col": 10,
+      "row": 2
+     },
+     {
+      "code": "306",
+      "name": "Cairns",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 20,
+      "os21": 50630,
+      "pop21": 253748,
+      "hx": 8,
+      "hy": 0,
+      "col": 8,
+      "row": 0
+     },
+     {
+      "code": "307",
+      "name": "Darling Downs - Maranoa",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 8.4,
+      "os21": 10759,
+      "pop21": 128622,
+      "hx": 7,
+      "hy": 1.732,
+      "col": 7,
+      "row": 2
+     },
+     {
+      "code": "308",
+      "name": "Central Queensland",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 10.9,
+      "os21": 24992,
+      "pop21": 228246,
+      "hx": 8.5,
+      "hy": 0.866,
+      "col": 8,
+      "row": 1
+     },
+     {
+      "code": "309",
+      "name": "Gold Coast",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 28.9,
+      "os21": 185274,
+      "pop21": 640778,
+      "hx": 11.5,
+      "hy": 2.598,
+      "col": 11,
+      "row": 3
+     },
+     {
+      "code": "310",
+      "name": "Ipswich",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 24.1,
+      "os21": 88577,
+      "pop21": 367126,
+      "hx": 9.5,
+      "hy": 2.598,
+      "col": 9,
+      "row": 3
+     },
+     {
+      "code": "311",
+      "name": "Logan - Beaudesert",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 27.3,
+      "os21": 98091,
+      "pop21": 359767,
+      "hx": 10.5,
+      "hy": 2.598,
+      "col": 10,
+      "row": 3
+     },
+     {
+      "code": "312",
+      "name": "Mackay - Isaac - Whitsunday",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 12.5,
+      "os21": 22692,
+      "pop21": 180894,
+      "hx": 7.5,
+      "hy": 0.866,
+      "col": 7,
+      "row": 1
+     },
+     {
+      "code": "313",
+      "name": "Moreton Bay - North",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 19.1,
+      "os21": 50501,
+      "pop21": 264752,
+      "hx": 10,
+      "hy": 0,
+      "col": 10,
+      "row": 0
+     },
+     {
+      "code": "314",
+      "name": "Moreton Bay - South",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 23.2,
+      "os21": 50448,
+      "pop21": 217700,
+      "hx": 9.5,
+      "hy": 0.866,
+      "col": 9,
+      "row": 1
+     },
+     {
+      "code": "315",
+      "name": "Queensland - Outback",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 9.3,
+      "os21": 7386,
+      "pop21": 79827,
+      "hx": 6,
+      "hy": 1.732,
+      "col": 6,
+      "row": 2
+     },
+     {
+      "code": "316",
+      "name": "Sunshine Coast",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 21,
+      "os21": 83741,
+      "pop21": 398840,
+      "hx": 11,
+      "hy": 0,
+      "col": 11,
+      "row": 0
+     },
+     {
+      "code": "317",
+      "name": "Toowoomba",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 15.3,
+      "os21": 24854,
+      "pop21": 162059,
+      "hx": 8,
+      "hy": 1.732,
+      "col": 8,
+      "row": 2
+     },
+     {
+      "code": "318",
+      "name": "Townsville",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 12.9,
+      "os21": 30336,
+      "pop21": 234283,
+      "hx": 6.5,
+      "hy": 0.866,
+      "col": 6,
+      "row": 1
+     },
+     {
+      "code": "319",
+      "name": "Wide Bay",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 13,
+      "os21": 40013,
+      "pop21": 307745,
+      "hx": 9,
+      "hy": 0,
+      "col": 9,
+      "row": 0
+     },
+     {
+      "code": "401",
+      "name": "Adelaide - Central and Hills",
+      "state": "South Australia",
+      "gcc": "Greater Adelaide",
+      "s21": 28.7,
+      "os21": 89654,
+      "pop21": 312377,
+      "hx": 4.5,
+      "hy": 4.33,
+      "col": 4,
+      "row": 5
+     },
+     {
+      "code": "402",
+      "name": "Adelaide - North",
+      "state": "South Australia",
+      "gcc": "Greater Adelaide",
+      "s21": 29,
+      "os21": 132081,
+      "pop21": 455707,
+      "hx": 3.5,
+      "hy": 4.33,
+      "col": 3,
+      "row": 5
+     },
+     {
+      "code": "403",
+      "name": "Adelaide - South",
+      "state": "South Australia",
+      "gcc": "Greater Adelaide",
+      "s21": 23.8,
+      "os21": 89142,
+      "pop21": 374859,
+      "hx": 3,
+      "hy": 5.196,
+      "col": 3,
+      "row": 6
+     },
+     {
+      "code": "404",
+      "name": "Adelaide - West",
+      "state": "South Australia",
+      "gcc": "Greater Adelaide",
+      "s21": 29.4,
+      "os21": 71945,
+      "pop21": 244347,
+      "hx": 2,
+      "hy": 5.196,
+      "col": 2,
+      "row": 6
+     },
+     {
+      "code": "405",
+      "name": "Barossa - Yorke - Mid North",
+      "state": "South Australia",
+      "gcc": "Rest of SA",
+      "s21": 9.8,
+      "os21": 11166,
+      "pop21": 114487,
+      "hx": 2.5,
+      "hy": 4.33,
+      "col": 2,
+      "row": 5
+     },
+     {
+      "code": "406",
+      "name": "South Australia - Outback",
+      "state": "South Australia",
+      "gcc": "Rest of SA",
+      "s21": 10.8,
+      "os21": 8908,
+      "pop21": 82646,
+      "hx": 4,
+      "hy": 3.464,
+      "col": 4,
+      "row": 4
+     },
+     {
+      "code": "407",
+      "name": "South Australia - South East",
+      "state": "South Australia",
+      "gcc": "Rest of SA",
+      "s21": 12.9,
+      "os21": 25070,
+      "pop21": 193709,
+      "hx": 2.5,
+      "hy": 6.062,
+      "col": 2,
+      "row": 7
+     },
+     {
+      "code": "501",
+      "name": "Bunbury",
+      "state": "Western Australia",
+      "gcc": "Rest of WA",
+      "s21": 19.2,
+      "os21": 36146,
+      "pop21": 188747,
+      "hx": 1,
+      "hy": 5.196,
+      "col": 1,
+      "row": 6
+     },
+     {
+      "code": "502",
+      "name": "Mandurah",
+      "state": "Western Australia",
+      "gcc": "Greater Perth",
+      "s21": 25.9,
+      "os21": 27879,
+      "pop21": 107641,
+      "hx": 0,
+      "hy": 5.196,
+      "col": 0,
+      "row": 6
+     },
+     {
+      "code": "503",
+      "name": "Perth - Inner",
+      "state": "Western Australia",
+      "gcc": "Greater Perth",
+      "s21": 36.1,
+      "os21": 65814,
+      "pop21": 182267,
+      "hx": 0,
+      "hy": 3.464,
+      "col": 0,
+      "row": 4
+     },
+     {
+      "code": "504",
+      "name": "Perth - North East",
+      "state": "Western Australia",
+      "gcc": "Greater Perth",
+      "s21": 32.9,
+      "os21": 90886,
+      "pop21": 276573,
+      "hx": 1,
+      "hy": 3.464,
+      "col": 1,
+      "row": 4
+     },
+     {
+      "code": "505",
+      "name": "Perth - North West",
+      "state": "Western Australia",
+      "gcc": "Greater Perth",
+      "s21": 38.6,
+      "os21": 222764,
+      "pop21": 577297,
+      "hx": 0.5,
+      "hy": 2.598,
+      "col": 0,
+      "row": 3
+     },
+     {
+      "code": "506",
+      "name": "Perth - South East",
+      "state": "Western Australia",
+      "gcc": "Greater Perth",
+      "s21": 39.5,
+      "os21": 208956,
+      "pop21": 529466,
+      "hx": 1.5,
+      "hy": 4.33,
+      "col": 1,
+      "row": 5
+     },
+     {
+      "code": "507",
+      "name": "Perth - South West",
+      "state": "Western Australia",
+      "gcc": "Greater Perth",
+      "s21": 32.6,
+      "os21": 144752,
+      "pop21": 443407,
+      "hx": 0.5,
+      "hy": 4.33,
+      "col": 0,
+      "row": 5
+     },
+     {
+      "code": "509",
+      "name": "Western Australia - Wheat Belt",
+      "state": "Western Australia",
+      "gcc": "Rest of WA",
+      "s21": 17.5,
+      "os21": 24031,
+      "pop21": 137175,
+      "hx": 2,
+      "hy": 3.464,
+      "col": 2,
+      "row": 4
+     },
+     {
+      "code": "510",
+      "name": "Western Australia - Outback (North)",
+      "state": "Western Australia",
+      "gcc": "Rest of WA",
+      "s21": 16.6,
+      "os21": 14955,
+      "pop21": 90128,
+      "hx": 1,
+      "hy": 1.732,
+      "col": 1,
+      "row": 2
+     },
+     {
+      "code": "511",
+      "name": "Western Australia - Outback (South)",
+      "state": "Western Australia",
+      "gcc": "Rest of WA",
+      "s21": 16.7,
+      "os21": 19880,
+      "pop21": 118758,
+      "hx": 1.5,
+      "hy": 2.598,
+      "col": 1,
+      "row": 3
+     },
+     {
+      "code": "601",
+      "name": "Hobart",
+      "state": "Tasmania",
+      "gcc": "Greater Hobart",
+      "s21": 18.9,
+      "os21": 46696,
+      "pop21": 247086,
+      "hx": 8,
+      "hy": 8.66,
+      "col": 8,
+      "row": 10
+     },
+     {
+      "code": "602",
+      "name": "Launceston and North East",
+      "state": "Tasmania",
+      "gcc": "Rest of Tas.",
+      "s21": 14.1,
+      "os21": 21280,
+      "pop21": 151195,
+      "hx": 9,
+      "hy": 8.66,
+      "col": 9,
+      "row": 10
+     },
+     {
+      "code": "603",
+      "name": "South East",
+      "state": "Tasmania",
+      "gcc": "Rest of Tas.",
+      "s21": 13,
+      "os21": 5418,
+      "pop21": 41734,
+      "hx": 7,
+      "hy": 8.66,
+      "col": 7,
+      "row": 10
+     },
+     {
+      "code": "604",
+      "name": "West and North West",
+      "state": "Tasmania",
+      "gcc": "Rest of Tas.",
+      "s21": 10.4,
+      "os21": 12111,
+      "pop21": 116156,
+      "hx": 6,
+      "hy": 8.66,
+      "col": 6,
+      "row": 10
+     },
+     {
+      "code": "701",
+      "name": "Darwin",
+      "state": "Northern Territory",
+      "gcc": "Greater Darwin",
+      "s21": 27.8,
+      "os21": 38891,
+      "pop21": 139902,
+      "hx": 3,
+      "hy": 0,
+      "col": 3,
+      "row": 0
+     },
+     {
+      "code": "702",
+      "name": "Northern Territory - Outback",
+      "state": "Northern Territory",
+      "gcc": "Rest of NT",
+      "s21": 12.7,
+      "os21": 11338,
+      "pop21": 89103,
+      "hx": 2.5,
+      "hy": 0.866,
+      "col": 2,
+      "row": 1
+     },
+     {
+      "code": "801",
+      "name": "Australian Capital Territory",
+      "state": "Australian Capital Territory",
+      "gcc": "Australian Capital Territory",
+      "s21": 28.8,
+      "os21": 130535,
+      "pop21": 453890,
+      "hx": 9,
+      "hy": 6.928,
+      "col": 9,
+      "row": 8
+     }
+    ]
+   },
+   "transform": [
+    {
+     "calculate": "datum.s21",
+     "as": "pct"
+    },
+    {
+     "calculate": "datum.pct < 10 ? 'Under 10%' : datum.pct < 15 ? '10–15%' : datum.pct < 20 ? '15–20%' : datum.pct < 25 ? '20–25%' : datum.pct < 30 ? '25–30%' : datum.pct < 40 ? '30–40%' : '40% and over'",
+     "as": "cl"
+    },
+    {
+     "calculate": "datum.state",
+     "as": "hstate"
+    }
+   ],
+   "mark": {
+    "type": "point",
+    "shape": "M0,-1L0.866,-0.5L0.866,0.5L0,1L-0.866,0.5L-0.866,-0.5Z",
+    "filled": true,
+    "size": 6158.427331821617,
+    "stroke": "#ffffff",
+    "strokeWidth": 1.5,
+    "cursor": "pointer"
+   },
+   "encoding": {
+    "x": {
+     "field": "hx",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       -0.65,
+       11.95
+      ],
+      "nice": false,
+      "zero": false
+     },
+     "axis": null
+    },
+    "y": {
+     "field": "hy",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       -0.65,
+       9.31
+      ],
+      "nice": false,
+      "zero": false,
+      "reverse": true
+     },
+     "axis": null
+    },
+    "color": {
+     "field": "cl",
+     "type": "ordinal",
+     "scale": {
+      "domain": [
+       "Under 10%",
+       "10–15%",
+       "15–20%",
+       "20–25%",
+       "25–30%",
+       "30–40%",
+       "40% and over"
+      ],
+      "range": [
+       "#ffffcc",
+       "#c7e9b4",
+       "#7fcdbb",
+       "#41b6c4",
+       "#1d91c0",
+       "#225ea8",
+       "#0c2c84"
+      ]
+     },
+     "legend": {
+      "title": "Born overseas (%)",
+      "orient": "bottom",
+      "direction": "horizontal",
+      "symbolType": "square",
+      "symbolSize": 160,
+      "symbolStrokeWidth": 0,
+      "columns": 7,
+      "labelLimit": 120,
+      "columnPadding": 12,
+      "values": [
+       "Under 10%",
+       "10–15%",
+       "15–20%",
+       "20–25%",
+       "25–30%",
+       "30–40%",
+       "40% and over"
+      ]
+     }
+    },
+    "opacity": {
+     "condition": {
+      "test": "hl == '' || datum.state == hl",
+      "value": 1
+     },
+     "value": 0.2
+    },
+    "tooltip": [
+     {
+      "field": "name",
+      "title": "Region (SA4)"
+     },
+     {
+      "field": "state",
+      "title": "State"
+     },
+     {
+      "field": "s21",
+      "title": "Born overseas, 2021 (%)",
+      "format": ".1f"
+     },
+     {
+      "field": "os21",
+      "title": "Residents born overseas",
+      "format": ","
+     },
+     {
+      "field": "pop21",
+      "title": "All residents",
+      "format": ","
+     }
+    ]
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "code": "101",
+      "name": "Capital Region",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 13.4,
+      "os21": 32050,
+      "pop21": 238810,
+      "hx": 10,
+      "hy": 6.928,
+      "col": 10,
+      "row": 8
+     },
+     {
+      "code": "102",
+      "name": "Central Coast",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 16.1,
+      "os21": 55682,
+      "pop21": 346596,
+      "hx": 9,
+      "hy": 3.464,
+      "col": 9,
+      "row": 4
+     },
+     {
+      "code": "103",
+      "name": "Central West",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 8.4,
+      "os21": 17989,
+      "pop21": 212962,
+      "hx": 6,
+      "hy": 3.464,
+      "col": 6,
+      "row": 4
+     },
+     {
+      "code": "104",
+      "name": "Coffs Harbour - Grafton",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 12.6,
+      "os21": 18389,
+      "pop21": 146127,
+      "hx": 8.5,
+      "hy": 2.598,
+      "col": 8,
+      "row": 3
+     },
+     {
+      "code": "105",
+      "name": "Far West and Orana",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 7.3,
+      "os21": 8481,
+      "pop21": 115566,
+      "hx": 5,
+      "hy": 3.464,
+      "col": 5,
+      "row": 4
+     },
+     {
+      "code": "106",
+      "name": "Hunter Valley exc Newcastle",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 9.4,
+      "os21": 27349,
+      "pop21": 291946,
+      "hx": 7.5,
+      "hy": 2.598,
+      "col": 7,
+      "row": 3
+     },
+     {
+      "code": "107",
+      "name": "Illawarra",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 19.3,
+      "os21": 60704,
+      "pop21": 313842,
+      "hx": 9.5,
+      "hy": 6.062,
+      "col": 9,
+      "row": 7
+     },
+     {
+      "code": "108",
+      "name": "Mid North Coast",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 10.5,
+      "os21": 24029,
+      "pop21": 229035,
+      "hx": 10,
+      "hy": 3.464,
+      "col": 10,
+      "row": 4
+     },
+     {
+      "code": "109",
+      "name": "Murray",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 9.4,
+      "os21": 11656,
+      "pop21": 123552,
+      "hx": 5.5,
+      "hy": 4.33,
+      "col": 5,
+      "row": 5
+     },
+     {
+      "code": "110",
+      "name": "New England and North West",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 8.2,
+      "os21": 15268,
+      "pop21": 185560,
+      "hx": 6.5,
+      "hy": 2.598,
+      "col": 6,
+      "row": 3
+     },
+     {
+      "code": "111",
+      "name": "Newcastle and Lake Macquarie",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 12.5,
+      "os21": 48930,
+      "pop21": 390519,
+      "hx": 11.5,
+      "hy": 4.33,
+      "col": 11,
+      "row": 5
+     },
+     {
+      "code": "112",
+      "name": "Richmond - Tweed",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 13.9,
+      "os21": 35793,
+      "pop21": 257061,
+      "hx": 11,
+      "hy": 3.464,
+      "col": 11,
+      "row": 4
+     },
+     {
+      "code": "113",
+      "name": "Riverina",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 11.7,
+      "os21": 19228,
+      "pop21": 163656,
+      "hx": 7,
+      "hy": 5.196,
+      "col": 7,
+      "row": 6
+     },
+     {
+      "code": "114",
+      "name": "Southern Highlands and Shoalhaven",
+      "state": "New South Wales",
+      "gcc": "Rest of NSW",
+      "s21": 15,
+      "os21": 24099,
+      "pop21": 161006,
+      "hx": 8.5,
+      "hy": 6.062,
+      "col": 8,
+      "row": 7
+     },
+     {
+      "code": "115",
+      "name": "Sydney - Baulkham Hills and Hawkesbury",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 36.7,
+      "os21": 97138,
+      "pop21": 264371,
+      "hx": 7,
+      "hy": 3.464,
+      "col": 7,
+      "row": 4
+     },
+     {
+      "code": "116",
+      "name": "Sydney - Blacktown",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 44.6,
+      "os21": 178836,
+      "pop21": 400997,
+      "hx": 8,
+      "hy": 3.464,
+      "col": 8,
+      "row": 4
+     },
+     {
+      "code": "117",
+      "name": "Sydney - City and Inner South",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 45.5,
+      "os21": 150908,
+      "pop21": 331340,
+      "hx": 11.5,
+      "hy": 6.062,
+      "col": 11,
+      "row": 7
+     },
+     {
+      "code": "118",
+      "name": "Sydney - Eastern Suburbs",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 38.9,
+      "os21": 101760,
+      "pop21": 261410,
+      "hx": 11,
+      "hy": 5.196,
+      "col": 11,
+      "row": 6
+     },
+     {
+      "code": "119",
+      "name": "Sydney - Inner South West",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 45.6,
+      "os21": 276008,
+      "pop21": 605118,
+      "hx": 10.5,
+      "hy": 6.062,
+      "col": 10,
+      "row": 7
+     },
+     {
+      "code": "120",
+      "name": "Sydney - Inner West",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 43.1,
+      "os21": 131221,
+      "pop21": 304771,
+      "hx": 10,
+      "hy": 5.196,
+      "col": 10,
+      "row": 6
+     },
+     {
+      "code": "121",
+      "name": "Sydney - North Sydney and Hornsby",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 41.7,
+      "os21": 176754,
+      "pop21": 424045,
+      "hx": 9.5,
+      "hy": 4.33,
+      "col": 9,
+      "row": 5
+     },
+     {
+      "code": "122",
+      "name": "Sydney - Northern Beaches",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 30.2,
+      "os21": 79681,
+      "pop21": 263554,
+      "hx": 10.5,
+      "hy": 4.33,
+      "col": 10,
+      "row": 5
+     },
+     {
+      "code": "123",
+      "name": "Sydney - Outer South West",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 26.8,
+      "os21": 79795,
+      "pop21": 297292,
+      "hx": 8,
+      "hy": 5.196,
+      "col": 8,
+      "row": 6
+     },
+     {
+      "code": "124",
+      "name": "Sydney - Outer West and Blue Mountains",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 20.8,
+      "os21": 69180,
+      "pop21": 332056,
+      "hx": 6.5,
+      "hy": 4.33,
+      "col": 6,
+      "row": 5
+     },
+     {
+      "code": "125",
+      "name": "Sydney - Parramatta",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 52.2,
+      "os21": 257673,
+      "pop21": 493515,
+      "hx": 7.5,
+      "hy": 4.33,
+      "col": 7,
+      "row": 5
+     },
+     {
+      "code": "126",
+      "name": "Sydney - Ryde",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 48,
+      "os21": 97075,
+      "pop21": 202038,
+      "hx": 8.5,
+      "hy": 4.33,
+      "col": 8,
+      "row": 5
+     },
+     {
+      "code": "127",
+      "name": "Sydney - South West",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 47.4,
+      "os21": 225072,
+      "pop21": 474430,
+      "hx": 9,
+      "hy": 5.196,
+      "col": 9,
+      "row": 6
+     },
+     {
+      "code": "128",
+      "name": "Sydney - Sutherland",
+      "state": "New South Wales",
+      "gcc": "Greater Sydney",
+      "s21": 19.3,
+      "os21": 44294,
+      "pop21": 229604,
+      "hx": 11,
+      "hy": 6.928,
+      "col": 11,
+      "row": 8
+     },
+     {
+      "code": "201",
+      "name": "Ballarat",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 11.2,
+      "os21": 19505,
+      "pop21": 173937,
+      "hx": 3.5,
+      "hy": 6.062,
+      "col": 3,
+      "row": 7
+     },
+     {
+      "code": "202",
+      "name": "Bendigo",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 10.5,
+      "os21": 17639,
+      "pop21": 167764,
+      "hx": 5,
+      "hy": 5.196,
+      "col": 5,
+      "row": 6
+     },
+     {
+      "code": "203",
+      "name": "Geelong",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 16.5,
+      "os21": 54161,
+      "pop21": 327878,
+      "hx": 3.5,
+      "hy": 7.794,
+      "col": 3,
+      "row": 9
+     },
+     {
+      "code": "204",
+      "name": "Hume",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 10.6,
+      "os21": 19530,
+      "pop21": 184935,
+      "hx": 7.5,
+      "hy": 6.062,
+      "col": 7,
+      "row": 7
+     },
+     {
+      "code": "205",
+      "name": "Latrobe - Gippsland",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 12.4,
+      "os21": 37384,
+      "pop21": 300848,
+      "hx": 8,
+      "hy": 6.928,
+      "col": 8,
+      "row": 8
+     },
+     {
+      "code": "206",
+      "name": "Melbourne - Inner",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 35.9,
+      "os21": 221412,
+      "pop21": 617018,
+      "hx": 5,
+      "hy": 6.928,
+      "col": 5,
+      "row": 8
+     },
+     {
+      "code": "207",
+      "name": "Melbourne - Inner East",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 39.6,
+      "os21": 147808,
+      "pop21": 373472,
+      "hx": 6,
+      "hy": 6.928,
+      "col": 6,
+      "row": 8
+     },
+     {
+      "code": "208",
+      "name": "Melbourne - Inner South",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 31,
+      "os21": 130831,
+      "pop21": 422639,
+      "hx": 5.5,
+      "hy": 7.794,
+      "col": 5,
+      "row": 9
+     },
+     {
+      "code": "209",
+      "name": "Melbourne - North East",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 30.6,
+      "os21": 165657,
+      "pop21": 540664,
+      "hx": 5.5,
+      "hy": 6.062,
+      "col": 5,
+      "row": 7
+     },
+     {
+      "code": "210",
+      "name": "Melbourne - North West",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 35.2,
+      "os21": 149241,
+      "pop21": 424328,
+      "hx": 4.5,
+      "hy": 6.062,
+      "col": 4,
+      "row": 7
+     },
+     {
+      "code": "211",
+      "name": "Melbourne - Outer East",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 26.9,
+      "os21": 139191,
+      "pop21": 518301,
+      "hx": 6.5,
+      "hy": 6.062,
+      "col": 6,
+      "row": 7
+     },
+     {
+      "code": "212",
+      "name": "Melbourne - South East",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 44.6,
+      "os21": 383675,
+      "pop21": 860060,
+      "hx": 7,
+      "hy": 6.928,
+      "col": 7,
+      "row": 8
+     },
+     {
+      "code": "213",
+      "name": "Melbourne - West",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 42,
+      "os21": 358172,
+      "pop21": 853054,
+      "hx": 4,
+      "hy": 6.928,
+      "col": 4,
+      "row": 8
+     },
+     {
+      "code": "214",
+      "name": "Mornington Peninsula",
+      "state": "Victoria",
+      "gcc": "Greater Melbourne",
+      "s21": 19.3,
+      "os21": 59637,
+      "pop21": 308226,
+      "hx": 4.5,
+      "hy": 7.794,
+      "col": 4,
+      "row": 9
+     },
+     {
+      "code": "215",
+      "name": "North West",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 11.3,
+      "os21": 17527,
+      "pop21": 155568,
+      "hx": 4,
+      "hy": 5.196,
+      "col": 4,
+      "row": 6
+     },
+     {
+      "code": "216",
+      "name": "Shepparton",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 13,
+      "os21": 17849,
+      "pop21": 137618,
+      "hx": 6,
+      "hy": 5.196,
+      "col": 6,
+      "row": 6
+     },
+     {
+      "code": "217",
+      "name": "Warrnambool and South West",
+      "state": "Victoria",
+      "gcc": "Rest of Vic.",
+      "s21": 8.8,
+      "os21": 11223,
+      "pop21": 128069,
+      "hx": 3,
+      "hy": 6.928,
+      "col": 3,
+      "row": 8
+     },
+     {
+      "code": "301",
+      "name": "Brisbane - East",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 23.3,
+      "os21": 55945,
+      "pop21": 239817,
+      "hx": 11.5,
+      "hy": 0.866,
+      "col": 11,
+      "row": 1
+     },
+     {
+      "code": "302",
+      "name": "Brisbane - North",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 25.5,
+      "os21": 57333,
+      "pop21": 224598,
+      "hx": 10.5,
+      "hy": 0.866,
+      "col": 10,
+      "row": 1
+     },
+     {
+      "code": "303",
+      "name": "Brisbane - South",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 37.9,
+      "os21": 140512,
+      "pop21": 371026,
+      "hx": 11,
+      "hy": 1.732,
+      "col": 11,
+      "row": 2
+     },
+     {
+      "code": "304",
+      "name": "Brisbane - West",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 30.1,
+      "os21": 57036,
+      "pop21": 189213,
+      "hx": 9,
+      "hy": 1.732,
+      "col": 9,
+      "row": 2
+     },
+     {
+      "code": "305",
+      "name": "Brisbane Inner City",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 30.2,
+      "os21": 88282,
+      "pop21": 292245,
+      "hx": 10,
+      "hy": 1.732,
+      "col": 10,
+      "row": 2
+     },
+     {
+      "code": "306",
+      "name": "Cairns",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 20,
+      "os21": 50630,
+      "pop21": 253748,
+      "hx": 8,
+      "hy": 0,
+      "col": 8,
+      "row": 0
+     },
+     {
+      "code": "307",
+      "name": "Darling Downs - Maranoa",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 8.4,
+      "os21": 10759,
+      "pop21": 128622,
+      "hx": 7,
+      "hy": 1.732,
+      "col": 7,
+      "row": 2
+     },
+     {
+      "code": "308",
+      "name": "Central Queensland",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 10.9,
+      "os21": 24992,
+      "pop21": 228246,
+      "hx": 8.5,
+      "hy": 0.866,
+      "col": 8,
+      "row": 1
+     },
+     {
+      "code": "309",
+      "name": "Gold Coast",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 28.9,
+      "os21": 185274,
+      "pop21": 640778,
+      "hx": 11.5,
+      "hy": 2.598,
+      "col": 11,
+      "row": 3
+     },
+     {
+      "code": "310",
+      "name": "Ipswich",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 24.1,
+      "os21": 88577,
+      "pop21": 367126,
+      "hx": 9.5,
+      "hy": 2.598,
+      "col": 9,
+      "row": 3
+     },
+     {
+      "code": "311",
+      "name": "Logan - Beaudesert",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 27.3,
+      "os21": 98091,
+      "pop21": 359767,
+      "hx": 10.5,
+      "hy": 2.598,
+      "col": 10,
+      "row": 3
+     },
+     {
+      "code": "312",
+      "name": "Mackay - Isaac - Whitsunday",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 12.5,
+      "os21": 22692,
+      "pop21": 180894,
+      "hx": 7.5,
+      "hy": 0.866,
+      "col": 7,
+      "row": 1
+     },
+     {
+      "code": "313",
+      "name": "Moreton Bay - North",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 19.1,
+      "os21": 50501,
+      "pop21": 264752,
+      "hx": 10,
+      "hy": 0,
+      "col": 10,
+      "row": 0
+     },
+     {
+      "code": "314",
+      "name": "Moreton Bay - South",
+      "state": "Queensland",
+      "gcc": "Greater Brisbane",
+      "s21": 23.2,
+      "os21": 50448,
+      "pop21": 217700,
+      "hx": 9.5,
+      "hy": 0.866,
+      "col": 9,
+      "row": 1
+     },
+     {
+      "code": "315",
+      "name": "Queensland - Outback",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 9.3,
+      "os21": 7386,
+      "pop21": 79827,
+      "hx": 6,
+      "hy": 1.732,
+      "col": 6,
+      "row": 2
+     },
+     {
+      "code": "316",
+      "name": "Sunshine Coast",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 21,
+      "os21": 83741,
+      "pop21": 398840,
+      "hx": 11,
+      "hy": 0,
+      "col": 11,
+      "row": 0
+     },
+     {
+      "code": "317",
+      "name": "Toowoomba",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 15.3,
+      "os21": 24854,
+      "pop21": 162059,
+      "hx": 8,
+      "hy": 1.732,
+      "col": 8,
+      "row": 2
+     },
+     {
+      "code": "318",
+      "name": "Townsville",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 12.9,
+      "os21": 30336,
+      "pop21": 234283,
+      "hx": 6.5,
+      "hy": 0.866,
+      "col": 6,
+      "row": 1
+     },
+     {
+      "code": "319",
+      "name": "Wide Bay",
+      "state": "Queensland",
+      "gcc": "Rest of Qld",
+      "s21": 13,
+      "os21": 40013,
+      "pop21": 307745,
+      "hx": 9,
+      "hy": 0,
+      "col": 9,
+      "row": 0
+     },
+     {
+      "code": "401",
+      "name": "Adelaide - Central and Hills",
+      "state": "South Australia",
+      "gcc": "Greater Adelaide",
+      "s21": 28.7,
+      "os21": 89654,
+      "pop21": 312377,
+      "hx": 4.5,
+      "hy": 4.33,
+      "col": 4,
+      "row": 5
+     },
+     {
+      "code": "402",
+      "name": "Adelaide - North",
+      "state": "South Australia",
+      "gcc": "Greater Adelaide",
+      "s21": 29,
+      "os21": 132081,
+      "pop21": 455707,
+      "hx": 3.5,
+      "hy": 4.33,
+      "col": 3,
+      "row": 5
+     },
+     {
+      "code": "403",
+      "name": "Adelaide - South",
+      "state": "South Australia",
+      "gcc": "Greater Adelaide",
+      "s21": 23.8,
+      "os21": 89142,
+      "pop21": 374859,
+      "hx": 3,
+      "hy": 5.196,
+      "col": 3,
+      "row": 6
+     },
+     {
+      "code": "404",
+      "name": "Adelaide - West",
+      "state": "South Australia",
+      "gcc": "Greater Adelaide",
+      "s21": 29.4,
+      "os21": 71945,
+      "pop21": 244347,
+      "hx": 2,
+      "hy": 5.196,
+      "col": 2,
+      "row": 6
+     },
+     {
+      "code": "405",
+      "name": "Barossa - Yorke - Mid North",
+      "state": "South Australia",
+      "gcc": "Rest of SA",
+      "s21": 9.8,
+      "os21": 11166,
+      "pop21": 114487,
+      "hx": 2.5,
+      "hy": 4.33,
+      "col": 2,
+      "row": 5
+     },
+     {
+      "code": "406",
+      "name": "South Australia - Outback",
+      "state": "South Australia",
+      "gcc": "Rest of SA",
+      "s21": 10.8,
+      "os21": 8908,
+      "pop21": 82646,
+      "hx": 4,
+      "hy": 3.464,
+      "col": 4,
+      "row": 4
+     },
+     {
+      "code": "407",
+      "name": "South Australia - South East",
+      "state": "South Australia",
+      "gcc": "Rest of SA",
+      "s21": 12.9,
+      "os21": 25070,
+      "pop21": 193709,
+      "hx": 2.5,
+      "hy": 6.062,
+      "col": 2,
+      "row": 7
+     },
+     {
+      "code": "501",
+      "name": "Bunbury",
+      "state": "Western Australia",
+      "gcc": "Rest of WA",
+      "s21": 19.2,
+      "os21": 36146,
+      "pop21": 188747,
+      "hx": 1,
+      "hy": 5.196,
+      "col": 1,
+      "row": 6
+     },
+     {
+      "code": "502",
+      "name": "Mandurah",
+      "state": "Western Australia",
+      "gcc": "Greater Perth",
+      "s21": 25.9,
+      "os21": 27879,
+      "pop21": 107641,
+      "hx": 0,
+      "hy": 5.196,
+      "col": 0,
+      "row": 6
+     },
+     {
+      "code": "503",
+      "name": "Perth - Inner",
+      "state": "Western Australia",
+      "gcc": "Greater Perth",
+      "s21": 36.1,
+      "os21": 65814,
+      "pop21": 182267,
+      "hx": 0,
+      "hy": 3.464,
+      "col": 0,
+      "row": 4
+     },
+     {
+      "code": "504",
+      "name": "Perth - North East",
+      "state": "Western Australia",
+      "gcc": "Greater Perth",
+      "s21": 32.9,
+      "os21": 90886,
+      "pop21": 276573,
+      "hx": 1,
+      "hy": 3.464,
+      "col": 1,
+      "row": 4
+     },
+     {
+      "code": "505",
+      "name": "Perth - North West",
+      "state": "Western Australia",
+      "gcc": "Greater Perth",
+      "s21": 38.6,
+      "os21": 222764,
+      "pop21": 577297,
+      "hx": 0.5,
+      "hy": 2.598,
+      "col": 0,
+      "row": 3
+     },
+     {
+      "code": "506",
+      "name": "Perth - South East",
+      "state": "Western Australia",
+      "gcc": "Greater Perth",
+      "s21": 39.5,
+      "os21": 208956,
+      "pop21": 529466,
+      "hx": 1.5,
+      "hy": 4.33,
+      "col": 1,
+      "row": 5
+     },
+     {
+      "code": "507",
+      "name": "Perth - South West",
+      "state": "Western Australia",
+      "gcc": "Greater Perth",
+      "s21": 32.6,
+      "os21": 144752,
+      "pop21": 443407,
+      "hx": 0.5,
+      "hy": 4.33,
+      "col": 0,
+      "row": 5
+     },
+     {
+      "code": "509",
+      "name": "Western Australia - Wheat Belt",
+      "state": "Western Australia",
+      "gcc": "Rest of WA",
+      "s21": 17.5,
+      "os21": 24031,
+      "pop21": 137175,
+      "hx": 2,
+      "hy": 3.464,
+      "col": 2,
+      "row": 4
+     },
+     {
+      "code": "510",
+      "name": "Western Australia - Outback (North)",
+      "state": "Western Australia",
+      "gcc": "Rest of WA",
+      "s21": 16.6,
+      "os21": 14955,
+      "pop21": 90128,
+      "hx": 1,
+      "hy": 1.732,
+      "col": 1,
+      "row": 2
+     },
+     {
+      "code": "511",
+      "name": "Western Australia - Outback (South)",
+      "state": "Western Australia",
+      "gcc": "Rest of WA",
+      "s21": 16.7,
+      "os21": 19880,
+      "pop21": 118758,
+      "hx": 1.5,
+      "hy": 2.598,
+      "col": 1,
+      "row": 3
+     },
+     {
+      "code": "601",
+      "name": "Hobart",
+      "state": "Tasmania",
+      "gcc": "Greater Hobart",
+      "s21": 18.9,
+      "os21": 46696,
+      "pop21": 247086,
+      "hx": 8,
+      "hy": 8.66,
+      "col": 8,
+      "row": 10
+     },
+     {
+      "code": "602",
+      "name": "Launceston and North East",
+      "state": "Tasmania",
+      "gcc": "Rest of Tas.",
+      "s21": 14.1,
+      "os21": 21280,
+      "pop21": 151195,
+      "hx": 9,
+      "hy": 8.66,
+      "col": 9,
+      "row": 10
+     },
+     {
+      "code": "603",
+      "name": "South East",
+      "state": "Tasmania",
+      "gcc": "Rest of Tas.",
+      "s21": 13,
+      "os21": 5418,
+      "pop21": 41734,
+      "hx": 7,
+      "hy": 8.66,
+      "col": 7,
+      "row": 10
+     },
+     {
+      "code": "604",
+      "name": "West and North West",
+      "state": "Tasmania",
+      "gcc": "Rest of Tas.",
+      "s21": 10.4,
+      "os21": 12111,
+      "pop21": 116156,
+      "hx": 6,
+      "hy": 8.66,
+      "col": 6,
+      "row": 10
+     },
+     {
+      "code": "701",
+      "name": "Darwin",
+      "state": "Northern Territory",
+      "gcc": "Greater Darwin",
+      "s21": 27.8,
+      "os21": 38891,
+      "pop21": 139902,
+      "hx": 3,
+      "hy": 0,
+      "col": 3,
+      "row": 0
+     },
+     {
+      "code": "702",
+      "name": "Northern Territory - Outback",
+      "state": "Northern Territory",
+      "gcc": "Rest of NT",
+      "s21": 12.7,
+      "os21": 11338,
+      "pop21": 89103,
+      "hx": 2.5,
+      "hy": 0.866,
+      "col": 2,
+      "row": 1
+     },
+     {
+      "code": "801",
+      "name": "Australian Capital Territory",
+      "state": "Australian Capital Territory",
+      "gcc": "Australian Capital Territory",
+      "s21": 28.8,
+      "os21": 130535,
+      "pop21": 453890,
+      "hx": 9,
+      "hy": 6.928,
+      "col": 9,
+      "row": 8
+     }
+    ]
+   },
+   "transform": [
+    {
+     "calculate": "datum.s21 >= 30 ? 'w' : 'k'",
+     "as": "tc"
+    }
+   ],
+   "mark": {
+    "type": "text",
+    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+    "fontSize": 11,
+    "fontWeight": 500,
+    "baseline": "middle",
+    "interactive": false
+   },
+   "encoding": {
+    "x": {
+     "field": "hx",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       -0.65,
+       11.95
+      ],
+      "nice": false,
+      "zero": false
+     },
+     "axis": null
+    },
+    "y": {
+     "field": "hy",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       -0.65,
+       9.31
+      ],
+      "nice": false,
+      "zero": false,
+      "reverse": true
+     },
+     "axis": null
+    },
+    "text": {
+     "field": "s21",
+     "format": ".0f"
+    },
+    "color": {
+     "condition": {
+      "test": "datum.tc == 'w'",
+      "value": "#ffffff"
+     },
+     "value": "#222222"
+    },
+    "opacity": {
+     "condition": {
+      "test": "hl == '' || datum.state == hl",
+      "value": 1
+     },
+     "value": 0.25
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "state": "New South Wales",
+      "x": 9.5,
+      "y": 7.216675134594813,
+      "x2": 9.5,
+      "y2": 6.639324865405187
+     },
+     {
+      "state": "New South Wales",
+      "x": 10.5,
+      "y": 7.216675134594813,
+      "x2": 10,
+      "y2": 7.505350269189626
+     },
+     {
+      "state": "New South Wales",
+      "x": 10,
+      "y": 7.505350269189626,
+      "x2": 9.5,
+      "y2": 7.216675134594813
+     },
+     {
+      "state": "New South Wales",
+      "x": 9,
+      "y": 2.8866497308103742,
+      "x2": 9.5,
+      "y2": 3.175324865405187
+     },
+     {
+      "state": "New South Wales",
+      "x": 5.5,
+      "y": 3.175324865405187,
+      "x2": 6,
+      "y2": 2.8866497308103742
+     },
+     {
+      "state": "New South Wales",
+      "x": 9,
+      "y": 2.3093248654051868,
+      "x2": 9,
+      "y2": 2.886675134594813
+     },
+     {
+      "state": "New South Wales",
+      "x": 8.5,
+      "y": 2.020649730810374,
+      "x2": 9,
+      "y2": 2.3093248654051868
+     },
+     {
+      "state": "New South Wales",
+      "x": 8,
+      "y": 2.3093248654051868,
+      "x2": 8.5,
+      "y2": 2.020649730810374
+     },
+     {
+      "state": "New South Wales",
+      "x": 4.5,
+      "y": 3.752675134594813,
+      "x2": 4.5,
+      "y2": 3.175324865405187
+     },
+     {
+      "state": "New South Wales",
+      "x": 5,
+      "y": 2.8866497308103742,
+      "x2": 5.5,
+      "y2": 3.175324865405187
+     },
+     {
+      "state": "New South Wales",
+      "x": 4.5,
+      "y": 3.175324865405187,
+      "x2": 5,
+      "y2": 2.8866497308103742
+     },
+     {
+      "state": "New South Wales",
+      "x": 5,
+      "y": 4.041350269189626,
+      "x2": 4.5,
+      "y2": 3.752675134594813
+     },
+     {
+      "state": "New South Wales",
+      "x": 7.5,
+      "y": 2.020649730810374,
+      "x2": 8,
+      "y2": 2.3093248654051868
+     },
+     {
+      "state": "New South Wales",
+      "x": 7,
+      "y": 2.3093248654051868,
+      "x2": 7.5,
+      "y2": 2.020649730810374
+     },
+     {
+      "state": "New South Wales",
+      "x": 9.5,
+      "y": 6.6393502691896265,
+      "x2": 9,
+      "y2": 6.350675134594813
+     },
+     {
+      "state": "New South Wales",
+      "x": 10,
+      "y": 2.8866497308103742,
+      "x2": 10.5,
+      "y2": 3.175324865405187
+     },
+     {
+      "state": "New South Wales",
+      "x": 9.5,
+      "y": 3.175324865405187,
+      "x2": 10,
+      "y2": 2.8866497308103742
+     },
+     {
+      "state": "New South Wales",
+      "x": 5,
+      "y": 4.618675134594813,
+      "x2": 5,
+      "y2": 4.041324865405187
+     },
+     {
+      "state": "New South Wales",
+      "x": 6,
+      "y": 4.618675134594813,
+      "x2": 5.5,
+      "y2": 4.907350269189626
+     },
+     {
+      "state": "New South Wales",
+      "x": 5.5,
+      "y": 4.907350269189626,
+      "x2": 5,
+      "y2": 4.618675134594813
+     },
+     {
+      "state": "New South Wales",
+      "x": 6,
+      "y": 2.886675134594813,
+      "x2": 6,
+      "y2": 2.3093248654051868
+     },
+     {
+      "state": "New South Wales",
+      "x": 6.5,
+      "y": 2.020649730810374,
+      "x2": 7,
+      "y2": 2.3093248654051868
+     },
+     {
+      "state": "New South Wales",
+      "x": 6,
+      "y": 2.3093248654051868,
+      "x2": 6.5,
+      "y2": 2.020649730810374
+     },
+     {
+      "state": "New South Wales",
+      "x": 12,
+      "y": 4.041324865405187,
+      "x2": 12,
+      "y2": 4.618675134594813
+     },
+     {
+      "state": "New South Wales",
+      "x": 11.5,
+      "y": 3.7526497308103743,
+      "x2": 12,
+      "y2": 4.041324865405187
+     },
+     {
+      "state": "New South Wales",
+      "x": 12,
+      "y": 4.618675134594813,
+      "x2": 11.5,
+      "y2": 4.907350269189626
+     },
+     {
+      "state": "New South Wales",
+      "x": 11.5,
+      "y": 3.175324865405187,
+      "x2": 11.5,
+      "y2": 3.752675134594813
+     },
+     {
+      "state": "New South Wales",
+      "x": 11,
+      "y": 2.8866497308103742,
+      "x2": 11.5,
+      "y2": 3.175324865405187
+     },
+     {
+      "state": "New South Wales",
+      "x": 10.5,
+      "y": 3.175324865405187,
+      "x2": 11,
+      "y2": 2.8866497308103742
+     },
+     {
+      "state": "New South Wales",
+      "x": 6.5,
+      "y": 5.484675134594813,
+      "x2": 6.5,
+      "y2": 4.907324865405187
+     },
+     {
+      "state": "New South Wales",
+      "x": 7.5,
+      "y": 5.484675134594813,
+      "x2": 7,
+      "y2": 5.773350269189626
+     },
+     {
+      "state": "New South Wales",
+      "x": 7,
+      "y": 5.773350269189626,
+      "x2": 6.5,
+      "y2": 5.484675134594813
+     },
+     {
+      "state": "New South Wales",
+      "x": 8,
+      "y": 6.350675134594813,
+      "x2": 8,
+      "y2": 5.773324865405187
+     },
+     {
+      "state": "New South Wales",
+      "x": 9,
+      "y": 6.350675134594813,
+      "x2": 8.5,
+      "y2": 6.6393502691896265
+     },
+     {
+      "state": "New South Wales",
+      "x": 8.5,
+      "y": 6.6393502691896265,
+      "x2": 8,
+      "y2": 6.350675134594813
+     },
+     {
+      "state": "New South Wales",
+      "x": 12,
+      "y": 5.773324865405187,
+      "x2": 12,
+      "y2": 6.350675134594813
+     },
+     {
+      "state": "New South Wales",
+      "x": 11.5,
+      "y": 5.484649730810374,
+      "x2": 12,
+      "y2": 5.773324865405187
+     },
+     {
+      "state": "New South Wales",
+      "x": 12,
+      "y": 6.350675134594813,
+      "x2": 11.5,
+      "y2": 6.6393502691896265
+     },
+     {
+      "state": "New South Wales",
+      "x": 11.5,
+      "y": 4.907324865405187,
+      "x2": 11.5,
+      "y2": 5.484675134594813
+     },
+     {
+      "state": "New South Wales",
+      "x": 8,
+      "y": 5.773350269189626,
+      "x2": 7.5,
+      "y2": 5.484675134594813
+     },
+     {
+      "state": "New South Wales",
+      "x": 6.5,
+      "y": 4.907350269189626,
+      "x2": 6,
+      "y2": 4.618675134594813
+     },
+     {
+      "state": "New South Wales",
+      "x": 11.5,
+      "y": 6.639324865405187,
+      "x2": 11.5,
+      "y2": 7.216675134594813
+     },
+     {
+      "state": "New South Wales",
+      "x": 11.5,
+      "y": 7.216675134594813,
+      "x2": 11,
+      "y2": 7.505350269189626
+     },
+     {
+      "state": "New South Wales",
+      "x": 11,
+      "y": 7.505350269189626,
+      "x2": 10.5,
+      "y2": 7.216675134594813
+     },
+     {
+      "state": "Victoria",
+      "x": 3,
+      "y": 6.350675134594813,
+      "x2": 3,
+      "y2": 5.773324865405187
+     },
+     {
+      "state": "Victoria",
+      "x": 3,
+      "y": 5.773324865405187,
+      "x2": 3.5,
+      "y2": 5.484649730810374
+     },
+     {
+      "state": "Victoria",
+      "x": 5,
+      "y": 4.6186497308103736,
+      "x2": 5.5,
+      "y2": 4.907324865405187
+     },
+     {
+      "state": "Victoria",
+      "x": 4.5,
+      "y": 4.907324865405187,
+      "x2": 5,
+      "y2": 4.6186497308103736
+     },
+     {
+      "state": "Victoria",
+      "x": 3,
+      "y": 8.082675134594812,
+      "x2": 3,
+      "y2": 7.5053248654051865
+     },
+     {
+      "state": "Victoria",
+      "x": 4,
+      "y": 8.082675134594812,
+      "x2": 3.5,
+      "y2": 8.371350269189625
+     },
+     {
+      "state": "Victoria",
+      "x": 3.5,
+      "y": 8.371350269189625,
+      "x2": 3,
+      "y2": 8.082675134594812
+     },
+     {
+      "state": "Victoria",
+      "x": 8,
+      "y": 5.773324865405187,
+      "x2": 8,
+      "y2": 6.350675134594813
+     },
+     {
+      "state": "Victoria",
+      "x": 7.5,
+      "y": 5.484649730810374,
+      "x2": 8,
+      "y2": 5.773324865405187
+     },
+     {
+      "state": "Victoria",
+      "x": 7,
+      "y": 5.773324865405187,
+      "x2": 7.5,
+      "y2": 5.484649730810374
+     },
+     {
+      "state": "Victoria",
+      "x": 8.5,
+      "y": 6.639324865405187,
+      "x2": 8.5,
+      "y2": 7.216675134594813
+     },
+     {
+      "state": "Victoria",
+      "x": 8,
+      "y": 6.350649730810374,
+      "x2": 8.5,
+      "y2": 6.639324865405187
+     },
+     {
+      "state": "Victoria",
+      "x": 8.5,
+      "y": 7.216675134594813,
+      "x2": 8,
+      "y2": 7.505350269189626
+     },
+     {
+      "state": "Victoria",
+      "x": 8,
+      "y": 7.505350269189626,
+      "x2": 7.5,
+      "y2": 7.216675134594813
+     },
+     {
+      "state": "Victoria",
+      "x": 6.5,
+      "y": 7.216675134594813,
+      "x2": 6,
+      "y2": 7.505350269189626
+     },
+     {
+      "state": "Victoria",
+      "x": 6,
+      "y": 7.5053248654051865,
+      "x2": 6,
+      "y2": 8.082675134594812
+     },
+     {
+      "state": "Victoria",
+      "x": 6,
+      "y": 8.082675134594812,
+      "x2": 5.5,
+      "y2": 8.371350269189625
+     },
+     {
+      "state": "Victoria",
+      "x": 5.5,
+      "y": 8.371350269189625,
+      "x2": 5,
+      "y2": 8.082675134594812
+     },
+     {
+      "state": "Victoria",
+      "x": 6.5,
+      "y": 5.484649730810374,
+      "x2": 7,
+      "y2": 5.773324865405187
+     },
+     {
+      "state": "Victoria",
+      "x": 7.5,
+      "y": 7.216675134594813,
+      "x2": 7,
+      "y2": 7.505350269189626
+     },
+     {
+      "state": "Victoria",
+      "x": 7,
+      "y": 7.505350269189626,
+      "x2": 6.5,
+      "y2": 7.216675134594813
+     },
+     {
+      "state": "Victoria",
+      "x": 5,
+      "y": 8.082675134594812,
+      "x2": 4.5,
+      "y2": 8.371350269189625
+     },
+     {
+      "state": "Victoria",
+      "x": 4.5,
+      "y": 8.371350269189625,
+      "x2": 4,
+      "y2": 8.082675134594812
+     },
+     {
+      "state": "Victoria",
+      "x": 3.5,
+      "y": 5.484675134594813,
+      "x2": 3.5,
+      "y2": 4.907324865405187
+     },
+     {
+      "state": "Victoria",
+      "x": 4,
+      "y": 4.6186497308103736,
+      "x2": 4.5,
+      "y2": 4.907324865405187
+     },
+     {
+      "state": "Victoria",
+      "x": 3.5,
+      "y": 4.907324865405187,
+      "x2": 4,
+      "y2": 4.6186497308103736
+     },
+     {
+      "state": "Victoria",
+      "x": 6.5,
+      "y": 4.907324865405187,
+      "x2": 6.5,
+      "y2": 5.484675134594813
+     },
+     {
+      "state": "Victoria",
+      "x": 6,
+      "y": 4.6186497308103736,
+      "x2": 6.5,
+      "y2": 4.907324865405187
+     },
+     {
+      "state": "Victoria",
+      "x": 5.5,
+      "y": 4.907324865405187,
+      "x2": 6,
+      "y2": 4.6186497308103736
+     },
+     {
+      "state": "Victoria",
+      "x": 2.5,
+      "y": 7.216675134594813,
+      "x2": 2.5,
+      "y2": 6.639324865405187
+     },
+     {
+      "state": "Victoria",
+      "x": 2.5,
+      "y": 6.639324865405187,
+      "x2": 3,
+      "y2": 6.350649730810374
+     },
+     {
+      "state": "Victoria",
+      "x": 3,
+      "y": 7.505350269189626,
+      "x2": 2.5,
+      "y2": 7.216675134594813
+     },
+     {
+      "state": "Queensland",
+      "x": 12,
+      "y": 0.577324865405187,
+      "x2": 12,
+      "y2": 1.154675134594813
+     },
+     {
+      "state": "Queensland",
+      "x": 11.5,
+      "y": 0.28864973081037415,
+      "x2": 12,
+      "y2": 0.577324865405187
+     },
+     {
+      "state": "Queensland",
+      "x": 12,
+      "y": 1.154675134594813,
+      "x2": 11.5,
+      "y2": 1.4433502691896258
+     },
+     {
+      "state": "Queensland",
+      "x": 11.5,
+      "y": 1.4433248654051871,
+      "x2": 11.5,
+      "y2": 2.020675134594813
+     },
+     {
+      "state": "Queensland",
+      "x": 9,
+      "y": 2.309350269189626,
+      "x2": 8.5,
+      "y2": 2.020675134594813
+     },
+     {
+      "state": "Queensland",
+      "x": 7.5,
+      "y": 0.2886751345948129,
+      "x2": 7.5,
+      "y2": -0.2886751345948129
+     },
+     {
+      "state": "Queensland",
+      "x": 8,
+      "y": -0.5773502691896258,
+      "x2": 8.5,
+      "y2": -0.2886751345948129
+     },
+     {
+      "state": "Queensland",
+      "x": 7.5,
+      "y": -0.2886751345948129,
+      "x2": 8,
+      "y2": -0.5773502691896258
+     },
+     {
+      "state": "Queensland",
+      "x": 7.5,
+      "y": 2.020675134594813,
+      "x2": 7,
+      "y2": 2.309350269189626
+     },
+     {
+      "state": "Queensland",
+      "x": 7,
+      "y": 2.309350269189626,
+      "x2": 6.5,
+      "y2": 2.020675134594813
+     },
+     {
+      "state": "Queensland",
+      "x": 12,
+      "y": 2.3093248654051868,
+      "x2": 12,
+      "y2": 2.886675134594813
+     },
+     {
+      "state": "Queensland",
+      "x": 11.5,
+      "y": 2.020649730810374,
+      "x2": 12,
+      "y2": 2.3093248654051868
+     },
+     {
+      "state": "Queensland",
+      "x": 12,
+      "y": 2.886675134594813,
+      "x2": 11.5,
+      "y2": 3.1753502691896256
+     },
+     {
+      "state": "Queensland",
+      "x": 11.5,
+      "y": 3.1753502691896256,
+      "x2": 11,
+      "y2": 2.886675134594813
+     },
+     {
+      "state": "Queensland",
+      "x": 9,
+      "y": 2.886675134594813,
+      "x2": 9,
+      "y2": 2.3093248654051868
+     },
+     {
+      "state": "Queensland",
+      "x": 10,
+      "y": 2.886675134594813,
+      "x2": 9.5,
+      "y2": 3.1753502691896256
+     },
+     {
+      "state": "Queensland",
+      "x": 9.5,
+      "y": 3.1753502691896256,
+      "x2": 9,
+      "y2": 2.886675134594813
+     },
+     {
+      "state": "Queensland",
+      "x": 11,
+      "y": 2.886675134594813,
+      "x2": 10.5,
+      "y2": 3.1753502691896256
+     },
+     {
+      "state": "Queensland",
+      "x": 10.5,
+      "y": 3.1753502691896256,
+      "x2": 10,
+      "y2": 2.886675134594813
+     },
+     {
+      "state": "Queensland",
+      "x": 7,
+      "y": 0.577324865405187,
+      "x2": 7.5,
+      "y2": 0.28864973081037415
+     },
+     {
+      "state": "Queensland",
+      "x": 10,
+      "y": -0.5773502691896258,
+      "x2": 10.5,
+      "y2": -0.2886751345948129
+     },
+     {
+      "state": "Queensland",
+      "x": 9.5,
+      "y": -0.2886751345948129,
+      "x2": 10,
+      "y2": -0.5773502691896258
+     },
+     {
+      "state": "Queensland",
+      "x": 5.5,
+      "y": 2.020675134594813,
+      "x2": 5.5,
+      "y2": 1.4433248654051871
+     },
+     {
+      "state": "Queensland",
+      "x": 5.5,
+      "y": 1.4433248654051871,
+      "x2": 6,
+      "y2": 1.154649730810374
+     },
+     {
+      "state": "Queensland",
+      "x": 6.5,
+      "y": 2.020675134594813,
+      "x2": 6,
+      "y2": 2.309350269189626
+     },
+     {
+      "state": "Queensland",
+      "x": 6,
+      "y": 2.309350269189626,
+      "x2": 5.5,
+      "y2": 2.020675134594813
+     },
+     {
+      "state": "Queensland",
+      "x": 11.5,
+      "y": -0.2886751345948129,
+      "x2": 11.5,
+      "y2": 0.2886751345948129
+     },
+     {
+      "state": "Queensland",
+      "x": 11,
+      "y": -0.5773502691896258,
+      "x2": 11.5,
+      "y2": -0.2886751345948129
+     },
+     {
+      "state": "Queensland",
+      "x": 10.5,
+      "y": -0.2886751345948129,
+      "x2": 11,
+      "y2": -0.5773502691896258
+     },
+     {
+      "state": "Queensland",
+      "x": 8.5,
+      "y": 2.020675134594813,
+      "x2": 8,
+      "y2": 2.309350269189626
+     },
+     {
+      "state": "Queensland",
+      "x": 8,
+      "y": 2.309350269189626,
+      "x2": 7.5,
+      "y2": 2.020675134594813
+     },
+     {
+      "state": "Queensland",
+      "x": 6,
+      "y": 1.154675134594813,
+      "x2": 6,
+      "y2": 0.577324865405187
+     },
+     {
+      "state": "Queensland",
+      "x": 6.5,
+      "y": 0.28864973081037415,
+      "x2": 7,
+      "y2": 0.577324865405187
+     },
+     {
+      "state": "Queensland",
+      "x": 6,
+      "y": 0.577324865405187,
+      "x2": 6.5,
+      "y2": 0.28864973081037415
+     },
+     {
+      "state": "Queensland",
+      "x": 9,
+      "y": -0.5773502691896258,
+      "x2": 9.5,
+      "y2": -0.2886751345948129
+     },
+     {
+      "state": "Queensland",
+      "x": 8.5,
+      "y": -0.2886751345948129,
+      "x2": 9,
+      "y2": -0.5773502691896258
+     },
+     {
+      "state": "South Australia",
+      "x": 5,
+      "y": 4.041324865405187,
+      "x2": 5,
+      "y2": 4.618675134594813
+     },
+     {
+      "state": "South Australia",
+      "x": 4.5,
+      "y": 3.7526497308103743,
+      "x2": 5,
+      "y2": 4.041324865405187
+     },
+     {
+      "state": "South Australia",
+      "x": 5,
+      "y": 4.618675134594813,
+      "x2": 4.5,
+      "y2": 4.907350269189626
+     },
+     {
+      "state": "South Australia",
+      "x": 4.5,
+      "y": 4.907350269189626,
+      "x2": 4,
+      "y2": 4.618675134594813
+     },
+     {
+      "state": "South Australia",
+      "x": 3,
+      "y": 4.041324865405187,
+      "x2": 3.5,
+      "y2": 3.7526497308103743
+     },
+     {
+      "state": "South Australia",
+      "x": 4,
+      "y": 4.618675134594813,
+      "x2": 3.5,
+      "y2": 4.907350269189626
+     },
+     {
+      "state": "South Australia",
+      "x": 3.5,
+      "y": 4.907324865405187,
+      "x2": 3.5,
+      "y2": 5.484675134594813
+     },
+     {
+      "state": "South Australia",
+      "x": 3.5,
+      "y": 5.484675134594813,
+      "x2": 3,
+      "y2": 5.773350269189626
+     },
+     {
+      "state": "South Australia",
+      "x": 1.5,
+      "y": 5.484675134594813,
+      "x2": 1.5,
+      "y2": 4.907324865405187
+     },
+     {
+      "state": "South Australia",
+      "x": 1.5,
+      "y": 4.907324865405187,
+      "x2": 2,
+      "y2": 4.6186497308103736
+     },
+     {
+      "state": "South Australia",
+      "x": 2,
+      "y": 5.773350269189626,
+      "x2": 1.5,
+      "y2": 5.484675134594813
+     },
+     {
+      "state": "South Australia",
+      "x": 2,
+      "y": 4.618675134594813,
+      "x2": 2,
+      "y2": 4.041324865405187
+     },
+     {
+      "state": "South Australia",
+      "x": 2.5,
+      "y": 3.7526497308103743,
+      "x2": 3,
+      "y2": 4.041324865405187
+     },
+     {
+      "state": "South Australia",
+      "x": 2,
+      "y": 4.041324865405187,
+      "x2": 2.5,
+      "y2": 3.7526497308103743
+     },
+     {
+      "state": "South Australia",
+      "x": 4.5,
+      "y": 3.175324865405187,
+      "x2": 4.5,
+      "y2": 3.752675134594813
+     },
+     {
+      "state": "South Australia",
+      "x": 3.5,
+      "y": 3.752675134594813,
+      "x2": 3.5,
+      "y2": 3.175324865405187
+     },
+     {
+      "state": "South Australia",
+      "x": 4,
+      "y": 2.8866497308103742,
+      "x2": 4.5,
+      "y2": 3.175324865405187
+     },
+     {
+      "state": "South Australia",
+      "x": 3.5,
+      "y": 3.175324865405187,
+      "x2": 4,
+      "y2": 2.8866497308103742
+     },
+     {
+      "state": "South Australia",
+      "x": 3,
+      "y": 5.773324865405187,
+      "x2": 3,
+      "y2": 6.350675134594813
+     },
+     {
+      "state": "South Australia",
+      "x": 2,
+      "y": 6.350675134594813,
+      "x2": 2,
+      "y2": 5.773324865405187
+     },
+     {
+      "state": "South Australia",
+      "x": 3,
+      "y": 6.350675134594813,
+      "x2": 2.5,
+      "y2": 6.6393502691896265
+     },
+     {
+      "state": "South Australia",
+      "x": 2.5,
+      "y": 6.6393502691896265,
+      "x2": 2,
+      "y2": 6.350675134594813
+     },
+     {
+      "state": "Western Australia",
+      "x": 1.5,
+      "y": 4.907324865405187,
+      "x2": 1.5,
+      "y2": 5.484675134594813
+     },
+     {
+      "state": "Western Australia",
+      "x": 1.5,
+      "y": 5.484675134594813,
+      "x2": 1,
+      "y2": 5.773350269189626
+     },
+     {
+      "state": "Western Australia",
+      "x": 1,
+      "y": 5.773350269189626,
+      "x2": 0.5,
+      "y2": 5.484675134594813
+     },
+     {
+      "state": "Western Australia",
+      "x": -0.5,
+      "y": 5.484675134594813,
+      "x2": -0.5,
+      "y2": 4.907324865405187
+     },
+     {
+      "state": "Western Australia",
+      "x": -0.5,
+      "y": 4.907324865405187,
+      "x2": 0,
+      "y2": 4.6186497308103736
+     },
+     {
+      "state": "Western Australia",
+      "x": 0.5,
+      "y": 5.484675134594813,
+      "x2": 0,
+      "y2": 5.773350269189626
+     },
+     {
+      "state": "Western Australia",
+      "x": 0,
+      "y": 5.773350269189626,
+      "x2": -0.5,
+      "y2": 5.484675134594813
+     },
+     {
+      "state": "Western Australia",
+      "x": -0.5,
+      "y": 3.752675134594813,
+      "x2": -0.5,
+      "y2": 3.175324865405187
+     },
+     {
+      "state": "Western Australia",
+      "x": -0.5,
+      "y": 3.175324865405187,
+      "x2": 0,
+      "y2": 2.8866497308103742
+     },
+     {
+      "state": "Western Australia",
+      "x": 0,
+      "y": 4.041350269189626,
+      "x2": -0.5,
+      "y2": 3.752675134594813
+     },
+     {
+      "state": "Western Australia",
+      "x": 0,
+      "y": 2.886675134594813,
+      "x2": 0,
+      "y2": 2.3093248654051868
+     },
+     {
+      "state": "Western Australia",
+      "x": 0,
+      "y": 2.3093248654051868,
+      "x2": 0.5,
+      "y2": 2.020649730810374
+     },
+     {
+      "state": "Western Australia",
+      "x": 2,
+      "y": 4.041324865405187,
+      "x2": 2,
+      "y2": 4.618675134594813
+     },
+     {
+      "state": "Western Australia",
+      "x": 2,
+      "y": 4.618675134594813,
+      "x2": 1.5,
+      "y2": 4.907350269189626
+     },
+     {
+      "state": "Western Australia",
+      "x": 0,
+      "y": 4.618675134594813,
+      "x2": 0,
+      "y2": 4.041324865405187
+     },
+     {
+      "state": "Western Australia",
+      "x": 2.5,
+      "y": 3.175324865405187,
+      "x2": 2.5,
+      "y2": 3.752675134594813
+     },
+     {
+      "state": "Western Australia",
+      "x": 2,
+      "y": 2.8866497308103742,
+      "x2": 2.5,
+      "y2": 3.175324865405187
+     },
+     {
+      "state": "Western Australia",
+      "x": 2.5,
+      "y": 3.752675134594813,
+      "x2": 2,
+      "y2": 4.041350269189626
+     },
+     {
+      "state": "Western Australia",
+      "x": 1.5,
+      "y": 1.4433248654051871,
+      "x2": 1.5,
+      "y2": 2.020675134594813
+     },
+     {
+      "state": "Western Australia",
+      "x": 0.5,
+      "y": 2.020675134594813,
+      "x2": 0.5,
+      "y2": 1.4433248654051871
+     },
+     {
+      "state": "Western Australia",
+      "x": 1,
+      "y": 1.154649730810374,
+      "x2": 1.5,
+      "y2": 1.4433248654051871
+     },
+     {
+      "state": "Western Australia",
+      "x": 0.5,
+      "y": 1.4433248654051871,
+      "x2": 1,
+      "y2": 1.154649730810374
+     },
+     {
+      "state": "Western Australia",
+      "x": 2,
+      "y": 2.3093248654051868,
+      "x2": 2,
+      "y2": 2.886675134594813
+     },
+     {
+      "state": "Western Australia",
+      "x": 1.5,
+      "y": 2.020649730810374,
+      "x2": 2,
+      "y2": 2.3093248654051868
+     },
+     {
+      "state": "Tasmania",
+      "x": 8,
+      "y": 8.082649730810374,
+      "x2": 8.5,
+      "y2": 8.371324865405187
+     },
+     {
+      "state": "Tasmania",
+      "x": 7.5,
+      "y": 8.371324865405187,
+      "x2": 8,
+      "y2": 8.082649730810374
+     },
+     {
+      "state": "Tasmania",
+      "x": 8.5,
+      "y": 8.948675134594813,
+      "x2": 8,
+      "y2": 9.237350269189626
+     },
+     {
+      "state": "Tasmania",
+      "x": 8,
+      "y": 9.237350269189626,
+      "x2": 7.5,
+      "y2": 8.948675134594813
+     },
+     {
+      "state": "Tasmania",
+      "x": 9.5,
+      "y": 8.371324865405187,
+      "x2": 9.5,
+      "y2": 8.948675134594813
+     },
+     {
+      "state": "Tasmania",
+      "x": 9,
+      "y": 8.082649730810374,
+      "x2": 9.5,
+      "y2": 8.371324865405187
+     },
+     {
+      "state": "Tasmania",
+      "x": 8.5,
+      "y": 8.371324865405187,
+      "x2": 9,
+      "y2": 8.082649730810374
+     },
+     {
+      "state": "Tasmania",
+      "x": 9.5,
+      "y": 8.948675134594813,
+      "x2": 9,
+      "y2": 9.237350269189626
+     },
+     {
+      "state": "Tasmania",
+      "x": 9,
+      "y": 9.237350269189626,
+      "x2": 8.5,
+      "y2": 8.948675134594813
+     },
+     {
+      "state": "Tasmania",
+      "x": 7,
+      "y": 8.082649730810374,
+      "x2": 7.5,
+      "y2": 8.371324865405187
+     },
+     {
+      "state": "Tasmania",
+      "x": 6.5,
+      "y": 8.371324865405187,
+      "x2": 7,
+      "y2": 8.082649730810374
+     },
+     {
+      "state": "Tasmania",
+      "x": 7.5,
+      "y": 8.948675134594813,
+      "x2": 7,
+      "y2": 9.237350269189626
+     },
+     {
+      "state": "Tasmania",
+      "x": 7,
+      "y": 9.237350269189626,
+      "x2": 6.5,
+      "y2": 8.948675134594813
+     },
+     {
+      "state": "Tasmania",
+      "x": 5.5,
+      "y": 8.948675134594813,
+      "x2": 5.5,
+      "y2": 8.371324865405187
+     },
+     {
+      "state": "Tasmania",
+      "x": 6,
+      "y": 8.082649730810374,
+      "x2": 6.5,
+      "y2": 8.371324865405187
+     },
+     {
+      "state": "Tasmania",
+      "x": 5.5,
+      "y": 8.371324865405187,
+      "x2": 6,
+      "y2": 8.082649730810374
+     },
+     {
+      "state": "Tasmania",
+      "x": 6.5,
+      "y": 8.948675134594813,
+      "x2": 6,
+      "y2": 9.237350269189626
+     },
+     {
+      "state": "Tasmania",
+      "x": 6,
+      "y": 9.237350269189626,
+      "x2": 5.5,
+      "y2": 8.948675134594813
+     },
+     {
+      "state": "Northern Territory",
+      "x": 3.5,
+      "y": -0.2886751345948129,
+      "x2": 3.5,
+      "y2": 0.2886751345948129
+     },
+     {
+      "state": "Northern Territory",
+      "x": 2.5,
+      "y": 0.2886751345948129,
+      "x2": 2.5,
+      "y2": -0.2886751345948129
+     },
+     {
+      "state": "Northern Territory",
+      "x": 3,
+      "y": -0.5773502691896258,
+      "x2": 3.5,
+      "y2": -0.2886751345948129
+     },
+     {
+      "state": "Northern Territory",
+      "x": 2.5,
+      "y": -0.2886751345948129,
+      "x2": 3,
+      "y2": -0.5773502691896258
+     },
+     {
+      "state": "Northern Territory",
+      "x": 3.5,
+      "y": 0.2886751345948129,
+      "x2": 3,
+      "y2": 0.5773502691896258
+     },
+     {
+      "state": "Northern Territory",
+      "x": 3,
+      "y": 0.577324865405187,
+      "x2": 3,
+      "y2": 1.154675134594813
+     },
+     {
+      "state": "Northern Territory",
+      "x": 2,
+      "y": 1.154675134594813,
+      "x2": 2,
+      "y2": 0.577324865405187
+     },
+     {
+      "state": "Northern Territory",
+      "x": 2,
+      "y": 0.577324865405187,
+      "x2": 2.5,
+      "y2": 0.28864973081037415
+     },
+     {
+      "state": "Northern Territory",
+      "x": 3,
+      "y": 1.154675134594813,
+      "x2": 2.5,
+      "y2": 1.4433502691896258
+     },
+     {
+      "state": "Northern Territory",
+      "x": 2.5,
+      "y": 1.4433502691896258,
+      "x2": 2,
+      "y2": 1.154675134594813
+     },
+     {
+      "state": "Australian Capital Territory",
+      "x": 9.5,
+      "y": 6.639324865405187,
+      "x2": 9.5,
+      "y2": 7.216675134594813
+     },
+     {
+      "state": "Australian Capital Territory",
+      "x": 8.5,
+      "y": 7.216675134594813,
+      "x2": 8.5,
+      "y2": 6.639324865405187
+     },
+     {
+      "state": "Australian Capital Territory",
+      "x": 9,
+      "y": 6.350649730810374,
+      "x2": 9.5,
+      "y2": 6.639324865405187
+     },
+     {
+      "state": "Australian Capital Territory",
+      "x": 8.5,
+      "y": 6.639324865405187,
+      "x2": 9,
+      "y2": 6.350649730810374
+     },
+     {
+      "state": "Australian Capital Territory",
+      "x": 9.5,
+      "y": 7.216675134594813,
+      "x2": 9,
+      "y2": 7.505350269189626
+     },
+     {
+      "state": "Australian Capital Territory",
+      "x": 9,
+      "y": 7.505350269189626,
+      "x2": 8.5,
+      "y2": 7.216675134594813
+     }
+    ]
+   },
+   "mark": {
+    "type": "rule",
+    "color": "#222222",
+    "strokeWidth": 2,
+    "strokeCap": "round",
+    "interactive": false
+   },
+   "encoding": {
+    "x": {
+     "field": "x",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       -0.65,
+       11.95
+      ],
+      "nice": false,
+      "zero": false
+     },
+     "axis": null
+    },
+    "y": {
+     "field": "y",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       -0.65,
+       9.31
+      ],
+      "nice": false,
+      "zero": false,
+      "reverse": true
+     },
+     "axis": null
+    },
+    "x2": {
+     "field": "x2"
+    },
+    "y2": {
+     "field": "y2"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "s": "WA",
+      "hx": 0,
+      "hy": 1.732
+     },
+     {
+      "s": "NT",
+      "hx": 3.3,
+      "hy": 0.6062
+     },
+     {
+      "s": "Qld",
+      "hx": 6.6,
+      "hy": 0
+     },
+     {
+      "s": "SA",
+      "hx": 3,
+      "hy": 3.464
+     },
+     {
+      "s": "NSW",
+      "hx": 10.6,
+      "hy": 7.794
+     },
+     {
+      "s": "Vic",
+      "hx": 2.1,
+      "hy": 7.4475999999999996
+     },
+     {
+      "s": "Tas",
+      "hx": 5.1,
+      "hy": 8.66
+     },
+     {
+      "s": "ACT",
+      "hx": 9,
+      "hy": 7.603479999999999
+     }
+    ]
+   },
+   "mark": {
+    "type": "text",
+    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+    "fontSize": 13,
+    "fontWeight": 700,
+    "color": "#222222",
+    "interactive": false
+   },
+   "encoding": {
+    "x": {
+     "field": "hx",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       -0.65,
+       11.95
+      ],
+      "nice": false,
+      "zero": false
+     },
+     "axis": null
+    },
+    "y": {
+     "field": "hy",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       -0.65,
+       9.31
+      ],
+      "nice": false,
+      "zero": false,
+      "reverse": true
+     },
+     "axis": null
+    },
+    "text": {
+     "field": "s"
+    }
+   }
+  }
+ ]
+}

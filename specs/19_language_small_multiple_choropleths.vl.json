@@ -224735,7 +224735,8 @@
       "filled": false,
       "stroke": "#6b6b6b",
       "strokeWidth": 0.9,
-      "clip": true
+      "clip": true,
+      "interactive": false
      }
     },
     {
@@ -224754,7 +224755,8 @@
       "fontSize": 11,
       "fontWeight": 600,
       "letterSpacing": 2,
-      "fill": "#5c5c5c"
+      "fill": "#5c5c5c",
+      "interactive": false
      },
      "encoding": {
       "longitude": {
@@ -224832,7 +224834,8 @@
        "expr": "datum.align"
       },
       "baseline": "middle",
-      "fill": "#222222"
+      "fill": "#222222",
+      "interactive": false
      },
      "encoding": {
       "longitude": {
