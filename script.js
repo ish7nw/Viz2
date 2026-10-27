@@ -312,7 +312,7 @@ function spec2(t, yr, w) {
         encoding: {
           ...loc,
           opacity: { condition: { param: "reg", value: 0.72 }, value: 0.08 },
-          stroke: { field: "region", type: "nominal", scale: { domain: REG_DOMAIN, range: ["#0f6b50", "#9a4300", "#4e4a86"] }, legend: null },
+          stroke: { field: "region", type: "nominal", scale: { domain: REG_DOMAIN, range: ["#1b4f80", "#9a4300", "#4e4a86"] }, legend: null },
           size: { field: "v", type: "quantitative", scale: sizeScale, legend: { title: "Residents born there", values: [100000, 500000, 1000000], format: narrow ? ".1s" : ",.0f", orient: "bottom", direction: "horizontal", symbolFillColor: "#bfbfbf", symbolStrokeColor: "#8a8a8a", symbolStrokeWidth: 1, symbolOpacity: 0.8 } },
           color: { field: "region", type: "nominal", scale: colorScale, legend: { title: "Region of birth", orient: "bottom", direction: narrow ? "vertical" : "horizontal", symbolOpacity: 0.8 } },
           order: { field: "v", sort: "descending" },
@@ -462,10 +462,10 @@ function specVoyage(t, w) {
       mark: { type: "line", stroke: "#FFFFFF", strokeOpacity: 0.6, strokeWidth: 5, strokeCap: "round", clip: true },
       encoding: { ...trackLoc, order: { field: "seq", type: "quantitative" } } },
     { data: { values: FLEET_TRACK }, transform: [{ filter: "datum.day <= day" }],
-      mark: { type: "line", stroke: "#E8590C", strokeWidth: 2.75, strokeDash: [6, 4], clip: true },
+      mark: { type: "line", stroke: "#FFC845", strokeWidth: 2.75, strokeDash: [6, 4], clip: true },
       encoding: { ...trackLoc, order: { field: "seq", type: "quantitative" } } },
     { data: { values: FLEET_STOPS }, mark: { type: "point", filled: true, size: 70, stroke: "#FFFFFF", strokeWidth: 2 },
-      encoding: { ...loc, color: { condition: { test: "datum.arrive <= day", value: "#E8590C" }, value: "#123A6B" }, tooltip: [{ field: "n", title: "Stop" }, { field: "d", title: "When" }] } },
+      encoding: { ...loc, color: { condition: { test: "datum.arrive <= day", value: "#FFC845" }, value: "#123A6B" }, tooltip: [{ field: "n", title: "Stop" }, { field: "d", title: "When" }] } },
     { data: { values: FLEET_TRACK }, transform: [{ filter: "datum.day <= day" }, { aggregate: [{ op: "argmax", field: "day", as: "cur" }] },
         // The ship: the furthest point reached so far (argmax of day).
         { calculate: "datum.cur.lon", as: "lon" }, { calculate: "datum.cur.lat", as: "lat" }],
@@ -1118,7 +1118,7 @@ function setupZoomControls() {
 
 // Each state is coloured by its largest overseas birthplace, and that country is coloured the same on
 // the world map. Hovering either side highlights the matching places on the other.
-const TOP_COLORS = { England: "#4c72b0", India: "#dd8452", China: "#c44e52", "New Zealand": "#55a868", Philippines: "#8172b3" };
+const TOP_COLORS = { England: "#1f4e79", India: "#e07b1a", China: "#7b5ea7", "New Zealand": "#2a9d8f", Philippines: "#cc79a7" }; // no red or green, for colour-blind readers
 const TOP_WORLD = { England: "United Kingdom", India: "India", China: "China", "New Zealand": "New Zealand", Philippines: "Philippines" };
 // where each country name sits on the world map (just beside the country)
 const TOP_LABELS = [
@@ -1201,13 +1201,13 @@ function specTop(t, w) {
 // classes for every language, so the eight maps can be compared directly.
 const LANGS = [
   // key, colour, where it is the main language, Australian speakers in each state (NSW, Vic, Qld, SA, WA, Tas, NT, ACT)
-  { lang: "Mandarin", col: "#c8393d", home: "Most of China (the national language)", n: [270725, 221819, 83620, 32112, 51735, 8096, 2521, 14373] },
-  { lang: "Cantonese", col: "#8e5ca8", home: "Guangdong, Hong Kong and Macau", n: [148838, 82386, 27395, 10167, 19669, 1520, 804, 4228] },
+  { lang: "Mandarin", col: "#9273c9", home: "Most of China (the national language)", n: [270725, 221819, 83620, 32112, 51735, 8096, 2521, 14373] },
+  { lang: "Cantonese", col: "#cc79a7", home: "Guangdong, Hong Kong and Macau", n: [148838, 82386, 27395, 10167, 19669, 1520, 804, 4228] },
   { lang: "Punjabi", col: "#e07b1a", home: "Punjab and Chandigarh", n: [53472, 104970, 30882, 19964, 20597, 2561, 1582, 5005] },
-  { lang: "Hindi", col: "#3a6ea5", home: "The Hindi belt: Uttar Pradesh, Bihar, Rajasthan, Madhya Pradesh, Delhi and others", n: [80076, 66892, 21334, 9865, 11922, 1278, 947, 4818] },
-  { lang: "Tamil", col: "#3f8f4a", home: "Tamil Nadu and Puducherry", n: [38411, 34065, 7286, 3321, 8740, 457, 554, 2364] },
-  { lang: "Gujarati", col: "#b8860b", home: "Gujarat, and Dadra and Nagar Haveli and Daman and Diu", n: [26861, 24139, 9764, 7415, 10159, 740, 452, 1748] },
-  { lang: "Malayalam", col: "#1f8a8a", home: "Kerala and Lakshadweep", n: [20810, 25406, 13039, 4769, 9703, 597, 1581, 2764] },
+  { lang: "Hindi", col: "#4a7fc1", home: "The Hindi belt: Uttar Pradesh, Bihar, Rajasthan, Madhya Pradesh, Delhi and others", n: [80076, 66892, 21334, 9865, 11922, 1278, 947, 4818] },
+  { lang: "Tamil", col: "#56b4e9", home: "Tamil Nadu and Puducherry", n: [38411, 34065, 7286, 3321, 8740, 457, 554, 2364] },
+  { lang: "Gujarati", col: "#c49a00", home: "Gujarat, and Dadra and Nagar Haveli and Daman and Diu", n: [26861, 24139, 9764, 7415, 10159, 740, 452, 1748] },
+  { lang: "Malayalam", col: "#555b6e", home: "Kerala and Lakshadweep", n: [20810, 25406, 13039, 4769, 9703, 597, 1581, 2764] },
   { lang: "Bengali", col: "#8b5a3c", home: "West Bengal and Tripura", n: [39600, 15085, 4535, 2837, 3854, 681, 706, 2698] }
 ];
 const ABBR_OF = Object.fromEntries(ST.map(r => [r[0], r[1]]));
@@ -1530,7 +1530,7 @@ const STREAM_PERIODS = [
 // counts per region for: before 1951, then each period above
 const STREAM = {"UK & Ireland": [22570, 82388, 247329, 162956, 138688, 95470, 211592, 113660, 15838, 14854, 15302, 17673, 8351, 2935], "Other Europe": [23707, 129732, 145673, 52488, 46723, 30046, 34617, 25878, 3753, 3663, 3392, 4374, 1724, 424], "New Zealand & Pacific": [857, 3096, 20700, 60971, 106064, 103551, 141056, 80111, 10754, 10355, 11668, 12104, 5359, 4679], "North-East Asia": [588, 2570, 4508, 15533, 85234, 118524, 244970, 151466, 36962, 39987, 39155, 48505, 17701, 3598], "South-East Asia": [229, 1683, 9125, 60760, 166704, 126705, 206565, 148719, 36881, 35932, 37940, 44310, 17932, 3574], "South & Central Asia": [1014, 1172, 11164, 16480, 38479, 75195, 324884, 242434, 64726, 76473, 95712, 102138, 34750, 7784], "Middle East & North Africa": [802, 4687, 17237, 25308, 28224, 38697, 56767, 52287, 12653, 10754, 8591, 13698, 3972, 1218], "Americas & Africa": [188, 994, 9058, 24850, 34546, 46565, 101078, 48530, 9462, 9865, 10458, 13288, 7702, 2802], "Other countries": [13518, 37762, 82166, 113002, 131224, 146467, 224894, 146256, 44452, 42356, 45640, 55244, 21346, 6092]};
 const STREAM_REGIONS = ["UK & Ireland", "Other Europe", "Middle East & North Africa", "Americas & Africa", "New Zealand & Pacific", "South-East Asia", "North-East Asia", "South & Central Asia", "Other countries"];
-const STREAM_COLORS = ["#4c72b0", "#8fb1dd", "#b07aa1", "#9c755f", "#59a14f", "#edc948", "#e15759", "#f28e2b", "#c7c7c7"];
+const STREAM_COLORS = ["#1f4e79", "#8fb1dd", "#cc79a7", "#8c6d46", "#2a9d8f", "#f0c419", "#7b5ea7", "#e69f00", "#c7c7c7"]; // no red or green, for colour-blind readers
 const STREAM_ROWS = [];
 STREAM_REGIONS.forEach(r => STREAM_PERIODS.forEach(([lab, a, b], i) => {
   const n = STREAM[r][i + 1], yrs = b - a + 1;
@@ -1587,7 +1587,7 @@ const BUMP = {
   "South Africa": [61810, 86820, 119490, 161590, 180480, 202730, 229950], "Sri Lanka": [53880, 60640, 73820, 99740, 124500, 140110, 184800],
   "Nepal": [1410, 2440, 4350, 27810, 58980, 130290, 213580], "Pakistan": [8710, 12290, 18320, 34150, 69660, 96170, 143920]
 };
-const BUMP_KEY = { India: "#e07b1a", China: "#c8393d", England: "#3a6ea5", "New Zealand": "#3f8f4a", Italy: "#7f4f9e", Philippines: "#c27aa8", Nepal: "#b8860b" };
+const BUMP_KEY = { India: "#e07b1a", China: "#7b5ea7", England: "#1f4e79", "New Zealand": "#2a9d8f", Italy: "#8c6d46", Philippines: "#cc79a7", Nepal: "#c49a00" }; // no red or green
 const BUMP_ROWS = [];
 BUMP_YEARS.forEach((y, i) => {
   Object.entries(BUMP).sort((a, b) => b[1][i] - a[1][i]).forEach(([c, v], r) => {
@@ -1771,7 +1771,7 @@ const WAFFLE = [
   ["Oceania (excl. Australia)", 866840], ["Southern & Eastern Europe", 666600], ["Middle East & North Africa", 559890],
   ["Sub-Saharan Africa", 480090], ["Americas", 469830], ["Australia", 18779950]
 ];
-const WAFFLE_COLORS = ["#f28e2b", "#4c72b0", "#edc948", "#e15759", "#59a14f", "#8fb1dd", "#b07aa1", "#9c755f", "#76b7b2", "#dcdcdc"];
+const WAFFLE_COLORS = ["#e69f00", "#1f4e79", "#f0c419", "#7b5ea7", "#2a9d8f", "#8fb1dd", "#cc79a7", "#8c6d46", "#5d6d7e", "#dcdcdc"]; // no red or green, for colour-blind readers
 function waffleCells() {
   const tot = WAFFLE.reduce((a, d) => a + d[1], 0);
   // largest-remainder rounding, so the squares add up to exactly 100

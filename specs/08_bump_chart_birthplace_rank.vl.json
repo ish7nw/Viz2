@@ -727,12 +727,12 @@
       ],
       "range": [
        "#e07b1a",
-       "#c8393d",
-       "#3a6ea5",
-       "#3f8f4a",
-       "#7f4f9e",
-       "#c27aa8",
-       "#b8860b",
+       "#7b5ea7",
+       "#1f4e79",
+       "#2a9d8f",
+       "#8c6d46",
+       "#cc79a7",
+       "#c49a00",
        "#b9b9b9"
       ]
      },
@@ -1381,12 +1381,12 @@
       ],
       "range": [
        "#e07b1a",
-       "#c8393d",
-       "#3a6ea5",
-       "#3f8f4a",
-       "#7f4f9e",
-       "#c27aa8",
-       "#b8860b",
+       "#7b5ea7",
+       "#1f4e79",
+       "#2a9d8f",
+       "#8c6d46",
+       "#cc79a7",
+       "#c49a00",
        "#b9b9b9"
       ]
      },
@@ -1513,7 +1513,7 @@
       "n": 956680,
       "key": "England",
       "side": "L",
-      "lc": "#3a6ea5"
+      "lc": "#1f4e79"
      },
      {
       "country": "New Zealand",
@@ -1522,7 +1522,7 @@
       "n": 312240,
       "key": "New Zealand",
       "side": "L",
-      "lc": "#3f8f4a"
+      "lc": "#2a9d8f"
      },
      {
       "country": "Italy",
@@ -1531,7 +1531,7 @@
       "n": 250360,
       "key": "Italy",
       "side": "L",
-      "lc": "#7f4f9e"
+      "lc": "#8c6d46"
      },
      {
       "country": "China",
@@ -1540,7 +1540,7 @@
       "n": 118640,
       "key": "China",
       "side": "L",
-      "lc": "#c8393d"
+      "lc": "#7b5ea7"
      },
      {
       "country": "Philippines",
@@ -1549,7 +1549,7 @@
       "n": 104820,
       "key": "Philippines",
       "side": "L",
-      "lc": "#c27aa8"
+      "lc": "#cc79a7"
      },
      {
       "country": "India",
@@ -1621,7 +1621,7 @@
       "n": 970950,
       "key": "England",
       "side": "R",
-      "lc": "#3a6ea5"
+      "lc": "#1f4e79"
      },
      {
       "country": "China",
@@ -1630,7 +1630,7 @@
       "n": 731540,
       "key": "China",
       "side": "R",
-      "lc": "#c8393d"
+      "lc": "#7b5ea7"
      },
      {
       "country": "New Zealand",
@@ -1639,7 +1639,7 @@
       "n": 637680,
       "key": "New Zealand",
       "side": "R",
-      "lc": "#3f8f4a"
+      "lc": "#2a9d8f"
      },
      {
       "country": "Philippines",
@@ -1648,7 +1648,7 @@
       "n": 412530,
       "key": "Philippines",
       "side": "R",
-      "lc": "#c27aa8"
+      "lc": "#cc79a7"
      },
      {
       "country": "Nepal",
@@ -1657,7 +1657,7 @@
       "n": 213580,
       "key": "Nepal",
       "side": "R",
-      "lc": "#b8860b"
+      "lc": "#c49a00"
      },
      {
       "country": "Italy",
@@ -1666,7 +1666,7 @@
       "n": 152560,
       "key": "Italy",
       "side": "R",
-      "lc": "#7f4f9e"
+      "lc": "#8c6d46"
      }
     ]
    },

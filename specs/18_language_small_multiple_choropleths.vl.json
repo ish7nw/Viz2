@@ -120635,7 +120635,7 @@
        "as": "lang"
       },
       {
-       "calculate": "{\"Mandarin\":\"#c8393d\",\"Cantonese\":\"#8e5ca8\",\"Punjabi\":\"#e07b1a\",\"Hindi\":\"#3a6ea5\",\"Tamil\":\"#3f8f4a\",\"Gujarati\":\"#b8860b\",\"Malayalam\":\"#1f8a8a\",\"Bengali\":\"#8b5a3c\"}[datum.lang] || '#d9d9d9'",
+       "calculate": "{\"Mandarin\":\"#9273c9\",\"Cantonese\":\"#cc79a7\",\"Punjabi\":\"#e07b1a\",\"Hindi\":\"#4a7fc1\",\"Tamil\":\"#56b4e9\",\"Gujarati\":\"#c49a00\",\"Malayalam\":\"#555b6e\",\"Bengali\":\"#8b5a3c\"}[datum.lang] || '#d9d9d9'",
        "as": "fillc"
       },
       {
@@ -224883,7 +224883,7 @@
       "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "fontSize": 13,
       "fontWeight": 700,
-      "color": "#c8393d",
+      "color": "#9273c9",
       "subtitleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "subtitleFontSize": 11,
       "subtitleColor": "#675f54",
@@ -231084,7 +231084,7 @@
        "as": "k"
       },
       {
-       "calculate": "[\"#f6dfe0\",\"#ecbcbd\",\"#e09092\",\"#d36164\",\"#90292c\"][datum.k]",
+       "calculate": "[\"#eee9f6\",\"#dacfed\",\"#c2b1e1\",\"#a88fd4\",\"#695391\"][datum.k]",
        "as": "fillc"
       },
       {
@@ -231158,7 +231158,7 @@
       "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "fontSize": 13,
       "fontWeight": 700,
-      "color": "#8e5ca8",
+      "color": "#cc79a7",
       "subtitleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "subtitleFontSize": 11,
       "subtitleColor": "#675f54",
@@ -237359,7 +237359,7 @@
        "as": "k"
       },
       {
-       "calculate": "[\"#ede5f1\",\"#d9c8e1\",\"#c0a4ce\",\"#a57db9\",\"#664279\"][datum.k]",
+       "calculate": "[\"#f7eaf1\",\"#eed1e1\",\"#e2b4ce\",\"#d694b9\",\"#935778\"][datum.k]",
        "as": "fillc"
       },
       {
@@ -243708,7 +243708,7 @@
       "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "fontSize": 13,
       "fontWeight": 700,
-      "color": "#3a6ea5",
+      "color": "#4a7fc1",
       "subtitleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "subtitleFontSize": 11,
       "subtitleColor": "#675f54",
@@ -249909,7 +249909,7 @@
        "as": "k"
       },
       {
-       "calculate": "[\"#dfe8f1\",\"#bccee0\",\"#91aecd\",\"#618bb7\",\"#2a4f77\"][datum.k]",
+       "calculate": "[\"#e2ebf5\",\"#c1d3ea\",\"#9ab7dc\",\"#6e99cd\",\"#355b8b\"][datum.k]",
        "as": "fillc"
       },
       {
@@ -249988,7 +249988,7 @@
       "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "fontSize": 13,
       "fontWeight": 700,
-      "color": "#3f8f4a",
+      "color": "#56b4e9",
       "subtitleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "subtitleFontSize": 11,
       "subtitleColor": "#675f54",
@@ -256189,7 +256189,7 @@
        "as": "k"
       },
       {
-       "calculate": "[\"#e0ede2\",\"#bed9c1\",\"#93c09a\",\"#65a56e\",\"#2d6735\"][datum.k]",
+       "calculate": "[\"#e4f3fb\",\"#c6e6f8\",\"#a0d5f3\",\"#78c3ed\",\"#3e82a8\"][datum.k]",
        "as": "fillc"
       },
       {
@@ -256263,7 +256263,7 @@
       "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "fontSize": 13,
       "fontWeight": 700,
-      "color": "#b8860b",
+      "color": "#c49a00",
       "subtitleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "subtitleFontSize": 11,
       "subtitleColor": "#675f54",
@@ -262464,7 +262464,7 @@
        "as": "k"
       },
       {
-       "calculate": "[\"#f4ecd8\",\"#e7d6ac\",\"#d7bb76\",\"#c69e3c\",\"#846008\"][datum.k]",
+       "calculate": "[\"#f6efd6\",\"#ebdda8\",\"#dec670\",\"#d0ae33\",\"#8d6f00\"][datum.k]",
        "as": "fillc"
       },
       {
@@ -262538,7 +262538,7 @@
       "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "fontSize": 13,
       "fontWeight": 700,
-      "color": "#1f8a8a",
+      "color": "#555b6e",
       "subtitleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "subtitleFontSize": 11,
       "subtitleColor": "#675f54",
@@ -268739,7 +268739,7 @@
        "as": "k"
       },
       {
-       "calculate": "[\"#dbecec\",\"#b3d7d7\",\"#82bdbd\",\"#4ca1a1\",\"#166363\"][datum.k]",
+       "calculate": "[\"#e4e5e8\",\"#c5c7ce\",\"#a0a3ae\",\"#777c8b\",\"#3d424f\"][datum.k]",
        "as": "fillc"
       },
       {

@@ -212100,7 +212100,7 @@
    ],
    "mark": {
     "type": "line",
-    "stroke": "#E8590C",
+    "stroke": "#FFC845",
     "strokeWidth": 2.75,
     "strokeDash": [
      6,
@@ -212188,7 +212188,7 @@
     "color": {
      "condition": {
       "test": "datum.arrive <= day",
-      "value": "#E8590C"
+      "value": "#FFC845"
      },
      "value": "#123A6B"
     },
