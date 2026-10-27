@@ -34,7 +34,7 @@
   <div><dt>Who</dt><dd>Anyone curious about how migration has shaped Australia, such as students, teachers and general readers. No statistics background is needed.</dd></div>
   <div><dt>What</dt><dd>Country of birth, year of arrival, language and age from the ABS Census (1891–2021) and estimated resident population (1996–2025), mapped on ABS and Natural Earth boundaries. See <a href="#methods">Notes on data and method</a>.</dd></div>
   <div><dt>Why</dt><dd>To show where Australia’s migrants come from, how that has changed since 1788, and where they live today.</dd></div>
-  <div><dt>How</dt><dd>Twenty charts in five sections, from the whole country down to suburbs. Maps of the same measure share colour classes, the Settlement maps are linked by state, and every chart gives exact figures on hover.</dd></div>
+  <div><dt>How</dt><dd>Twenty charts in five sections, from the whole country down to suburbs. Maps of the same measure share colour classes, clicking a state in a map highlights it in that map, and every chart gives exact figures on hover.</dd></div>
 </dl>
 <!-- Figure 1 | IDIOM: Waffle chart | drawn by specWaffle() in script.js -->
 <figure>
@@ -121,9 +121,6 @@
      SECTION 4: SETTLEMENT (Figures 9-19)
      ====================================================================== -->
 <h2 id="s4"><span class="sec">04</span>Settlement</h2>
-<!-- Section 4: all the state and region maps are linked through this dropdown and by clicking -->
-<p class="hint-block">Figures 9 to 16, 18 and 19 are linked. Click a state or a region in any of them, or choose a state here, to highlight that state in all of them. Click it again, or click empty space, to clear.</p>
-<div class="ctl"><label for="hlState"><b>Highlight a state</b></label> <select id="hlState"><option value="">All states</option></select></div>
 <!-- ---------- 4.1 Share born overseas by region (Figures 9-12) ---------- -->
 <h3><span class="num">4.1</span>Share born overseas by region</h3>
 <p>Below the state level, the overseas-born population is concentrated in the capital cities (Figure 9). In 2021, 34.4% of residents of the Greater Capital City areas were born overseas, against 14.5% in the rest of the country. Sydney – Parramatta had the highest share of the 88 SA4 regions, 52.2%, followed by Sydney – Ryde (48.0%) and Sydney – South West (47.4%). The lowest shares were in inland New South Wales, led by Far West and Orana at 7.3%. Outside the capitals, only the Gold Coast came close to the national figure, at 28.9%.</p>
@@ -137,13 +134,13 @@
 <!-- Figure 10 | IDIOM: Hexagon tile map | drawn by specHex() in script.js -->
 <figure>
   <div class="chart" id="cH" role="img" aria-label="Hexagon tile map with one equal-sized hexagon per SA4 region, coloured by share born overseas in 2021."></div>
-  <figcaption><b>Figure 10.</b> Share of residents born overseas by SA4 region, 2021, with every region drawn as one hexagon of equal size (hexagon tile map, same seven classes as Figure 9). Hexagons keep each region roughly in place within its state; numbers are the percentage born overseas. <span class="try"><span class="try-k">Try</span>Hover a hexagon for its region; choose a state above to highlight it.</span><span class="src">Sources: ABS (2022a, 2023c).</span></figcaption>
+  <figcaption><b>Figure 10.</b> Share of residents born overseas by SA4 region, 2021, with every region drawn as one hexagon of equal size (hexagon tile map, same seven classes as Figure 9). Hexagons keep each region roughly in place within its state; numbers are the percentage born overseas. <span class="try"><span class="try-k">Try</span>Hover a hexagon for its region; click one to highlight its state.</span><span class="src">Sources: ABS (2022a, 2023c).</span></figcaption>
 </figure>
 <p>Figure 11 puts the same 88 regions on a single scale, one row per state. In every state the capital-city regions (filled dots) mostly sit to the right of the rest of the state. The spread is widest in New South Wales, where Sydney’s regions run from 16.1% (Central Coast) to 52.2% (Parramatta) while the rest of the state stays below 20%. Queensland is the exception that overlaps: the Gold Coast, at 28.9%, is above several Brisbane regions.</p>
 <!-- Figure 11 | IDIOM: Beeswarm plot | drawn by specSwarm() in script.js -->
 <figure>
   <div class="chart" id="cX" role="img" aria-label="Beeswarm plot of the 88 SA4 regions by share born overseas in 2021, one row per state, with capital-city regions filled."></div>
-  <figcaption><b>Figure 11.</b> Share of residents born overseas by SA4 region, 2021, one dot per region on a single scale (beeswarm plot). Filled dots are regions in the Greater Capital City area; open dots are the rest of the state. Dots are moved up or down only to avoid overlapping. <span class="try"><span class="try-k">Try</span>Hover a dot for its region; choose a state above to highlight it.</span><span class="src">Sources: ABS (2022a, 2023c).</span></figcaption>
+  <figcaption><b>Figure 11.</b> Share of residents born overseas by SA4 region, 2021, one dot per region on a single scale (beeswarm plot). Filled dots are regions in the Greater Capital City area; open dots are the rest of the state. Dots are moved up or down only to avoid overlapping. <span class="try"><span class="try-k">Try</span>Hover a dot for its region; click one to highlight its state.</span><span class="src">Sources: ABS (2022a, 2023c).</span></figcaption>
 </figure>
 <p>Zooming in to suburbs shows how uneven this is inside each city (Figure 12). Of the 1,400 capital-city SA2 areas with at least 300 residents, 161 had a majority born overseas: 80 in Sydney, 60 in Melbourne, 11 in Brisbane, 7 in Perth, 2 in Canberra and 1 in Adelaide. The highest shares were in Haymarket in central Sydney (76.9%) and the north of the Melbourne CBD (75.4%), followed by Auburn – North and Parramatta – North (both 75.3%). In Sydney the high shares run west from the city centre through Burwood and Strathfield to Parramatta and Auburn. Hobart’s highest share, in Sandy Bay, was 35.9%.</p>
 <!-- Figure 12 | IDIOM: Choropleth (interactive zoom map) | drawn by specZoom() in script.js; pan and zoom by setupZoomControls() -->
@@ -152,11 +149,17 @@
     <b>Fly to</b>
     <button class="btn" data-city="Sydney">Sydney</button><button class="btn" data-city="Melbourne">Melbourne</button><button class="btn" data-city="Brisbane">Brisbane</button><button class="btn" data-city="Perth">Perth</button><button class="btn" data-city="Adelaide">Adelaide</button><button class="btn" data-city="Canberra">Canberra</button><button class="btn" data-city="Hobart">Hobart</button><button class="btn" data-city="Darwin">Darwin</button>
   </div>
+  <div class="ctl suburb-ctl">
+    <label for="suburbFind"><b>Find a suburb</b></label>
+    <input id="suburbFind" type="search" list="suburbList" autocomplete="off" placeholder="Start typing, e.g. Parramatta" aria-describedby="suburbMsg">
+    <datalist id="suburbList"></datalist>
+    <span id="suburbMsg" class="hint" aria-live="polite"></span>
+  </div>
   <div class="zoom-wrap">
     <div class="chart zoom-map" id="cZ" tabindex="0" role="img" aria-label="Zoomable map of capital-city suburbs (SA2 areas) shaded by the share of residents born overseas, 2021. Use the arrow keys to pan and plus or minus to zoom."></div>
     <div class="zoom-btns"><button class="btn" id="zoomIn" aria-label="Zoom in">+</button><button class="btn" id="zoomOut" aria-label="Zoom out">−</button></div>
   </div>
-  <figcaption><b>Figure 12.</b> Share of residents born overseas by SA2 area in the eight Greater Capital City areas, Census 2021 (choropleth, same seven classes as Figure 9). Areas with fewer than 300 residents, such as airports and industrial estates, are shown in grey. <span class="try"><span class="try-k">Try</span>Choose a city to fly there, drag to pan, and zoom with the + and − buttons or Ctrl/⌘ + scroll; hover an area for its figures.</span><span class="src">Sources: ABS (2022b, 2023d).</span></figcaption>
+  <figcaption><b>Figure 12.</b> Share of residents born overseas by SA2 area in the eight Greater Capital City areas, Census 2021 (choropleth, same seven classes as Figure 9). Areas with fewer than 300 residents, such as airports and industrial estates, are shown in grey. Suburb names appear as you zoom in. <span class="try"><span class="try-k">Try</span>Type your suburb in the box to fly to it, or choose a city; drag to pan, and zoom with the + and − buttons or Ctrl/⌘ + scroll; hover an area for its figures.</span><span class="src">Sources: ABS (2022b, 2023d).</span></figcaption>
 </figure>
 
 <!-- ---------- 4.2 Level and growth (Figure 13) ---------- -->

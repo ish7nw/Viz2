@@ -4,7 +4,7 @@
   How it fits together (search for "PART" or "FIGURE" to jump between sections):
     1. Small data tables (yearly shares, countries, states) - right below.
        The big map shapes (WORLD, STATES, SA4, RINGS, EXTRA) are in data.js.
-    2. Shared settings: colours, fonts, the linked state highlight, hover tooltips.
+    2. Shared settings: colours, fonts, the click-a-state highlight, hover tooltips.
     3. One function per figure. Each returns a Vega-Lite spec (a plain JSON object):
          specWaffle - Fig 1 waffle chart        spec1       - Fig 2 spot values (time series)
          specStream - Fig 3 streamgraph         specVoyage  - Fig 4 route map
@@ -98,7 +98,7 @@ ST_LABELS.forEach(d => { d.l1 = d.abbr + " · " + short(d.tot) + " born overseas
 
 /* ======================================================================
    PART 2. SHARED SETTINGS
-   Theme, linked state highlight, hover tooltips
+   Theme, click-a-state highlight, hover tooltips
    ====================================================================== */
 /* ---------- theme ---------- */
 // Pull the colours from style.css so the maps match the page, and set fonts/axes/legends for every chart.
@@ -590,7 +590,7 @@ const SA4_TT = (yrField) => [
   { field: "properties.chg", title: "Change 2011–2021 (pts)", format: "+.1f" },
   { field: "properties.os21", title: "Overseas-born residents, 2021", format: "," }
 ];
-// one SA4 fill layer with hover highlight and the linked state highlight
+// one SA4 fill layer with hover highlight and the click-a-state highlight
 // IDIOM: CHOROPLETH (the fill) - each SA4 region is coloured by its class. Used by Figures 9, 10 and 13.
 function sa4Layer(t, o) {
   const pname = "hovr" + (HOVER_N++);
@@ -984,7 +984,18 @@ function unpackSA2(txt) {
       pts.push(pts[0]); return pts;
     }));
     const pct = tot >= 300 ? Math.round(1000 * os / tot) / 10 : null; // too few residents for a reliable share
-    return { type: "Feature", properties: { code, name: name.trim(), state: STATE_OF[code[0]], city: CITY_OF[code[0]], pct, os, tot },
+    // label point and size: centre and area of the largest ring in mercator units (radians), plus its bounding box,
+    // used to show names only when an area is big enough on screen, and to fly to a searched suburb
+    const R = Math.PI / 180, my = (lat) => Math.log(Math.tan(Math.PI / 4 + lat * R / 2));
+    let best = null;
+    polys.forEach(pg => { const r = pg[0]; let A = 0, cx = 0, cy = 0;
+      for (let i = 0; i < r.length - 1; i++) { const x0 = r[i][0] * R, y0 = my(r[i][1]), x1 = r[i + 1][0] * R, y1 = my(r[i + 1][1]); const c = x0 * y1 - x1 * y0; A += c; cx += (x0 + x1) * c; cy += (y0 + y1) * c; }
+      A /= 2; if (!best || Math.abs(A) > Math.abs(best.A)) best = { A, cx: cx / (6 * A), cy: cy / (6 * A) }; });
+    const all = polys.flatMap(pg => pg[0]);
+    const bb = [Math.min(...all.map(p => p[0])), Math.min(...all.map(p => p[1])), Math.max(...all.map(p => p[0])), Math.max(...all.map(p => p[1]))];
+    const clat = (2 * Math.atan(Math.exp(best.cy)) - Math.PI / 2) / R;
+    return { type: "Feature", properties: { code, name: name.trim(), state: STATE_OF[code[0]], city: CITY_OF[code[0]], pct, os, tot,
+      lon: best.cx / R, lat: clat, marea: Math.abs(best.A), bb },
       geometry: polys.length > 1 ? { type: "MultiPolygon", coordinates: polys } : { type: "Polygon", coordinates: polys[0] } };
   });
 }
@@ -997,7 +1008,7 @@ const CITY_VIEWS = {
   Perth: [115.88, -31.95, 50000], Adelaide: [138.6, -34.9, 60000], Canberra: [149.12, -35.3, 75000],
   Hobart: [147.3, -42.86, 70000], Darwin: [130.92, -12.45, 85000]
 };
-const zoomState = { cx: 151.0, cy: -33.82, zs: 58000, city: "Sydney" };
+const zoomState = { cx: 151.0, cy: -33.82, zs: 58000, city: "Sydney", pick: "" };
 
 function specZoom(t, w) {
   const narrow = w < 600;
@@ -1008,7 +1019,8 @@ function specZoom(t, w) {
     $schema: "https://vega.github.io/schema/vega-lite/v5.json",
     width: w, height: h, autosize: { type: "none" }, padding: 0,
     config: { ...config(t), view: { stroke: null, fill: t.ocean } },
-    params: [{ name: "cx", value: zoomState.cx }, { name: "cy", value: zoomState.cy }, { name: "zs", value: zoomState.zs * k }, { name: "hl", value: state.hl }],
+    params: [{ name: "cx", value: zoomState.cx }, { name: "cy", value: zoomState.cy }, { name: "zs", value: zoomState.zs * k }, { name: "hl", value: state.hl },
+      { name: "pick", value: zoomState.pick || "" }],
     projection: { type: "mercator", center: { expr: "[cx, cy]" }, scale: { expr: "zs" } },
     layer: [
       // land outside the capital-city areas, in plain grey
@@ -1026,11 +1038,19 @@ function specZoom(t, w) {
               symbolType: "square", symbolSize: narrow ? 80 : 140, symbolStrokeWidth: 0, fillColor: "rgba(255,255,255,0.88)", padding: narrow ? 5 : 8, cornerRadius: 3, labelLimit: 130, columnPadding: narrow ? 5 : 10,
               values: SA4_LABELS } },
           opacity: { condition: { test: HL("datum.properties.state"), value: 1 }, value: 0.25 },
-          stroke: { condition: { param: "hovz", empty: false, value: "#111111" }, value: "#ffffff" },
-          strokeWidth: { condition: { param: "hovz", empty: false, value: 2 }, value: 0.35 },
+          stroke: { condition: [{ param: "hovz", empty: false, value: "#111111" }, { test: "datum.properties.code == pick", value: "#111111" }], value: "#ffffff" },
+          strokeWidth: { condition: [{ param: "hovz", empty: false, value: 2 }, { test: "datum.properties.code == pick", value: 3 }], value: 0.35 },
           tooltip: [{ field: "properties.name", title: "Area" }, { field: "properties.city", title: "City" }, { field: "pctl", title: "Born overseas, 2021" },
             { field: "properties.os", title: "Residents born overseas", format: "," }, { field: "properties.tot", title: "All residents", format: "," }]
-        } }
+        } },
+      // SUBURB NAMES - shown only for areas that are big enough on screen at the current zoom, so the map
+      // never fills with text: zoom in and more names appear. The searched suburb is always named.
+      ...[true, false].map(halo => ({ data: { values: sa2Features().map(f => ({ code: f.properties.code, lon: f.properties.lon, lat: f.properties.lat, a: f.properties.marea,
+          lines: f.properties.name.split(" - ").length > 2 ? [f.properties.name.split(" - ")[0], f.properties.name.split(" - ").slice(1).join(" - ")] : f.properties.name.split(" - ") })) },
+        transform: [{ filter: `(datum.a * zs * zs > ${narrow ? 5200 : 7500} || datum.code == pick) && abs(datum.lon - cx) * zs / 57.3 < width * 0.6 && abs(datum.lat - cy) * zs / 57.3 < height * 0.7` }],
+        mark: { type: "text", font: t.body, fontSize: narrow ? 9 : 10.5, fontWeight: 600, lineHeight: narrow ? 10 : 12, baseline: "middle", clip: true, interactive: false,
+          ...(halo ? { stroke: "rgba(255,255,255,0.85)", strokeWidth: 3, strokeJoin: "round" } : { fill: "#1b1b1b" }) },
+        encoding: { ...loc, text: { field: "lines" } } }))
     ]
   };
 }
@@ -1061,6 +1081,22 @@ function setupZoomControls() {
   function flyTo(name) {
     const [tx, ty, tz] = CITY_VIEWS[name]; zoomState.city = name;
     document.querySelectorAll("#zoomCities button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.city === name)));
+    flyToPoint(tx, ty, tz);
+  }
+  // Find a suburb: fly to it, zoomed so it fills about half the map, and outline it
+  function flyToSuburb(f) {
+    const p = f.properties, [x0, y0, x1, y1] = p.bb, w = host.clientWidth, h = host.clientHeight;
+    const bw = (x1 - x0) / R, bh = Math.abs(yOf(y1) - yOf(y0));
+    const s = Math.min(w / Math.max(bw, 1e-6), h / Math.max(bh, 1e-6)) * 0.22; // the suburb takes about a fifth of the map, so its neighbours show too
+    zoomState.city = ""; zoomState.pick = p.code;
+    document.querySelectorAll("#zoomCities button").forEach(b => b.setAttribute("aria-pressed", "false"));
+    if (views.cZ) views.cZ.signal("pick", p.code);
+    flyToPoint((x0 + x1) / 2, latOf((yOf(y0) + yOf(y1)) / 2), Math.min(clampZoom(s / k()), 260000));
+    const msg = document.getElementById("suburbMsg");
+    if (msg) msg.textContent = p.name + ", " + p.city + ": " + (p.pct == null ? "too few residents to show a share" : p.pct.toFixed(1) + "% born overseas") + " (" + p.tot.toLocaleString("en-AU") + " residents)";
+  }
+  setupZoomControls.flyToSuburb = flyToSuburb;
+  function flyToPoint(tx, ty, tz) {
     cancelAnimationFrame(anim);
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) { Object.assign(zoomState, { cx: tx, cy: ty, zs: tz }); return apply(); }
     const from = { ...zoomState }, t0 = performance.now(), D = 900;
@@ -1077,7 +1113,27 @@ function setupZoomControls() {
   }
   if (!setupZoomControls.wired) {
     setupZoomControls.wired = true;
-    document.querySelectorAll("#zoomCities button").forEach(b => b.addEventListener("click", () => flyTo(b.dataset.city)));
+    document.querySelectorAll("#zoomCities button").forEach(b => b.addEventListener("click", () => {
+      zoomState.pick = ""; if (views.cZ) views.cZ.signal("pick", "");
+      const msg = document.getElementById("suburbMsg"); if (msg) msg.textContent = "";
+      flyTo(b.dataset.city);
+    }));
+    // suburb search: the list offers every SA2 name; pick one (or press Enter) to fly there
+    const input = document.getElementById("suburbFind"), list = document.getElementById("suburbList");
+    if (input && list) {
+      const feats = sa2Features();
+      const byName = new Map(feats.map(f => [f.properties.name + " (" + f.properties.city + ")", f]));
+      list.innerHTML = [...byName.keys()].sort().map(n => `<option value="${n.replace(/"/g, "&quot;")}"></option>`).join("");
+      const go = () => {
+        const q = input.value.trim().toLowerCase(); if (!q) return;
+        let f = byName.get(input.value.trim());
+        if (!f) { const hit = [...byName.entries()].find(([n]) => n.toLowerCase().startsWith(q)) || [...byName.entries()].find(([n]) => n.toLowerCase().includes(q)); f = hit && hit[1]; }
+        const msg = document.getElementById("suburbMsg");
+        if (f) setupZoomControls.flyToSuburb(f); else if (msg) msg.textContent = "No suburb (SA2 area) matches \u201c" + input.value.trim() + "\u201d in the eight capital cities.";
+      };
+      input.addEventListener("change", go);
+      input.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); go(); } });
+    }
     document.getElementById("zoomIn").addEventListener("click", () => zoomAt(1.5, host.clientWidth / 2, host.clientHeight / 2));
     document.getElementById("zoomOut").addEventListener("click", () => zoomAt(1 / 1.5, host.clientWidth / 2, host.clientHeight / 2));
     // Ctrl/Cmd + scroll zooms; a plain scroll keeps scrolling the page
@@ -1873,12 +1929,12 @@ function specSwarm(t, w) {
    ====================================================================== */
 /* ---------- render: draw everything ---------- */
 // views keeps each drawn chart so the dropdown, sliders and Play button can talk to it.
-// STATE_VIEWS are the linked maps that respond to the state highlight.
+// STATE_VIEWS are the maps where clicking a state highlights it (in that map only).
 state.day = 250;
 const views = {};
 let lastW = 0;
 const opts = { actions: false, renderer: "svg", tooltip: { theme: "custom" } };
-const STATE_VIEWS = ["c3", "cH", "cX", "cZ", "cB", "cD", "cC", "cP", "cL", "cW"];
+const STATE_VIEWS = ["c3", "cH", "cX", "cB", "cD", "cC", "cP"];
 const ABBR2NAME = Object.fromEntries(ST.map(r => [r[1], r[0]]));
 function stateNameOf(item) {
   const d = item && item.datum;
@@ -1889,10 +1945,12 @@ function stateNameOf(item) {
   if (typeof d.name === "string" && ST.some(r => r[0] === d.name)) return d.name;
   return null;
 }
-function setHighlight(name) {
-  state.hl = name || "";
-  for (const id of STATE_VIEWS) if (views[id]) views[id].signal("hl", state.hl).runAsync();
-  const sel = document.getElementById("hlState"); if (sel) sel.value = state.hl;
+// Clicking a state highlights it in THAT chart only; every chart keeps its own highlight,
+// so one chart never dims the colours of another.
+const localHL = {};
+function setHighlight(id, name) {
+  localHL[id] = name || "";
+  if (views[id]) views[id].signal("hl", localHL[id]).runAsync();
 }
 // Each chart is drawn only when it comes near the screen, so the page opens quickly.
 // CHARTS says how to build each one; AFTER wires up anything extra once it is drawn.
@@ -1919,12 +1977,13 @@ async function drawNow(id) {
     const v = views[id] = (await vegaEmbed("#" + id, CHARTS[id](T(), cw(id)), opts)).view;
     drawn.add(id);
     if (AFTER[id]) AFTER[id](v);
-    // linked state maps: clicking a state highlights it everywhere (not on maps that use clicks for something else)
-    if (STATE_VIEWS.includes(id) && !["cZ", "cL", "cW"].includes(id)) {
+    if (localHL[id]) v.signal("hl", localHL[id]).runAsync(); // keep this chart's own highlight after a redraw
+    // clicking a state highlights it in this chart only (other charts are left alone)
+    if (STATE_VIEWS.includes(id)) {
       v.addEventListener("click", (ev, item) => {
         const name = stateNameOf(item);
-        if (name) setHighlight(state.hl === name ? "" : name);
-        else if (!item || !item.datum || item.mark?.marktype === "group") setHighlight("");
+        if (name) setHighlight(id, localHL[id] === name ? "" : name);
+        else if (!item || !item.datum || item.mark?.marktype === "group") setHighlight(id, "");
       });
     }
   } catch (e) { console.error(id, e); }
@@ -1950,13 +2009,6 @@ function render() {
     links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + cur.id));
   };
   addEventListener("scroll", () => requestAnimationFrame(mark), { passive: true }); mark();
-})();
-// state dropdown (keyboard-friendly way to drive the linked highlight)
-(() => {
-  const sel = document.getElementById("hlState");
-  if (!sel) return;
-  ST.forEach(r => { const o = document.createElement("option"); o.value = r[0]; o.textContent = r[0]; sel.appendChild(o); });
-  sel.addEventListener("change", () => setHighlight(sel.value));
 })();
 // Play button for Figure 4: moves `day` forward 25 days a second until it reaches 250.
 (() => {
