@@ -1008,7 +1008,7 @@ const CITY_VIEWS = {
   Perth: [115.88, -31.95, 50000], Adelaide: [138.6, -34.9, 60000], Canberra: [149.12, -35.3, 75000],
   Hobart: [147.3, -42.86, 70000], Darwin: [130.92, -12.45, 85000]
 };
-const zoomState = { cx: 151.0, cy: -33.82, zs: 58000, city: "Sydney", pick: "" };
+const zoomState = { cx: 151.0, cy: -33.82, zs: 58000, city: "Sydney" };
 
 function specZoom(t, w) {
   const narrow = w < 600;
@@ -1019,8 +1019,7 @@ function specZoom(t, w) {
     $schema: "https://vega.github.io/schema/vega-lite/v5.json",
     width: w, height: h, autosize: { type: "none" }, padding: 0,
     config: { ...config(t), view: { stroke: null, fill: t.ocean } },
-    params: [{ name: "cx", value: zoomState.cx }, { name: "cy", value: zoomState.cy }, { name: "zs", value: zoomState.zs * k }, { name: "hl", value: state.hl },
-      { name: "pick", value: zoomState.pick || "" }],
+    params: [{ name: "cx", value: zoomState.cx }, { name: "cy", value: zoomState.cy }, { name: "zs", value: zoomState.zs * k }, { name: "hl", value: state.hl }],
     projection: { type: "mercator", center: { expr: "[cx, cy]" }, scale: { expr: "zs" } },
     layer: [
       // land outside the capital-city areas, in plain grey
@@ -1038,16 +1037,16 @@ function specZoom(t, w) {
               symbolType: "square", symbolSize: narrow ? 80 : 140, symbolStrokeWidth: 0, fillColor: "rgba(255,255,255,0.88)", padding: narrow ? 5 : 8, cornerRadius: 3, labelLimit: 130, columnPadding: narrow ? 5 : 10,
               values: SA4_LABELS } },
           opacity: { condition: { test: HL("datum.properties.state"), value: 1 }, value: 0.25 },
-          stroke: { condition: [{ param: "hovz", empty: false, value: "#111111" }, { test: "datum.properties.code == pick", value: "#111111" }], value: "#ffffff" },
-          strokeWidth: { condition: [{ param: "hovz", empty: false, value: 2 }, { test: "datum.properties.code == pick", value: 3 }], value: 0.35 },
+          stroke: { condition: { param: "hovz", empty: false, value: "#111111" }, value: "#ffffff" },
+          strokeWidth: { condition: { param: "hovz", empty: false, value: 2 }, value: 0.35 },
           tooltip: [{ field: "properties.name", title: "Area" }, { field: "properties.city", title: "City" }, { field: "pctl", title: "Born overseas, 2021" },
             { field: "properties.os", title: "Residents born overseas", format: "," }, { field: "properties.tot", title: "All residents", format: "," }]
         } },
       // SUBURB NAMES - shown only for areas that are big enough on screen at the current zoom, so the map
-      // never fills with text: zoom in and more names appear. The searched suburb is always named.
+      // never fills with text: zoom in and more names appear.
       ...[true, false].map(halo => ({ data: { values: sa2Features().map(f => ({ code: f.properties.code, lon: f.properties.lon, lat: f.properties.lat, a: f.properties.marea,
           lines: f.properties.name.split(" - ").length > 2 ? [f.properties.name.split(" - ")[0], f.properties.name.split(" - ").slice(1).join(" - ")] : f.properties.name.split(" - ") })) },
-        transform: [{ filter: `(datum.a * zs * zs > ${narrow ? 5200 : 7500} || datum.code == pick) && abs(datum.lon - cx) * zs / 57.3 < width * 0.6 && abs(datum.lat - cy) * zs / 57.3 < height * 0.7` }],
+        transform: [{ filter: `datum.a * zs * zs > ${narrow ? 5200 : 7500} && abs(datum.lon - cx) * zs / 57.3 < width * 0.6 && abs(datum.lat - cy) * zs / 57.3 < height * 0.7` }],
         mark: { type: "text", font: t.body, fontSize: narrow ? 9 : 10.5, fontWeight: 600, lineHeight: narrow ? 10 : 12, baseline: "middle", clip: true, interactive: false,
           ...(halo ? { stroke: "rgba(255,255,255,0.85)", strokeWidth: 3, strokeJoin: "round" } : { fill: "#1b1b1b" }) },
         encoding: { ...loc, text: { field: "lines" } } }))
@@ -1083,19 +1082,6 @@ function setupZoomControls() {
     document.querySelectorAll("#zoomCities button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.city === name)));
     flyToPoint(tx, ty, tz);
   }
-  // Find a suburb: fly to it, zoomed so it fills about half the map, and outline it
-  function flyToSuburb(f) {
-    const p = f.properties, [x0, y0, x1, y1] = p.bb, w = host.clientWidth, h = host.clientHeight;
-    const bw = (x1 - x0) / R, bh = Math.abs(yOf(y1) - yOf(y0));
-    const s = Math.min(w / Math.max(bw, 1e-6), h / Math.max(bh, 1e-6)) * 0.22; // the suburb takes about a fifth of the map, so its neighbours show too
-    zoomState.city = ""; zoomState.pick = p.code;
-    document.querySelectorAll("#zoomCities button").forEach(b => b.setAttribute("aria-pressed", "false"));
-    if (views.cZ) views.cZ.signal("pick", p.code);
-    flyToPoint((x0 + x1) / 2, latOf((yOf(y0) + yOf(y1)) / 2), Math.min(clampZoom(s / k()), 260000));
-    const msg = document.getElementById("suburbMsg");
-    if (msg) msg.textContent = p.name + ", " + p.city + ": " + (p.pct == null ? "too few residents to show a share" : p.pct.toFixed(1) + "% born overseas") + " (" + p.tot.toLocaleString("en-AU") + " residents)";
-  }
-  setupZoomControls.flyToSuburb = flyToSuburb;
   function flyToPoint(tx, ty, tz) {
     cancelAnimationFrame(anim);
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) { Object.assign(zoomState, { cx: tx, cy: ty, zs: tz }); return apply(); }
@@ -1113,27 +1099,7 @@ function setupZoomControls() {
   }
   if (!setupZoomControls.wired) {
     setupZoomControls.wired = true;
-    document.querySelectorAll("#zoomCities button").forEach(b => b.addEventListener("click", () => {
-      zoomState.pick = ""; if (views.cZ) views.cZ.signal("pick", "");
-      const msg = document.getElementById("suburbMsg"); if (msg) msg.textContent = "";
-      flyTo(b.dataset.city);
-    }));
-    // suburb search: the list offers every SA2 name; pick one (or press Enter) to fly there
-    const input = document.getElementById("suburbFind"), list = document.getElementById("suburbList");
-    if (input && list) {
-      const feats = sa2Features();
-      const byName = new Map(feats.map(f => [f.properties.name + " (" + f.properties.city + ")", f]));
-      list.innerHTML = [...byName.keys()].sort().map(n => `<option value="${n.replace(/"/g, "&quot;")}"></option>`).join("");
-      const go = () => {
-        const q = input.value.trim().toLowerCase(); if (!q) return;
-        let f = byName.get(input.value.trim());
-        if (!f) { const hit = [...byName.entries()].find(([n]) => n.toLowerCase().startsWith(q)) || [...byName.entries()].find(([n]) => n.toLowerCase().includes(q)); f = hit && hit[1]; }
-        const msg = document.getElementById("suburbMsg");
-        if (f) setupZoomControls.flyToSuburb(f); else if (msg) msg.textContent = "No suburb (SA2 area) matches \u201c" + input.value.trim() + "\u201d in the eight capital cities.";
-      };
-      input.addEventListener("change", go);
-      input.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); go(); } });
-    }
+    document.querySelectorAll("#zoomCities button").forEach(b => b.addEventListener("click", () => flyTo(b.dataset.city)));
     document.getElementById("zoomIn").addEventListener("click", () => zoomAt(1.5, host.clientWidth / 2, host.clientHeight / 2));
     document.getElementById("zoomOut").addEventListener("click", () => zoomAt(1 / 1.5, host.clientWidth / 2, host.clientHeight / 2));
     // Ctrl/Cmd + scroll zooms; a plain scroll keeps scrolling the page

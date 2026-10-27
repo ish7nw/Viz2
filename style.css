@@ -190,6 +190,7 @@ a { color: var(--link); }
 /* Figure 18: names and borders drawn over the regions should not block hovering the regions */
 #cL .mark-text, #cL .concat_0_layer_2_marks { pointer-events: none; }
 #cH .mark-text, #cH .mark-rule, #cU .mark-text { pointer-events: none; }
+#cZ .mark-text { pointer-events: none; }
 /* Contents bar: sticks to the top of the window; scrolls sideways on phones */
 .toc { position: sticky; top: 0; z-index: 20; display: flex; gap: 2px 18px; overflow-x: auto; scrollbar-width: none; white-space: nowrap;
   margin: 8px -30px 28px; padding: 10px 30px; background: rgba(240, 230, 208, 0.9); backdrop-filter: blur(6px);
@@ -219,12 +220,6 @@ h2[id], p[id] { scroll-margin-top: 56px; }
   .vega-bindings input[type="radio"] { width: 20px; height: 20px; }
   .vega-bindings label { padding: 6px 4px; display: inline-flex; align-items: center; }
 }
-/* Figure 12 suburb search box */
-.suburb-ctl input { font: inherit; font-size: 14px; padding: 6px 10px; min-width: min(320px, 100%); border: 1px solid #8a8a8a; border-radius: 4px; background: var(--surface); color: var(--ink); }
-.suburb-ctl input:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
-.suburb-ctl .hint { flex-basis: 100%; font-size: 13.5px; color: var(--ink); }
-#cZ .mark-text { pointer-events: none; }
-@media (max-width: 600px), (pointer: coarse) { .suburb-ctl input { min-height: 40px; width: 100%; } }
 .zoom-btns { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 4px; }
 .zoom-btns .btn { width: 34px; height: 34px; padding: 0; font-size: 20px; line-height: 1; }
 .btn:focus-visible, select:focus-visible, .vega-bindings input:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
