@@ -7,7 +7,9 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- Everything visible lives inside <main>, the white panel. Styles are in style.css. -->
+<!-- Animated background (WebGL shader, drawn by PART 6 in script.js) -->
+<canvas id="bg" aria-hidden="true"></canvas>
+<!-- Everything visible lives inside <main>, the paper panel. Styles are in style.css. -->
 <main>
 <!-- ======================================================================
      TITLE
@@ -71,7 +73,7 @@
 <!-- Figure 4 | IDIOM: Route map (animated) | drawn by specVoyage() in script.js -->
 <figure>
   <div class="chart gradient" id="cV" role="img" aria-label="World map tracing the First Fleet route from Portsmouth to Botany Bay."></div>
-  <figcaption><b>Figure 4.</b> Route of the First Fleet, May 1787 to January 1788 (route map). Countries where the fleet stopped on the way (Spain, for Tenerife; Brazil; South Africa) are filled with an animated gradient. Stop dates are given by month. The Southern Ocean leg is approximated through waypoints. <span class="try"><span class="try-k">Try</span>Use the day slider or the play button to follow the fleet; ports turn orange once reached.</span><span class="src">Sources: State Library of NSW; National Museum of Australia.</span></figcaption>
+  <figcaption><b>Figure 4.</b> Route of the First Fleet, May 1787 to January 1788 (route map). Countries where the fleet stopped on the way (Spain, for Tenerife; Brazil; South Africa) are filled with an animated gradient. Stop dates are given by month. The Southern Ocean leg is approximated through waypoints. <span class="try"><span class="try-k">Try</span>Use the day slider or the play button to follow the fleet; ports turn gold once reached.</span><span class="src">Sources: State Library of NSW; National Museum of Australia.</span></figcaption>
 </figure>
 
 <!-- ======================================================================

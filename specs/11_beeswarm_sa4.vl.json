@@ -10,9 +10,9 @@
   "axis": {
    "labelColor": "#675f54",
    "titleColor": "#675f54",
-   "gridColor": "#d8cfbf",
-   "domainColor": "#d8cfbf",
-   "tickColor": "#d8cfbf",
+   "gridColor": "#d3c5a8",
+   "domainColor": "#d3c5a8",
+   "tickColor": "#d3c5a8",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "labelFontSize": 11,
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
@@ -27,7 +27,7 @@
    "titleFontWeight": 600,
    "labelFontSize": 12,
    "titleFontSize": 12,
-   "symbolStrokeColor": "#fbf8f2"
+   "symbolStrokeColor": "#f5eddc"
   },
   "text": {
    "color": "#25221d",
@@ -111,8 +111,8 @@
    },
    "mark": {
     "type": "rect",
-    "fill": "#f1ebdf",
-    "opacity": 0.6
+    "fill": "rgba(150, 112, 55, 0.09)",
+    "opacity": 1
    },
    "encoding": {
     "x": {
@@ -199,7 +199,7 @@
    },
    "mark": {
     "type": "rule",
-    "color": "#d8cfbf",
+    "color": "#d3c5a8",
     "strokeDash": [
      2,
      3

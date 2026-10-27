@@ -10,9 +10,9 @@
   "axis": {
    "labelColor": "#675f54",
    "titleColor": "#675f54",
-   "gridColor": "#d8cfbf",
-   "domainColor": "#d8cfbf",
-   "tickColor": "#d8cfbf",
+   "gridColor": "#d3c5a8",
+   "domainColor": "#d3c5a8",
+   "tickColor": "#d3c5a8",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "labelFontSize": 11,
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
@@ -27,7 +27,7 @@
    "titleFontWeight": 600,
    "labelFontSize": 12,
    "titleFontSize": 12,
-   "symbolStrokeColor": "#fbf8f2"
+   "symbolStrokeColor": "#f5eddc"
   },
   "text": {
    "color": "#25221d",
@@ -38819,7 +38819,7 @@
         "empty": false,
         "value": "#111111"
        },
-       "value": "#fbf8f2"
+       "value": "#f5eddc"
       },
       "strokeWidth": {
        "condition": {
@@ -45455,7 +45455,7 @@
      "mark": {
       "type": "rule",
       "strokeWidth": 0.8,
-      "color": "#25221d",
+      "color": "#9a5f24",
       "interactive": false
      },
      "encoding": {
@@ -45507,7 +45507,7 @@
      "mark": {
       "type": "circle",
       "size": 22,
-      "color": "#25221d",
+      "color": "#9a5f24",
       "interactive": false
      },
      "encoding": {
@@ -45567,7 +45567,8 @@
       "dx": 4,
       "fontSize": 11,
       "lineHeight": 13,
-      "color": "#25221d",
+      "color": "#9a5f24",
+      "fontStyle": "italic",
       "interactive": false
      },
      "encoding": {
@@ -84405,7 +84406,7 @@
           "empty": false,
           "value": "#111111"
          },
-         "value": "#fbf8f2"
+         "value": "#f5eddc"
         },
         "strokeWidth": {
          "condition": {
@@ -123243,7 +123244,7 @@
           "empty": false,
           "value": "#111111"
          },
-         "value": "#fbf8f2"
+         "value": "#f5eddc"
         },
         "strokeWidth": {
          "condition": {
@@ -123306,5 +123307,5 @@
   }
  ],
  "spacing": 20,
- "background": "#fbf8f2"
+ "background": "#f5eddc"
 }
