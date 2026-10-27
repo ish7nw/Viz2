@@ -6,12 +6,16 @@
        The big map shapes (WORLD, STATES, SA4, RINGS, EXTRA) are in data.js.
     2. Shared settings: colours, fonts, the linked state highlight, hover tooltips.
     3. One function per figure. Each returns a Vega-Lite spec (a plain JSON object):
-         spec1 - Fig 1 spot values          specVoyage - Fig 2 route map
-         spec2 - Fig 3 prop. symbols         specFlow   - Fig 4 flow map
-         specSpike - Fig 5 spike map         spec3      - Fig 6 choropleth
-         specSmall - Fig 7 small multiples   specBiv    - Fig 8 bivariate
-         specDots - Fig 9 dot density        specDorling - Fig 10 cartogram
-         specPies - Fig 11 pie-chart map     spec4      - Fig 12 nested symbols
+         specWaffle - Fig 1 waffle chart        spec1       - Fig 2 spot values (time series)
+         specStream - Fig 3 streamgraph         specVoyage  - Fig 4 route map
+         spec2      - Fig 5 prop. symbols       specFlow    - Fig 6 flow map
+         specSpike  - Fig 7 spike map           specBump    - Fig 8 bump chart
+         spec3      - Fig 9 choropleth          specHex     - Fig 10 hexagon tile map
+         specSwarm  - Fig 11 beeswarm           specZoom    - Fig 12 zoomable suburb map
+         specBiv    - Fig 13 bivariate          specDots    - Fig 14 dot density
+         specDorling - Fig 15 cartogram         specPies    - Fig 16 pie-chart map
+         specTop    - Fig 17 linked maps        specLang    - Fig 18 India/China languages
+         specWorldLang - Fig 19 world languages specPyramid - Fig 20 population pyramid
     4. Extras: animated gradient on Fig 2, data tables, the shutter title.
     5. render() draws each spec into its <div> with vegaEmbed, then the Play button
        and the state dropdown are wired up.
@@ -341,65 +345,7 @@ const waterLabels = (t, vals, narrow) => ({ data: { values: vals },
   mark: { type: "text", font: t.mono, fontStyle: "italic", fontWeight: 500, fontSize: narrow ? 10 : 11.5, color: "#3a6a92", baseline: "middle" },
   encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, text: { field: "n" } } });
 
-/* ======================================================================
-   FIGURE 18 | Page section 4.4 | IDIOM: Nested proportional symbols
-   Function: spec4()
-   ====================================================================== */
-
-// Open circle = everyone born overseas in the state; filled circle = people from the single
-// biggest birthplace. Same size scale for both, so the filled one shows its share.
-function spec4(t, w) {
-  const narrow = w < 600;
-  const k = Math.min(1, w / 900);
-  const size = { domain: [0, 2600000], range: [0, Math.round(6400 * k * k)] };
-  const colorScale = { domain: REG_DOMAIN, range: [t.s1, t.s2, t.s3] };
-  const loc = { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" } };
-  const callout = (side) => ({
-    data: { values: ST_LABELS }, transform: [{ filter: narrow ? "false" : `datum.cside == '${side}'` }],
-    mark: { type: "text", align: side === "r" ? "left" : "right", dx: side === "r" ? 4 : -4, baseline: "middle", fontSize: 11.5, lineHeight: 14, font: t.body },
-    encoding: { longitude: { field: "clon", type: "quantitative" }, latitude: { field: "clat", type: "quantitative" },
-      text: { field: "lines" }, color: { value: t.ink } }
-  });
-  ST_LABELS.forEach(d => { d.lines = [d.l1, d.l2]; });
-  const out = {
-    $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-    width: "container", height: narrow ? Math.round(w * 0.95 + 110) : 560, autosize: { type: "fit-x", contains: "padding" },
-    config: config(t),
-    params: [{ name: "hl", value: state.hl }],
-    projection: AUS_PROJ,
-    layer: [
-      { data: { values: STATES, format: { type: "topojson", feature: "states" } }, mark: { type: "geoshape", fill: t.land, stroke: t.surface, strokeWidth: 1.25, cursor: "pointer" } },
-      { data: { values: ST_LABELS }, mark: { type: "rule", strokeWidth: 0.75 }, transform: [{ filter: narrow ? "false" : "true" }],
-        encoding: { ...loc, longitude2: { field: "clon" }, latitude2: { field: "clat" }, color: { value: t.muted } } },
-      // IDIOM: NESTED PROPORTIONAL SYMBOLS - outer open circle = everyone born overseas in the state.
-      { data: { values: ST_LABELS }, mark: { type: "circle", filled: false, strokeWidth: 1.5, cursor: "pointer" },
-        encoding: { ...loc, opacity: { condition: { test: HL("datum.name"), value: 1 }, value: 0.2 }, size: { field: "tot", type: "quantitative", scale: size,
-            legend: { title: "Born overseas", values: [100000, 1000000, 2500000], format: narrow ? ".2s" : ",.0f", orient: "bottom", direction: "horizontal", symbolStrokeColor: t.ink, symbolFillColor: "transparent", symbolStrokeWidth: 1.25 } },
-          color: { value: t.ink }, order: { field: "tot", sort: "descending" },
-          tooltip: [ { field: "name", title: "State / territory" }, { field: "tot", title: "Born overseas", format: "," }, { field: "top", title: "Top country of birth" }, { field: "topn", title: "Residents born there", format: "," } ] } },
-      // IDIOM: NESTED PROPORTIONAL SYMBOLS - inner filled circle = people from the top birthplace,
-      // on the same size scale as the outer circle.
-      { data: { values: ST_LABELS }, mark: { type: "circle", stroke: t.surface, strokeWidth: 1, cursor: "pointer" },
-        encoding: { ...loc, opacity: { condition: { test: HL("datum.name"), value: 0.9 }, value: 0.15 }, size: { field: "topn", type: "quantitative", scale: size, legend: null },
-          color: { field: "topRegion", type: "nominal", scale: colorScale, legend: { title: "Top country’s region", orient: "bottom", direction: "vertical" } },
-          tooltip: [ { field: "name", title: "State / territory" }, { field: "top", title: "Top country of birth" }, { field: "topn", title: "Residents born there", format: "," } ] } },
-      callout("r"), callout("l"),
-      { data: { values: ST_LABELS }, transform: [{ filter: narrow ? "datum.abbr != 'ACT'" : "false" }],
-        mark: { type: "text", align: "left", dx: 9, dy: -9, fontSize: 10.5, font: t.mono, fontWeight: 600, baseline: "middle" },
-        encoding: { ...loc, text: { field: "abbr" }, color: { value: t.ink } } },
-      { data: { values: [{ type: "Feature", properties: {}, geometry: { type: "MultiPoint", coordinates: narrow ? [[112, -10], [155, -10], [155, -44], [112, -44]] : [[101, -8], [168, -8], [168, -46], [101, -46]] } }] },
-        mark: { type: "geoshape", opacity: 0, filled: false, strokeOpacity: 0 } }
-    ]
-  };
-  out.layer[0] = hoverable(out.layer[0], t, "properties.STATE_NAME");
-  out.layer[2] = { ...out.layer[2], transform: [{ lookup: "name", from: { data: { values: STATE_STATS }, key: "s_name", fields: Object.keys(STATE_STATS[0]) } }], encoding: { ...out.layer[2].encoding, tooltip: STATE_TT } };
-  out.layer[3] = { ...out.layer[3], transform: [{ lookup: "name", from: { data: { values: STATE_STATS }, key: "s_name", fields: Object.keys(STATE_STATS[0]) } }], encoding: { ...out.layer[3].encoding, tooltip: STATE_TT } };
-  return out;
-}
-
-/* ---------- shared map pieces ---------- */
-// WORLD_PROJ is the projection for the world maps (Figures 4, 6 and 7).
-// extent() is an invisible shape used to frame a map; ausBase() draws plain grey states.
+/* ---------- shared map helpers (Natural Earth world, Australia base, extents) ---------- */
 const WORLD_PROJ = { type: "equalEarth", rotate: [-75, 0] };
 const extent = (pts) => ({ data: { values: [{ type: "Feature", properties: {}, geometry: { type: "MultiPoint", coordinates: pts } }] }, mark: { type: "geoshape", opacity: 0, filled: false, strokeOpacity: 0 } });
 const worldBase = (t) => [
@@ -615,9 +561,9 @@ function specSpike(t, w) {
 }
 
 /* ======================================================================
-   FIGURES 9, 13 AND 14 SHARED: SA4 regions, standardised classes, insets
+   FIGURES 9-11 AND 13 SHARED: SA4 regions, standardised classes, insets
    ====================================================================== */
-/* ---------- Figures 9, 13 and 14: SA4 regions ---------- */
+/* ---------- Figures 9-11 and 13: SA4 regions ---------- */
 // All three maps use the same 88 regions, the same % measure and the same fixed classes,
 // so a colour means the same thing in every map and every year.
 // ABS Statistical Areas Level 4 (ASGS 2021). Shares: Census 2011 and 2016 on that year's SA4s, 2021 on 2021 SA4s.
@@ -645,7 +591,7 @@ const SA4_TT = (yrField) => [
   { field: "properties.os21", title: "Overseas-born residents, 2021", format: "," }
 ];
 // one SA4 fill layer with hover highlight and the linked state highlight
-// IDIOM: CHOROPLETH (the fill) - each SA4 region is coloured by its class. Used by Figures 9, 13 and 14.
+// IDIOM: CHOROPLETH (the fill) - each SA4 region is coloured by its class. Used by Figures 9, 10 and 13.
 function sa4Layer(t, o) {
   const pname = "hovr" + (HOVER_N++);
   return {
@@ -691,6 +637,24 @@ function insetView(t, d, size, fill) {
    Function: spec3()
    ====================================================================== */
 
+// ANNOTATIONS for Figure 9: a dot on the region, a hairline to the label, and the label in the sea.
+// The value follows the Census-year slider.
+function callouts(t, narrow) {
+  const P = Object.fromEntries(SA4.objects.sa4.geometries.map(g => [g.properties.code, g.properties]));
+  const pts = [
+    { code: "125", lon: 151.0, lat: -33.81, llon: narrow ? 154.6 : 156.2, llat: -35.6, name: narrow ? "Parramatta" : "Sydney – Parramatta", note: "highest of 88 regions" },
+    { code: "309", lon: 153.4, lat: -28.0, llon: narrow ? 154.6 : 156.2, llat: -25.8, name: "Gold Coast", note: "highest outside a capital" }
+  ].map(d => ({ ...d, v11: P[d.code].s11, v16: P[d.code].s16, v21: P[d.code].s21 }));
+  const val = { calculate: "format(yr == 2011 ? datum.v11 : yr == 2016 ? datum.v16 : datum.v21, '.1f') + '%'", as: "v" };
+  const at = (lon, lat) => ({ longitude: { field: lon, type: "quantitative" }, latitude: { field: lat, type: "quantitative" } });
+  return [
+    { data: { values: pts }, mark: { type: "rule", strokeWidth: 0.8, color: t.ink, interactive: false }, encoding: { ...at("lon", "lat"), longitude2: { field: "llon" }, latitude2: { field: "llat" } } },
+    { data: { values: pts }, mark: { type: "circle", size: 22, color: t.ink, interactive: false }, encoding: at("lon", "lat") },
+    { data: { values: pts }, transform: [val, { calculate: narrow ? "[datum.name, datum.v]" : "[datum.name + ' ' + datum.v, datum.note]", as: "lab" }],
+      mark: { type: "text", align: "left", baseline: "middle", dx: 4, fontSize: narrow ? 9.5 : 11, lineHeight: narrow ? 11 : 13, color: t.ink, interactive: false },
+      encoding: { ...at("llon", "llat"), text: { field: "lab" } } }
+  ];
+}
 // `yr` is the slider; each region picks its 2011, 2016 or 2021 value from it.
 // Layout: big map on the left, Sydney and Melbourne zooms on the right (stacked under it on phones).
 function spec3(t, yr, w) {
@@ -699,12 +663,12 @@ function spec3(t, yr, w) {
   const pct = { calculate: "yr == 2011 ? datum.properties.s11 : yr == 2016 ? datum.properties.s16 : datum.properties.s21", as: "pct" };
   const fill = (gcc, sw) => sa4Layer(t, { filter: gcc ? `datum.properties.gcc == '${gcc}'` : null, transform: [pct, SA4_CLASS("datum.pct"), { calculate: "yr", as: "census" }],
     color: sa4Color({ cols: narrow ? 3 : 7 }), sw: sw, tooltip: SA4_TT("census") });
-  const insetW = narrow ? Math.floor((w - 24) / 2) : 220;
-  const mainW = narrow ? w - 8 : w - insetW - 40;
+  const insetW = narrow ? Math.floor((w - 36) / 2) : 220;
+  const mainW = narrow ? w - 22 : w - insetW - 40;
   const main = {
     width: mainW, height: Math.round(mainW * 0.82), projection: AUS_PROJ,
     // IDIOM: CHOROPLETH - the main map of all 88 regions, with state borders and labels on top.
-    layer: [fill(null, 0.35), stateLines(t), waterLabels(t, narrow ? WATER_AUS.filter(d => d.n !== "Great Australian Bight") : WATER_AUS, narrow), stateAbbr(t, narrow), ...insetBoxes(t, narrow), extent([[112, -10], [161, -10], [161, -44], [112, -44]])]
+    layer: [fill(null, 0.35), stateLines(t), waterLabels(t, narrow ? WATER_AUS.filter(d => d.n !== "Great Australian Bight") : WATER_AUS, narrow), stateAbbr(t, narrow), ...insetBoxes(t, narrow), ...callouts(t, narrow), extent([[112, -10], [161, -10], [161, -44], [112, -44]])]
   };
   // Insets: zoomed choropleths of Greater Sydney and Greater Melbourne.
   const insets = INSETS.map(d => insetView(t, d, insetW, (g) => fill(g, 0.6)));
@@ -717,31 +681,7 @@ function spec3(t, yr, w) {
 }
 
 /* ======================================================================
-   FIGURE 13 | Page section 4.1 | IDIOM: Small multiples
-   Function: specSmall()
-   ====================================================================== */
-
-function specSmall(t, w) {
-  const narrow = w < 600;
-  const cw = Math.floor((w - 2 * 10 - 8) / 3);
-  const yrs = [["s11", 2011], ["s16", 2016], ["s21", 2021]];
-  // IDIOM: SMALL MULTIPLES - the same choropleth drawn once per Census year (2011, 2016, 2021),
-  // side by side with identical classes so they can be compared.
-  const panel = ([f, y]) => ({
-    width: cw, height: Math.round(cw * 0.86), projection: AUS_PROJ,
-    title: { text: String(y), anchor: "start", font: t.body, fontSize: narrow ? 11 : 13, fontWeight: 600, color: t.ink, offset: 2 },
-    layer: [
-      sa4Layer(t, { transform: [{ calculate: "datum.properties." + f, as: "pct" }, SA4_CLASS("datum.pct"), { calculate: String(y), as: "census" }],
-        color: sa4Color({ cols: narrow ? 3 : 7 }), sw: 0.25, tooltip: SA4_TT("census") }),
-      { ...stateLines(t), mark: { ...stateLines(t).mark, strokeWidth: 0.6 } }
-    ]
-  });
-  return { $schema: "https://vega.github.io/schema/vega-lite/v5.json", config: config(t), params: [{ name: "hl", value: state.hl }],
-    hconcat: yrs.map(panel), spacing: 10 };
-}
-
-/* ======================================================================
-   FIGURE 14 | Page section 4.2 | IDIOM: Bivariate choropleth
+   FIGURE 13 | Page section 4.2 | IDIOM: Bivariate choropleth
    Function: specBiv()
    ====================================================================== */
 
@@ -781,7 +721,7 @@ function specBiv(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 15 | Page section 4.3 | IDIOM: Dot density
+   FIGURE 14 | Page section 4.3 | IDIOM: Dot density
    Function: specDots()
    ====================================================================== */
 
@@ -815,7 +755,7 @@ function specDots(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 16 | Page section 4.3 | IDIOM: Dorling cartogram
+   FIGURE 15 | Page section 4.3 | IDIOM: Dorling cartogram
    Function: specDorling()
    ====================================================================== */
 
@@ -851,7 +791,7 @@ function specDorling(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 17 | Page section 4.3 | IDIOM: Pie-chart map
+   FIGURE 16 | Page section 4.3 | IDIOM: Pie-chart map
    Function: specPies()
    ====================================================================== */
 
@@ -971,7 +911,7 @@ function setupWaited() {
 }
 
 /* ---------- "Show data" tables ---------- */
-// Fills the expandable tables under Figures 5, 9 and 18.
+// Fills the expandable tables under Figures 5, 9 and 17.
 const topojson_props = (topo, key) => topo.objects[key].geometries.map(g => g.properties);
 function tables() {
   const rows2 = COB.map(([c, , , km, a, b, d]) => `<tr><td>${c}</td><td>${fmt(a)}</td><td>${fmt(b)}</td><td>${fmt(d)}</td><td>${fmt(km)}</td></tr>`).join("");
@@ -1025,7 +965,7 @@ function tables() {
 
 // The capital cities at a much finer grain: ABS SA2 areas (roughly suburbs), 2021 Census.
 // SA2_PACKED (in data.js) is a compact text format; unpackSA2() turns it back into GeoJSON.
-// Same seven colour classes as Figures 9 and 13, so the colours mean the same thing.
+// Same seven colour classes as Figure 9, so the colours mean the same thing.
 const SA2_ALPHA = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_-";
 function unpackSA2(txt) {
   const IX = {}; for (let i = 0; i < SA2_ALPHA.length; i++) IX[SA2_ALPHA[i]] = i;
@@ -1172,7 +1112,7 @@ function setupZoomControls() {
 }
 
 /* ======================================================================
-   FIGURE 19 | Page section 4.4 | IDIOM: Linked choropleths (state map + world map)
+   FIGURE 17 | Page section 4.4 | IDIOM: Linked choropleths (state map + world map)
    Function: specTop()
    ====================================================================== */
 
@@ -1250,7 +1190,7 @@ function specTop(t, w) {
 
 
 /* ======================================================================
-   FIGURE 20 | Page section 4.4 | IDIOM: Standardised choropleth small multiples, linked to a home-region map
+   FIGURE 18 | Page section 4.5 | IDIOM: Standardised choropleth small multiples, linked to a home-region map
    Function: specLang()  (hover and buttons wired up by setupLangControls())
    ====================================================================== */
 
@@ -1404,14 +1344,14 @@ function setupLangControls() {
 
 
 /* ======================================================================
-   FIGURE 21 | Page section 4.6 | IDIOM: Standardised choropleth with a language picker (linked world map, state map and bar chart)
+   FIGURE 19 | Page section 4.6 | IDIOM: Standardised choropleth with a language picker (linked world map, state map and bar chart)
    Function: specWorldLang()  (dropdown and clicks wired up by setupWorldLangControls())
    ====================================================================== */
 
 // 34 languages spoken at home, 2021 Census (table G13), with the countries where each is a main language.
-// n = speakers in NSW, Vic, Qld, SA, WA, Tas, NT, ACT (same order as LANG_STATES in Figure 20).
+// n = speakers in NSW, Vic, Qld, SA, WA, Tas, NT, ACT (same order as LANG_STATES in Figure 18).
 // Pick one language and three views change together: its home countries, its rate in each state
-// (per 1,000 residents, the same five classes as Figure 20) and its place in the national ranking.
+// (per 1,000 residents, the same five classes as Figure 18) and its place in the national ranking.
 const LANG_ALL = [
   { lang: "Arabic", group: "Middle East & North Africa", countries: ["Algeria", "Bahrain", "Egypt", "Iraq", "Jordan", "Kuwait", "Lebanon", "Libya", "Morocco", "Oman", "Qatar", "Saudi Arabia", "Sudan", "Syria", "Tunisia", "United Arab Emirates", "Yemen", "Palestine", "Mauritania", "W. Sahara"], n: [227205, 91505, 16157, 11011, 15943, 917, 426, 3854] },
   { lang: "Persian", group: "Middle East & North Africa", countries: ["Iran"], n: [26826, 22337, 8453, 5419, 7603, 454, 99, 1228] },
@@ -1486,7 +1426,7 @@ function specWorldLang(t, w) {
   };
 
   // ---- Australia: the picked language per 1,000 residents of each state ----
-  // IDIOM: STANDARDISED CHOROPLETH - rate per 1,000 residents, five fixed classes shared with Figure 20
+  // IDIOM: STANDARDISED CHOROPLETH - rate per 1,000 residents, five fixed classes shared with Figure 18
   const ausW = narrow ? w - 26 : Math.round((w - 40) * 0.5);
   const aus = {
     width: ausW, height: Math.round(ausW * 0.86), projection: AUS_PROJ,
@@ -1534,7 +1474,7 @@ function specWorldLang(t, w) {
 
   const key = {
     width: narrow ? w - 40 : 380, height: 14,
-    title: { text: narrow ? ["Speakers per 1,000 residents", "(same classes as Figure 20)"] : "Speakers per 1,000 residents (same classes as Figure 20)", anchor: "start", font: t.body, fontSize: 12, fontWeight: 600, color: t.ink },
+    title: { text: narrow ? ["Speakers per 1,000 residents", "(same classes as Figure 18)"] : "Speakers per 1,000 residents (same classes as Figure 18)", anchor: "start", font: t.body, fontSize: 12, fontWeight: 600, color: t.ink },
     data: { values: LANG_CLASSES.map((c, k) => ({ c, fillc: WL_RAMP[k] })) },
     mark: { type: "rect", stroke: "#ffffff" },
     encoding: { x: { field: "c", type: "ordinal", sort: null, title: null, axis: { domain: false, ticks: false, labelFont: t.body, labelFontSize: 11, labelAngle: 0, labelPadding: 4 } },
@@ -1602,6 +1542,7 @@ function specStream(t, w) {
   return {
     $schema: "https://vega.github.io/schema/vega-lite/v5.json", config: config(t),
     width: w - (narrow ? 36 : 190), height: narrow ? 300 : 360,
+    layer: [{
     data: { values: STREAM_ROWS },
     params: [{ name: "reg", select: { type: "point", fields: ["region"], on: "pointerover", clear: "pointerout" }, bind: "legend" }],
     // IDIOM: STREAMGRAPH - stacked areas around a centre line; the thickness of each band is its share of arrivals
@@ -1617,6 +1558,15 @@ function specStream(t, w) {
       tooltip: [{ field: "region", title: "Born in" }, { field: "period", title: "Arrived" }, { field: "n", title: "Still living in Australia, 2021", format: "," },
         { field: "perYear", title: "Per year of the period", format: "," }]
     }
+    },
+    // ANNOTATIONS - what each era's arrivals were mostly made of (in the empty space above the stream)
+    { data: { values: [
+        { x: 1951.5, y: 8, al: "left", t: narrow ? "1950s–60s: Europe" : "1950s–60s: mostly from Europe" },
+        { x: 1981.5, y: 8, al: "left", t: narrow ? "1980s: SE Asia" : "1980s: South-East Asia leads" },
+        { x: 2000.5, y: 26, al: "right", t: narrow ? "From 2001: South Asia →" : "From 2001: South & Central Asia leads →" }] },
+      mark: { type: "text", baseline: "middle", fontSize: narrow ? 10 : 11.5, fontStyle: "italic", color: t.ink, align: { expr: "datum.al" }, interactive: false },
+      encoding: { x: { field: "x", type: "quantitative" }, y: { field: "y", type: "quantitative", scale: null }, text: { field: "t" } } }
+    ]
   };
 }
 
@@ -1669,6 +1619,10 @@ function specBump(t, w) {
         mark: { type: "circle", size: narrow ? 70 : 110, stroke: "#ffffff", strokeWidth: 1.5, opacity: 1, cursor: "pointer" },
         encoding: { color: colour, opacity: on,
           tooltip: [{ field: "country", title: "Born in" }, { field: "year", title: "Year" }, { field: "rank", title: "Rank" }, { field: "n", title: "Residents", format: "," }] } },
+      // ANNOTATION - the headline change, written between the England and New Zealand lines
+      { data: { values: [{ year: 2001, rank: 1.5, t: narrow ? "India: 12th → 1st" : "India rises from 12th to 1st, passing England in 2025" }] },
+        mark: { type: "text", align: "left", baseline: "middle", fontSize: narrow ? 10 : 11.5, fontStyle: "italic", color: "#b4590b", dx: -4, interactive: false },
+        encoding: { text: { field: "t" } } },
       // country names at both ends
       { data: { values: [...ends(1996, "L"), ...ends(2025, "R")].map(d => ({ ...d, lc: BUMP_KEY[d.country] || t.muted })) },
         mark: { type: "text", fontSize: narrow ? 10 : 11.5, baseline: "middle", align: { expr: "datum.side == 'L' ? 'right' : 'left'" }, dx: { expr: "datum.side == 'L' ? -10 : 10" },
@@ -1738,7 +1692,7 @@ function specHex(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 22 | Page section 5 | IDIOM: Population pyramid
+   FIGURE 20 | Page section 5 | IDIOM: Population pyramid
    Function: specPyramid()
    ====================================================================== */
 
@@ -1786,6 +1740,15 @@ function specPyramid(t, w) {
         mark: { type: "bar", height: { band: 0.86 }, filled: false, stroke: t.ink, strokeWidth: 1.4, strokeDash: [3, 2] },
         encoding: { x, tooltip: [{ field: "grp", title: "Group" }, { field: "sex", title: "Sex" }, { field: "age", title: "Age" }, { field: "n", title: "People", format: "," }, { field: "pct", title: "% of the group", format: ".2f" }] } },
       { data: { values: [{ x: 0 }] }, mark: { type: "rule", color: t.ink, strokeWidth: 1 }, encoding: { x: { field: "x", type: "quantitative" }, y: null } },
+      // ANNOTATIONS - the two shares the text talks about, for the year shown
+      { data: { values: [
+          { year: 1996, age: "5–9", t: ["Aged 25–44:", "35.9% of overseas-born", "29.5% of Australian-born"] },
+          { year: 2025, age: "5–9", t: ["Aged 25–44:", "38.6% of overseas-born", "24.6% of Australian-born"] },
+          { year: 1996, age: "70–74", t: ["Aged 65 and over:", "16.0% of overseas-born", "10.8% of Australian-born"] },
+          { year: 2025, age: "70–74", t: ["Aged 65 and over:", "20.1% of overseas-born", "16.3% of Australian-born"] }] },
+        transform: [{ filter: narrow ? "false" : "datum.year == pyrYear" }],
+        mark: { type: "text", align: "left", baseline: "middle", fontSize: narrow ? 9.5 : 11, lineHeight: narrow ? 12 : 14, color: t.ink, fontStyle: "italic", interactive: false },
+        encoding: { x: { datum: -xMax * 0.97, type: "quantitative" }, y: { field: "age", type: "ordinal", sort: PYR_AGES.slice().reverse() }, text: { field: "t" } } },
       // a key for the dashed outline, next to the colour legend
       { data: { values: [{ x: xMax * 0.98, txt: "- - -  Australian-born (outline)" }] },
         mark: { type: "text", align: "right", baseline: "bottom", fontSize: 11.5, color: t.ink, dy: -8 },
@@ -1914,7 +1877,7 @@ state.day = 250;
 const views = {};
 let lastW = 0;
 const opts = { actions: false, renderer: "svg", tooltip: { theme: "custom" } };
-const STATE_VIEWS = ["c3", "cH", "cX", "cZ", "cM", "cB", "cD", "cC", "cP", "c4", "cL", "cW"];
+const STATE_VIEWS = ["c3", "cH", "cX", "cZ", "cB", "cD", "cC", "cP", "cL", "cW"];
 const ABBR2NAME = Object.fromEntries(ST.map(r => [r[1], r[0]]));
 function stateNameOf(item) {
   const d = item && item.datum;
@@ -1935,8 +1898,8 @@ function setHighlight(name) {
 const CHARTS = {
   cA: specWaffle, c1: spec1, cR: specStream, cV: specVoyage,
   c2: (t, w) => spec2(t, state.yrWorld, w), cF: specFlow, cS: specSpike, cU: specBump,
-  c3: (t, w) => spec3(t, state.yrState, w), cH: specHex, cX: specSwarm, cZ: specZoom, cM: specSmall, cB: specBiv,
-  cD: specDots, cC: specDorling, cP: specPies, c4: spec4, cT: specTop, cL: specLang, cW: specWorldLang, cY: specPyramid
+  c3: (t, w) => spec3(t, state.yrState, w), cH: specHex, cX: specSwarm, cZ: specZoom, cB: specBiv,
+  cD: specDots, cC: specDorling, cP: specPies, cT: specTop, cL: specLang, cW: specWorldLang, cY: specPyramid
 };
 const AFTER = {
   c2: (v) => v.addSignalListener("yr", (n, x) => { state.yrWorld = x; }),

@@ -311,7 +311,7 @@
     ],
     "stroke": {
      "condition": {
-      "param": "hov15",
+      "param": "hov11",
       "empty": false,
       "value": "#111111"
      },
@@ -319,7 +319,7 @@
     },
     "strokeWidth": {
      "condition": {
-      "param": "hov15",
+      "param": "hov11",
       "empty": false,
       "value": 2.5
      },
@@ -421,7 +421,7 @@
    ],
    "params": [
     {
-     "name": "hov15",
+     "name": "hov11",
      "select": {
       "type": "point",
       "fields": [

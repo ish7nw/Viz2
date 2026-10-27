@@ -1562,6 +1562,94 @@
    "data": {
     "values": [
      {
+      "year": 1996,
+      "age": "5–9",
+      "t": [
+       "Aged 25–44:",
+       "35.9% of overseas-born",
+       "29.5% of Australian-born"
+      ]
+     },
+     {
+      "year": 2025,
+      "age": "5–9",
+      "t": [
+       "Aged 25–44:",
+       "38.6% of overseas-born",
+       "24.6% of Australian-born"
+      ]
+     },
+     {
+      "year": 1996,
+      "age": "70–74",
+      "t": [
+       "Aged 65 and over:",
+       "16.0% of overseas-born",
+       "10.8% of Australian-born"
+      ]
+     },
+     {
+      "year": 2025,
+      "age": "70–74",
+      "t": [
+       "Aged 65 and over:",
+       "20.1% of overseas-born",
+       "16.3% of Australian-born"
+      ]
+     }
+    ]
+   },
+   "transform": [
+    {
+     "filter": "datum.year == pyrYear"
+    }
+   ],
+   "mark": {
+    "type": "text",
+    "align": "left",
+    "baseline": "middle",
+    "fontSize": 11,
+    "lineHeight": 14,
+    "color": "#25221d",
+    "fontStyle": "italic",
+    "interactive": false
+   },
+   "encoding": {
+    "x": {
+     "datum": -6.79,
+     "type": "quantitative"
+    },
+    "y": {
+     "field": "age",
+     "type": "ordinal",
+     "sort": [
+      "75+",
+      "70–74",
+      "65–69",
+      "60–64",
+      "55–59",
+      "50–54",
+      "45–49",
+      "40–44",
+      "35–39",
+      "30–34",
+      "25–29",
+      "20–24",
+      "15–19",
+      "10–14",
+      "5–9",
+      "0–4"
+     ]
+    },
+    "text": {
+     "field": "t"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
       "x": 6.859999999999999,
       "txt": "- - -  Australian-born (outline)"
      }

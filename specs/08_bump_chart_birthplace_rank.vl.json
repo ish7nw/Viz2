@@ -1427,6 +1427,32 @@
    "data": {
     "values": [
      {
+      "year": 2001,
+      "rank": 1.5,
+      "t": "India rises from 12th to 1st, passing England in 2025"
+     }
+    ]
+   },
+   "mark": {
+    "type": "text",
+    "align": "left",
+    "baseline": "middle",
+    "fontSize": 11.5,
+    "fontStyle": "italic",
+    "color": "#b4590b",
+    "dx": -4,
+    "interactive": false
+   },
+   "encoding": {
+    "text": {
+     "field": "t"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
       "country": "Vietnam",
       "year": 1996,
       "rank": 4,

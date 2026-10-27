@@ -6384,7 +6384,7 @@
    ],
    "params": [
     {
-     "name": "hov14",
+     "name": "hov10",
      "select": {
       "type": "point",
       "fields": [
@@ -6398,7 +6398,7 @@
    "encoding": {
     "stroke": {
      "condition": {
-      "param": "hov14",
+      "param": "hov10",
       "empty": false,
       "value": "#111111"
      },
@@ -6406,7 +6406,7 @@
     },
     "strokeWidth": {
      "condition": {
-      "param": "hov14",
+      "param": "hov10",
       "empty": false,
       "value": 2.5
      },

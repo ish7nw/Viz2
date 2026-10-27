@@ -110496,11 +110496,7 @@
             "cside": "l",
             "topRegion": "Europe",
             "l1": "WA · 939k born overseas",
-            "l2": "Top: England 212k",
-            "lines": [
-             "WA · 939k born overseas",
-             "Top: England 212k"
-            ]
+            "l2": "Top: England 212k"
            },
            {
             "name": "Victoria",
@@ -110515,11 +110511,7 @@
             "cside": "l",
             "topRegion": "Asia",
             "l1": "Vic · 2.07M born overseas",
-            "l2": "Top: India 272k",
-            "lines": [
-             "Vic · 2.07M born overseas",
-             "Top: India 272k"
-            ]
+            "l2": "Top: India 272k"
            },
            {
             "name": "New South Wales",
@@ -110534,11 +110526,7 @@
             "cside": "r",
             "topRegion": "Asia",
             "l1": "NSW · 2.51M born overseas",
-            "l2": "Top: China 261k",
-            "lines": [
-             "NSW · 2.51M born overseas",
-             "Top: China 261k"
-            ]
+            "l2": "Top: China 261k"
            },
            {
             "name": "Australian Capital Territory",
@@ -110553,11 +110541,7 @@
             "cside": "r",
             "topRegion": "Asia",
             "l1": "ACT · 135k born overseas",
-            "l2": "Top: India 18k",
-            "lines": [
-             "ACT · 135k born overseas",
-             "Top: India 18k"
-            ]
+            "l2": "Top: India 18k"
            },
            {
             "name": "South Australia",
@@ -110572,11 +110556,7 @@
             "cside": "l",
             "topRegion": "Europe",
             "l1": "SA · 452k born overseas",
-            "l2": "Top: England 99k",
-            "lines": [
-             "SA · 452k born overseas",
-             "Top: England 99k"
-            ]
+            "l2": "Top: England 99k"
            },
            {
             "name": "Queensland",
@@ -110591,11 +110571,7 @@
             "cside": "r",
             "topRegion": "Oceania & Africa",
             "l1": "Qld · 1.26M born overseas",
-            "l2": "Top: New Zealand 230k",
-            "lines": [
-             "Qld · 1.26M born overseas",
-             "Top: New Zealand 230k"
-            ]
+            "l2": "Top: New Zealand 230k"
            },
            {
             "name": "Northern Territory",
@@ -110610,11 +110586,7 @@
             "cside": "r",
             "topRegion": "Asia",
             "l1": "NT · 59k born overseas",
-            "l2": "Top: Philippines 7k",
-            "lines": [
-             "NT · 59k born overseas",
-             "Top: Philippines 7k"
-            ]
+            "l2": "Top: Philippines 7k"
            },
            {
             "name": "Tasmania",
@@ -110629,11 +110601,7 @@
             "cside": "r",
             "topRegion": "Europe",
             "l1": "Tas · 92k born overseas",
-            "l2": "Top: England 20k",
-            "lines": [
-             "Tas · 92k born overseas",
-             "Top: England 20k"
-            ]
+            "l2": "Top: England 20k"
            }
           ]
          },
@@ -110688,7 +110656,7 @@
        "width": 380,
        "height": 14,
        "title": {
-        "text": "Speakers per 1,000 residents (same classes as Figure 20)",
+        "text": "Speakers per 1,000 residents (same classes as Figure 18)",
         "anchor": "start",
         "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
         "fontSize": 12,

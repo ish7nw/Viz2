@@ -165,7 +165,7 @@ a { color: var(--link); }
 .zoom-map { touch-action: none; cursor: grab; overflow: hidden; border: 1px solid var(--rule); }
 .zoom-map.dragging, .zoom-map.dragging * { cursor: grabbing !important; }
 .zoom-map:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
-/* Figure 20: names and borders drawn over the regions should not block hovering the regions */
+/* Figure 18: names and borders drawn over the regions should not block hovering the regions */
 #cL .mark-text, #cL .concat_0_layer_2_marks { pointer-events: none; }
 #cH .mark-text, #cH .mark-rule, #cU .mark-text { pointer-events: none; }
 /* Contents bar: sticks to the top of the window; scrolls sideways on phones */
@@ -179,6 +179,15 @@ a { color: var(--link); }
 @media (max-width: 600px) { .toc { margin: 6px -14px 22px; padding: 9px 14px; font-size: 13px; } }
 h2[id], p[id] { scroll-margin-top: 56px; }
 .lede { font-size: 19px; line-height: 1.6; }
+/* About box: four short rows (Who / What / Why / How) under the opening paragraph */
+.about { font-family: var(--f-sans); font-size: 14.5px; line-height: 1.5; margin: 18px 0 26px; padding: 14px 18px; border-left: 3px solid var(--accent); background: var(--band); max-width: 41rem; }
+.about div { display: grid; grid-template-columns: 52px 1fr; gap: 12px; padding: 4px 0; }
+.about dt { font-weight: 700; color: var(--accent); text-transform: uppercase; font-size: 11.5px; letter-spacing: 0.08em; padding-top: 2px; }
+.about dd { margin: 0; color: var(--ink); }
+.meta .author { font-weight: 600; color: var(--ink); }
+/* Sliders under charts: keep the label and value on one line on phones */
+.vega-bindings .vega-bind-name { white-space: nowrap; }
+.vega-bindings input[type="range"] { width: min(220px, 36vw) !important; max-width: 220px; vertical-align: middle; }
 .zoom-btns { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 4px; }
 .zoom-btns .btn { width: 34px; height: 34px; padding: 0; font-size: 20px; line-height: 1; }
 .btn:focus-visible, select:focus-visible, .vega-bindings input:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }

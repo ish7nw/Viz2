@@ -22,7 +22,7 @@
 <!-- ======================================================================
      INTRO LINE (data source)
      ====================================================================== -->
-<p class="meta">Data: Australian Bureau of Statistics (country of birth, June 2025; 2021 state estimates). Built with Vega-Lite.</p>
+<p class="meta">By <span class="author">AUTHOR NAME</span> · FIT3179 Data Visualisation 2, Monash University · Updated 27 October 2026 · Data: Australian Bureau of Statistics and Natural Earth · Built with Vega-Lite 5</p>
 <!-- ======================================================================
      CONTENTS BAR (sticks to the top while you scroll; the current section is underlined)
      ====================================================================== -->
@@ -31,6 +31,13 @@
 </nav>
 <!-- ---------- Overview (Figure 1) ---------- -->
 <p id="intro" class="lede">Almost one in three people living in Australia was born overseas (Figure 1). At 30 June 2025, 8.8 million of the 27.6 million residents were born in another country. The largest groups came from South and Central Asia, led by India, and from North-West Europe, led by England. The sections below trace how that came about: when people arrived, where they came from, where they settled and how old they are.</p>
+<!-- About this page: who it is for, what data, why, and how to read it -->
+<dl class="about" id="about">
+  <div><dt>Who</dt><dd>Anyone curious about how migration has shaped Australia, such as students, teachers and general readers. No statistics background is needed.</dd></div>
+  <div><dt>What</dt><dd>Country of birth, year of arrival, language and age from the ABS Census (1891–2021) and estimated resident population (1996–2025), mapped on ABS and Natural Earth boundaries. See <a href="#methods">Notes on data and method</a>.</dd></div>
+  <div><dt>Why</dt><dd>To show where Australia’s migrants come from, how that has changed since 1788, and where they live today.</dd></div>
+  <div><dt>How</dt><dd>Twenty charts in five sections, from the whole country down to suburbs. Maps of the same measure share colour classes, the Settlement maps are linked by state, and every chart gives exact figures on hover.</dd></div>
+</dl>
 <!-- Figure 1 | IDIOM: Waffle chart | drawn by specWaffle() in script.js -->
 <figure>
   <div class="chart" id="cA" role="img" aria-label="Waffle chart of 100 squares: 68 for residents born in Australia and 32 coloured by region of birth for residents born overseas, 2025."></div>
@@ -113,13 +120,13 @@
 </figure>
 
 <!-- ======================================================================
-     SECTION 4: SETTLEMENT (Figures 9-21)
+     SECTION 4: SETTLEMENT (Figures 9-19)
      ====================================================================== -->
 <h2 id="s4"><span class="sec">04</span>Settlement</h2>
 <!-- Section 4: all the state and region maps are linked through this dropdown and by clicking -->
-<p class="hint-block">Figures 9 to 18, 20 and 21 are linked. Click a state or a region in any of them, or choose a state here, to highlight that state in all of them. Click it again, or click empty space, to clear.</p>
+<p class="hint-block">Figures 9 to 16, 18 and 19 are linked. Click a state or a region in any of them, or choose a state here, to highlight that state in all of them. Click it again, or click empty space, to clear.</p>
 <div class="ctl"><label for="hlState"><b>Highlight a state</b></label> <select id="hlState"><option value="">All states</option></select></div>
-<!-- ---------- 4.1 Share born overseas by region (Figures 9-13) ---------- -->
+<!-- ---------- 4.1 Share born overseas by region (Figures 9-12) ---------- -->
 <h3><span class="num">4.1</span>Share born overseas by region</h3>
 <p>Below the state level, the overseas-born population is concentrated in the capital cities (Figure 9). In 2021, 34.4% of residents of the Greater Capital City areas were born overseas, against 14.5% in the rest of the country. Sydney – Parramatta had the highest share of the 88 SA4 regions, 52.2%, followed by Sydney – Ryde (48.0%) and Sydney – South West (47.4%). The lowest shares were in inland New South Wales, led by Far West and Orana at 7.3%. Outside the capitals, only the Gold Coast came close to the national figure, at 28.9%.</p>
 <!-- Figure 9 | IDIOM: Choropleth | drawn by spec3() in script.js -->
@@ -153,86 +160,75 @@
   </div>
   <figcaption><b>Figure 12.</b> Share of residents born overseas by SA2 area in the eight Greater Capital City areas, Census 2021 (choropleth, same seven classes as Figure 9). Areas with fewer than 300 residents, such as airports and industrial estates, are shown in grey. <span class="try"><span class="try-k">Try</span>Choose a city to fly there, drag to pan, and zoom with the + and − buttons or Ctrl/⌘ + scroll; hover an area for its figures.</span><span class="src">Sources: ABS (2022b, 2023d).</span></figcaption>
 </figure>
-<!-- Figure 13 | IDIOM: Small multiples | drawn by specSmall() in script.js -->
-<figure>
-  <div class="chart" id="cM" role="img" aria-label="Three small choropleth maps of the share born overseas by SA4 region, 2011, 2016 and 2021."></div>
-  <figcaption><b>Figure 13.</b> Share of residents born overseas by SA4 region, Census years 2011, 2016 and 2021 (small multiples). Same seven classes as Figure 9. <span class="src">Sources: ABS (2023a, 2023b, 2023c).</span></figcaption>
-</figure>
 
-<!-- ---------- 4.2 Level and growth (Figure 14) ---------- -->
+<!-- ---------- 4.2 Level and growth (Figure 13) ---------- -->
 <h3><span class="num">4.2</span>Level and growth</h3>
-<p>Figure 14 combines the 2021 share with its change since 2011. Fifteen regions are high on both measures, all of them in the capital cities: eight in Sydney, four in Melbourne, two in Brisbane and one in Perth. Sydney – Ryde grew the most, by 7.9 percentage points, to 48.0%. Most of regional Australia is low on both measures, and in six regions the share did not rise at all, including Illawarra and the Mornington Peninsula.</p>
-<!-- Figure 14 | IDIOM: Bivariate choropleth | drawn by specBiv() in script.js -->
+<p>Figure 13 combines the 2021 share with its change since 2011. Fifteen regions are high on both measures, all of them in the capital cities: eight in Sydney, four in Melbourne, two in Brisbane and one in Perth. Sydney – Ryde grew the most, by 7.9 percentage points, to 48.0%. Most of regional Australia is low on both measures, and in six regions the share did not rise at all, including Illawarra and the Mornington Peninsula.</p>
+<!-- Figure 13 | IDIOM: Bivariate choropleth | drawn by specBiv() in script.js -->
 <figure>
   <div class="chart" id="cB" role="img" aria-label="Bivariate choropleth of SA4 regions: share born overseas in 2021 against change since 2011."></div>
-  <figcaption><b>Figure 14.</b> Share born overseas in 2021 against change since 2011, in percentage points, by SA4 region (bivariate choropleth, 3 × 3 classes). Share classes: below 15%, 15–30%, 30% and over. Change classes: below 1.5, 1.5–3, 3 points and over. <span class="try"><span class="try-k">Try</span>Hover a cell of the colour key to show only the regions in that class.</span><span class="src">Sources: ABS (2022a, 2023a, 2023c).</span></figcaption>
+  <figcaption><b>Figure 13.</b> Share born overseas in 2021 against change since 2011, in percentage points, by SA4 region (bivariate choropleth, 3 × 3 classes). Share classes: below 15%, 15–30%, 30% and over. Change classes: below 1.5, 1.5–3, 3 points and over. <span class="try"><span class="try-k">Try</span>Hover a cell of the colour key to show only the regions in that class.</span><span class="src">Sources: ABS (2022a, 2023a, 2023c).</span></figcaption>
 </figure>
 
-<!-- ---------- 4.3 Where overseas-born residents live (Figures 15-17) ---------- -->
+<!-- ---------- 4.3 Where overseas-born residents live (Figures 14-16) ---------- -->
 <h3><span class="num">4.3</span>Where overseas-born residents live</h3>
-<p>Figures 15 to 17 show the same 2021 totals in three ways. The dot density map shows concentration in the south-east. The cartogram resizes each state by its overseas-born population, and the pie charts compare overseas-born and Australian-born residents within each state.</p>
-<!-- Figure 15 | IDIOM: Dot density | drawn by specDots() in script.js -->
+<p>Figures 14 to 16 show the same 2021 totals in three ways. The dot density map shows concentration in the south-east. The cartogram resizes each state by its overseas-born population, and the pie charts compare overseas-born and Australian-born residents within each state.</p>
+<!-- Figure 14 | IDIOM: Dot density | drawn by specDots() in script.js -->
 <figure>
   <div class="chart" id="cD" role="img" aria-label="Dot density map with one dot per 10,000 overseas-born residents, 2021."></div>
-  <figcaption><b>Figure 15.</b> Overseas-born residents, 2021; one dot represents 10,000 people (dot density). Dots are placed at random within each state, so position within a state carries no meaning. <span class="try"><span class="try-k">Try</span>Change how many people one dot represents below the map.</span><span class="src">Source: ABS (2026a).</span></figcaption>
+  <figcaption><b>Figure 14.</b> Overseas-born residents, 2021; one dot represents 10,000 people (dot density). Dots are placed at random within each state, so position within a state carries no meaning. <span class="try"><span class="try-k">Try</span>Change how many people one dot represents below the map.</span><span class="src">Source: ABS (2026a).</span></figcaption>
 </figure>
-<!-- Figure 16 | IDIOM: Dorling cartogram | drawn by specDorling() in script.js -->
+<!-- Figure 15 | IDIOM: Dorling cartogram | drawn by specDorling() in script.js -->
 <figure>
   <div class="chart" id="cC" role="img" aria-label="Dorling cartogram of states as circles sized by overseas-born population and coloured by share."></div>
-  <figcaption><b>Figure 16.</b> States drawn as circles with area proportional to overseas-born residents and colour showing the overseas-born share, 2021 (Dorling cartogram). Circles keep approximate geographic position. <span class="src">Source: ABS (2026a).</span></figcaption>
+  <figcaption><b>Figure 15.</b> States drawn as circles with area proportional to overseas-born residents and colour showing the overseas-born share, 2021 (Dorling cartogram). Circles keep approximate geographic position. <span class="src">Source: ABS (2026a).</span></figcaption>
 </figure>
-<!-- Figure 17 | IDIOM: Pie-chart map | drawn by specPies() in script.js -->
+<!-- Figure 16 | IDIOM: Pie-chart map | drawn by specPies() in script.js -->
 <figure>
   <div class="chart" id="cP" role="img" aria-label="Map of Australia with a pie chart in each state showing overseas-born and Australian-born population, 2021."></div>
-  <figcaption><b>Figure 17.</b> Overseas-born and Australian-born residents by state, 2021 (chart map). Pie area is proportional to total state population. <span class="src">Source: ABS (2026a).</span></figcaption>
+  <figcaption><b>Figure 16.</b> Overseas-born and Australian-born residents by state, 2021 (chart map). Pie area is proportional to total state population. <span class="src">Source: ABS (2026a).</span></figcaption>
 </figure>
 
-<!-- ---------- 4.4 Largest communities (Figures 18-19) ---------- -->
+<!-- ---------- 4.4 Largest communities (Figure 17) ---------- -->
 <h3><span class="num">4.4</span>Largest communities</h3>
-<p>The largest overseas birthplace differs by state: China in New South Wales, India in Victoria and the ACT, New Zealand in Queensland, the Philippines in the Northern Territory, and England in Western Australia, South Australia and Tasmania (Figure 18).</p>
-<!-- Figure 18 | IDIOM: Nested proportional symbols | drawn by spec4() in script.js -->
-<figure>
-  <div class="chart" id="c4" role="img" aria-label="Map of Australian states with nested proportional circles for overseas-born population and the top overseas country of birth, 2021."></div>
-  <figcaption><b>Figure 18.</b> Overseas-born residents (open circle) and residents born in the largest single overseas birthplace (filled circle) by state, 2021 (nested proportional symbols). Both circles use the same area scale. <span class="src">Source: ABS (2026a).</span></figcaption>
-  <details><summary>Show data</summary><div class="tbl" id="t4"></div></details>
-</figure>
-<p>Figure 19 matches each state to that birthplace on a world map. England is the largest group in three states, India in two, and China, New Zealand and the Philippines in one each. Hovering one map highlights the matching places on the other.</p>
-<!-- Figure 19 | IDIOM: Linked categorical choropleths (world map + state map) | drawn by specTop() in script.js -->
+<p>The largest overseas birthplace differs by state (Figure 17): China in New South Wales, India in Victoria and the ACT, New Zealand in Queensland, the Philippines in the Northern Territory, and England in Western Australia, South Australia and Tasmania. England is the largest group in three states, India in two, and China, New Zealand and the Philippines in one each. Hovering one map highlights the matching places on the other.</p>
+<!-- Figure 17 | IDIOM: Linked categorical choropleths (world map + state map) | drawn by specTop() in script.js -->
 <figure>
   <div class="chart" id="cT" role="img" aria-label="Two linked maps: a world map with five birthplace countries coloured, and a map of Australian states each coloured by its largest overseas birthplace, 2021."></div>
-  <figcaption><b>Figure 19.</b> Largest overseas birthplace in each state and territory, 2021, and where that country is (linked choropleths, five categories). A country and the states where it is the largest group share one colour. Figures for the United Kingdom are for people born in England. <span class="try"><span class="try-k">Try</span>Hover a country to see the states where it is the largest group, or hover a state to find its country.</span><span class="src">Source: ABS (2026a); Natural Earth (n.d.).</span></figcaption>
+  <figcaption><b>Figure 17.</b> Largest overseas birthplace in each state and territory, 2021, and where that country is (linked choropleths, five categories). A country and the states where it is the largest group share one colour. Figures for the United Kingdom are for people born in England. <span class="try"><span class="try-k">Try</span>Hover a country to see the states where it is the largest group, or hover a state to find its country.</span><span class="src">Source: ABS (2026a); Natural Earth (n.d.).</span></figcaption>
+  <details><summary>Show data</summary><div class="tbl" id="t4"></div></details>
 </figure>
 
 <h3><span class="num">4.5</span>Where in India and China</h3>
-<p>The Census records country of birth but not the state or province, so Figure 20 uses the language people speak at home to look inside India and China. Mandarin, the national language of China, is the most common of these languages in every state, at around 34 speakers per 1,000 residents in Victoria and New South Wales. Cantonese, from Guangdong, Hong Kong and Macau, is most concentrated in New South Wales (18.4 per 1,000). Among Indian languages, Punjabi is strongest in Victoria (16.1) and South Australia (11.2), Hindi in the ACT, Victoria and New South Wales (about 10 each), Gujarati in South Australia (4.2), and Malayalam, from Kerala, in the Northern Territory (6.8).</p>
-<!-- Figure 20 | IDIOM: Standardised choropleth small multiples linked to a home-region map | drawn by specLang() in script.js; buttons and hover by setupLangControls() -->
+<p>The Census records country of birth but not the state or province, so Figure 18 uses the language people speak at home to look inside India and China. Mandarin, the national language of China, is the most common of these languages in every state, at around 34 speakers per 1,000 residents in Victoria and New South Wales. Cantonese, from Guangdong, Hong Kong and Macau, is most concentrated in New South Wales (18.4 per 1,000). Among Indian languages, Punjabi is strongest in Victoria (16.1) and South Australia (11.2), Hindi in the ACT, Victoria and New South Wales (about 10 each), Gujarati in South Australia (4.2), and Malayalam, from Kerala, in the Northern Territory (6.8).</p>
+<!-- Figure 18 | IDIOM: Standardised choropleth small multiples linked to a home-region map | drawn by specLang() in script.js; buttons and hover by setupLangControls() -->
 <figure>
   <div class="ctl zoom-ctl lang-ctl" id="langPick" role="group" aria-label="Pick a language">
     <b>Language</b>
     <button class="btn" data-lang="">All</button><button class="btn" data-lang="Mandarin">Mandarin</button><button class="btn" data-lang="Cantonese">Cantonese</button><button class="btn" data-lang="Punjabi">Punjabi</button><button class="btn" data-lang="Hindi">Hindi</button><button class="btn" data-lang="Tamil">Tamil</button><button class="btn" data-lang="Gujarati">Gujarati</button><button class="btn" data-lang="Malayalam">Malayalam</button><button class="btn" data-lang="Bengali">Bengali</button>
   </div>
   <div class="chart" id="cL" role="img" aria-label="Map of Indian states and Chinese provinces coloured by main language, linked to eight small maps of Australian states shaded by speakers of each language per 1,000 residents, 2021."></div>
-  <figcaption><b>Figure 20.</b> Languages from India and China spoken at home, by the state or province where each is the main language (top) and speakers per 1,000 residents of each Australian state and territory, 2021 (standardised choropleth small multiples, five classes shared by all eight maps). Language is a stand-in for place of birth: speakers include people born in Australia and elsewhere, Tamil is also spoken in Sri Lanka, Bengali in Bangladesh, Hindi in Fiji, and Cantonese and Mandarin across South-East Asia and Taiwan. Grey Indian states have main languages the Census does not count separately, such as Telugu, Marathi and Kannada. <span class="try"><span class="try-k">Try</span>Hover a state or province to find where its language is spoken in Australia, or pick a language above.</span><span class="src">Sources: ABS (2023e); Natural Earth (n.d., 2026).</span></figcaption>
+  <figcaption><b>Figure 18.</b> Languages from India and China spoken at home, by the state or province where each is the main language (top) and speakers per 1,000 residents of each Australian state and territory, 2021 (standardised choropleth small multiples, five classes shared by all eight maps). Language is a stand-in for place of birth: speakers include people born in Australia and elsewhere, Tamil is also spoken in Sri Lanka, Bengali in Bangladesh, Hindi in Fiji, and Cantonese and Mandarin across South-East Asia and Taiwan. Grey Indian states have main languages the Census does not count separately, such as Telugu, Marathi and Kannada. <span class="try"><span class="try-k">Try</span>Hover a state or province to find where its language is spoken in Australia, or pick a language above.</span><span class="src">Sources: ABS (2023e); Natural Earth (n.d., 2026).</span></figcaption>
 </figure>
 
 <h3><span class="num">4.6</span>Languages from around the world</h3>
-<p>Figure 21 extends the comparison to 34 languages, including those of Figure 20. After Mandarin, the most widely spoken are Arabic, Vietnamese and Cantonese. Each has a home state: Arabic in New South Wales (28.1 per 1,000 residents), Vietnamese and Greek in Victoria (18.3 and 16.5), and Filipino or Tagalog in the Northern Territory (22.1). Smaller communities show the same pattern. Nepali is highest in the Northern Territory (13.3) and Tasmania (13.0), Afrikaans in Western Australia (5.5), and Samoan in Queensland (3.2).</p>
-<!-- Figure 21 | IDIOM: Standardised choropleth with a language picker (world map + state map + bar chart) | drawn by specWorldLang() in script.js; dropdown and clicks by setupWorldLangControls() -->
+<p>Figure 19 extends the comparison to 34 languages, including those of Figure 18. After Mandarin, the most widely spoken are Arabic, Vietnamese and Cantonese. Each has a home state: Arabic in New South Wales (28.1 per 1,000 residents), Vietnamese and Greek in Victoria (18.3 and 16.5), and Filipino or Tagalog in the Northern Territory (22.1). Smaller communities show the same pattern. Nepali is highest in the Northern Territory (13.3) and Tasmania (13.0), Afrikaans in Western Australia (5.5), and Samoan in Queensland (3.2).</p>
+<!-- Figure 19 | IDIOM: Standardised choropleth with a language picker (world map + state map + bar chart) | drawn by specWorldLang() in script.js; dropdown and clicks by setupWorldLangControls() -->
 <figure>
   <div class="ctl"><label for="langAll"><b>Language</b></label> <select id="langAll"></select></div>
   <div class="chart" id="cW" role="img" aria-label="Linked views for a chosen language: a world map of the countries where it is a main language, a map of Australian states shaded by speakers per 1,000 residents, and a bar chart ranking 34 languages."></div>
-  <figcaption><b>Figure 21.</b> Languages spoken at home, 2021: countries where the chosen language is a main language (top), speakers per 1,000 residents by state and territory (standardised choropleth, the same five classes as Figure 20) and all 34 languages ranked for Australia as a whole. Filipino and Tagalog are combined. Home countries show where a language is mainly spoken, not where speakers were born. <span class="try"><span class="try-k">Try</span>Choose a language from the list, click a bar, or click a country; click a country with several languages again to cycle through them.</span><span class="src">Sources: ABS (2023e); Natural Earth (n.d.).</span></figcaption>
+  <figcaption><b>Figure 19.</b> Languages spoken at home, 2021: countries where the chosen language is a main language (top), speakers per 1,000 residents by state and territory (standardised choropleth, the same five classes as Figure 18) and all 34 languages ranked for Australia as a whole. Filipino and Tagalog are combined. Home countries show where a language is mainly spoken, not where speakers were born. <span class="try"><span class="try-k">Try</span>Choose a language from the list, click a bar, or click a country; click a country with several languages again to cycle through them.</span><span class="src">Sources: ABS (2023e); Natural Earth (n.d.).</span></figcaption>
 </figure>
 
 <!-- ======================================================================
-     SECTION 5: AGE (Figure 22)
+     SECTION 5: AGE (Figure 20)
      ====================================================================== -->
 <h2 id="s5"><span class="sec">05</span>Age</h2>
-<p>Migrants usually arrive as young adults, so the overseas-born population has few children and a bulge in the working ages (Figure 22). In 2025, 38.6% of overseas-born residents were aged 25–44, against 24.6% of the Australian-born, and only 4.8% were under 15, against 23.3%. The post-war arrivals have aged too: 20.1% of the overseas-born were 65 or older in 2025, up from 16.0% in 1996.</p>
-<!-- Figure 22 | IDIOM: Population pyramid | drawn by specPyramid() in script.js -->
+<p>Migrants usually arrive as young adults, so the overseas-born population has few children and a bulge in the working ages (Figure 20). In 2025, 38.6% of overseas-born residents were aged 25–44, against 24.6% of the Australian-born, and only 4.8% were under 15, against 23.3%. The post-war arrivals have aged too: 20.1% of the overseas-born were 65 or older in 2025, up from 16.0% in 1996.</p>
+<!-- Figure 20 | IDIOM: Population pyramid | drawn by specPyramid() in script.js -->
 <figure>
   <div class="chart" id="cY" role="img" aria-label="Population pyramid comparing the age and sex of overseas-born and Australian-born residents."></div>
-  <figcaption><b>Figure 22.</b> Overseas-born (bars) and Australian-born (dashed outline) residents by age and sex, as a percentage of each group, 30 June 1996 and 2025 (population pyramid). 2025 is preliminary. <span class="try"><span class="try-k">Try</span>Switch between 1996 and 2025 under the chart; hover a bar for its figures.</span><span class="src">Source: ABS (2026c).</span></figcaption>
+  <figcaption><b>Figure 20.</b> Overseas-born (bars) and Australian-born (dashed outline) residents by age and sex, as a percentage of each group, 30 June 1996 and 2025 (population pyramid). 2025 is preliminary. <span class="try"><span class="try-k">Try</span>Switch between 1996 and 2025 under the chart; hover a bar for its figures.</span><span class="src">Source: ABS (2026c).</span></figcaption>
 </figure>
 
 <!-- ======================================================================
@@ -240,9 +236,9 @@
      ====================================================================== -->
 <h2 id="methods">Notes on data and method</h2>
 <p><b>Counts and estimates.</b> Census counts (1891–1991, 2011, 2016 and 2021) record where people said they were born on Census night. Figures from 1996 onwards for Australia as a whole are estimated resident population at 30 June, which adjusts the Census for people missed or temporarily away; 2025 values are preliminary. Small differences between charts come from this, and from the ABS adding small random changes to Census cells to protect privacy.</p>
-<p><b>Standardisation.</b> Every map that compares areas of different sizes shows a rate, not a count: the share of residents born overseas (%) or speakers per 1,000 residents. Counts are shown only with symbols, dots or flows whose size is proportional to the number. Choropleths of the same measure share fixed class breaks so that the same colour means the same value everywhere: 10, 15, 20, 25, 30 and 40% for the SA4 and suburb maps (Figures 9–13), and 2, 5, 10 and 20 per 1,000 for languages (Figures 20–21). Suburbs with fewer than 300 residents are greyed out because a few people can swing their share.</p>
+<p><b>Standardisation.</b> Every map that compares areas of different sizes shows a rate, not a count: the share of residents born overseas (%) or speakers per 1,000 residents. Counts are shown only with symbols, dots or flows whose size is proportional to the number. Choropleths of the same measure share fixed class breaks so that the same colour means the same value everywhere: 10, 15, 20, 25, 30 and 40% for the SA4 and suburb maps (Figures 9–12), and 2, 5, 10 and 20 per 1,000 for languages (Figures 18–19). Suburbs with fewer than 300 residents are greyed out because a few people can swing their share.</p>
 <p><b>Geography.</b> SA4 and SA2 boundaries are the ABS Australian Statistical Geography Standard, Edition 3 (2021). Earlier Census values use the boundaries of their own year. Boundaries were simplified to keep the page small while keeping neighbouring areas aligned. Australian maps use a conic equal-area projection, so areas can be compared; world maps use Equal Earth, and Figure 5 uses an azimuthal equidistant projection centred on Sydney so that distance from Sydney reads true.</p>
-<p><b>Language as a stand-in.</b> The Census does not record a migrant’s state or province of birth, so Figures 20–21 use the language spoken at home. Speakers include Australian-born children and people born in third countries, so these figures describe communities rather than places of birth.</p>
+<p><b>Language as a stand-in.</b> The Census does not record a migrant’s state or province of birth, so Figures 18–19 use the language spoken at home. Speakers include Australian-born children and people born in third countries, so these figures describe communities rather than places of birth.</p>
 <p><b>Colour.</b> Sequential classes use ColorBrewer’s YlGnBu (Brewer, 2002); categories use distinct hues of similar weight; the bivariate map uses Stevens’ (2015) 3 × 3 scheme. Hover boxes and the “Show data” tables give exact values for readers who cannot rely on colour.</p>
 
 <!-- ======================================================================

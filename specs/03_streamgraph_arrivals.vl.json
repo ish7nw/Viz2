@@ -39,969 +39,1022 @@
  },
  "width": 710,
  "height": 360,
- "data": {
-  "values": [
-   {
-    "region": "UK & Ireland",
-    "period": "1951–60",
-    "mid": 1956,
-    "n": 82388,
-    "perYear": 8239
-   },
-   {
-    "region": "UK & Ireland",
-    "period": "1961–70",
-    "mid": 1966,
-    "n": 247329,
-    "perYear": 24733
-   },
-   {
-    "region": "UK & Ireland",
-    "period": "1971–80",
-    "mid": 1976,
-    "n": 162956,
-    "perYear": 16296
-   },
-   {
-    "region": "UK & Ireland",
-    "period": "1981–90",
-    "mid": 1986,
-    "n": 138688,
-    "perYear": 13869
-   },
-   {
-    "region": "UK & Ireland",
-    "period": "1991–2000",
-    "mid": 1996,
-    "n": 95470,
-    "perYear": 9547
-   },
-   {
-    "region": "UK & Ireland",
-    "period": "2001–10",
-    "mid": 2006,
-    "n": 211592,
-    "perYear": 21159
-   },
-   {
-    "region": "UK & Ireland",
-    "period": "2011–15",
-    "mid": 2013.5,
-    "n": 113660,
-    "perYear": 22732
-   },
-   {
-    "region": "UK & Ireland",
-    "period": "2016",
-    "mid": 2016.5,
-    "n": 15838,
-    "perYear": 15838
-   },
-   {
-    "region": "UK & Ireland",
-    "period": "2017",
-    "mid": 2017.5,
-    "n": 14854,
-    "perYear": 14854
-   },
-   {
-    "region": "UK & Ireland",
-    "period": "2018",
-    "mid": 2018.5,
-    "n": 15302,
-    "perYear": 15302
-   },
-   {
-    "region": "UK & Ireland",
-    "period": "2019",
-    "mid": 2019.5,
-    "n": 17673,
-    "perYear": 17673
-   },
-   {
-    "region": "UK & Ireland",
-    "period": "2020",
-    "mid": 2020.5,
-    "n": 8351,
-    "perYear": 8351
-   },
-   {
-    "region": "UK & Ireland",
-    "period": "2021 (to August)",
-    "mid": 2021.5,
-    "n": 2935,
-    "perYear": 1834
-   },
-   {
-    "region": "Other Europe",
-    "period": "1951–60",
-    "mid": 1956,
-    "n": 129732,
-    "perYear": 12973
-   },
-   {
-    "region": "Other Europe",
-    "period": "1961–70",
-    "mid": 1966,
-    "n": 145673,
-    "perYear": 14567
-   },
-   {
-    "region": "Other Europe",
-    "period": "1971–80",
-    "mid": 1976,
-    "n": 52488,
-    "perYear": 5249
-   },
-   {
-    "region": "Other Europe",
-    "period": "1981–90",
-    "mid": 1986,
-    "n": 46723,
-    "perYear": 4672
-   },
-   {
-    "region": "Other Europe",
-    "period": "1991–2000",
-    "mid": 1996,
-    "n": 30046,
-    "perYear": 3005
-   },
-   {
-    "region": "Other Europe",
-    "period": "2001–10",
-    "mid": 2006,
-    "n": 34617,
-    "perYear": 3462
-   },
-   {
-    "region": "Other Europe",
-    "period": "2011–15",
-    "mid": 2013.5,
-    "n": 25878,
-    "perYear": 5176
-   },
-   {
-    "region": "Other Europe",
-    "period": "2016",
-    "mid": 2016.5,
-    "n": 3753,
-    "perYear": 3753
-   },
-   {
-    "region": "Other Europe",
-    "period": "2017",
-    "mid": 2017.5,
-    "n": 3663,
-    "perYear": 3663
-   },
-   {
-    "region": "Other Europe",
-    "period": "2018",
-    "mid": 2018.5,
-    "n": 3392,
-    "perYear": 3392
-   },
-   {
-    "region": "Other Europe",
-    "period": "2019",
-    "mid": 2019.5,
-    "n": 4374,
-    "perYear": 4374
-   },
-   {
-    "region": "Other Europe",
-    "period": "2020",
-    "mid": 2020.5,
-    "n": 1724,
-    "perYear": 1724
-   },
-   {
-    "region": "Other Europe",
-    "period": "2021 (to August)",
-    "mid": 2021.5,
-    "n": 424,
-    "perYear": 265
-   },
-   {
-    "region": "Middle East & North Africa",
-    "period": "1951–60",
-    "mid": 1956,
-    "n": 4687,
-    "perYear": 469
-   },
-   {
-    "region": "Middle East & North Africa",
-    "period": "1961–70",
-    "mid": 1966,
-    "n": 17237,
-    "perYear": 1724
-   },
-   {
-    "region": "Middle East & North Africa",
-    "period": "1971–80",
-    "mid": 1976,
-    "n": 25308,
-    "perYear": 2531
-   },
-   {
-    "region": "Middle East & North Africa",
-    "period": "1981–90",
-    "mid": 1986,
-    "n": 28224,
-    "perYear": 2822
-   },
-   {
-    "region": "Middle East & North Africa",
-    "period": "1991–2000",
-    "mid": 1996,
-    "n": 38697,
-    "perYear": 3870
-   },
-   {
-    "region": "Middle East & North Africa",
-    "period": "2001–10",
-    "mid": 2006,
-    "n": 56767,
-    "perYear": 5677
-   },
-   {
-    "region": "Middle East & North Africa",
-    "period": "2011–15",
-    "mid": 2013.5,
-    "n": 52287,
-    "perYear": 10457
-   },
-   {
-    "region": "Middle East & North Africa",
-    "period": "2016",
-    "mid": 2016.5,
-    "n": 12653,
-    "perYear": 12653
-   },
-   {
-    "region": "Middle East & North Africa",
-    "period": "2017",
-    "mid": 2017.5,
-    "n": 10754,
-    "perYear": 10754
-   },
-   {
-    "region": "Middle East & North Africa",
-    "period": "2018",
-    "mid": 2018.5,
-    "n": 8591,
-    "perYear": 8591
-   },
-   {
-    "region": "Middle East & North Africa",
-    "period": "2019",
-    "mid": 2019.5,
-    "n": 13698,
-    "perYear": 13698
-   },
-   {
-    "region": "Middle East & North Africa",
-    "period": "2020",
-    "mid": 2020.5,
-    "n": 3972,
-    "perYear": 3972
-   },
-   {
-    "region": "Middle East & North Africa",
-    "period": "2021 (to August)",
-    "mid": 2021.5,
-    "n": 1218,
-    "perYear": 761
-   },
-   {
-    "region": "Americas & Africa",
-    "period": "1951–60",
-    "mid": 1956,
-    "n": 994,
-    "perYear": 99
-   },
-   {
-    "region": "Americas & Africa",
-    "period": "1961–70",
-    "mid": 1966,
-    "n": 9058,
-    "perYear": 906
-   },
-   {
-    "region": "Americas & Africa",
-    "period": "1971–80",
-    "mid": 1976,
-    "n": 24850,
-    "perYear": 2485
-   },
-   {
-    "region": "Americas & Africa",
-    "period": "1981–90",
-    "mid": 1986,
-    "n": 34546,
-    "perYear": 3455
-   },
-   {
-    "region": "Americas & Africa",
-    "period": "1991–2000",
-    "mid": 1996,
-    "n": 46565,
-    "perYear": 4657
-   },
-   {
-    "region": "Americas & Africa",
-    "period": "2001–10",
-    "mid": 2006,
-    "n": 101078,
-    "perYear": 10108
-   },
-   {
-    "region": "Americas & Africa",
-    "period": "2011–15",
-    "mid": 2013.5,
-    "n": 48530,
-    "perYear": 9706
-   },
-   {
-    "region": "Americas & Africa",
-    "period": "2016",
-    "mid": 2016.5,
-    "n": 9462,
-    "perYear": 9462
-   },
-   {
-    "region": "Americas & Africa",
-    "period": "2017",
-    "mid": 2017.5,
-    "n": 9865,
-    "perYear": 9865
-   },
-   {
-    "region": "Americas & Africa",
-    "period": "2018",
-    "mid": 2018.5,
-    "n": 10458,
-    "perYear": 10458
-   },
-   {
-    "region": "Americas & Africa",
-    "period": "2019",
-    "mid": 2019.5,
-    "n": 13288,
-    "perYear": 13288
-   },
-   {
-    "region": "Americas & Africa",
-    "period": "2020",
-    "mid": 2020.5,
-    "n": 7702,
-    "perYear": 7702
-   },
-   {
-    "region": "Americas & Africa",
-    "period": "2021 (to August)",
-    "mid": 2021.5,
-    "n": 2802,
-    "perYear": 1751
-   },
-   {
-    "region": "New Zealand & Pacific",
-    "period": "1951–60",
-    "mid": 1956,
-    "n": 3096,
-    "perYear": 310
-   },
-   {
-    "region": "New Zealand & Pacific",
-    "period": "1961–70",
-    "mid": 1966,
-    "n": 20700,
-    "perYear": 2070
-   },
-   {
-    "region": "New Zealand & Pacific",
-    "period": "1971–80",
-    "mid": 1976,
-    "n": 60971,
-    "perYear": 6097
-   },
-   {
-    "region": "New Zealand & Pacific",
-    "period": "1981–90",
-    "mid": 1986,
-    "n": 106064,
-    "perYear": 10606
-   },
-   {
-    "region": "New Zealand & Pacific",
-    "period": "1991–2000",
-    "mid": 1996,
-    "n": 103551,
-    "perYear": 10355
-   },
-   {
-    "region": "New Zealand & Pacific",
-    "period": "2001–10",
-    "mid": 2006,
-    "n": 141056,
-    "perYear": 14106
-   },
-   {
-    "region": "New Zealand & Pacific",
-    "period": "2011–15",
-    "mid": 2013.5,
-    "n": 80111,
-    "perYear": 16022
-   },
-   {
-    "region": "New Zealand & Pacific",
-    "period": "2016",
-    "mid": 2016.5,
-    "n": 10754,
-    "perYear": 10754
-   },
-   {
-    "region": "New Zealand & Pacific",
-    "period": "2017",
-    "mid": 2017.5,
-    "n": 10355,
-    "perYear": 10355
-   },
-   {
-    "region": "New Zealand & Pacific",
-    "period": "2018",
-    "mid": 2018.5,
-    "n": 11668,
-    "perYear": 11668
-   },
-   {
-    "region": "New Zealand & Pacific",
-    "period": "2019",
-    "mid": 2019.5,
-    "n": 12104,
-    "perYear": 12104
-   },
-   {
-    "region": "New Zealand & Pacific",
-    "period": "2020",
-    "mid": 2020.5,
-    "n": 5359,
-    "perYear": 5359
-   },
-   {
-    "region": "New Zealand & Pacific",
-    "period": "2021 (to August)",
-    "mid": 2021.5,
-    "n": 4679,
-    "perYear": 2924
-   },
-   {
-    "region": "South-East Asia",
-    "period": "1951–60",
-    "mid": 1956,
-    "n": 1683,
-    "perYear": 168
-   },
-   {
-    "region": "South-East Asia",
-    "period": "1961–70",
-    "mid": 1966,
-    "n": 9125,
-    "perYear": 913
-   },
-   {
-    "region": "South-East Asia",
-    "period": "1971–80",
-    "mid": 1976,
-    "n": 60760,
-    "perYear": 6076
-   },
-   {
-    "region": "South-East Asia",
-    "period": "1981–90",
-    "mid": 1986,
-    "n": 166704,
-    "perYear": 16670
-   },
-   {
-    "region": "South-East Asia",
-    "period": "1991–2000",
-    "mid": 1996,
-    "n": 126705,
-    "perYear": 12671
-   },
-   {
-    "region": "South-East Asia",
-    "period": "2001–10",
-    "mid": 2006,
-    "n": 206565,
-    "perYear": 20657
-   },
-   {
-    "region": "South-East Asia",
-    "period": "2011–15",
-    "mid": 2013.5,
-    "n": 148719,
-    "perYear": 29744
-   },
-   {
-    "region": "South-East Asia",
-    "period": "2016",
-    "mid": 2016.5,
-    "n": 36881,
-    "perYear": 36881
-   },
-   {
-    "region": "South-East Asia",
-    "period": "2017",
-    "mid": 2017.5,
-    "n": 35932,
-    "perYear": 35932
-   },
-   {
-    "region": "South-East Asia",
-    "period": "2018",
-    "mid": 2018.5,
-    "n": 37940,
-    "perYear": 37940
-   },
-   {
-    "region": "South-East Asia",
-    "period": "2019",
-    "mid": 2019.5,
-    "n": 44310,
-    "perYear": 44310
-   },
-   {
-    "region": "South-East Asia",
-    "period": "2020",
-    "mid": 2020.5,
-    "n": 17932,
-    "perYear": 17932
-   },
-   {
-    "region": "South-East Asia",
-    "period": "2021 (to August)",
-    "mid": 2021.5,
-    "n": 3574,
-    "perYear": 2234
-   },
-   {
-    "region": "North-East Asia",
-    "period": "1951–60",
-    "mid": 1956,
-    "n": 2570,
-    "perYear": 257
-   },
-   {
-    "region": "North-East Asia",
-    "period": "1961–70",
-    "mid": 1966,
-    "n": 4508,
-    "perYear": 451
-   },
-   {
-    "region": "North-East Asia",
-    "period": "1971–80",
-    "mid": 1976,
-    "n": 15533,
-    "perYear": 1553
-   },
-   {
-    "region": "North-East Asia",
-    "period": "1981–90",
-    "mid": 1986,
-    "n": 85234,
-    "perYear": 8523
-   },
-   {
-    "region": "North-East Asia",
-    "period": "1991–2000",
-    "mid": 1996,
-    "n": 118524,
-    "perYear": 11852
-   },
-   {
-    "region": "North-East Asia",
-    "period": "2001–10",
-    "mid": 2006,
-    "n": 244970,
-    "perYear": 24497
-   },
-   {
-    "region": "North-East Asia",
-    "period": "2011–15",
-    "mid": 2013.5,
-    "n": 151466,
-    "perYear": 30293
-   },
-   {
-    "region": "North-East Asia",
-    "period": "2016",
-    "mid": 2016.5,
-    "n": 36962,
-    "perYear": 36962
-   },
-   {
-    "region": "North-East Asia",
-    "period": "2017",
-    "mid": 2017.5,
-    "n": 39987,
-    "perYear": 39987
-   },
-   {
-    "region": "North-East Asia",
-    "period": "2018",
-    "mid": 2018.5,
-    "n": 39155,
-    "perYear": 39155
-   },
-   {
-    "region": "North-East Asia",
-    "period": "2019",
-    "mid": 2019.5,
-    "n": 48505,
-    "perYear": 48505
-   },
-   {
-    "region": "North-East Asia",
-    "period": "2020",
-    "mid": 2020.5,
-    "n": 17701,
-    "perYear": 17701
-   },
-   {
-    "region": "North-East Asia",
-    "period": "2021 (to August)",
-    "mid": 2021.5,
-    "n": 3598,
-    "perYear": 2249
-   },
-   {
-    "region": "South & Central Asia",
-    "period": "1951–60",
-    "mid": 1956,
-    "n": 1172,
-    "perYear": 117
-   },
-   {
-    "region": "South & Central Asia",
-    "period": "1961–70",
-    "mid": 1966,
-    "n": 11164,
-    "perYear": 1116
-   },
-   {
-    "region": "South & Central Asia",
-    "period": "1971–80",
-    "mid": 1976,
-    "n": 16480,
-    "perYear": 1648
-   },
-   {
-    "region": "South & Central Asia",
-    "period": "1981–90",
-    "mid": 1986,
-    "n": 38479,
-    "perYear": 3848
-   },
-   {
-    "region": "South & Central Asia",
-    "period": "1991–2000",
-    "mid": 1996,
-    "n": 75195,
-    "perYear": 7520
-   },
-   {
-    "region": "South & Central Asia",
-    "period": "2001–10",
-    "mid": 2006,
-    "n": 324884,
-    "perYear": 32488
-   },
-   {
-    "region": "South & Central Asia",
-    "period": "2011–15",
-    "mid": 2013.5,
-    "n": 242434,
-    "perYear": 48487
-   },
-   {
-    "region": "South & Central Asia",
-    "period": "2016",
-    "mid": 2016.5,
-    "n": 64726,
-    "perYear": 64726
-   },
-   {
-    "region": "South & Central Asia",
-    "period": "2017",
-    "mid": 2017.5,
-    "n": 76473,
-    "perYear": 76473
-   },
-   {
-    "region": "South & Central Asia",
-    "period": "2018",
-    "mid": 2018.5,
-    "n": 95712,
-    "perYear": 95712
-   },
-   {
-    "region": "South & Central Asia",
-    "period": "2019",
-    "mid": 2019.5,
-    "n": 102138,
-    "perYear": 102138
-   },
-   {
-    "region": "South & Central Asia",
-    "period": "2020",
-    "mid": 2020.5,
-    "n": 34750,
-    "perYear": 34750
-   },
-   {
-    "region": "South & Central Asia",
-    "period": "2021 (to August)",
-    "mid": 2021.5,
-    "n": 7784,
-    "perYear": 4865
-   },
-   {
-    "region": "Other countries",
-    "period": "1951–60",
-    "mid": 1956,
-    "n": 37762,
-    "perYear": 3776
-   },
-   {
-    "region": "Other countries",
-    "period": "1961–70",
-    "mid": 1966,
-    "n": 82166,
-    "perYear": 8217
-   },
-   {
-    "region": "Other countries",
-    "period": "1971–80",
-    "mid": 1976,
-    "n": 113002,
-    "perYear": 11300
-   },
-   {
-    "region": "Other countries",
-    "period": "1981–90",
-    "mid": 1986,
-    "n": 131224,
-    "perYear": 13122
-   },
-   {
-    "region": "Other countries",
-    "period": "1991–2000",
-    "mid": 1996,
-    "n": 146467,
-    "perYear": 14647
-   },
-   {
-    "region": "Other countries",
-    "period": "2001–10",
-    "mid": 2006,
-    "n": 224894,
-    "perYear": 22489
-   },
-   {
-    "region": "Other countries",
-    "period": "2011–15",
-    "mid": 2013.5,
-    "n": 146256,
-    "perYear": 29251
-   },
-   {
-    "region": "Other countries",
-    "period": "2016",
-    "mid": 2016.5,
-    "n": 44452,
-    "perYear": 44452
-   },
-   {
-    "region": "Other countries",
-    "period": "2017",
-    "mid": 2017.5,
-    "n": 42356,
-    "perYear": 42356
-   },
-   {
-    "region": "Other countries",
-    "period": "2018",
-    "mid": 2018.5,
-    "n": 45640,
-    "perYear": 45640
-   },
-   {
-    "region": "Other countries",
-    "period": "2019",
-    "mid": 2019.5,
-    "n": 55244,
-    "perYear": 55244
-   },
-   {
-    "region": "Other countries",
-    "period": "2020",
-    "mid": 2020.5,
-    "n": 21346,
-    "perYear": 21346
-   },
-   {
-    "region": "Other countries",
-    "period": "2021 (to August)",
-    "mid": 2021.5,
-    "n": 6092,
-    "perYear": 3808
-   }
-  ]
- },
- "params": [
+ "layer": [
   {
-   "name": "reg",
-   "select": {
-    "type": "point",
-    "fields": [
-     "region"
-    ],
-    "on": "pointerover",
-    "clear": "pointerout"
-   },
-   "bind": "legend"
-  }
- ],
- "mark": {
-  "type": "area",
-  "interpolate": "monotone",
-  "stroke": "#ffffff",
-  "strokeWidth": 0.4
- },
- "encoding": {
-  "x": {
-   "field": "mid",
-   "type": "quantitative",
-   "title": "Year of arrival",
-   "scale": {
-    "domain": [
-     1950,
-     2022
-    ],
-    "nice": false
-   },
-   "axis": {
-    "format": "d",
+   "data": {
     "values": [
-     1951,
-     1961,
-     1971,
-     1981,
-     1991,
-     2001,
-     2011,
-     2016,
-     2021
-    ],
-    "grid": true,
-    "gridDash": [
-     2,
-     3
-    ],
-    "domain": false,
-    "tickSize": 0,
-    "labelPadding": 6
-   }
-  },
-  "y": {
-   "field": "perYear",
-   "type": "quantitative",
-   "stack": "center",
-   "axis": null
-  },
-  "color": {
-   "field": "region",
-   "type": "nominal",
-   "title": "Born in",
-   "scale": {
-    "domain": [
-     "UK & Ireland",
-     "Other Europe",
-     "Middle East & North Africa",
-     "Americas & Africa",
-     "New Zealand & Pacific",
-     "South-East Asia",
-     "North-East Asia",
-     "South & Central Asia",
-     "Other countries"
-    ],
-    "range": [
-     "#4c72b0",
-     "#8fb1dd",
-     "#b07aa1",
-     "#9c755f",
-     "#59a14f",
-     "#edc948",
-     "#e15759",
-     "#f28e2b",
-     "#c7c7c7"
+     {
+      "region": "UK & Ireland",
+      "period": "1951–60",
+      "mid": 1956,
+      "n": 82388,
+      "perYear": 8239
+     },
+     {
+      "region": "UK & Ireland",
+      "period": "1961–70",
+      "mid": 1966,
+      "n": 247329,
+      "perYear": 24733
+     },
+     {
+      "region": "UK & Ireland",
+      "period": "1971–80",
+      "mid": 1976,
+      "n": 162956,
+      "perYear": 16296
+     },
+     {
+      "region": "UK & Ireland",
+      "period": "1981–90",
+      "mid": 1986,
+      "n": 138688,
+      "perYear": 13869
+     },
+     {
+      "region": "UK & Ireland",
+      "period": "1991–2000",
+      "mid": 1996,
+      "n": 95470,
+      "perYear": 9547
+     },
+     {
+      "region": "UK & Ireland",
+      "period": "2001–10",
+      "mid": 2006,
+      "n": 211592,
+      "perYear": 21159
+     },
+     {
+      "region": "UK & Ireland",
+      "period": "2011–15",
+      "mid": 2013.5,
+      "n": 113660,
+      "perYear": 22732
+     },
+     {
+      "region": "UK & Ireland",
+      "period": "2016",
+      "mid": 2016.5,
+      "n": 15838,
+      "perYear": 15838
+     },
+     {
+      "region": "UK & Ireland",
+      "period": "2017",
+      "mid": 2017.5,
+      "n": 14854,
+      "perYear": 14854
+     },
+     {
+      "region": "UK & Ireland",
+      "period": "2018",
+      "mid": 2018.5,
+      "n": 15302,
+      "perYear": 15302
+     },
+     {
+      "region": "UK & Ireland",
+      "period": "2019",
+      "mid": 2019.5,
+      "n": 17673,
+      "perYear": 17673
+     },
+     {
+      "region": "UK & Ireland",
+      "period": "2020",
+      "mid": 2020.5,
+      "n": 8351,
+      "perYear": 8351
+     },
+     {
+      "region": "UK & Ireland",
+      "period": "2021 (to August)",
+      "mid": 2021.5,
+      "n": 2935,
+      "perYear": 1834
+     },
+     {
+      "region": "Other Europe",
+      "period": "1951–60",
+      "mid": 1956,
+      "n": 129732,
+      "perYear": 12973
+     },
+     {
+      "region": "Other Europe",
+      "period": "1961–70",
+      "mid": 1966,
+      "n": 145673,
+      "perYear": 14567
+     },
+     {
+      "region": "Other Europe",
+      "period": "1971–80",
+      "mid": 1976,
+      "n": 52488,
+      "perYear": 5249
+     },
+     {
+      "region": "Other Europe",
+      "period": "1981–90",
+      "mid": 1986,
+      "n": 46723,
+      "perYear": 4672
+     },
+     {
+      "region": "Other Europe",
+      "period": "1991–2000",
+      "mid": 1996,
+      "n": 30046,
+      "perYear": 3005
+     },
+     {
+      "region": "Other Europe",
+      "period": "2001–10",
+      "mid": 2006,
+      "n": 34617,
+      "perYear": 3462
+     },
+     {
+      "region": "Other Europe",
+      "period": "2011–15",
+      "mid": 2013.5,
+      "n": 25878,
+      "perYear": 5176
+     },
+     {
+      "region": "Other Europe",
+      "period": "2016",
+      "mid": 2016.5,
+      "n": 3753,
+      "perYear": 3753
+     },
+     {
+      "region": "Other Europe",
+      "period": "2017",
+      "mid": 2017.5,
+      "n": 3663,
+      "perYear": 3663
+     },
+     {
+      "region": "Other Europe",
+      "period": "2018",
+      "mid": 2018.5,
+      "n": 3392,
+      "perYear": 3392
+     },
+     {
+      "region": "Other Europe",
+      "period": "2019",
+      "mid": 2019.5,
+      "n": 4374,
+      "perYear": 4374
+     },
+     {
+      "region": "Other Europe",
+      "period": "2020",
+      "mid": 2020.5,
+      "n": 1724,
+      "perYear": 1724
+     },
+     {
+      "region": "Other Europe",
+      "period": "2021 (to August)",
+      "mid": 2021.5,
+      "n": 424,
+      "perYear": 265
+     },
+     {
+      "region": "Middle East & North Africa",
+      "period": "1951–60",
+      "mid": 1956,
+      "n": 4687,
+      "perYear": 469
+     },
+     {
+      "region": "Middle East & North Africa",
+      "period": "1961–70",
+      "mid": 1966,
+      "n": 17237,
+      "perYear": 1724
+     },
+     {
+      "region": "Middle East & North Africa",
+      "period": "1971–80",
+      "mid": 1976,
+      "n": 25308,
+      "perYear": 2531
+     },
+     {
+      "region": "Middle East & North Africa",
+      "period": "1981–90",
+      "mid": 1986,
+      "n": 28224,
+      "perYear": 2822
+     },
+     {
+      "region": "Middle East & North Africa",
+      "period": "1991–2000",
+      "mid": 1996,
+      "n": 38697,
+      "perYear": 3870
+     },
+     {
+      "region": "Middle East & North Africa",
+      "period": "2001–10",
+      "mid": 2006,
+      "n": 56767,
+      "perYear": 5677
+     },
+     {
+      "region": "Middle East & North Africa",
+      "period": "2011–15",
+      "mid": 2013.5,
+      "n": 52287,
+      "perYear": 10457
+     },
+     {
+      "region": "Middle East & North Africa",
+      "period": "2016",
+      "mid": 2016.5,
+      "n": 12653,
+      "perYear": 12653
+     },
+     {
+      "region": "Middle East & North Africa",
+      "period": "2017",
+      "mid": 2017.5,
+      "n": 10754,
+      "perYear": 10754
+     },
+     {
+      "region": "Middle East & North Africa",
+      "period": "2018",
+      "mid": 2018.5,
+      "n": 8591,
+      "perYear": 8591
+     },
+     {
+      "region": "Middle East & North Africa",
+      "period": "2019",
+      "mid": 2019.5,
+      "n": 13698,
+      "perYear": 13698
+     },
+     {
+      "region": "Middle East & North Africa",
+      "period": "2020",
+      "mid": 2020.5,
+      "n": 3972,
+      "perYear": 3972
+     },
+     {
+      "region": "Middle East & North Africa",
+      "period": "2021 (to August)",
+      "mid": 2021.5,
+      "n": 1218,
+      "perYear": 761
+     },
+     {
+      "region": "Americas & Africa",
+      "period": "1951–60",
+      "mid": 1956,
+      "n": 994,
+      "perYear": 99
+     },
+     {
+      "region": "Americas & Africa",
+      "period": "1961–70",
+      "mid": 1966,
+      "n": 9058,
+      "perYear": 906
+     },
+     {
+      "region": "Americas & Africa",
+      "period": "1971–80",
+      "mid": 1976,
+      "n": 24850,
+      "perYear": 2485
+     },
+     {
+      "region": "Americas & Africa",
+      "period": "1981–90",
+      "mid": 1986,
+      "n": 34546,
+      "perYear": 3455
+     },
+     {
+      "region": "Americas & Africa",
+      "period": "1991–2000",
+      "mid": 1996,
+      "n": 46565,
+      "perYear": 4657
+     },
+     {
+      "region": "Americas & Africa",
+      "period": "2001–10",
+      "mid": 2006,
+      "n": 101078,
+      "perYear": 10108
+     },
+     {
+      "region": "Americas & Africa",
+      "period": "2011–15",
+      "mid": 2013.5,
+      "n": 48530,
+      "perYear": 9706
+     },
+     {
+      "region": "Americas & Africa",
+      "period": "2016",
+      "mid": 2016.5,
+      "n": 9462,
+      "perYear": 9462
+     },
+     {
+      "region": "Americas & Africa",
+      "period": "2017",
+      "mid": 2017.5,
+      "n": 9865,
+      "perYear": 9865
+     },
+     {
+      "region": "Americas & Africa",
+      "period": "2018",
+      "mid": 2018.5,
+      "n": 10458,
+      "perYear": 10458
+     },
+     {
+      "region": "Americas & Africa",
+      "period": "2019",
+      "mid": 2019.5,
+      "n": 13288,
+      "perYear": 13288
+     },
+     {
+      "region": "Americas & Africa",
+      "period": "2020",
+      "mid": 2020.5,
+      "n": 7702,
+      "perYear": 7702
+     },
+     {
+      "region": "Americas & Africa",
+      "period": "2021 (to August)",
+      "mid": 2021.5,
+      "n": 2802,
+      "perYear": 1751
+     },
+     {
+      "region": "New Zealand & Pacific",
+      "period": "1951–60",
+      "mid": 1956,
+      "n": 3096,
+      "perYear": 310
+     },
+     {
+      "region": "New Zealand & Pacific",
+      "period": "1961–70",
+      "mid": 1966,
+      "n": 20700,
+      "perYear": 2070
+     },
+     {
+      "region": "New Zealand & Pacific",
+      "period": "1971–80",
+      "mid": 1976,
+      "n": 60971,
+      "perYear": 6097
+     },
+     {
+      "region": "New Zealand & Pacific",
+      "period": "1981–90",
+      "mid": 1986,
+      "n": 106064,
+      "perYear": 10606
+     },
+     {
+      "region": "New Zealand & Pacific",
+      "period": "1991–2000",
+      "mid": 1996,
+      "n": 103551,
+      "perYear": 10355
+     },
+     {
+      "region": "New Zealand & Pacific",
+      "period": "2001–10",
+      "mid": 2006,
+      "n": 141056,
+      "perYear": 14106
+     },
+     {
+      "region": "New Zealand & Pacific",
+      "period": "2011–15",
+      "mid": 2013.5,
+      "n": 80111,
+      "perYear": 16022
+     },
+     {
+      "region": "New Zealand & Pacific",
+      "period": "2016",
+      "mid": 2016.5,
+      "n": 10754,
+      "perYear": 10754
+     },
+     {
+      "region": "New Zealand & Pacific",
+      "period": "2017",
+      "mid": 2017.5,
+      "n": 10355,
+      "perYear": 10355
+     },
+     {
+      "region": "New Zealand & Pacific",
+      "period": "2018",
+      "mid": 2018.5,
+      "n": 11668,
+      "perYear": 11668
+     },
+     {
+      "region": "New Zealand & Pacific",
+      "period": "2019",
+      "mid": 2019.5,
+      "n": 12104,
+      "perYear": 12104
+     },
+     {
+      "region": "New Zealand & Pacific",
+      "period": "2020",
+      "mid": 2020.5,
+      "n": 5359,
+      "perYear": 5359
+     },
+     {
+      "region": "New Zealand & Pacific",
+      "period": "2021 (to August)",
+      "mid": 2021.5,
+      "n": 4679,
+      "perYear": 2924
+     },
+     {
+      "region": "South-East Asia",
+      "period": "1951–60",
+      "mid": 1956,
+      "n": 1683,
+      "perYear": 168
+     },
+     {
+      "region": "South-East Asia",
+      "period": "1961–70",
+      "mid": 1966,
+      "n": 9125,
+      "perYear": 913
+     },
+     {
+      "region": "South-East Asia",
+      "period": "1971–80",
+      "mid": 1976,
+      "n": 60760,
+      "perYear": 6076
+     },
+     {
+      "region": "South-East Asia",
+      "period": "1981–90",
+      "mid": 1986,
+      "n": 166704,
+      "perYear": 16670
+     },
+     {
+      "region": "South-East Asia",
+      "period": "1991–2000",
+      "mid": 1996,
+      "n": 126705,
+      "perYear": 12671
+     },
+     {
+      "region": "South-East Asia",
+      "period": "2001–10",
+      "mid": 2006,
+      "n": 206565,
+      "perYear": 20657
+     },
+     {
+      "region": "South-East Asia",
+      "period": "2011–15",
+      "mid": 2013.5,
+      "n": 148719,
+      "perYear": 29744
+     },
+     {
+      "region": "South-East Asia",
+      "period": "2016",
+      "mid": 2016.5,
+      "n": 36881,
+      "perYear": 36881
+     },
+     {
+      "region": "South-East Asia",
+      "period": "2017",
+      "mid": 2017.5,
+      "n": 35932,
+      "perYear": 35932
+     },
+     {
+      "region": "South-East Asia",
+      "period": "2018",
+      "mid": 2018.5,
+      "n": 37940,
+      "perYear": 37940
+     },
+     {
+      "region": "South-East Asia",
+      "period": "2019",
+      "mid": 2019.5,
+      "n": 44310,
+      "perYear": 44310
+     },
+     {
+      "region": "South-East Asia",
+      "period": "2020",
+      "mid": 2020.5,
+      "n": 17932,
+      "perYear": 17932
+     },
+     {
+      "region": "South-East Asia",
+      "period": "2021 (to August)",
+      "mid": 2021.5,
+      "n": 3574,
+      "perYear": 2234
+     },
+     {
+      "region": "North-East Asia",
+      "period": "1951–60",
+      "mid": 1956,
+      "n": 2570,
+      "perYear": 257
+     },
+     {
+      "region": "North-East Asia",
+      "period": "1961–70",
+      "mid": 1966,
+      "n": 4508,
+      "perYear": 451
+     },
+     {
+      "region": "North-East Asia",
+      "period": "1971–80",
+      "mid": 1976,
+      "n": 15533,
+      "perYear": 1553
+     },
+     {
+      "region": "North-East Asia",
+      "period": "1981–90",
+      "mid": 1986,
+      "n": 85234,
+      "perYear": 8523
+     },
+     {
+      "region": "North-East Asia",
+      "period": "1991–2000",
+      "mid": 1996,
+      "n": 118524,
+      "perYear": 11852
+     },
+     {
+      "region": "North-East Asia",
+      "period": "2001–10",
+      "mid": 2006,
+      "n": 244970,
+      "perYear": 24497
+     },
+     {
+      "region": "North-East Asia",
+      "period": "2011–15",
+      "mid": 2013.5,
+      "n": 151466,
+      "perYear": 30293
+     },
+     {
+      "region": "North-East Asia",
+      "period": "2016",
+      "mid": 2016.5,
+      "n": 36962,
+      "perYear": 36962
+     },
+     {
+      "region": "North-East Asia",
+      "period": "2017",
+      "mid": 2017.5,
+      "n": 39987,
+      "perYear": 39987
+     },
+     {
+      "region": "North-East Asia",
+      "period": "2018",
+      "mid": 2018.5,
+      "n": 39155,
+      "perYear": 39155
+     },
+     {
+      "region": "North-East Asia",
+      "period": "2019",
+      "mid": 2019.5,
+      "n": 48505,
+      "perYear": 48505
+     },
+     {
+      "region": "North-East Asia",
+      "period": "2020",
+      "mid": 2020.5,
+      "n": 17701,
+      "perYear": 17701
+     },
+     {
+      "region": "North-East Asia",
+      "period": "2021 (to August)",
+      "mid": 2021.5,
+      "n": 3598,
+      "perYear": 2249
+     },
+     {
+      "region": "South & Central Asia",
+      "period": "1951–60",
+      "mid": 1956,
+      "n": 1172,
+      "perYear": 117
+     },
+     {
+      "region": "South & Central Asia",
+      "period": "1961–70",
+      "mid": 1966,
+      "n": 11164,
+      "perYear": 1116
+     },
+     {
+      "region": "South & Central Asia",
+      "period": "1971–80",
+      "mid": 1976,
+      "n": 16480,
+      "perYear": 1648
+     },
+     {
+      "region": "South & Central Asia",
+      "period": "1981–90",
+      "mid": 1986,
+      "n": 38479,
+      "perYear": 3848
+     },
+     {
+      "region": "South & Central Asia",
+      "period": "1991–2000",
+      "mid": 1996,
+      "n": 75195,
+      "perYear": 7520
+     },
+     {
+      "region": "South & Central Asia",
+      "period": "2001–10",
+      "mid": 2006,
+      "n": 324884,
+      "perYear": 32488
+     },
+     {
+      "region": "South & Central Asia",
+      "period": "2011–15",
+      "mid": 2013.5,
+      "n": 242434,
+      "perYear": 48487
+     },
+     {
+      "region": "South & Central Asia",
+      "period": "2016",
+      "mid": 2016.5,
+      "n": 64726,
+      "perYear": 64726
+     },
+     {
+      "region": "South & Central Asia",
+      "period": "2017",
+      "mid": 2017.5,
+      "n": 76473,
+      "perYear": 76473
+     },
+     {
+      "region": "South & Central Asia",
+      "period": "2018",
+      "mid": 2018.5,
+      "n": 95712,
+      "perYear": 95712
+     },
+     {
+      "region": "South & Central Asia",
+      "period": "2019",
+      "mid": 2019.5,
+      "n": 102138,
+      "perYear": 102138
+     },
+     {
+      "region": "South & Central Asia",
+      "period": "2020",
+      "mid": 2020.5,
+      "n": 34750,
+      "perYear": 34750
+     },
+     {
+      "region": "South & Central Asia",
+      "period": "2021 (to August)",
+      "mid": 2021.5,
+      "n": 7784,
+      "perYear": 4865
+     },
+     {
+      "region": "Other countries",
+      "period": "1951–60",
+      "mid": 1956,
+      "n": 37762,
+      "perYear": 3776
+     },
+     {
+      "region": "Other countries",
+      "period": "1961–70",
+      "mid": 1966,
+      "n": 82166,
+      "perYear": 8217
+     },
+     {
+      "region": "Other countries",
+      "period": "1971–80",
+      "mid": 1976,
+      "n": 113002,
+      "perYear": 11300
+     },
+     {
+      "region": "Other countries",
+      "period": "1981–90",
+      "mid": 1986,
+      "n": 131224,
+      "perYear": 13122
+     },
+     {
+      "region": "Other countries",
+      "period": "1991–2000",
+      "mid": 1996,
+      "n": 146467,
+      "perYear": 14647
+     },
+     {
+      "region": "Other countries",
+      "period": "2001–10",
+      "mid": 2006,
+      "n": 224894,
+      "perYear": 22489
+     },
+     {
+      "region": "Other countries",
+      "period": "2011–15",
+      "mid": 2013.5,
+      "n": 146256,
+      "perYear": 29251
+     },
+     {
+      "region": "Other countries",
+      "period": "2016",
+      "mid": 2016.5,
+      "n": 44452,
+      "perYear": 44452
+     },
+     {
+      "region": "Other countries",
+      "period": "2017",
+      "mid": 2017.5,
+      "n": 42356,
+      "perYear": 42356
+     },
+     {
+      "region": "Other countries",
+      "period": "2018",
+      "mid": 2018.5,
+      "n": 45640,
+      "perYear": 45640
+     },
+     {
+      "region": "Other countries",
+      "period": "2019",
+      "mid": 2019.5,
+      "n": 55244,
+      "perYear": 55244
+     },
+     {
+      "region": "Other countries",
+      "period": "2020",
+      "mid": 2020.5,
+      "n": 21346,
+      "perYear": 21346
+     },
+     {
+      "region": "Other countries",
+      "period": "2021 (to August)",
+      "mid": 2021.5,
+      "n": 6092,
+      "perYear": 3808
+     }
     ]
    },
-   "sort": [
-    "UK & Ireland",
-    "Other Europe",
-    "Middle East & North Africa",
-    "Americas & Africa",
-    "New Zealand & Pacific",
-    "South-East Asia",
-    "North-East Asia",
-    "South & Central Asia",
-    "Other countries"
+   "params": [
+    {
+     "name": "reg",
+     "select": {
+      "type": "point",
+      "fields": [
+       "region"
+      ],
+      "on": "pointerover",
+      "clear": "pointerout"
+     },
+     "bind": "legend"
+    }
    ],
-   "legend": {
-    "orient": "right",
-    "columns": 1,
-    "symbolType": "square",
-    "symbolSize": 120,
-    "labelLimit": 180,
-    "labelFontSize": 12,
-    "columnPadding": 8
+   "mark": {
+    "type": "area",
+    "interpolate": "monotone",
+    "stroke": "#ffffff",
+    "strokeWidth": 0.4
+   },
+   "encoding": {
+    "x": {
+     "field": "mid",
+     "type": "quantitative",
+     "title": "Year of arrival",
+     "scale": {
+      "domain": [
+       1950,
+       2022
+      ],
+      "nice": false
+     },
+     "axis": {
+      "format": "d",
+      "values": [
+       1951,
+       1961,
+       1971,
+       1981,
+       1991,
+       2001,
+       2011,
+       2016,
+       2021
+      ],
+      "grid": true,
+      "gridDash": [
+       2,
+       3
+      ],
+      "domain": false,
+      "tickSize": 0,
+      "labelPadding": 6
+     }
+    },
+    "y": {
+     "field": "perYear",
+     "type": "quantitative",
+     "stack": "center",
+     "axis": null
+    },
+    "color": {
+     "field": "region",
+     "type": "nominal",
+     "title": "Born in",
+     "scale": {
+      "domain": [
+       "UK & Ireland",
+       "Other Europe",
+       "Middle East & North Africa",
+       "Americas & Africa",
+       "New Zealand & Pacific",
+       "South-East Asia",
+       "North-East Asia",
+       "South & Central Asia",
+       "Other countries"
+      ],
+      "range": [
+       "#4c72b0",
+       "#8fb1dd",
+       "#b07aa1",
+       "#9c755f",
+       "#59a14f",
+       "#edc948",
+       "#e15759",
+       "#f28e2b",
+       "#c7c7c7"
+      ]
+     },
+     "sort": [
+      "UK & Ireland",
+      "Other Europe",
+      "Middle East & North Africa",
+      "Americas & Africa",
+      "New Zealand & Pacific",
+      "South-East Asia",
+      "North-East Asia",
+      "South & Central Asia",
+      "Other countries"
+     ],
+     "legend": {
+      "orient": "right",
+      "columns": 1,
+      "symbolType": "square",
+      "symbolSize": 120,
+      "labelLimit": 180,
+      "labelFontSize": 12,
+      "columnPadding": 8
+     }
+    },
+    "order": {
+     "field": "region",
+     "sort": "ascending"
+    },
+    "opacity": {
+     "condition": {
+      "param": "reg",
+      "value": 0.95
+     },
+     "value": 0.18
+    },
+    "tooltip": [
+     {
+      "field": "region",
+      "title": "Born in"
+     },
+     {
+      "field": "period",
+      "title": "Arrived"
+     },
+     {
+      "field": "n",
+      "title": "Still living in Australia, 2021",
+      "format": ","
+     },
+     {
+      "field": "perYear",
+      "title": "Per year of the period",
+      "format": ","
+     }
+    ]
    }
   },
-  "order": {
-   "field": "region",
-   "sort": "ascending"
-  },
-  "opacity": {
-   "condition": {
-    "param": "reg",
-    "value": 0.95
+  {
+   "data": {
+    "values": [
+     {
+      "x": 1951.5,
+      "y": 8,
+      "al": "left",
+      "t": "1950s–60s: mostly from Europe"
+     },
+     {
+      "x": 1981.5,
+      "y": 8,
+      "al": "left",
+      "t": "1980s: South-East Asia leads"
+     },
+     {
+      "x": 2000.5,
+      "y": 26,
+      "al": "right",
+      "t": "From 2001: South & Central Asia leads →"
+     }
+    ]
    },
-   "value": 0.18
-  },
-  "tooltip": [
-   {
-    "field": "region",
-    "title": "Born in"
+   "mark": {
+    "type": "text",
+    "baseline": "middle",
+    "fontSize": 11.5,
+    "fontStyle": "italic",
+    "color": "#25221d",
+    "align": {
+     "expr": "datum.al"
+    },
+    "interactive": false
    },
-   {
-    "field": "period",
-    "title": "Arrived"
-   },
-   {
-    "field": "n",
-    "title": "Still living in Australia, 2021",
-    "format": ","
-   },
-   {
-    "field": "perYear",
-    "title": "Per year of the period",
-    "format": ","
+   "encoding": {
+    "x": {
+     "field": "x",
+     "type": "quantitative"
+    },
+    "y": {
+     "field": "y",
+     "type": "quantitative",
+     "scale": null
+    },
+    "text": {
+     "field": "t"
+    }
    }
-  ]
- }
+  }
+ ]
 }

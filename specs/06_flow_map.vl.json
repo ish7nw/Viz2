@@ -104243,7 +104243,7 @@
    ],
    "params": [
     {
-     "name": "hovc6",
+     "name": "hovc5",
      "select": {
       "type": "point",
       "fields": [
@@ -104257,7 +104257,7 @@
    "encoding": {
     "stroke": {
      "condition": {
-      "param": "hovc6",
+      "param": "hovc5",
       "empty": false,
       "value": "#111111"
      },
@@ -104265,7 +104265,7 @@
     },
     "strokeWidth": {
      "condition": {
-      "param": "hovc6",
+      "param": "hovc5",
       "empty": false,
       "value": 1.75
      },

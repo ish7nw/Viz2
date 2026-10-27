@@ -45130,11 +45130,7 @@
         "cside": "l",
         "topRegion": "Europe",
         "l1": "WA · 939k born overseas",
-        "l2": "Top: England 212k",
-        "lines": [
-         "WA · 939k born overseas",
-         "Top: England 212k"
-        ]
+        "l2": "Top: England 212k"
        },
        {
         "name": "Victoria",
@@ -45149,11 +45145,7 @@
         "cside": "l",
         "topRegion": "Asia",
         "l1": "Vic · 2.07M born overseas",
-        "l2": "Top: India 272k",
-        "lines": [
-         "Vic · 2.07M born overseas",
-         "Top: India 272k"
-        ]
+        "l2": "Top: India 272k"
        },
        {
         "name": "New South Wales",
@@ -45168,11 +45160,7 @@
         "cside": "r",
         "topRegion": "Asia",
         "l1": "NSW · 2.51M born overseas",
-        "l2": "Top: China 261k",
-        "lines": [
-         "NSW · 2.51M born overseas",
-         "Top: China 261k"
-        ]
+        "l2": "Top: China 261k"
        },
        {
         "name": "Australian Capital Territory",
@@ -45187,11 +45175,7 @@
         "cside": "r",
         "topRegion": "Asia",
         "l1": "ACT · 135k born overseas",
-        "l2": "Top: India 18k",
-        "lines": [
-         "ACT · 135k born overseas",
-         "Top: India 18k"
-        ]
+        "l2": "Top: India 18k"
        },
        {
         "name": "South Australia",
@@ -45206,11 +45190,7 @@
         "cside": "l",
         "topRegion": "Europe",
         "l1": "SA · 452k born overseas",
-        "l2": "Top: England 99k",
-        "lines": [
-         "SA · 452k born overseas",
-         "Top: England 99k"
-        ]
+        "l2": "Top: England 99k"
        },
        {
         "name": "Queensland",
@@ -45225,11 +45205,7 @@
         "cside": "r",
         "topRegion": "Oceania & Africa",
         "l1": "Qld · 1.26M born overseas",
-        "l2": "Top: New Zealand 230k",
-        "lines": [
-         "Qld · 1.26M born overseas",
-         "Top: New Zealand 230k"
-        ]
+        "l2": "Top: New Zealand 230k"
        },
        {
         "name": "Northern Territory",
@@ -45244,11 +45220,7 @@
         "cside": "r",
         "topRegion": "Asia",
         "l1": "NT · 59k born overseas",
-        "l2": "Top: Philippines 7k",
-        "lines": [
-         "NT · 59k born overseas",
-         "Top: Philippines 7k"
-        ]
+        "l2": "Top: Philippines 7k"
        },
        {
         "name": "Tasmania",
@@ -45263,11 +45235,7 @@
         "cside": "r",
         "topRegion": "Europe",
         "l1": "Tas · 92k born overseas",
-        "l2": "Top: England 20k",
-        "lines": [
-         "Tas · 92k born overseas",
-         "Top: England 20k"
-        ]
+        "l2": "Top: England 20k"
        }
       ]
      },
@@ -45452,6 +45420,167 @@
       },
       "text": {
        "field": "label"
+      }
+     }
+    },
+    {
+     "data": {
+      "values": [
+       {
+        "code": "125",
+        "lon": 151,
+        "lat": -33.81,
+        "llon": 156.2,
+        "llat": -35.6,
+        "name": "Sydney – Parramatta",
+        "note": "highest of 88 regions",
+        "v11": 46.1,
+        "v16": 50.2,
+        "v21": 52.2
+       },
+       {
+        "code": "309",
+        "lon": 153.4,
+        "lat": -28,
+        "llon": 156.2,
+        "llat": -25.8,
+        "name": "Gold Coast",
+        "note": "highest outside a capital",
+        "v11": 27.8,
+        "v16": 28.1,
+        "v21": 28.9
+       }
+      ]
+     },
+     "mark": {
+      "type": "rule",
+      "strokeWidth": 0.8,
+      "color": "#25221d",
+      "interactive": false
+     },
+     "encoding": {
+      "longitude": {
+       "field": "lon",
+       "type": "quantitative"
+      },
+      "latitude": {
+       "field": "lat",
+       "type": "quantitative"
+      },
+      "longitude2": {
+       "field": "llon"
+      },
+      "latitude2": {
+       "field": "llat"
+      }
+     }
+    },
+    {
+     "data": {
+      "values": [
+       {
+        "code": "125",
+        "lon": 151,
+        "lat": -33.81,
+        "llon": 156.2,
+        "llat": -35.6,
+        "name": "Sydney – Parramatta",
+        "note": "highest of 88 regions",
+        "v11": 46.1,
+        "v16": 50.2,
+        "v21": 52.2
+       },
+       {
+        "code": "309",
+        "lon": 153.4,
+        "lat": -28,
+        "llon": 156.2,
+        "llat": -25.8,
+        "name": "Gold Coast",
+        "note": "highest outside a capital",
+        "v11": 27.8,
+        "v16": 28.1,
+        "v21": 28.9
+       }
+      ]
+     },
+     "mark": {
+      "type": "circle",
+      "size": 22,
+      "color": "#25221d",
+      "interactive": false
+     },
+     "encoding": {
+      "longitude": {
+       "field": "lon",
+       "type": "quantitative"
+      },
+      "latitude": {
+       "field": "lat",
+       "type": "quantitative"
+      }
+     }
+    },
+    {
+     "data": {
+      "values": [
+       {
+        "code": "125",
+        "lon": 151,
+        "lat": -33.81,
+        "llon": 156.2,
+        "llat": -35.6,
+        "name": "Sydney – Parramatta",
+        "note": "highest of 88 regions",
+        "v11": 46.1,
+        "v16": 50.2,
+        "v21": 52.2
+       },
+       {
+        "code": "309",
+        "lon": 153.4,
+        "lat": -28,
+        "llon": 156.2,
+        "llat": -25.8,
+        "name": "Gold Coast",
+        "note": "highest outside a capital",
+        "v11": 27.8,
+        "v16": 28.1,
+        "v21": 28.9
+       }
+      ]
+     },
+     "transform": [
+      {
+       "calculate": "format(yr == 2011 ? datum.v11 : yr == 2016 ? datum.v16 : datum.v21, '.1f') + '%'",
+       "as": "v"
+      },
+      {
+       "calculate": "[datum.name + ' ' + datum.v, datum.note]",
+       "as": "lab"
+      }
+     ],
+     "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "middle",
+      "dx": 4,
+      "fontSize": 11,
+      "lineHeight": 13,
+      "color": "#25221d",
+      "interactive": false
+     },
+     "encoding": {
+      "longitude": {
+       "field": "llon",
+       "type": "quantitative"
+      },
+      "latitude": {
+       "field": "llat",
+       "type": "quantitative"
+      },
+      "text": {
+       "field": "lab"
       }
      }
     },
