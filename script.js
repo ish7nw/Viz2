@@ -184,7 +184,7 @@ function hoverCountry(layer, t, opt) {
 
 /* ======================================================================
    PART 3. THE FIGURES
-   One function per figure. They're not in page order, so search "FIGURE 10" etc.
+   One function per figure. They're not in page order, so search "FIGURE 9" etc.
    ====================================================================== */
 
 /* ======================================================================
@@ -247,7 +247,7 @@ function spec1(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 6 | Page section 3.1 | IDIOM: Proportional symbols + contour lines
+   FIGURE 5 | Page section 3.1 | IDIOM: Proportional symbols + contour lines
    Function: spec2()
    ====================================================================== */
 
@@ -342,7 +342,7 @@ const waterLabels = (t, vals, narrow) => ({ data: { values: vals },
   encoding: { longitude: { field: "lon", type: "quantitative" }, latitude: { field: "lat", type: "quantitative" }, text: { field: "n" } } });
 
 /* ======================================================================
-   FIGURE 19 | Page section 4.4 | IDIOM: Nested proportional symbols
+   FIGURE 18 | Page section 4.4 | IDIOM: Nested proportional symbols
    Function: spec4()
    ====================================================================== */
 
@@ -398,7 +398,7 @@ function spec4(t, w) {
 }
 
 /* ---------- shared map pieces ---------- */
-// WORLD_PROJ is the projection for the world maps (Figures 4, 7 and 8).
+// WORLD_PROJ is the projection for the world maps (Figures 4, 6 and 7).
 // extent() is an invisible shape used to frame a map; ausBase() draws plain grey states.
 const WORLD_PROJ = { type: "equalEarth", rotate: [-75, 0] };
 const extent = (pts) => ({ data: { values: [{ type: "Feature", properties: {}, geometry: { type: "MultiPoint", coordinates: pts } }] }, mark: { type: "geoshape", opacity: 0, filled: false, strokeOpacity: 0 } });
@@ -534,7 +534,7 @@ function specVoyage(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 7 | Page section 3.2 | IDIOM: Flow map
+   FIGURE 6 | Page section 3.2 | IDIOM: Flow map
    Function: specFlow()
    ====================================================================== */
 
@@ -572,7 +572,7 @@ function specFlow(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 8 | Page section 3.3 | IDIOM: Spike map
+   FIGURE 7 | Page section 3.3 | IDIOM: Spike map
    Function: specSpike()
    ====================================================================== */
 
@@ -615,9 +615,9 @@ function specSpike(t, w) {
 }
 
 /* ======================================================================
-   FIGURES 10, 14 AND 15 SHARED: SA4 regions, standardised classes, insets
+   FIGURES 9, 13 AND 14 SHARED: SA4 regions, standardised classes, insets
    ====================================================================== */
-/* ---------- Figures 10, 14 and 15: SA4 regions ---------- */
+/* ---------- Figures 9, 13 and 14: SA4 regions ---------- */
 // All three maps use the same 88 regions, the same % measure and the same fixed classes,
 // so a colour means the same thing in every map and every year.
 // ABS Statistical Areas Level 4 (ASGS 2021). Shares: Census 2011 and 2016 on that year's SA4s, 2021 on 2021 SA4s.
@@ -645,7 +645,7 @@ const SA4_TT = (yrField) => [
   { field: "properties.os21", title: "Overseas-born residents, 2021", format: "," }
 ];
 // one SA4 fill layer with hover highlight and the linked state highlight
-// IDIOM: CHOROPLETH (the fill) - each SA4 region is coloured by its class. Used by Figures 10, 14 and 15.
+// IDIOM: CHOROPLETH (the fill) - each SA4 region is coloured by its class. Used by Figures 9, 13 and 14.
 function sa4Layer(t, o) {
   const pname = "hovr" + (HOVER_N++);
   return {
@@ -687,7 +687,7 @@ function insetView(t, d, size, fill) {
 }
 
 /* ======================================================================
-   FIGURE 10 | Page section 4.1 | IDIOM: Choropleth
+   FIGURE 9 | Page section 4.1 | IDIOM: Choropleth
    Function: spec3()
    ====================================================================== */
 
@@ -717,7 +717,7 @@ function spec3(t, yr, w) {
 }
 
 /* ======================================================================
-   FIGURE 14 | Page section 4.1 | IDIOM: Small multiples
+   FIGURE 13 | Page section 4.1 | IDIOM: Small multiples
    Function: specSmall()
    ====================================================================== */
 
@@ -741,7 +741,7 @@ function specSmall(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 15 | Page section 4.2 | IDIOM: Bivariate choropleth
+   FIGURE 14 | Page section 4.2 | IDIOM: Bivariate choropleth
    Function: specBiv()
    ====================================================================== */
 
@@ -781,7 +781,7 @@ function specBiv(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 16 | Page section 4.3 | IDIOM: Dot density
+   FIGURE 15 | Page section 4.3 | IDIOM: Dot density
    Function: specDots()
    ====================================================================== */
 
@@ -815,7 +815,7 @@ function specDots(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 17 | Page section 4.3 | IDIOM: Dorling cartogram
+   FIGURE 16 | Page section 4.3 | IDIOM: Dorling cartogram
    Function: specDorling()
    ====================================================================== */
 
@@ -851,7 +851,7 @@ function specDorling(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 18 | Page section 4.3 | IDIOM: Pie-chart map
+   FIGURE 17 | Page section 4.3 | IDIOM: Pie-chart map
    Function: specPies()
    ====================================================================== */
 
@@ -971,7 +971,7 @@ function setupWaited() {
 }
 
 /* ---------- "Show data" tables ---------- */
-// Fills the expandable tables under Figures 6, 10 and 19.
+// Fills the expandable tables under Figures 5, 9 and 18.
 const topojson_props = (topo, key) => topo.objects[key].geometries.map(g => g.properties);
 function tables() {
   const rows2 = COB.map(([c, , , km, a, b, d]) => `<tr><td>${c}</td><td>${fmt(a)}</td><td>${fmt(b)}</td><td>${fmt(d)}</td><td>${fmt(km)}</td></tr>`).join("");
@@ -1019,13 +1019,13 @@ function tables() {
 })();
 
 /* ======================================================================
-   FIGURE 13 | Page section 4.1 | IDIOM: Choropleth (interactive zoom map)
+   FIGURE 12 | Page section 4.1 | IDIOM: Choropleth (interactive zoom map)
    Function: specZoom()
    ====================================================================== */
 
 // The capital cities at a much finer grain: ABS SA2 areas (roughly suburbs), 2021 Census.
 // SA2_PACKED (in data.js) is a compact text format; unpackSA2() turns it back into GeoJSON.
-// Same seven colour classes as Figures 10 and 14, so the colours mean the same thing.
+// Same seven colour classes as Figures 9 and 13, so the colours mean the same thing.
 const SA2_ALPHA = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_-";
 function unpackSA2(txt) {
   const IX = {}; for (let i = 0; i < SA2_ALPHA.length; i++) IX[SA2_ALPHA[i]] = i;
@@ -1072,7 +1072,7 @@ function specZoom(t, w) {
     layer: [
       // land outside the capital-city areas, in plain grey
       { data: { values: STATES, format: { type: "topojson", feature: "states" } }, mark: { type: "geoshape", fill: t.land, stroke: "#ffffff", strokeWidth: 1, clip: true } },
-      // IDIOM: CHOROPLETH - each SA2 area coloured by its share born overseas (same classes as Figure 10)
+      // IDIOM: CHOROPLETH - each SA2 area coloured by its share born overseas (same classes as Figure 9)
       { data: { values: sa2Features() },
         transform: [{ calculate: "datum.properties.pct", as: "pct" }, SA4_CLASS("datum.pct"),
           { calculate: "isValid(datum.pct) ? datum.cl : 'Too few residents'", as: "cl" },
@@ -1094,7 +1094,7 @@ function specZoom(t, w) {
   };
 }
 
-// Pan (drag), zoom (buttons, or Ctrl/Cmd + scroll) and fly-to (city buttons) for Figure 13.
+// Pan (drag), zoom (buttons, or Ctrl/Cmd + scroll) and fly-to (city buttons) for Figure 12.
 // They all just change three numbers - cx, cy (map centre) and zs (scale) - inside the drawn chart.
 function setupZoomControls() {
   const host = document.getElementById("cZ");
@@ -1172,7 +1172,7 @@ function setupZoomControls() {
 }
 
 /* ======================================================================
-   FIGURE 20 | Page section 4.4 | IDIOM: Linked choropleths (state map + world map)
+   FIGURE 19 | Page section 4.4 | IDIOM: Linked choropleths (state map + world map)
    Function: specTop()
    ====================================================================== */
 
@@ -1250,7 +1250,7 @@ function specTop(t, w) {
 
 
 /* ======================================================================
-   FIGURE 21 | Page section 4.4 | IDIOM: Standardised choropleth small multiples, linked to a home-region map
+   FIGURE 20 | Page section 4.4 | IDIOM: Standardised choropleth small multiples, linked to a home-region map
    Function: specLang()  (hover and buttons wired up by setupLangControls())
    ====================================================================== */
 
@@ -1404,14 +1404,14 @@ function setupLangControls() {
 
 
 /* ======================================================================
-   FIGURE 22 | Page section 4.6 | IDIOM: Standardised choropleth with a language picker (linked world map, state map and bar chart)
+   FIGURE 21 | Page section 4.6 | IDIOM: Standardised choropleth with a language picker (linked world map, state map and bar chart)
    Function: specWorldLang()  (dropdown and clicks wired up by setupWorldLangControls())
    ====================================================================== */
 
 // 34 languages spoken at home, 2021 Census (table G13), with the countries where each is a main language.
-// n = speakers in NSW, Vic, Qld, SA, WA, Tas, NT, ACT (same order as LANG_STATES in Figure 21).
+// n = speakers in NSW, Vic, Qld, SA, WA, Tas, NT, ACT (same order as LANG_STATES in Figure 20).
 // Pick one language and three views change together: its home countries, its rate in each state
-// (per 1,000 residents, the same five classes as Figure 21) and its place in the national ranking.
+// (per 1,000 residents, the same five classes as Figure 20) and its place in the national ranking.
 const LANG_ALL = [
   { lang: "Arabic", group: "Middle East & North Africa", countries: ["Algeria", "Bahrain", "Egypt", "Iraq", "Jordan", "Kuwait", "Lebanon", "Libya", "Morocco", "Oman", "Qatar", "Saudi Arabia", "Sudan", "Syria", "Tunisia", "United Arab Emirates", "Yemen", "Palestine", "Mauritania", "W. Sahara"], n: [227205, 91505, 16157, 11011, 15943, 917, 426, 3854] },
   { lang: "Persian", group: "Middle East & North Africa", countries: ["Iran"], n: [26826, 22337, 8453, 5419, 7603, 454, 99, 1228] },
@@ -1486,7 +1486,7 @@ function specWorldLang(t, w) {
   };
 
   // ---- Australia: the picked language per 1,000 residents of each state ----
-  // IDIOM: STANDARDISED CHOROPLETH - rate per 1,000 residents, five fixed classes shared with Figure 21
+  // IDIOM: STANDARDISED CHOROPLETH - rate per 1,000 residents, five fixed classes shared with Figure 20
   const ausW = narrow ? w - 26 : Math.round((w - 40) * 0.5);
   const aus = {
     width: ausW, height: Math.round(ausW * 0.86), projection: AUS_PROJ,
@@ -1534,7 +1534,7 @@ function specWorldLang(t, w) {
 
   const key = {
     width: narrow ? w - 40 : 380, height: 14,
-    title: { text: narrow ? ["Speakers per 1,000 residents", "(same classes as Figure 21)"] : "Speakers per 1,000 residents (same classes as Figure 21)", anchor: "start", font: t.body, fontSize: 12, fontWeight: 600, color: t.ink },
+    title: { text: narrow ? ["Speakers per 1,000 residents", "(same classes as Figure 20)"] : "Speakers per 1,000 residents (same classes as Figure 20)", anchor: "start", font: t.body, fontSize: 12, fontWeight: 600, color: t.ink },
     data: { values: LANG_CLASSES.map((c, k) => ({ c, fillc: WL_RAMP[k] })) },
     mark: { type: "rect", stroke: "#ffffff" },
     encoding: { x: { field: "c", type: "ordinal", sort: null, title: null, axis: { domain: false, ticks: false, labelFont: t.body, labelFontSize: 11, labelAngle: 0, labelPadding: 4 } },
@@ -1621,109 +1621,7 @@ function specStream(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 5 | Page section 2 | IDIOM: Sankey diagram
-   Function: specSankey()
-   ====================================================================== */
-
-// Overseas migrant arrivals in 2024–25 by visa (left) and the state they arrived in (right).
-// Vega-Lite has no Sankey mark, so the ribbons are worked out here: each link is a band of
-// constant thickness, drawn as an area whose top and bottom follow an S-curve.
-const VISA_FLOWS = [
-  // key, label, group, arrivals in NSW, Vic, Qld, SA, WA, Tas, NT, ACT (financial year 2024–25)
-  ["12", "Skill", "Permanent", [12470, 9790, 4940, 4430, 5040, 980, 910, 1810]],
-  ["11", "Family", "Permanent", [8480, 8270, 3110, 1610, 2290, 140, 110, 390]],
-  ["1030", "Humanitarian", "Permanent", [4470, 5740, 2230, 1290, 690, 250, 120, 160]],
-  ["15", "Other permanent", "Permanent", [3150, 2700, 1310, 330, 810, 40, 30, 100]],
-  ["22", "Student", "Temporary", [54340, 49230, 22310, 9300, 15550, 760, 990, 3470]],
-  ["23", "Skilled work", "Temporary", [14560, 9860, 9680, 1820, 8140, 550, 780, 500]],
-  ["24", "Working holiday", "Temporary", [24890, 17560, 18010, 2480, 15470, 660, 1050, 250]],
-  ["25", "Visitor", "Temporary", [19670, 16900, 8970, 2630, 6080, 500, 570, 1010]],
-  ["1010", "Other temporary", "Temporary", [7670, 7030, 5170, 1820, 2980, 760, 590, 600]],
-  ["01", "New Zealand citizens", "Citizens", [9920, 14680, 19330, 1080, 7430, 330, 400, 370]],
-  ["02", "Australian citizens", "Citizens", [22070, 16400, 12560, 2870, 7230, 730, 400, 2170]]
-];
-const VISA_GROUPS = ["Permanent", "Temporary", "Citizens"];
-const VISA_COLORS = ["#2f6f9f", "#d17a22", "#6b8e4e"];
-const SANKEY_STATES = ["New South Wales", "Victoria", "Queensland", "South Australia", "Western Australia", "Tasmania", "Northern Territory", "Australian Capital Territory"];
-
-function sankeyLayout(W, H, narrow) {
-  const gapL = 5, gapR = 7, nodeW = 10;
-  const x0 = narrow ? 104 : 190, x1 = W - (narrow ? 64 : 190);
-  const total = VISA_FLOWS.reduce((a, v) => a + v[3].reduce((p, q) => p + q, 0), 0);
-  const k = Math.min((H - gapL * (VISA_FLOWS.length - 1) - 2 * gapL * 2) / total, (H - gapR * 7) / total);
-  const nodes = [], links = [];
-  // left: visas, with a little extra space between the three groups
-  let y = 0, prevG = null;
-  const L = VISA_FLOWS.map(([key, label, group, n]) => {
-    if (prevG && group !== prevG) y += gapL * 2; prevG = group;
-    const v = n.reduce((a, b) => a + b, 0), node = { side: "L", key, label, group, v, x: x0 - nodeW, x2: x0, y, y2: y + v * k, off: y };
-    y += v * k + gapL; nodes.push(node); return node;
-  });
-  // right: states, centred against the left column
-  const rTot = SANKEY_STATES.map((s, i) => VISA_FLOWS.reduce((a, f) => a + f[3][i], 0));
-  const rH = rTot.reduce((a, b) => a + b, 0) * k + gapR * 7;
-  y = (y - gapL - rH) / 2;
-  const R = SANKEY_STATES.map((s, i) => { const node = { side: "R", key: s, label: ABBR_OF[s], group: "", v: rTot[i], x: x1, x2: x1 + nodeW, y, y2: y + rTot[i] * k, off: y }; y += rTot[i] * k + gapR; nodes.push(node); return node; });
-  const ease = (u) => u * u * (3 - 2 * u);
-  VISA_FLOWS.forEach(([key, label, group, n], a) => n.forEach((v, b) => {
-    const s = L[a], d = R[b], h = v * k, ys = s.off, yd = d.off; s.off += h; d.off += h;
-    const id = key + ">" + b;
-    for (let i = 0; i <= 24; i++) {
-      const u = i / 24, yy = ys + (yd - ys) * ease(u);
-      links.push({ id, src: label, dst: SANKEY_STATES[b], dstAbbr: d.label, group, v, x: x0 + (x1 - x0) * u, y: yy, y2: yy + h,
-        share: Math.round(1000 * v / s.v) / 10 });
-    }
-  }));
-  return { nodes, links, total };
-}
-
-function specSankey(t, w) {
-  const narrow = w < 600;
-  const W = w - (narrow ? 44 : 8), H = narrow ? 520 : 560;
-  const { nodes, links, total } = sankeyLayout(W, H, narrow);
-  const xs = { type: "linear", domain: [0, W], range: [0, W], nice: false, zero: false };
-  const ys = { type: "linear", domain: [0, H], range: [0, H], nice: false, zero: false };
-  const lit = "length(data('sv_store')) == 0 && length(data('ss_store')) == 0";
-  const col = { field: "group", type: "nominal", scale: { domain: VISA_GROUPS, range: VISA_COLORS },
-    legend: { title: "Visa group", orient: "bottom", direction: "horizontal", symbolType: "square", symbolSize: 120 } };
-  return {
-    $schema: "https://vega.github.io/schema/vega-lite/v5.json", config: config(t),
-    width: W, height: H + 2, autosize: { type: "pad" },
-    layer: [
-      // IDIOM: SANKEY - each ribbon is one visa-to-state flow, thickness proportional to arrivals
-      { data: { values: links },
-        mark: { type: "area", orient: "vertical", interpolate: "linear", cursor: "pointer" },
-        encoding: { x: { field: "x", type: "quantitative", scale: xs, axis: null }, y: { field: "y", type: "quantitative", scale: ys, axis: null }, y2: { field: "y2" },
-          detail: { field: "id" }, color: col,
-          opacity: { condition: [{ test: lit, value: 0.42 }, { param: "sv", empty: false, value: 0.8 }, { param: "ss", empty: false, value: 0.8 }], value: 0.06 },
-          tooltip: [{ field: "src", title: "Visa" }, { field: "dst", title: "Arrived in" }, { field: "v", title: "Arrivals, 2024–25", format: "," }, { field: "share", title: "% of this visa's arrivals", format: ".1f" }] } },
-      // nodes: visas on the left, states on the right (hover one to follow its flows)
-      { data: { values: nodes.filter(n => n.side === "L").map(n => ({ ...n, src: n.label })) },
-        params: [{ name: "sv", select: { type: "point", fields: ["src"], on: "pointerover", clear: "pointerout" } }],
-        mark: { type: "rect", cursor: "pointer" },
-        encoding: { x: { field: "x", type: "quantitative", scale: xs }, x2: { field: "x2" }, y: { field: "y", type: "quantitative", scale: ys }, y2: { field: "y2" },
-          color: { ...col, legend: null }, tooltip: [{ field: "label", title: "Visa" }, { field: "group", title: "Group" }, { field: "v", title: "Arrivals, 2024–25", format: "," }] } },
-      { data: { values: nodes.filter(n => n.side === "R").map(n => ({ ...n, dst: n.key })) },
-        params: [{ name: "ss", select: { type: "point", fields: ["dst"], on: "pointerover", clear: "pointerout" } }],
-        mark: { type: "rect", fill: "#555555", cursor: "pointer" },
-        encoding: { x: { field: "x", type: "quantitative", scale: xs }, x2: { field: "x2" }, y: { field: "y", type: "quantitative", scale: ys }, y2: { field: "y2" },
-          tooltip: [{ field: "key", title: "State / territory" }, { field: "v", title: "Arrivals, 2024–25", format: "," }] } },
-      // labels
-      { data: { values: nodes.map(n => ({ ...n, mid: (n.y + n.y2) / 2, lx: n.side === "L" ? n.x - 5 : n.x2 + 5,
-          txt: n.side === "L" ? n.label + (narrow ? "" : "  " + Math.round(n.v / 1000) + "k") : n.label + "  " + Math.round(n.v / 1000) + "k" })) },
-        mark: { type: "text", font: t.body, fontSize: narrow ? 10 : 11.5, baseline: "middle", align: { expr: "datum.side == 'L' ? 'right' : 'left'" }, interactive: false,
-          fontWeight: { expr: "datum.side == 'R' ? 600 : 400" } },
-        encoding: { x: { field: "lx", type: "quantitative", scale: xs }, y: { field: "mid", type: "quantitative", scale: ys }, text: { field: "txt" } } },
-      { data: { values: [{ x: nodes[0].x2, y: -12, txt: "Visa on arrival" }, { x: nodes[nodes.length - 1].x, y: -12, txt: "State or territory" }] },
-        mark: { type: "text", font: t.body, fontSize: 12, fontWeight: 600, baseline: "bottom", align: { expr: "datum.txt == 'Visa on arrival' ? 'right' : 'left'" }, dy: -2 },
-        encoding: { x: { field: "x", type: "quantitative", scale: xs }, y: { field: "y", type: "quantitative", scale: ys }, text: { field: "txt" } } }
-    ],
-    resolve: { scale: { color: "shared" } }
-  };
-}
-
-/* ======================================================================
-   FIGURE 9 | Page section 3.4 | IDIOM: Bump chart
+   FIGURE 8 | Page section 3.4 | IDIOM: Bump chart
    Function: specBump()
    ====================================================================== */
 
@@ -1781,12 +1679,12 @@ function specBump(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 11 | Page section 4.1 | IDIOM: Hexagon tile map (equal-area cartogram)
+   FIGURE 10 | Page section 4.1 | IDIOM: Hexagon tile map (equal-area cartogram)
    Function: specHex()
    ====================================================================== */
 
 // Each of the 88 SA4 regions gets one hexagon of the same size, roughly in its real position
-// (laid out once in advance by matching region centres to grid cells). Same seven classes as Figure 10.
+// (laid out once in advance by matching region centres to grid cells). Same seven classes as Figure 9.
 const HEX_POS = "101:10:8 102:9:4 103:6:4 104:8:3 105:5:4 106:7:3 107:9:7 108:10:4 109:5:5 110:6:3 111:11:5 112:11:4 113:7:6 114:8:7 115:7:4 116:8:4 117:11:7 118:11:6 119:10:7 120:10:6 121:9:5 122:10:5 123:8:6 124:6:5 125:7:5 126:8:5 127:9:6 128:11:8 201:3:7 202:5:6 203:3:9 204:7:7 205:8:8 206:5:8 207:6:8 208:5:9 209:5:7 210:4:7 211:6:7 212:7:8 213:4:8 214:4:9 215:4:6 216:6:6 217:3:8 301:11:1 302:10:1 303:11:2 304:9:2 305:10:2 306:8:0 307:7:2 308:8:1 309:11:3 310:9:3 311:10:3 312:7:1 313:10:0 314:9:1 315:6:2 316:11:0 317:8:2 318:6:1 319:9:0 401:4:5 402:3:5 403:3:6 404:2:6 405:2:5 406:4:4 407:2:7 501:1:6 502:0:6 503:0:4 504:1:4 505:0:3 506:1:5 507:0:5 509:2:4 510:1:2 511:1:3 601:8:10 602:9:10 603:7:10 604:6:10 701:3:0 702:2:1 801:9:8";
 const HEX_PATH = "M0,-1L0.866,-0.5L0.866,0.5L0,1L-0.866,0.5L-0.866,-0.5Z";
 
@@ -1819,7 +1717,7 @@ function specHex(t, w) {
     $schema: "https://vega.github.io/schema/vega-lite/v5.json", config: config(t),
     width: W, height: H, params: [{ name: "hl", value: state.hl }],
     layer: [
-      // IDIOM: HEXAGON TILE MAP - every region the same size, coloured by % born overseas (Figure 10's classes)
+      // IDIOM: HEXAGON TILE MAP - every region the same size, coloured by % born overseas (Figure 9's classes)
       { data: { values: cells }, transform: [{ calculate: "datum.s21", as: "pct" }, SA4_CLASS("datum.pct"), { calculate: "datum.state", as: "hstate" }],
         mark: { type: "point", shape: HEX_PATH, filled: true, size, stroke: "#ffffff", strokeWidth: 1.5, cursor: "pointer" },
         encoding: { ...pos, color: sa4Color({ cols: narrow ? 3 : 7 }),
@@ -1840,7 +1738,7 @@ function specHex(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 23 | Page section 5 | IDIOM: Population pyramid
+   FIGURE 22 | Page section 5 | IDIOM: Population pyramid
    Function: specPyramid()
    ====================================================================== */
 
@@ -1944,7 +1842,7 @@ function specWaffle(t, w) {
 }
 
 /* ======================================================================
-   FIGURE 12 | Page section 4.1 | IDIOM: Beeswarm plot
+   FIGURE 11 | Page section 4.1 | IDIOM: Beeswarm plot
    Function: specSwarm()
    ====================================================================== */
 
@@ -2035,7 +1933,7 @@ function setHighlight(name) {
 // Each chart is drawn only when it comes near the screen, so the page opens quickly.
 // CHARTS says how to build each one; AFTER wires up anything extra once it is drawn.
 const CHARTS = {
-  cA: specWaffle, c1: spec1, cR: specStream, cV: specVoyage, cK: specSankey,
+  cA: specWaffle, c1: spec1, cR: specStream, cV: specVoyage,
   c2: (t, w) => spec2(t, state.yrWorld, w), cF: specFlow, cS: specSpike, cU: specBump,
   c3: (t, w) => spec3(t, state.yrState, w), cH: specHex, cX: specSwarm, cZ: specZoom, cM: specSmall, cB: specBiv,
   cD: specDots, cC: specDorling, cP: specPies, c4: spec4, cT: specTop, cL: specLang, cW: specWorldLang, cY: specPyramid

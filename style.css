@@ -158,16 +158,16 @@ a { color: var(--link); }
 /* Buttons, dropdowns and the sliders/radios Vega-Lite adds under some maps */
 .btn { font: inherit; font-size: 14px; padding: 5px 12px; border: 1px solid #8a8a8a; border-radius: 4px; background: var(--surface); color: var(--ink); cursor: pointer; }
 .btn:hover { background: var(--band); }
-/* Figure 13 zoom map: buttons sit over the top-right corner; the map shows a grab cursor */
+/* Figure 12 zoom map: buttons sit over the top-right corner; the map shows a grab cursor */
 .zoom-ctl .btn { padding: 4px 10px; }
 .zoom-ctl .btn[aria-pressed="true"], .lang-ctl .btn[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
 .zoom-wrap { position: relative; }
 .zoom-map { touch-action: none; cursor: grab; overflow: hidden; border: 1px solid var(--rule); }
 .zoom-map.dragging, .zoom-map.dragging * { cursor: grabbing !important; }
 .zoom-map:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
-/* Figure 21: names and borders drawn over the regions should not block hovering the regions */
+/* Figure 20: names and borders drawn over the regions should not block hovering the regions */
 #cL .mark-text, #cL .concat_0_layer_2_marks { pointer-events: none; }
-#cH .mark-text, #cH .mark-rule, #cK .mark-text, #cU .mark-text { pointer-events: none; }
+#cH .mark-text, #cH .mark-rule, #cU .mark-text { pointer-events: none; }
 /* Contents bar: sticks to the top of the window; scrolls sideways on phones */
 .toc { position: sticky; top: 0; z-index: 20; display: flex; gap: 2px 18px; overflow-x: auto; scrollbar-width: none; white-space: nowrap;
   margin: 8px -30px 28px; padding: 10px 30px; background: color-mix(in srgb, var(--surface) 94%, transparent); backdrop-filter: blur(6px);
