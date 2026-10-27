@@ -699,8 +699,9 @@ function specBiv(t, w) {
   const fill = (gcc, sw) => sa4Layer(t, { filter: gcc ? `datum.properties.gcc == '${gcc}'` : null, transform: cls, opacity: op, sw,
     color: { field: "cls", type: "ordinal", scale: { domain: [0, 1, 2, 3, 4, 5, 6, 7, 8], range: BIV_COLORS }, legend: null },
     tooltip: [SA4_TT()[0], SA4_TT()[1], { field: "bivclass", title: "Class" }, ...SA4_TT().slice(2)] });
+  // on phones everything sits right of the colour key's axis labels (about 60px), so leave room for them
   const sideW = narrow ? Math.floor((w - 96) / 2) : 200;
-  const mainW = narrow ? w - 8 : w - sideW - 120;
+  const mainW = narrow ? w - 76 : w - sideW - 120;
   const main = { width: mainW, height: Math.round(mainW * 0.82), projection: AUS_PROJ,
     layer: [fill(null, 0.35), stateLines(t), stateAbbr(t, narrow), ...insetBoxes(t, narrow), extent([[112, -10], [161, -10], [161, -44], [112, -44]])] };
   const cells = []; for (let a = 0; a < 3; a++) for (let b = 0; b < 3; b++) cells.push({ a, b, cls: a * 3 + b });
@@ -715,9 +716,9 @@ function specBiv(t, w) {
       color: { field: "cls", type: "ordinal", scale: { domain: [0, 1, 2, 3, 4, 5, 6, 7, 8], range: BIV_COLORS }, legend: null } }
   };
   const insets = INSETS.map(d => insetView(t, d, sideW, (g) => fill(g, 0.6)));
-  const side = narrow ? { vconcat: [legend, { hconcat: insets, spacing: 12, bounds: "full" }], spacing: 16, bounds: "full" } : { vconcat: [legend, ...insets], spacing: 18, bounds: "full" };
+  const side = narrow ? { vconcat: [legend, { hconcat: insets, spacing: 12, bounds: "full" }], spacing: 16, bounds: "full", align: "none" } : { vconcat: [legend, ...insets], spacing: 18, bounds: "full" };
   return { $schema: "https://vega.github.io/schema/vega-lite/v5.json", config: { ...config(t), concat: { spacing: 16 } }, params: [{ name: "hl", value: state.hl }],
-    [narrow ? "vconcat" : "hconcat"]: [main, side], bounds: "full", spacing: narrow ? 14 : 24, resolve: { scale: { color: "independent" } } };
+    [narrow ? "vconcat" : "hconcat"]: [main, side], bounds: "full", align: narrow ? "none" : "all", spacing: narrow ? 14 : 24, resolve: { scale: { color: "independent" } } };
 }
 
 /* ======================================================================
@@ -2300,8 +2301,12 @@ void main() {
   gl.uniform4f(U("u_space"), 0.17, -0.25, 0.0, 0.0);
   gl.uniform4f(U("u_cursor"), 0.0, 2.0, 0.65, 0.46); // cursor off
   const uScene = U("u_scene");
+  // Phones and small screens: draw at half resolution, skip the (barely visible) blur pass and run
+  // at 30 frames a second. The waves are soft, so this looks the same but costs far less battery.
+  const light = matchMedia("(max-width: 700px), (pointer: coarse)").matches;
+  if (light) gl.uniform4f(U("u_finish"), 0.00, 0.25, 0.0, 0.02);
   const resize = () => {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = light ? 0.5 : Math.min(window.devicePixelRatio || 1, 2);
     const w = Math.round(innerWidth * dpr), h = Math.round(innerHeight * dpr);
     if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; gl.viewport(0, 0, w, h); }
   };
@@ -2313,7 +2318,8 @@ void main() {
   };
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
   let raf = 0;
-  const loop = (now) => { frame(now); raf = requestAnimationFrame(loop); };
+  let last = 0;
+  const loop = (now) => { if (!light || now - last > 32) { frame(now); last = now; } raf = requestAnimationFrame(loop); };
   const start = () => { cancelAnimationFrame(raf); if (still) frame(t0 + 8000); else raf = requestAnimationFrame(loop); };
   document.addEventListener("visibilitychange", () => { if (document.hidden) cancelAnimationFrame(raf); else start(); });
   addEventListener("resize", () => { if (still) frame(t0 + 8000); });
