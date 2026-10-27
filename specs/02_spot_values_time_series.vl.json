@@ -13,11 +13,11 @@
    "stroke": null
   },
   "axis": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#5c5c5c",
-   "gridColor": "#d0d0d0",
-   "domainColor": "#d0d0d0",
-   "tickColor": "#d0d0d0",
+   "labelColor": "#675f54",
+   "titleColor": "#675f54",
+   "gridColor": "#d8cfbf",
+   "domainColor": "#d8cfbf",
+   "tickColor": "#d8cfbf",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "labelFontSize": 11,
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
@@ -25,17 +25,17 @@
    "titleFontSize": 11.5
   },
   "legend": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#222222",
+   "labelColor": "#675f54",
+   "titleColor": "#25221d",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFontWeight": 600,
    "labelFontSize": 12,
    "titleFontSize": 12,
-   "symbolStrokeColor": "#ffffff"
+   "symbolStrokeColor": "#fbf8f2"
   },
   "text": {
-   "color": "#222222",
+   "color": "#25221d",
    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   },
   "tooltipFormat": {
@@ -125,9 +125,9 @@
     "color": {
      "condition": {
       "test": "datum.i % 2 == 0",
-      "value": "#f2f2f2"
+      "value": "#f1ebdf"
      },
-     "value": "#ffffff"
+     "value": "#fbf8f2"
     }
    }
   },
@@ -180,7 +180,7 @@
     "dy": 4,
     "fontSize": 10.5,
     "font": "IBM Plex Sans Condensed, Arial Narrow, sans-serif",
-    "color": "#5c5c5c",
+    "color": "#675f54",
     "limit": 120,
     "clip": true
    },
@@ -199,6 +199,133 @@
     },
     "text": {
      "field": "n"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "year": 1901,
+      "y": 4.5,
+      "al": "left",
+      "t": "Immigration Restriction Act",
+      "s": "Restriction Act"
+     },
+     {
+      "year": 1947,
+      "y": 2.2,
+      "al": "left",
+      "t": "Post-war migration program",
+      "s": "Post-war program"
+     },
+     {
+      "year": 1973,
+      "y": 6.8,
+      "ny": 8.5,
+      "al": "left",
+      "t": "White Australia policy ends",
+      "s": "White Aust. ends"
+     },
+     {
+      "year": 2020,
+      "y": 4.5,
+      "ny": 3.5,
+      "al": "right",
+      "t": "COVID-19 border closure",
+      "s": "COVID-19"
+     }
+    ]
+   },
+   "mark": {
+    "type": "rule",
+    "strokeDash": [
+     3,
+     3
+    ],
+    "strokeWidth": 1,
+    "color": "#675f54",
+    "opacity": 0.8,
+    "clip": true
+   },
+   "encoding": {
+    "x": {
+     "field": "year",
+     "type": "quantitative"
+    },
+    "y": {
+     "value": 0
+    },
+    "y2": {
+     "value": 340
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "year": 1901,
+      "y": 4.5,
+      "al": "left",
+      "t": "Immigration Restriction Act",
+      "s": "Restriction Act",
+      "yy": 4.5
+     },
+     {
+      "year": 1947,
+      "y": 2.2,
+      "al": "left",
+      "t": "Post-war migration program",
+      "s": "Post-war program",
+      "yy": 2.2
+     },
+     {
+      "year": 1973,
+      "y": 6.8,
+      "ny": 8.5,
+      "al": "left",
+      "t": "White Australia policy ends",
+      "s": "White Aust. ends",
+      "yy": 8.5
+     },
+     {
+      "year": 2020,
+      "y": 4.5,
+      "ny": 3.5,
+      "al": "right",
+      "t": "COVID-19 border closure",
+      "s": "COVID-19",
+      "yy": 3.5
+     }
+    ]
+   },
+   "mark": {
+    "type": "text",
+    "baseline": "middle",
+    "fontSize": 11.5,
+    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+    "fontStyle": "italic",
+    "color": "#25221d",
+    "clip": true,
+    "align": {
+     "expr": "datum.al"
+    },
+    "dx": {
+     "expr": "datum.al == 'left' ? 5 : -5"
+    }
+   },
+   "encoding": {
+    "x": {
+     "field": "year",
+     "type": "quantitative"
+    },
+    "y": {
+     "field": "y",
+     "type": "quantitative"
+    },
+    "text": {
+     "field": "t"
     }
    }
   },
@@ -1629,7 +1756,7 @@
    },
    "encoding": {
     "color": {
-     "value": "#5c5c5c"
+     "value": "#675f54"
     },
     "opacity": {
      "condition": {
@@ -1721,7 +1848,7 @@
      "type": "quantitative"
     },
     "fill": {
-     "value": "#ffffff"
+     "value": "#fbf8f2"
     },
     "stroke": {
      "value": "#225ea8"
@@ -1800,7 +1927,7 @@
      "field": "t"
     },
     "color": {
-     "value": "#222222"
+     "value": "#25221d"
     }
    }
   },
@@ -1878,7 +2005,7 @@
      "field": "t"
     },
     "color": {
-     "value": "#222222"
+     "value": "#25221d"
     }
    }
   },
@@ -1956,7 +2083,7 @@
      "field": "t"
     },
     "color": {
-     "value": "#222222"
+     "value": "#25221d"
     }
    }
   },
@@ -2034,7 +2161,7 @@
      "field": "t"
     },
     "color": {
-     "value": "#222222"
+     "value": "#25221d"
     }
    }
   },
@@ -2110,10 +2237,10 @@
      "field": "t"
     },
     "color": {
-     "value": "#222222"
+     "value": "#25221d"
     }
    }
   }
  ],
- "background": "#ffffff"
+ "background": "#fbf8f2"
 }

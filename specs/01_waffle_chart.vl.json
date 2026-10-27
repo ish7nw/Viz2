@@ -1,0 +1,1049 @@
+{
+ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ "config": {
+  "background": null,
+  "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+  "padding": 4,
+  "view": {
+   "stroke": null
+  },
+  "axis": {
+   "labelColor": "#675f54",
+   "titleColor": "#675f54",
+   "gridColor": "#d8cfbf",
+   "domainColor": "#d8cfbf",
+   "tickColor": "#d8cfbf",
+   "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "labelFontSize": 11,
+   "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFontWeight": 500,
+   "titleFontSize": 11.5
+  },
+  "legend": {
+   "labelColor": "#675f54",
+   "titleColor": "#25221d",
+   "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
+   "titleFontWeight": 600,
+   "labelFontSize": 12,
+   "titleFontSize": 12,
+   "symbolStrokeColor": "#fbf8f2"
+  },
+  "text": {
+   "color": "#25221d",
+   "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+  },
+  "tooltipFormat": {
+   "numberFormat": ",.0f"
+  }
+ },
+ "width": 300,
+ "height": 300,
+ "data": {
+  "values": [
+   {
+    "region": "South & Central Asia",
+    "n": 1746360,
+    "pct": 6.3,
+    "label": "Born in South & Central Asia",
+    "i": 0,
+    "col": 0,
+    "row": 0
+   },
+   {
+    "region": "South & Central Asia",
+    "n": 1746360,
+    "pct": 6.3,
+    "label": "Born in South & Central Asia",
+    "i": 1,
+    "col": 1,
+    "row": 0
+   },
+   {
+    "region": "South & Central Asia",
+    "n": 1746360,
+    "pct": 6.3,
+    "label": "Born in South & Central Asia",
+    "i": 2,
+    "col": 2,
+    "row": 0
+   },
+   {
+    "region": "South & Central Asia",
+    "n": 1746360,
+    "pct": 6.3,
+    "label": "Born in South & Central Asia",
+    "i": 3,
+    "col": 3,
+    "row": 0
+   },
+   {
+    "region": "South & Central Asia",
+    "n": 1746360,
+    "pct": 6.3,
+    "label": "Born in South & Central Asia",
+    "i": 4,
+    "col": 4,
+    "row": 0
+   },
+   {
+    "region": "South & Central Asia",
+    "n": 1746360,
+    "pct": 6.3,
+    "label": "Born in South & Central Asia",
+    "i": 5,
+    "col": 5,
+    "row": 0
+   },
+   {
+    "region": "North-West Europe",
+    "n": 1548800,
+    "pct": 5.6,
+    "label": "Born in North-West Europe",
+    "i": 6,
+    "col": 6,
+    "row": 0
+   },
+   {
+    "region": "North-West Europe",
+    "n": 1548800,
+    "pct": 5.6,
+    "label": "Born in North-West Europe",
+    "i": 7,
+    "col": 7,
+    "row": 0
+   },
+   {
+    "region": "North-West Europe",
+    "n": 1548800,
+    "pct": 5.6,
+    "label": "Born in North-West Europe",
+    "i": 8,
+    "col": 8,
+    "row": 0
+   },
+   {
+    "region": "North-West Europe",
+    "n": 1548800,
+    "pct": 5.6,
+    "label": "Born in North-West Europe",
+    "i": 9,
+    "col": 9,
+    "row": 0
+   },
+   {
+    "region": "North-West Europe",
+    "n": 1548800,
+    "pct": 5.6,
+    "label": "Born in North-West Europe",
+    "i": 10,
+    "col": 0,
+    "row": 1
+   },
+   {
+    "region": "North-West Europe",
+    "n": 1548800,
+    "pct": 5.6,
+    "label": "Born in North-West Europe",
+    "i": 11,
+    "col": 1,
+    "row": 1
+   },
+   {
+    "region": "South-East Asia",
+    "n": 1365980,
+    "pct": 4.9,
+    "label": "Born in South-East Asia",
+    "i": 12,
+    "col": 2,
+    "row": 1
+   },
+   {
+    "region": "South-East Asia",
+    "n": 1365980,
+    "pct": 4.9,
+    "label": "Born in South-East Asia",
+    "i": 13,
+    "col": 3,
+    "row": 1
+   },
+   {
+    "region": "South-East Asia",
+    "n": 1365980,
+    "pct": 4.9,
+    "label": "Born in South-East Asia",
+    "i": 14,
+    "col": 4,
+    "row": 1
+   },
+   {
+    "region": "South-East Asia",
+    "n": 1365980,
+    "pct": 4.9,
+    "label": "Born in South-East Asia",
+    "i": 15,
+    "col": 5,
+    "row": 1
+   },
+   {
+    "region": "South-East Asia",
+    "n": 1365980,
+    "pct": 4.9,
+    "label": "Born in South-East Asia",
+    "i": 16,
+    "col": 6,
+    "row": 1
+   },
+   {
+    "region": "North-East Asia",
+    "n": 1129440,
+    "pct": 4.1,
+    "label": "Born in North-East Asia",
+    "i": 17,
+    "col": 7,
+    "row": 1
+   },
+   {
+    "region": "North-East Asia",
+    "n": 1129440,
+    "pct": 4.1,
+    "label": "Born in North-East Asia",
+    "i": 18,
+    "col": 8,
+    "row": 1
+   },
+   {
+    "region": "North-East Asia",
+    "n": 1129440,
+    "pct": 4.1,
+    "label": "Born in North-East Asia",
+    "i": 19,
+    "col": 9,
+    "row": 1
+   },
+   {
+    "region": "North-East Asia",
+    "n": 1129440,
+    "pct": 4.1,
+    "label": "Born in North-East Asia",
+    "i": 20,
+    "col": 0,
+    "row": 2
+   },
+   {
+    "region": "Oceania (excl. Australia)",
+    "n": 866840,
+    "pct": 3.1,
+    "label": "Born in Oceania (excl. Australia)",
+    "i": 21,
+    "col": 1,
+    "row": 2
+   },
+   {
+    "region": "Oceania (excl. Australia)",
+    "n": 866840,
+    "pct": 3.1,
+    "label": "Born in Oceania (excl. Australia)",
+    "i": 22,
+    "col": 2,
+    "row": 2
+   },
+   {
+    "region": "Oceania (excl. Australia)",
+    "n": 866840,
+    "pct": 3.1,
+    "label": "Born in Oceania (excl. Australia)",
+    "i": 23,
+    "col": 3,
+    "row": 2
+   },
+   {
+    "region": "Southern & Eastern Europe",
+    "n": 666600,
+    "pct": 2.4,
+    "label": "Born in Southern & Eastern Europe",
+    "i": 24,
+    "col": 4,
+    "row": 2
+   },
+   {
+    "region": "Southern & Eastern Europe",
+    "n": 666600,
+    "pct": 2.4,
+    "label": "Born in Southern & Eastern Europe",
+    "i": 25,
+    "col": 5,
+    "row": 2
+   },
+   {
+    "region": "Middle East & North Africa",
+    "n": 559890,
+    "pct": 2,
+    "label": "Born in Middle East & North Africa",
+    "i": 26,
+    "col": 6,
+    "row": 2
+   },
+   {
+    "region": "Middle East & North Africa",
+    "n": 559890,
+    "pct": 2,
+    "label": "Born in Middle East & North Africa",
+    "i": 27,
+    "col": 7,
+    "row": 2
+   },
+   {
+    "region": "Sub-Saharan Africa",
+    "n": 480090,
+    "pct": 1.7,
+    "label": "Born in Sub-Saharan Africa",
+    "i": 28,
+    "col": 8,
+    "row": 2
+   },
+   {
+    "region": "Sub-Saharan Africa",
+    "n": 480090,
+    "pct": 1.7,
+    "label": "Born in Sub-Saharan Africa",
+    "i": 29,
+    "col": 9,
+    "row": 2
+   },
+   {
+    "region": "Americas",
+    "n": 469830,
+    "pct": 1.7,
+    "label": "Born in Americas",
+    "i": 30,
+    "col": 0,
+    "row": 3
+   },
+   {
+    "region": "Americas",
+    "n": 469830,
+    "pct": 1.7,
+    "label": "Born in Americas",
+    "i": 31,
+    "col": 1,
+    "row": 3
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 32,
+    "col": 2,
+    "row": 3
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 33,
+    "col": 3,
+    "row": 3
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 34,
+    "col": 4,
+    "row": 3
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 35,
+    "col": 5,
+    "row": 3
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 36,
+    "col": 6,
+    "row": 3
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 37,
+    "col": 7,
+    "row": 3
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 38,
+    "col": 8,
+    "row": 3
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 39,
+    "col": 9,
+    "row": 3
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 40,
+    "col": 0,
+    "row": 4
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 41,
+    "col": 1,
+    "row": 4
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 42,
+    "col": 2,
+    "row": 4
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 43,
+    "col": 3,
+    "row": 4
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 44,
+    "col": 4,
+    "row": 4
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 45,
+    "col": 5,
+    "row": 4
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 46,
+    "col": 6,
+    "row": 4
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 47,
+    "col": 7,
+    "row": 4
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 48,
+    "col": 8,
+    "row": 4
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 49,
+    "col": 9,
+    "row": 4
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 50,
+    "col": 0,
+    "row": 5
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 51,
+    "col": 1,
+    "row": 5
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 52,
+    "col": 2,
+    "row": 5
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 53,
+    "col": 3,
+    "row": 5
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 54,
+    "col": 4,
+    "row": 5
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 55,
+    "col": 5,
+    "row": 5
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 56,
+    "col": 6,
+    "row": 5
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 57,
+    "col": 7,
+    "row": 5
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 58,
+    "col": 8,
+    "row": 5
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 59,
+    "col": 9,
+    "row": 5
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 60,
+    "col": 0,
+    "row": 6
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 61,
+    "col": 1,
+    "row": 6
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 62,
+    "col": 2,
+    "row": 6
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 63,
+    "col": 3,
+    "row": 6
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 64,
+    "col": 4,
+    "row": 6
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 65,
+    "col": 5,
+    "row": 6
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 66,
+    "col": 6,
+    "row": 6
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 67,
+    "col": 7,
+    "row": 6
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 68,
+    "col": 8,
+    "row": 6
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 69,
+    "col": 9,
+    "row": 6
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 70,
+    "col": 0,
+    "row": 7
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 71,
+    "col": 1,
+    "row": 7
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 72,
+    "col": 2,
+    "row": 7
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 73,
+    "col": 3,
+    "row": 7
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 74,
+    "col": 4,
+    "row": 7
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 75,
+    "col": 5,
+    "row": 7
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 76,
+    "col": 6,
+    "row": 7
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 77,
+    "col": 7,
+    "row": 7
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 78,
+    "col": 8,
+    "row": 7
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 79,
+    "col": 9,
+    "row": 7
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 80,
+    "col": 0,
+    "row": 8
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 81,
+    "col": 1,
+    "row": 8
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 82,
+    "col": 2,
+    "row": 8
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 83,
+    "col": 3,
+    "row": 8
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 84,
+    "col": 4,
+    "row": 8
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 85,
+    "col": 5,
+    "row": 8
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 86,
+    "col": 6,
+    "row": 8
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 87,
+    "col": 7,
+    "row": 8
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 88,
+    "col": 8,
+    "row": 8
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 89,
+    "col": 9,
+    "row": 8
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 90,
+    "col": 0,
+    "row": 9
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 91,
+    "col": 1,
+    "row": 9
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 92,
+    "col": 2,
+    "row": 9
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 93,
+    "col": 3,
+    "row": 9
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 94,
+    "col": 4,
+    "row": 9
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 95,
+    "col": 5,
+    "row": 9
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 96,
+    "col": 6,
+    "row": 9
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 97,
+    "col": 7,
+    "row": 9
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 98,
+    "col": 8,
+    "row": 9
+   },
+   {
+    "region": "Australia",
+    "n": 18779950,
+    "pct": 68,
+    "label": "Born in Australia",
+    "i": 99,
+    "col": 9,
+    "row": 9
+   }
+  ]
+ },
+ "params": [
+  {
+   "name": "wr",
+   "select": {
+    "type": "point",
+    "fields": [
+     "region"
+    ],
+    "on": "pointerover",
+    "clear": "pointerout"
+   },
+   "bind": "legend"
+  }
+ ],
+ "mark": {
+  "type": "rect",
+  "cornerRadius": 1.5,
+  "cursor": "pointer"
+ },
+ "encoding": {
+  "x": {
+   "field": "col",
+   "type": "ordinal",
+   "axis": null,
+   "scale": {
+    "paddingInner": 0.14,
+    "paddingOuter": 0
+   }
+  },
+  "y": {
+   "field": "row",
+   "type": "ordinal",
+   "axis": null,
+   "scale": {
+    "paddingInner": 0.14,
+    "paddingOuter": 0
+   }
+  },
+  "color": {
+   "field": "region",
+   "type": "nominal",
+   "scale": {
+    "domain": [
+     "South & Central Asia",
+     "North-West Europe",
+     "South-East Asia",
+     "North-East Asia",
+     "Oceania (excl. Australia)",
+     "Southern & Eastern Europe",
+     "Middle East & North Africa",
+     "Sub-Saharan Africa",
+     "Americas",
+     "Australia"
+    ],
+    "range": [
+     "#f28e2b",
+     "#4c72b0",
+     "#edc948",
+     "#e15759",
+     "#59a14f",
+     "#8fb1dd",
+     "#b07aa1",
+     "#9c755f",
+     "#76b7b2",
+     "#dcdcdc"
+    ]
+   },
+   "legend": {
+    "title": null,
+    "orient": "right",
+    "columns": 1,
+    "symbolType": "square",
+    "symbolSize": 150,
+    "labelFontSize": 12.5,
+    "labelLimit": 220,
+    "rowPadding": 6,
+    "labelExpr": "{\"South & Central Asia\":\"South & Central Asia  6\",\"North-West Europe\":\"North-West Europe  6\",\"South-East Asia\":\"South-East Asia  5\",\"North-East Asia\":\"North-East Asia  4\",\"Oceania (excl. Australia)\":\"Oceania (excl. Australia)  3\",\"Southern & Eastern Europe\":\"Southern & Eastern Europe  2\",\"Middle East & North Africa\":\"Middle East & North Africa  2\",\"Sub-Saharan Africa\":\"Sub-Saharan Africa  2\",\"Americas\":\"Americas  2\",\"Australia\":\"Born in Australia  68\"}[datum.label]"
+   }
+  },
+  "opacity": {
+   "condition": {
+    "param": "wr",
+    "value": 1
+   },
+   "value": 0.25
+  },
+  "tooltip": [
+   {
+    "field": "label",
+    "title": "Group"
+   },
+   {
+    "field": "pct",
+    "title": "% of all residents",
+    "format": ".1f"
+   },
+   {
+    "field": "n",
+    "title": "Residents, 30 June 2025",
+    "format": ","
+   }
+  ]
+ }
+}

@@ -8,11 +8,11 @@
    "stroke": null
   },
   "axis": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#5c5c5c",
-   "gridColor": "#d0d0d0",
-   "domainColor": "#d0d0d0",
-   "tickColor": "#d0d0d0",
+   "labelColor": "#675f54",
+   "titleColor": "#675f54",
+   "gridColor": "#d8cfbf",
+   "domainColor": "#d8cfbf",
+   "tickColor": "#d8cfbf",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "labelFontSize": 11,
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
@@ -20,17 +20,17 @@
    "titleFontSize": 11.5
   },
   "legend": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#222222",
+   "labelColor": "#675f54",
+   "titleColor": "#25221d",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFontWeight": 600,
    "labelFontSize": 12,
    "titleFontSize": 12,
-   "symbolStrokeColor": "#ffffff"
+   "symbolStrokeColor": "#fbf8f2"
   },
   "text": {
-   "color": "#222222",
+   "color": "#25221d",
    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   },
   "tooltipFormat": {
@@ -1474,7 +1474,7 @@
      "band": 0.86
     },
     "filled": false,
-    "stroke": "#222222",
+    "stroke": "#25221d",
     "strokeWidth": 1.4,
     "strokeDash": [
      3,
@@ -1547,7 +1547,7 @@
    },
    "mark": {
     "type": "rule",
-    "color": "#222222",
+    "color": "#25221d",
     "strokeWidth": 1
    },
    "encoding": {
@@ -1563,17 +1563,17 @@
     "values": [
      {
       "x": 6.859999999999999,
-      "txt": "Dashed outline: Australian-born"
+      "txt": "- - -  Australian-born (outline)"
      }
     ]
    },
    "mark": {
     "type": "text",
     "align": "right",
-    "baseline": "top",
-    "fontSize": 11,
-    "color": "#5c5c5c",
-    "fontStyle": "italic"
+    "baseline": "bottom",
+    "fontSize": 11.5,
+    "color": "#25221d",
+    "dy": -8
    },
    "encoding": {
     "x": {
@@ -1581,7 +1581,7 @@
      "type": "quantitative"
     },
     "y": {
-     "value": 2
+     "value": 0
     },
     "text": {
      "field": "txt"

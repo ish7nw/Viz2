@@ -8,11 +8,11 @@
    "stroke": null
   },
   "axis": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#5c5c5c",
-   "gridColor": "#d0d0d0",
-   "domainColor": "#d0d0d0",
-   "tickColor": "#d0d0d0",
+   "labelColor": "#675f54",
+   "titleColor": "#675f54",
+   "gridColor": "#d8cfbf",
+   "domainColor": "#d8cfbf",
+   "tickColor": "#d8cfbf",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "labelFontSize": 11,
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
@@ -20,17 +20,17 @@
    "titleFontSize": 11.5
   },
   "legend": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#222222",
+   "labelColor": "#675f54",
+   "titleColor": "#25221d",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFontWeight": 600,
    "labelFontSize": 12,
    "titleFontSize": 12,
-   "symbolStrokeColor": "#ffffff"
+   "symbolStrokeColor": "#fbf8f2"
   },
   "text": {
-   "color": "#222222",
+   "color": "#25221d",
    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   },
   "tooltipFormat": {
@@ -83,7 +83,7 @@
     "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
     "fontSize": 13,
     "fontWeight": 600,
-    "color": "#222222"
+    "color": "#25221d"
    },
    "projection": {
     "type": "conicEqualArea",
@@ -224755,7 +224755,7 @@
       "fontSize": 11,
       "fontWeight": 600,
       "letterSpacing": 2,
-      "fill": "#5c5c5c",
+      "fill": "#675f54",
       "interactive": false
      },
      "encoding": {
@@ -224834,7 +224834,7 @@
        "expr": "datum.align"
       },
       "baseline": "middle",
-      "fill": "#222222",
+      "fill": "#25221d",
       "interactive": false
      },
      "encoding": {
@@ -224886,7 +224886,7 @@
       "color": "#c8393d",
       "subtitleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "subtitleFontSize": 11,
-      "subtitleColor": "#5c5c5c",
+      "subtitleColor": "#675f54",
       "offset": 2
      },
      "data": {
@@ -231161,7 +231161,7 @@
       "color": "#8e5ca8",
       "subtitleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "subtitleFontSize": 11,
-      "subtitleColor": "#5c5c5c",
+      "subtitleColor": "#675f54",
       "offset": 2
      },
      "data": {
@@ -237436,7 +237436,7 @@
       "color": "#e07b1a",
       "subtitleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "subtitleFontSize": 11,
-      "subtitleColor": "#5c5c5c",
+      "subtitleColor": "#675f54",
       "offset": 2
      },
      "data": {
@@ -243711,7 +243711,7 @@
       "color": "#3a6ea5",
       "subtitleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "subtitleFontSize": 11,
-      "subtitleColor": "#5c5c5c",
+      "subtitleColor": "#675f54",
       "offset": 2
      },
      "data": {
@@ -249991,7 +249991,7 @@
       "color": "#3f8f4a",
       "subtitleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "subtitleFontSize": 11,
-      "subtitleColor": "#5c5c5c",
+      "subtitleColor": "#675f54",
       "offset": 2
      },
      "data": {
@@ -256266,7 +256266,7 @@
       "color": "#b8860b",
       "subtitleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "subtitleFontSize": 11,
-      "subtitleColor": "#5c5c5c",
+      "subtitleColor": "#675f54",
       "offset": 2
      },
      "data": {
@@ -262541,7 +262541,7 @@
       "color": "#1f8a8a",
       "subtitleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "subtitleFontSize": 11,
-      "subtitleColor": "#5c5c5c",
+      "subtitleColor": "#675f54",
       "offset": 2
      },
      "data": {
@@ -268816,7 +268816,7 @@
       "color": "#8b5a3c",
       "subtitleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "subtitleFontSize": 11,
-      "subtitleColor": "#5c5c5c",
+      "subtitleColor": "#675f54",
       "offset": 2
      },
      "data": {
@@ -275079,7 +275079,7 @@
     "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
     "fontSize": 12,
     "fontWeight": 600,
-    "color": "#222222"
+    "color": "#25221d"
    },
    "data": {
     "values": [

@@ -25,13 +25,13 @@
    so changing a colour here changes it in the maps as well. */
 :root {
   color-scheme: light;
-  --bg: #ffffff;
-  --surface: #ffffff;
-  --ink: #222222;
-  --muted: #5c5c5c;
-  --rule: #d0d0d0;
-  --land: #e4e4e4;
-  --ocean: #f1f5f8;
+  --bg: #fbf8f2;
+  --surface: #fbf8f2;
+  --ink: #25221d;
+  --muted: #675f54;
+  --rule: #d8cfbf;
+  --land: #e4ddd0;
+  --ocean: #eef1ef;
   --contour: #7a7a7a;
   --s1: #1b9e77;
   --s2: #d95f02;
@@ -40,7 +40,7 @@
   --seq-lo: #ffffcc;
   --seq-hi: #253494;
   --on-dark: #ffffff;
-  --band: #f2f2f2;
+  --band: #f1ebdf;
   --link: #1a5fb4;
   --f-serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
   --f-sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
@@ -53,15 +53,15 @@
    CSS 2. PAGE BACKGROUND AND THE WHITE PANEL
    ====================================================================== */
 /* Page background: grey with topographic contour lines (img/contours.svg), fixed so it doesn't scroll */
-body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: #F3F4F2 url("img/contours.svg") center / cover no-repeat; }
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; background: #ECE6DA url("img/contours.svg") center / cover no-repeat; }
 /* Base text: serif for reading, padding keeps text off the screen edge on phones */
 body {
-  background: #F3F4F2; color: var(--ink); font-family: var(--f-serif); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  background: #ECE6DA; color: var(--ink); font-family: var(--f-serif); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
   padding-block: 40px 64px;
 }
 /* The white report panel everything sits in */
-main { max-width: 940px; margin: 0 auto; background: #ffffff; border: 1px solid #d6d9d3; border-radius: 3px; padding: 40px 30px 48px; position: relative; }
+main { max-width: 940px; margin: 0 auto; background: var(--surface); border: 1px solid #d9cfbd; border-radius: 3px; padding: 40px 30px 48px; position: relative; }
 @media (max-width: 600px) { main { padding: 24px 14px 32px; } }
 h1 { font-size: 28px; line-height: 1.25; margin: 0 0 6px; font-weight: 700; text-wrap: balance; }
 /* ======================================================================
@@ -131,10 +131,10 @@ a { color: var(--link); }
 #vg-tooltip-element tr:first-child td.key { display: none; }
 #vg-tooltip-element tr:first-child td.value { font-size: 15px !important; font-weight: 700 !important; padding-bottom: 5px !important; }
 /* ======================================================================
-   CSS 7. FIRST FLEET MAP GRADIENTS (Figure 3)
+   CSS 7. FIRST FLEET MAP GRADIENTS (Figure 4)
    Oceanic Shimmer behind the map, green-to-gray on the stop countries
    ====================================================================== */
-/* "Oceanic Shimmer" gradient (21st.dev community gradients), applied to Figure 3 */
+/* "Oceanic Shimmer" gradient (21st.dev community gradients), applied to Figure 4 */
 .gradient {
   /* CSS approximation: the bitmap grain texture require canvas. Export an image for the exact result. */
   background-color: #123A6B;
@@ -156,18 +156,29 @@ a { color: var(--link); }
    CSS 8. BUTTONS, DROPDOWNS AND SLIDERS
    ====================================================================== */
 /* Buttons, dropdowns and the sliders/radios Vega-Lite adds under some maps */
-.btn { font: inherit; font-size: 14px; padding: 5px 12px; border: 1px solid #8a8a8a; border-radius: 4px; background: #fff; color: var(--ink); cursor: pointer; }
-.btn:hover { background: #f2f2f2; }
-/* Figure 11 zoom map: buttons sit over the top-right corner; the map shows a grab cursor */
+.btn { font: inherit; font-size: 14px; padding: 5px 12px; border: 1px solid #8a8a8a; border-radius: 4px; background: var(--surface); color: var(--ink); cursor: pointer; }
+.btn:hover { background: var(--band); }
+/* Figure 13 zoom map: buttons sit over the top-right corner; the map shows a grab cursor */
 .zoom-ctl .btn { padding: 4px 10px; }
 .zoom-ctl .btn[aria-pressed="true"], .lang-ctl .btn[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
 .zoom-wrap { position: relative; }
 .zoom-map { touch-action: none; cursor: grab; overflow: hidden; border: 1px solid var(--rule); }
 .zoom-map.dragging, .zoom-map.dragging * { cursor: grabbing !important; }
 .zoom-map:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
-/* Figure 19: names and borders drawn over the regions should not block hovering the regions */
+/* Figure 21: names and borders drawn over the regions should not block hovering the regions */
 #cL .mark-text, #cL .concat_0_layer_2_marks { pointer-events: none; }
 #cH .mark-text, #cH .mark-rule, #cK .mark-text, #cU .mark-text { pointer-events: none; }
+/* Contents bar: sticks to the top of the window; scrolls sideways on phones */
+.toc { position: sticky; top: 0; z-index: 20; display: flex; gap: 2px 18px; overflow-x: auto; scrollbar-width: none; white-space: nowrap;
+  margin: 8px -30px 28px; padding: 10px 30px; background: color-mix(in srgb, var(--surface) 94%, transparent); backdrop-filter: blur(6px);
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font-family: var(--f-sans); font-size: 13.5px; }
+.toc::-webkit-scrollbar { display: none; }
+.toc a { color: var(--muted); text-decoration: none; padding: 2px 0; border-bottom: 2px solid transparent; }
+.toc a:hover { color: var(--ink); }
+.toc a.on { color: var(--ink); border-bottom-color: var(--accent); font-weight: 600; }
+@media (max-width: 600px) { .toc { margin: 6px -14px 22px; padding: 9px 14px; font-size: 13px; } }
+h2[id], p[id] { scroll-margin-top: 56px; }
+.lede { font-size: 19px; line-height: 1.6; }
 .zoom-btns { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 4px; }
 .zoom-btns .btn { width: 34px; height: 34px; padding: 0; font-size: 20px; line-height: 1; }
 .btn:focus-visible, select:focus-visible, .vega-bindings input:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
@@ -186,7 +197,7 @@ select { font: inherit; font-size: 14px; padding: 3px 6px; }
    CSS 9. TITLE (SHUTTER TEXT)
    ====================================================================== */
 /* Title block: "Australian Immigration" with the shutter animation (the JS for it is near the end of script.js) */
-.hero { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; background: #ffffff; padding: 64px 8px 64px; margin: -40px -30px 32px; border-bottom: 1px solid #e4e4e7; overflow: hidden; }
+.hero { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; background: var(--surface); padding: 64px 8px 64px; margin: -40px -30px 32px; border-bottom: 1px solid #e4e4e7; overflow: hidden; }
 .hero-grid { position: absolute; inset: 0; opacity: 0.05; pointer-events: none;
   background-image: linear-gradient(to right, #888 1px, transparent 1px), linear-gradient(to bottom, #888 1px, transparent 1px);
   background-size: clamp(20px, 5vw, 60px) clamp(20px, 5vw, 60px); }

@@ -8,11 +8,11 @@
    "stroke": null
   },
   "axis": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#5c5c5c",
-   "gridColor": "#d0d0d0",
-   "domainColor": "#d0d0d0",
-   "tickColor": "#d0d0d0",
+   "labelColor": "#675f54",
+   "titleColor": "#675f54",
+   "gridColor": "#d8cfbf",
+   "domainColor": "#d8cfbf",
+   "tickColor": "#d8cfbf",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "labelFontSize": 11,
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
@@ -20,17 +20,17 @@
    "titleFontSize": 11.5
   },
   "legend": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#222222",
+   "labelColor": "#675f54",
+   "titleColor": "#25221d",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFontWeight": 600,
    "labelFontSize": 12,
    "titleFontSize": 12,
-   "symbolStrokeColor": "#ffffff"
+   "symbolStrokeColor": "#fbf8f2"
   },
   "text": {
-   "color": "#222222",
+   "color": "#25221d",
    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   },
   "tooltipFormat": {
@@ -79,7 +79,7 @@
     "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
     "fontSize": 13,
     "fontWeight": 600,
-    "color": "#222222"
+    "color": "#25221d"
    },
    "layer": [
     {
@@ -104130,7 +104130,7 @@
      ],
      "mark": {
       "type": "geoshape",
-      "fill": "#e4e4e4",
+      "fill": "#e4ddd0",
       "stroke": "#ffffff",
       "strokeWidth": 0.3,
       "clip": true
@@ -214503,7 +214503,7 @@
       "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "fontSize": 11.5,
       "fontWeight": 600,
-      "fill": "#222222",
+      "fill": "#25221d",
       "align": {
        "expr": "datum.align"
       },
@@ -214569,7 +214569,7 @@
     "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
     "fontSize": 13,
     "fontWeight": 600,
-    "color": "#222222"
+    "color": "#25221d"
    },
    "layer": [
     {
@@ -220946,10 +220946,6 @@
         "topRegion": "Europe",
         "l1": "WA · 939k born overseas",
         "l2": "Top: England 212k",
-        "lines": [
-         "WA · 939k born overseas",
-         "Top: England 212k"
-        ],
         "cty": "England"
        },
        {
@@ -220966,10 +220962,6 @@
         "topRegion": "Asia",
         "l1": "Vic · 2.07M born overseas",
         "l2": "Top: India 272k",
-        "lines": [
-         "Vic · 2.07M born overseas",
-         "Top: India 272k"
-        ],
         "cty": "India"
        },
        {
@@ -220986,10 +220978,6 @@
         "topRegion": "Asia",
         "l1": "NSW · 2.51M born overseas",
         "l2": "Top: China 261k",
-        "lines": [
-         "NSW · 2.51M born overseas",
-         "Top: China 261k"
-        ],
         "cty": "China"
        },
        {
@@ -221006,10 +220994,6 @@
         "topRegion": "Asia",
         "l1": "ACT · 135k born overseas",
         "l2": "Top: India 18k",
-        "lines": [
-         "ACT · 135k born overseas",
-         "Top: India 18k"
-        ],
         "cty": "India"
        },
        {
@@ -221026,10 +221010,6 @@
         "topRegion": "Europe",
         "l1": "SA · 452k born overseas",
         "l2": "Top: England 99k",
-        "lines": [
-         "SA · 452k born overseas",
-         "Top: England 99k"
-        ],
         "cty": "England"
        },
        {
@@ -221046,10 +221026,6 @@
         "topRegion": "Oceania & Africa",
         "l1": "Qld · 1.26M born overseas",
         "l2": "Top: New Zealand 230k",
-        "lines": [
-         "Qld · 1.26M born overseas",
-         "Top: New Zealand 230k"
-        ],
         "cty": "New Zealand"
        },
        {
@@ -221066,10 +221042,6 @@
         "topRegion": "Asia",
         "l1": "NT · 59k born overseas",
         "l2": "Top: Philippines 7k",
-        "lines": [
-         "NT · 59k born overseas",
-         "Top: Philippines 7k"
-        ],
         "cty": "Philippines"
        },
        {
@@ -221086,10 +221058,6 @@
         "topRegion": "Europe",
         "l1": "Tas · 92k born overseas",
         "l2": "Top: England 20k",
-        "lines": [
-         "Tas · 92k born overseas",
-         "Top: England 20k"
-        ],
         "cty": "England"
        }
       ]

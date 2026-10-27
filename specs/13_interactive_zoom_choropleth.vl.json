@@ -12,14 +12,14 @@
   "padding": 4,
   "view": {
    "stroke": null,
-   "fill": "#f1f5f8"
+   "fill": "#eef1ef"
   },
   "axis": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#5c5c5c",
-   "gridColor": "#d0d0d0",
-   "domainColor": "#d0d0d0",
-   "tickColor": "#d0d0d0",
+   "labelColor": "#675f54",
+   "titleColor": "#675f54",
+   "gridColor": "#d8cfbf",
+   "domainColor": "#d8cfbf",
+   "tickColor": "#d8cfbf",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "labelFontSize": 11,
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
@@ -27,17 +27,17 @@
    "titleFontSize": 11.5
   },
   "legend": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#222222",
+   "labelColor": "#675f54",
+   "titleColor": "#25221d",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFontWeight": 600,
    "labelFontSize": 12,
    "titleFontSize": 12,
-   "symbolStrokeColor": "#ffffff"
+   "symbolStrokeColor": "#fbf8f2"
   },
   "text": {
-   "color": "#222222",
+   "color": "#25221d",
    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   },
   "tooltipFormat": {
@@ -6278,7 +6278,7 @@
    },
    "mark": {
     "type": "geoshape",
-    "fill": "#e4e4e4",
+    "fill": "#e4ddd0",
     "stroke": "#ffffff",
     "strokeWidth": 1,
     "clip": true

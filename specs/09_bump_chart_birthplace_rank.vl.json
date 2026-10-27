@@ -8,11 +8,11 @@
    "stroke": null
   },
   "axis": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#5c5c5c",
-   "gridColor": "#d0d0d0",
-   "domainColor": "#d0d0d0",
-   "tickColor": "#d0d0d0",
+   "labelColor": "#675f54",
+   "titleColor": "#675f54",
+   "gridColor": "#d8cfbf",
+   "domainColor": "#d8cfbf",
+   "tickColor": "#d8cfbf",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "labelFontSize": 11,
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
@@ -20,17 +20,17 @@
    "titleFontSize": 11.5
   },
   "legend": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#222222",
+   "labelColor": "#675f54",
+   "titleColor": "#25221d",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFontWeight": 600,
    "labelFontSize": 12,
    "titleFontSize": 12,
-   "symbolStrokeColor": "#ffffff"
+   "symbolStrokeColor": "#fbf8f2"
   },
   "text": {
-   "color": "#222222",
+   "color": "#25221d",
    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   },
   "tooltipFormat": {
@@ -49,10 +49,11 @@
     "domain": false,
     "ticks": false,
     "labelAngle": 0,
+    "labelExpr": "datum.label",
     "labelFontWeight": 600,
     "labelFontSize": 12,
     "labelPadding": 8,
-    "labelColor": "#222222"
+    "labelColor": "#25221d"
    }
   },
   "y": {
@@ -83,7 +84,7 @@
    },
    "mark": {
     "type": "rect",
-    "fill": "#d0d0d0",
+    "fill": "#d8cfbf",
     "opacity": 0.35
    },
    "encoding": {
@@ -1432,7 +1433,7 @@
       "n": 158740,
       "key": "Other",
       "side": "L",
-      "lc": "#5c5c5c"
+      "lc": "#675f54"
      },
      {
       "country": "Scotland",
@@ -1441,7 +1442,7 @@
       "n": 150110,
       "key": "Other",
       "side": "L",
-      "lc": "#5c5c5c"
+      "lc": "#675f54"
      },
      {
       "country": "Greece",
@@ -1450,7 +1451,7 @@
       "n": 138080,
       "key": "Other",
       "side": "L",
-      "lc": "#5c5c5c"
+      "lc": "#675f54"
      },
      {
       "country": "Germany",
@@ -1459,7 +1460,7 @@
       "n": 121910,
       "key": "Other",
       "side": "L",
-      "lc": "#5c5c5c"
+      "lc": "#675f54"
      },
      {
       "country": "Netherlands",
@@ -1468,7 +1469,7 @@
       "n": 96370,
       "key": "Other",
       "side": "L",
-      "lc": "#5c5c5c"
+      "lc": "#675f54"
      },
      {
       "country": "Malaysia",
@@ -1477,7 +1478,7 @@
       "n": 82530,
       "key": "Other",
       "side": "L",
-      "lc": "#5c5c5c"
+      "lc": "#675f54"
      },
      {
       "country": "England",
@@ -1540,7 +1541,7 @@
       "n": 326630,
       "key": "Other",
       "side": "R",
-      "lc": "#5c5c5c"
+      "lc": "#675f54"
      },
      {
       "country": "South Africa",
@@ -1549,7 +1550,7 @@
       "n": 229950,
       "key": "Other",
       "side": "R",
-      "lc": "#5c5c5c"
+      "lc": "#675f54"
      },
      {
       "country": "Sri Lanka",
@@ -1558,7 +1559,7 @@
       "n": 184800,
       "key": "Other",
       "side": "R",
-      "lc": "#5c5c5c"
+      "lc": "#675f54"
      },
      {
       "country": "Malaysia",
@@ -1567,7 +1568,7 @@
       "n": 184320,
       "key": "Other",
       "side": "R",
-      "lc": "#5c5c5c"
+      "lc": "#675f54"
      },
      {
       "country": "Pakistan",
@@ -1576,7 +1577,7 @@
       "n": 143920,
       "key": "Other",
       "side": "R",
-      "lc": "#5c5c5c"
+      "lc": "#675f54"
      },
      {
       "country": "India",

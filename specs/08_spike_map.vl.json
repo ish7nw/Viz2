@@ -1,7 +1,7 @@
 {
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
  "width": 900,
- "height": 500,
+ "height": 520,
  "autosize": {
   "type": "pad"
  },
@@ -11,14 +11,14 @@
   "padding": 4,
   "view": {
    "stroke": null,
-   "fill": "#f1f5f8"
+   "fill": "#eef1ef"
   },
   "axis": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#5c5c5c",
-   "gridColor": "#d0d0d0",
-   "domainColor": "#d0d0d0",
-   "tickColor": "#d0d0d0",
+   "labelColor": "#675f54",
+   "titleColor": "#675f54",
+   "gridColor": "#d8cfbf",
+   "domainColor": "#d8cfbf",
+   "tickColor": "#d8cfbf",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "labelFontSize": 11,
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
@@ -26,17 +26,17 @@
    "titleFontSize": 11.5
   },
   "legend": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#222222",
+   "labelColor": "#675f54",
+   "titleColor": "#25221d",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFontWeight": 600,
    "labelFontSize": 12,
    "titleFontSize": 12,
-   "symbolStrokeColor": "#ffffff"
+   "symbolStrokeColor": "#fbf8f2"
   },
   "text": {
-   "color": "#222222",
+   "color": "#25221d",
    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   },
   "tooltipFormat": {
@@ -50,6 +50,24 @@
    0
   ]
  },
+ "params": [
+  {
+   "name": "base",
+   "value": 2015,
+   "bind": {
+    "input": "radio",
+    "options": [
+     2015,
+     2020
+    ],
+    "labels": [
+     "2015",
+     "2020"
+    ],
+    "name": "Change since "
+   }
+  }
+ ],
  "layer": [
   {
    "data": {
@@ -104090,8 +104108,8 @@
    },
    "mark": {
     "type": "geoshape",
-    "fill": "#e4e4e4",
-    "stroke": "#ffffff",
+    "fill": "#e4ddd0",
+    "stroke": "#fbf8f2",
     "strokeWidth": 0.5,
     "clip": true,
     "cursor": "pointer"
@@ -104243,7 +104261,7 @@
    ],
    "params": [
     {
-     "name": "hovc23",
+     "name": "hovc7",
      "select": {
       "type": "point",
       "fields": [
@@ -104257,15 +104275,15 @@
    "encoding": {
     "stroke": {
      "condition": {
-      "param": "hovc23",
+      "param": "hovc7",
       "empty": false,
       "value": "#111111"
      },
-     "value": "#ffffff"
+     "value": "#fbf8f2"
     },
     "strokeWidth": {
      "condition": {
-      "param": "hovc23",
+      "param": "hovc7",
       "empty": false,
       "value": 1.75
      },
@@ -104299,329 +104317,156 @@
    "data": {
     "values": [
      {
-      "type": "Feature",
-      "properties": {
-       "c": "India",
-       "v": 971020,
-       "km": 9847,
-       "region": "Asia"
-      },
-      "geometry": {
-       "type": "LineString",
-       "coordinates": [
-        [
-         78.9,
-         22
-        ],
-        [
-         151.21,
-         -33.87
-        ]
-       ]
-      }
+      "c": "India",
+      "lon": 78.9,
+      "lat": 22,
+      "a": 449040,
+      "b": 724060,
+      "d": 971020
      },
      {
-      "type": "Feature",
-      "properties": {
-       "c": "England",
-       "v": 970950,
-       "km": 17011,
-       "region": "Europe"
-      },
-      "geometry": {
-       "type": "LineString",
-       "coordinates": [
-        [
-         -1.5,
-         52.6
-        ],
-        [
-         151.21,
-         -33.87
-        ]
-       ]
-      }
+      "c": "England",
+      "lon": -1.5,
+      "lat": 52.6,
+      "a": 1006540,
+      "b": 986210,
+      "d": 970950
      },
      {
-      "type": "Feature",
-      "properties": {
-       "c": "China",
-       "v": 731540,
-       "km": 9054,
-       "region": "Asia"
-      },
-      "geometry": {
-       "type": "LineString",
-       "coordinates": [
-        [
-         104,
-         34.5
-        ],
-        [
-         151.21,
-         -33.87
-        ]
-       ]
-      }
+      "c": "China",
+      "lon": 104,
+      "lat": 34.5,
+      "a": 508870,
+      "b": 638990,
+      "d": 731540
      },
      {
-      "type": "Feature",
-      "properties": {
-       "c": "New Zealand",
-       "v": 637680,
-       "km": 2155,
-       "region": "Oceania & Africa"
-      },
-      "geometry": {
-       "type": "LineString",
-       "coordinates": [
-        [
-         174,
-         -41
-        ],
-        [
-         151.21,
-         -33.87
-        ]
-       ]
-      }
+      "c": "New Zealand",
+      "lon": 174,
+      "lat": -41,
+      "a": 575430,
+      "b": 584490,
+      "d": 637680
      },
      {
-      "type": "Feature",
-      "properties": {
-       "c": "Philippines",
-       "v": 412530,
-       "km": 6011,
-       "region": "Asia"
-      },
-      "geometry": {
-       "type": "LineString",
-       "coordinates": [
-        [
-         122,
-         12.5
-        ],
-        [
-         151.21,
-         -33.87
-        ]
-       ]
-      }
+      "c": "Philippines",
+      "lon": 122,
+      "lat": 12.5,
+      "a": 241130,
+      "b": 308380,
+      "d": 412530
      },
      {
-      "type": "Feature",
-      "properties": {
-       "c": "Vietnam",
-       "v": 326630,
-       "km": 7248,
-       "region": "Asia"
-      },
-      "geometry": {
-       "type": "LineString",
-       "coordinates": [
-        [
-         106.5,
-         15.5
-        ],
-        [
-         151.21,
-         -33.87
-        ]
-       ]
-      }
+      "c": "Vietnam",
+      "lon": 106.5,
+      "lat": 15.5,
+      "a": 235590,
+      "b": 275920,
+      "d": 326630
      },
      {
-      "type": "Feature",
-      "properties": {
-       "c": "South Africa",
-       "v": 229950,
-       "km": 11057,
-       "region": "Oceania & Africa"
-      },
-      "geometry": {
-       "type": "LineString",
-       "coordinates": [
-        [
-         24.5,
-         -29
-        ],
-        [
-         151.21,
-         -33.87
-        ]
-       ]
-      }
+      "c": "South Africa",
+      "lon": 24.5,
+      "lat": -29,
+      "a": 177390,
+      "b": 200890,
+      "d": 229950
      },
      {
-      "type": "Feature",
-      "properties": {
-       "c": "Nepal",
-       "v": 213580,
-       "km": 9879,
-       "region": "Asia"
-      },
-      "geometry": {
-       "type": "LineString",
-       "coordinates": [
-        [
-         84.1,
-         28.3
-        ],
-        [
-         151.21,
-         -33.87
-        ]
-       ]
-      }
+      "c": "Nepal",
+      "lon": 84.1,
+      "lat": 28.3,
+      "a": 50150,
+      "b": 132400,
+      "d": 213580
      },
      {
-      "type": "Feature",
-      "properties": {
-       "c": "Sri Lanka",
-       "v": 184800,
-       "km": 8732,
-       "region": "Asia"
-      },
-      "geometry": {
-       "type": "LineString",
-       "coordinates": [
-        [
-         80.7,
-         7.8
-        ],
-        [
-         151.21,
-         -33.87
-        ]
-       ]
-      }
+      "c": "Sri Lanka",
+      "lon": 80.7,
+      "lat": 7.8,
+      "a": 119700,
+      "b": 142690,
+      "d": 184800
      },
      {
-      "type": "Feature",
-      "properties": {
-       "c": "Malaysia",
-       "v": 184320,
-       "km": 6640,
-       "region": "Asia"
-      },
-      "geometry": {
-       "type": "LineString",
-       "coordinates": [
-        [
-         102,
-         3.8
-        ],
-        [
-         151.21,
-         -33.87
-        ]
-       ]
-      }
+      "c": "Malaysia",
+      "lon": 102,
+      "lat": 3.8,
+      "a": 143420,
+      "b": 178760,
+      "d": 184320
      }
     ]
    },
    "transform": [
     {
-     "calculate": "datum.properties.c",
-     "as": "c"
-    }
-   ],
-   "params": [
+     "calculate": "datum.d - (base == 2015 ? datum.a : datum.b)",
+     "as": "ch"
+    },
     {
-     "name": "hf",
-     "select": {
-      "type": "point",
-      "fields": [
-       "c"
-      ],
-      "on": "pointerover",
-      "clear": "pointerout"
-     }
+     "calculate": "datum.lat + datum.ch * 0.00007662835249042145",
+     "as": "top"
+    },
+    {
+     "calculate": "datum.ch >= 0 ? 'Grew' : 'Shrank'",
+     "as": "pos"
+    },
+    {
+     "calculate": "datum.c + ' ' + (datum.ch >= 0 ? '+' : '−') + format(abs(datum.ch) / 1000, ',.0f') + 'k'",
+     "as": "lbl"
     }
    ],
    "mark": {
-    "type": "geoshape",
-    "filled": false,
-    "strokeCap": "round",
-    "clip": true,
-    "cursor": "pointer"
+    "type": "rule",
+    "strokeWidth": 4,
+    "strokeCap": "butt"
    },
    "encoding": {
-    "opacity": {
-     "condition": {
-      "param": "hf",
-      "empty": true,
-      "value": 0.8
-     },
-     "value": 0.12
+    "longitude": {
+     "field": "lon",
+     "type": "quantitative"
     },
-    "strokeWidth": {
-     "field": "properties.v",
-     "type": "quantitative",
-     "scale": {
-      "domain": [
-       0,
-       1000000
-      ],
-      "range": [
-       0.5,
-       14
-      ]
-     },
-     "legend": {
-      "title": "Residents born there (2025)",
-      "values": [
-       200000,
-       500000,
-       1000000
-      ],
-      "format": ",.0f",
-      "orient": "bottom",
-      "direction": "horizontal",
-      "symbolType": "stroke",
-      "symbolStrokeColor": "#5c5c5c"
-     }
+    "latitude": {
+     "field": "lat",
+     "type": "quantitative"
     },
-    "stroke": {
-     "field": "properties.region",
+    "latitude2": {
+     "field": "top"
+    },
+    "longitude2": {
+     "field": "lon"
+    },
+    "color": {
+     "field": "pos",
      "type": "nominal",
      "scale": {
       "domain": [
-       "Asia",
-       "Europe",
-       "Oceania & Africa"
+       "Grew",
+       "Shrank"
       ],
       "range": [
        "#1b9e77",
-       "#d95f02",
-       "#7570b3"
+       "#d95f02"
       ]
      },
      "legend": {
-      "title": "Region of birth",
-      "orient": "bottom",
-      "direction": "horizontal",
-      "symbolType": "stroke",
-      "symbolStrokeWidth": 4
+      "title": "Change to 2025",
+      "orient": "bottom"
      }
-    },
-    "order": {
-     "field": "properties.v",
-     "sort": "descending"
     },
     "tooltip": [
      {
-      "field": "properties.c",
+      "field": "c",
       "title": "Country of birth"
      },
      {
-      "field": "properties.v",
-      "title": "Residents (2025)",
-      "format": ","
+      "field": "ch",
+      "title": "Change (people)",
+      "format": "+,"
      },
      {
-      "field": "properties.km",
-      "title": "Distance (km)",
+      "field": "d",
+      "title": "Residents in 2025",
       "format": ","
      }
     ]
@@ -104634,89 +104479,87 @@
       "c": "India",
       "lon": 78.9,
       "lat": 22,
-      "v": 971020,
-      "lbl": "India 971k",
-      "side": "l"
+      "a": 449040,
+      "b": 724060,
+      "d": 971020
      },
      {
       "c": "England",
       "lon": -1.5,
       "lat": 52.6,
-      "v": 970950,
-      "lbl": "England 971k",
-      "side": "l"
+      "a": 1006540,
+      "b": 986210,
+      "d": 970950
      },
      {
       "c": "China",
       "lon": 104,
       "lat": 34.5,
-      "v": 731540,
-      "lbl": "China 732k",
-      "side": "r"
+      "a": 508870,
+      "b": 638990,
+      "d": 731540
      },
      {
       "c": "New Zealand",
       "lon": 174,
       "lat": -41,
-      "v": 637680,
-      "lbl": "New Zealand 638k",
-      "side": "r"
+      "a": 575430,
+      "b": 584490,
+      "d": 637680
      },
      {
       "c": "Philippines",
       "lon": 122,
       "lat": 12.5,
-      "v": 412530,
-      "lbl": "Philippines 413k",
-      "side": "r"
+      "a": 241130,
+      "b": 308380,
+      "d": 412530
      },
      {
       "c": "Vietnam",
       "lon": 106.5,
       "lat": 15.5,
-      "v": 326630,
-      "lbl": "Vietnam 327k",
-      "side": "r"
+      "a": 235590,
+      "b": 275920,
+      "d": 326630
      },
      {
       "c": "South Africa",
       "lon": 24.5,
       "lat": -29,
-      "v": 229950,
-      "lbl": "South Africa 230k",
-      "side": "l"
+      "a": 177390,
+      "b": 200890,
+      "d": 229950
      },
      {
       "c": "Nepal",
       "lon": 84.1,
       "lat": 28.3,
-      "v": 213580,
-      "lbl": "Nepal 214k",
-      "side": "l"
+      "a": 50150,
+      "b": 132400,
+      "d": 213580
      },
      {
       "c": "Sri Lanka",
       "lon": 80.7,
       "lat": 7.8,
-      "v": 184800,
-      "lbl": "Sri Lanka 185k",
-      "side": "l"
+      "a": 119700,
+      "b": 142690,
+      "d": 184800
      },
      {
       "c": "Malaysia",
       "lon": 102,
       "lat": 3.8,
-      "v": 184320,
-      "lbl": "Malaysia 184k",
-      "side": "r"
+      "a": 143420,
+      "b": 178760,
+      "d": 184320
      }
     ]
    },
    "mark": {
     "type": "circle",
-    "size": 30,
-    "stroke": "#ffffff",
-    "strokeWidth": 1
+    "size": 18
    },
    "encoding": {
     "longitude": {
@@ -104728,7 +104571,7 @@
      "type": "quantitative"
     },
     "color": {
-     "value": "#222222"
+     "value": "#25221d"
     }
    }
   },
@@ -104739,99 +104582,112 @@
       "c": "India",
       "lon": 78.9,
       "lat": 22,
-      "v": 971020,
-      "lbl": "India 971k",
-      "side": "l"
+      "a": 449040,
+      "b": 724060,
+      "d": 971020
      },
      {
       "c": "England",
       "lon": -1.5,
       "lat": 52.6,
-      "v": 970950,
-      "lbl": "England 971k",
-      "side": "l"
+      "a": 1006540,
+      "b": 986210,
+      "d": 970950
      },
      {
       "c": "China",
       "lon": 104,
       "lat": 34.5,
-      "v": 731540,
-      "lbl": "China 732k",
-      "side": "r"
+      "a": 508870,
+      "b": 638990,
+      "d": 731540
      },
      {
       "c": "New Zealand",
       "lon": 174,
       "lat": -41,
-      "v": 637680,
-      "lbl": "New Zealand 638k",
-      "side": "r"
+      "a": 575430,
+      "b": 584490,
+      "d": 637680
      },
      {
       "c": "Philippines",
       "lon": 122,
       "lat": 12.5,
-      "v": 412530,
-      "lbl": "Philippines 413k",
-      "side": "r"
+      "a": 241130,
+      "b": 308380,
+      "d": 412530
      },
      {
       "c": "Vietnam",
       "lon": 106.5,
       "lat": 15.5,
-      "v": 326630,
-      "lbl": "Vietnam 327k",
-      "side": "r"
+      "a": 235590,
+      "b": 275920,
+      "d": 326630
      },
      {
       "c": "South Africa",
       "lon": 24.5,
       "lat": -29,
-      "v": 229950,
-      "lbl": "South Africa 230k",
-      "side": "l"
+      "a": 177390,
+      "b": 200890,
+      "d": 229950
      },
      {
       "c": "Nepal",
       "lon": 84.1,
       "lat": 28.3,
-      "v": 213580,
-      "lbl": "Nepal 214k",
-      "side": "l"
+      "a": 50150,
+      "b": 132400,
+      "d": 213580
      },
      {
       "c": "Sri Lanka",
       "lon": 80.7,
       "lat": 7.8,
-      "v": 184800,
-      "lbl": "Sri Lanka 185k",
-      "side": "l"
+      "a": 119700,
+      "b": 142690,
+      "d": 184800
      },
      {
       "c": "Malaysia",
       "lon": 102,
       "lat": 3.8,
-      "v": 184320,
-      "lbl": "Malaysia 184k",
-      "side": "r"
+      "a": 143420,
+      "b": 178760,
+      "d": 184320
      }
     ]
    },
    "transform": [
     {
-     "filter": "datum.side == 'r'"
+     "calculate": "datum.d - (base == 2015 ? datum.a : datum.b)",
+     "as": "ch"
     },
     {
-     "filter": "true"
+     "calculate": "datum.lat + datum.ch * 0.00007662835249042145",
+     "as": "top"
+    },
+    {
+     "calculate": "datum.ch >= 0 ? 'Grew' : 'Shrank'",
+     "as": "pos"
+    },
+    {
+     "calculate": "datum.c + ' ' + (datum.ch >= 0 ? '+' : '−') + format(abs(datum.ch) / 1000, ',.0f') + 'k'",
+     "as": "lbl"
+    },
+    {
+     "filter": "(abs(datum.ch) >= 150000 || datum.ch < 0 || indexof(['New Zealand', 'South Africa'], datum.c) >= 0) && datum.ch >= 0"
     }
    ],
    "mark": {
     "type": "text",
-    "align": "left",
-    "dx": 6,
+    "dy": -7,
     "fontSize": 11.5,
     "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
-    "baseline": "middle"
+    "fontWeight": 500,
+    "baseline": "bottom"
    },
    "encoding": {
     "longitude": {
@@ -104839,14 +104695,14 @@
      "type": "quantitative"
     },
     "latitude": {
-     "field": "lat",
+     "field": "top",
      "type": "quantitative"
     },
     "text": {
      "field": "lbl"
     },
     "color": {
-     "value": "#222222"
+     "value": "#25221d"
     }
    }
   },
@@ -104857,99 +104713,112 @@
       "c": "India",
       "lon": 78.9,
       "lat": 22,
-      "v": 971020,
-      "lbl": "India 971k",
-      "side": "l"
+      "a": 449040,
+      "b": 724060,
+      "d": 971020
      },
      {
       "c": "England",
       "lon": -1.5,
       "lat": 52.6,
-      "v": 970950,
-      "lbl": "England 971k",
-      "side": "l"
+      "a": 1006540,
+      "b": 986210,
+      "d": 970950
      },
      {
       "c": "China",
       "lon": 104,
       "lat": 34.5,
-      "v": 731540,
-      "lbl": "China 732k",
-      "side": "r"
+      "a": 508870,
+      "b": 638990,
+      "d": 731540
      },
      {
       "c": "New Zealand",
       "lon": 174,
       "lat": -41,
-      "v": 637680,
-      "lbl": "New Zealand 638k",
-      "side": "r"
+      "a": 575430,
+      "b": 584490,
+      "d": 637680
      },
      {
       "c": "Philippines",
       "lon": 122,
       "lat": 12.5,
-      "v": 412530,
-      "lbl": "Philippines 413k",
-      "side": "r"
+      "a": 241130,
+      "b": 308380,
+      "d": 412530
      },
      {
       "c": "Vietnam",
       "lon": 106.5,
       "lat": 15.5,
-      "v": 326630,
-      "lbl": "Vietnam 327k",
-      "side": "r"
+      "a": 235590,
+      "b": 275920,
+      "d": 326630
      },
      {
       "c": "South Africa",
       "lon": 24.5,
       "lat": -29,
-      "v": 229950,
-      "lbl": "South Africa 230k",
-      "side": "l"
+      "a": 177390,
+      "b": 200890,
+      "d": 229950
      },
      {
       "c": "Nepal",
       "lon": 84.1,
       "lat": 28.3,
-      "v": 213580,
-      "lbl": "Nepal 214k",
-      "side": "l"
+      "a": 50150,
+      "b": 132400,
+      "d": 213580
      },
      {
       "c": "Sri Lanka",
       "lon": 80.7,
       "lat": 7.8,
-      "v": 184800,
-      "lbl": "Sri Lanka 185k",
-      "side": "l"
+      "a": 119700,
+      "b": 142690,
+      "d": 184800
      },
      {
       "c": "Malaysia",
       "lon": 102,
       "lat": 3.8,
-      "v": 184320,
-      "lbl": "Malaysia 184k",
-      "side": "r"
+      "a": 143420,
+      "b": 178760,
+      "d": 184320
      }
     ]
    },
    "transform": [
     {
-     "filter": "datum.side == 'l'"
+     "calculate": "datum.d - (base == 2015 ? datum.a : datum.b)",
+     "as": "ch"
     },
     {
-     "filter": "true"
+     "calculate": "datum.lat + datum.ch * 0.00007662835249042145",
+     "as": "top"
+    },
+    {
+     "calculate": "datum.ch >= 0 ? 'Grew' : 'Shrank'",
+     "as": "pos"
+    },
+    {
+     "calculate": "datum.c + ' ' + (datum.ch >= 0 ? '+' : '−') + format(abs(datum.ch) / 1000, ',.0f') + 'k'",
+     "as": "lbl"
+    },
+    {
+     "filter": "(abs(datum.ch) >= 150000 || datum.ch < 0 || indexof(['New Zealand', 'South Africa'], datum.c) >= 0) && datum.ch < 0"
     }
    ],
    "mark": {
     "type": "text",
-    "align": "right",
-    "dx": -6,
+    "dy": 8,
     "fontSize": 11.5,
     "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
-    "baseline": "middle"
+    "fontWeight": 500,
+    "baseline": "top"
    },
    "encoding": {
     "longitude": {
@@ -104957,78 +104826,14 @@
      "type": "quantitative"
     },
     "latitude": {
-     "field": "lat",
+     "field": "top",
      "type": "quantitative"
     },
     "text": {
      "field": "lbl"
     },
     "color": {
-     "value": "#222222"
-    }
-   }
-  },
-  {
-   "data": {
-    "values": [
-     {
-      "lon": 151.21,
-      "lat": -33.87
-     }
-    ]
-   },
-   "mark": {
-    "type": "point",
-    "shape": "cross",
-    "size": 110,
-    "filled": true,
-    "strokeWidth": 2
-   },
-   "encoding": {
-    "longitude": {
-     "field": "lon",
-     "type": "quantitative"
-    },
-    "latitude": {
-     "field": "lat",
-     "type": "quantitative"
-    },
-    "color": {
-     "value": "#222222"
-    }
-   }
-  },
-  {
-   "data": {
-    "values": [
-     {
-      "lon": 151.21,
-      "lat": -33.87,
-      "n": "Australia"
-     }
-    ]
-   },
-   "mark": {
-    "type": "text",
-    "dy": 16,
-    "fontSize": 11.5,
-    "fontWeight": 600,
-    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
-   },
-   "encoding": {
-    "longitude": {
-     "field": "lon",
-     "type": "quantitative"
-    },
-    "latitude": {
-     "field": "lat",
-     "type": "quantitative"
-    },
-    "text": {
-     "field": "n"
-    },
-    "color": {
-     "value": "#222222"
+     "value": "#25221d"
     }
    }
   },
@@ -105042,20 +104847,20 @@
        "type": "MultiPoint",
        "coordinates": [
         [
-         -20,
-         60
+         -15,
+         66
         ],
         [
-         180,
-         60
+         178,
+         66
         ],
         [
-         180,
-         -48
+         178,
+         -46
         ],
         [
-         -20,
-         -48
+         -15,
+         -46
         ]
        ]
       }
@@ -105070,5 +104875,5 @@
    }
   }
  ],
- "background": "#ffffff"
+ "background": "#fbf8f2"
 }

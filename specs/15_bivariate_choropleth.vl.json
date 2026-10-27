@@ -8,11 +8,11 @@
    "stroke": null
   },
   "axis": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#5c5c5c",
-   "gridColor": "#d0d0d0",
-   "domainColor": "#d0d0d0",
-   "tickColor": "#d0d0d0",
+   "labelColor": "#675f54",
+   "titleColor": "#675f54",
+   "gridColor": "#d8cfbf",
+   "domainColor": "#d8cfbf",
+   "tickColor": "#d8cfbf",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "labelFontSize": 11,
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
@@ -20,17 +20,17 @@
    "titleFontSize": 11.5
   },
   "legend": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#222222",
+   "labelColor": "#675f54",
+   "titleColor": "#25221d",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFontWeight": 600,
    "labelFontSize": 12,
    "titleFontSize": 12,
-   "symbolStrokeColor": "#ffffff"
+   "symbolStrokeColor": "#fbf8f2"
   },
   "text": {
-   "color": "#222222",
+   "color": "#25221d",
    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   },
   "tooltipFormat": {
@@ -38729,7 +38729,7 @@
      ],
      "params": [
       {
-       "name": "hovr28",
+       "name": "hovr11",
        "select": {
         "type": "point",
         "fields": [
@@ -38792,15 +38792,15 @@
       },
       "stroke": {
        "condition": {
-        "param": "hovr28",
+        "param": "hovr11",
         "empty": false,
         "value": "#111111"
        },
-       "value": "#ffffff"
+       "value": "#fbf8f2"
       },
       "strokeWidth": {
        "condition": {
-        "param": "hovr28",
+        "param": "hovr11",
         "empty": false,
         "value": 2
        },
@@ -45215,7 +45215,7 @@
        "field": "abbr"
       },
       "color": {
-       "value": "#222222"
+       "value": "#25221d"
       },
       "opacity": {
        "condition": {
@@ -45292,7 +45292,7 @@
      "mark": {
       "type": "geoshape",
       "filled": false,
-      "stroke": "#222222",
+      "stroke": "#25221d",
       "strokeWidth": 1
      }
     },
@@ -45319,7 +45319,7 @@
       "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "fontSize": 11,
       "fontWeight": 600,
-      "color": "#222222"
+      "color": "#25221d"
      },
      "encoding": {
       "longitude": {
@@ -45358,7 +45358,7 @@
       "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "fontSize": 11,
       "fontWeight": 600,
-      "color": "#222222"
+      "color": "#25221d"
      },
      "encoding": {
       "longitude": {
@@ -45482,7 +45482,7 @@
      ],
      "mark": {
       "type": "rect",
-      "stroke": "#ffffff",
+      "stroke": "#fbf8f2",
       "strokeWidth": 2,
       "cursor": "pointer"
      },
@@ -45593,7 +45593,7 @@
       "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "fontSize": 12,
       "fontWeight": 600,
-      "color": "#222222",
+      "color": "#25221d",
       "offset": 4
      },
      "view": {
@@ -84245,7 +84245,7 @@
        ],
        "params": [
         {
-         "name": "hovr29",
+         "name": "hovr12",
          "select": {
           "type": "point",
           "fields": [
@@ -84308,15 +84308,15 @@
         },
         "stroke": {
          "condition": {
-          "param": "hovr29",
+          "param": "hovr12",
           "empty": false,
           "value": "#111111"
          },
-         "value": "#ffffff"
+         "value": "#fbf8f2"
         },
         "strokeWidth": {
          "condition": {
-          "param": "hovr29",
+          "param": "hovr12",
           "empty": false,
           "value": 2
          },
@@ -84414,7 +84414,7 @@
       "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
       "fontSize": 12,
       "fontWeight": 600,
-      "color": "#222222",
+      "color": "#25221d",
       "offset": 4
      },
      "view": {
@@ -123066,7 +123066,7 @@
        ],
        "params": [
         {
-         "name": "hovr30",
+         "name": "hovr13",
          "select": {
           "type": "point",
           "fields": [
@@ -123129,15 +123129,15 @@
         },
         "stroke": {
          "condition": {
-          "param": "hovr30",
+          "param": "hovr13",
           "empty": false,
           "value": "#111111"
          },
-         "value": "#ffffff"
+         "value": "#fbf8f2"
         },
         "strokeWidth": {
          "condition": {
-          "param": "hovr30",
+          "param": "hovr13",
           "empty": false,
           "value": 2
          },

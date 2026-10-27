@@ -10,11 +10,11 @@
    "stroke": null
   },
   "axis": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#5c5c5c",
-   "gridColor": "#d0d0d0",
-   "domainColor": "#d0d0d0",
-   "tickColor": "#d0d0d0",
+   "labelColor": "#675f54",
+   "titleColor": "#675f54",
+   "gridColor": "#d8cfbf",
+   "domainColor": "#d8cfbf",
+   "tickColor": "#d8cfbf",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "labelFontSize": 11,
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
@@ -22,17 +22,17 @@
    "titleFontSize": 11.5
   },
   "legend": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#222222",
+   "labelColor": "#675f54",
+   "titleColor": "#25221d",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFontWeight": 600,
    "labelFontSize": 12,
    "titleFontSize": 12,
-   "symbolStrokeColor": "#ffffff"
+   "symbolStrokeColor": "#fbf8f2"
   },
   "text": {
-   "color": "#222222",
+   "color": "#25221d",
    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   },
   "tooltipFormat": {
@@ -212,7 +212,7 @@
   {
    "mark": {
     "type": "circle",
-    "stroke": "#ffffff",
+    "stroke": "#fbf8f2",
     "strokeWidth": 1.5,
     "cursor": "pointer"
    },
@@ -311,15 +311,15 @@
     ],
     "stroke": {
      "condition": {
-      "param": "hov32",
+      "param": "hov15",
       "empty": false,
       "value": "#111111"
      },
-     "value": "#ffffff"
+     "value": "#fbf8f2"
     },
     "strokeWidth": {
      "condition": {
-      "param": "hov32",
+      "param": "hov15",
       "empty": false,
       "value": 2.5
      },
@@ -421,7 +421,7 @@
    ],
    "params": [
     {
-     "name": "hov32",
+     "name": "hov15",
      "select": {
       "type": "point",
       "fields": [
@@ -483,7 +483,7 @@
       "test": "datum.share >= 27",
       "value": "#ffffff"
      },
-     "value": "#222222"
+     "value": "#25221d"
     }
    }
   },
@@ -534,7 +534,7 @@
      "field": "l"
     },
     "color": {
-     "value": "#222222"
+     "value": "#25221d"
     }
    }
   }

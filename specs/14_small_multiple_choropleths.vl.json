@@ -8,11 +8,11 @@
    "stroke": null
   },
   "axis": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#5c5c5c",
-   "gridColor": "#d0d0d0",
-   "domainColor": "#d0d0d0",
-   "tickColor": "#d0d0d0",
+   "labelColor": "#675f54",
+   "titleColor": "#675f54",
+   "gridColor": "#d8cfbf",
+   "domainColor": "#d8cfbf",
+   "tickColor": "#d8cfbf",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "labelFontSize": 11,
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
@@ -20,17 +20,17 @@
    "titleFontSize": 11.5
   },
   "legend": {
-   "labelColor": "#5c5c5c",
-   "titleColor": "#222222",
+   "labelColor": "#675f54",
+   "titleColor": "#25221d",
    "labelFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFont": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
    "titleFontWeight": 600,
    "labelFontSize": 12,
    "titleFontSize": 12,
-   "symbolStrokeColor": "#ffffff"
+   "symbolStrokeColor": "#fbf8f2"
   },
   "text": {
-   "color": "#222222",
+   "color": "#25221d",
    "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
   },
   "tooltipFormat": {
@@ -90,7 +90,7 @@
     "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
     "fontSize": 13,
     "fontWeight": 600,
-    "color": "#222222",
+    "color": "#25221d",
     "offset": 2
    },
    "layer": [
@@ -38739,7 +38739,7 @@
      ],
      "params": [
       {
-       "name": "hovr25",
+       "name": "hovr8",
        "select": {
         "type": "point",
         "fields": [
@@ -38810,15 +38810,15 @@
       },
       "stroke": {
        "condition": {
-        "param": "hovr25",
+        "param": "hovr8",
         "empty": false,
         "value": "#111111"
        },
-       "value": "#ffffff"
+       "value": "#fbf8f2"
       },
       "strokeWidth": {
        "condition": {
-        "param": "hovr25",
+        "param": "hovr8",
         "empty": false,
         "value": 2
        },
@@ -45078,7 +45078,7 @@
     "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
     "fontSize": 13,
     "fontWeight": 600,
-    "color": "#222222",
+    "color": "#25221d",
     "offset": 2
    },
    "layer": [
@@ -83727,7 +83727,7 @@
      ],
      "params": [
       {
-       "name": "hovr26",
+       "name": "hovr9",
        "select": {
         "type": "point",
         "fields": [
@@ -83798,15 +83798,15 @@
       },
       "stroke": {
        "condition": {
-        "param": "hovr26",
+        "param": "hovr9",
         "empty": false,
         "value": "#111111"
        },
-       "value": "#ffffff"
+       "value": "#fbf8f2"
       },
       "strokeWidth": {
        "condition": {
-        "param": "hovr26",
+        "param": "hovr9",
         "empty": false,
         "value": 2
        },
@@ -90066,7 +90066,7 @@
     "font": "IBM Plex Sans, Helvetica Neue, Arial, sans-serif",
     "fontSize": 13,
     "fontWeight": 600,
-    "color": "#222222",
+    "color": "#25221d",
     "offset": 2
    },
    "layer": [
@@ -128715,7 +128715,7 @@
      ],
      "params": [
       {
-       "name": "hovr27",
+       "name": "hovr10",
        "select": {
         "type": "point",
         "fields": [
@@ -128786,15 +128786,15 @@
       },
       "stroke": {
        "condition": {
-        "param": "hovr27",
+        "param": "hovr10",
         "empty": false,
         "value": "#111111"
        },
-       "value": "#ffffff"
+       "value": "#fbf8f2"
       },
       "strokeWidth": {
        "condition": {
-        "param": "hovr27",
+        "param": "hovr10",
         "empty": false,
         "value": 2
        },
