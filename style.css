@@ -58,7 +58,7 @@
 #bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; display: block; pointer-events: none; }
 /* Base text: serif for reading, padding keeps text off the screen edge on phones */
 body {
-  background: #A47148 linear-gradient(160deg, #231A10 0%, #A47148 45%, #E3B587 75%, #F9F1E7 100%) fixed; color: var(--ink); font-family: var(--f-serif); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  background: #8A5F3B linear-gradient(160deg, #5B3E26 0%, #8A5F3B 40%, #B98A5E 75%, #D9B98F 100%) fixed; color: var(--ink); font-family: var(--f-serif); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
   padding-block: 40px 64px;
 }

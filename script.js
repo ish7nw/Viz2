@@ -1993,7 +1993,7 @@ addEventListener("resize", () => { const el = document.getElementById("c1"); if 
    PART 6. ANIMATED BACKGROUND
    "Waves" flow shader (21st.dev Shader Builder), plain WebGL1, no libraries.
    A fullscreen triangle is drawn into the fixed #bg canvas behind the page.
-   Colours run dark brown -> sienna -> sand -> cream. Pauses when the tab is hidden;
+   Colours ("Leather") run dark tan -> saddle brown -> tan -> light tan, so the paper always stands out. Pauses when the tab is hidden;
    with "reduce motion" switched on it draws one still frame.
    ====================================================================== */
 const WAVES_FRAG = `// "Waves" — made with the 21st.dev Shader Builder
@@ -2290,11 +2290,11 @@ void main() {
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
   const loc = gl.getAttribLocation(prog, "a_pos"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
   const U = (n) => gl.getUniformLocation(prog, n);
-  // the recipe's colours (first 4 of 8 used) and settings, exactly as exported
+  // colours (first 4 of 8 used) and settings from the recipe, with the Leather palette and calmer motion
   const cols = new Float32Array(24);
-  cols.set([0.137, 0.102, 0.063, 0.643, 0.443, 0.282, 0.890, 0.710, 0.529, 0.976, 0.945, 0.906]);
+  cols.set([0.357, 0.243, 0.149, 0.541, 0.373, 0.231, 0.725, 0.541, 0.369, 0.851, 0.725, 0.561]); // "Leather": #5B3E26, #8A5F3B, #B98A5E, #D9B98F
   gl.uniform3fv(U("u_colors"), cols);
-  gl.uniform4f(U("u_shape"), 1.84, 0.60, 0.25, 0.04);
+  gl.uniform4f(U("u_shape"), 1.84, 0.45, 0.25, 0.04); // intensity lowered from 0.60 for calmer waves
   gl.uniform4f(U("u_surface"), 3.33, 1.07, 0.00, 1.00);
   gl.uniform4f(U("u_finish"), 0.00, 0.25, 0.002, 0.02);
   gl.uniform4f(U("u_transform"), 4476.0, 0.38, 0.01, 0.0);
@@ -2313,7 +2313,7 @@ void main() {
   const t0 = performance.now();
   const frame = (now) => {
     resize();
-    gl.uniform4f(uScene, canvas.width, canvas.height, ((now - t0) / 1000) * 1.35, 4.0);
+    gl.uniform4f(uScene, canvas.width, canvas.height, ((now - t0) / 1000) * 0.8, 4.0); // slower than the recipe's 1.35, so the waves drift gently
     gl.drawArrays(gl.TRIANGLES, 0, 3);
   };
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
